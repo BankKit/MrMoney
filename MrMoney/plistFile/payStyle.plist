@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ccb</key>
+	<string>每日限额2000元，可在网银调整</string>
+	<key>bocom</key>
+	<string>每日限额五万元，可在网银调整</string>
+	<key>srcb</key>
+	<string></string>
+	<key>spdb</key>
+	<string>每日限额5000元，可在网银调整</string>
+	<key>bob</key>
+	<string>单笔限额1000元</string>
+	<key>otherbanks</key>
+	<string>电脑端我们支持超过24家银行</string>
+	<key>gzcb</key>
+	<string></string>
+</dict>
+</plist>

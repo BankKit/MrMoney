@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+ 
+	<key>guangfa</key>
+	<string>广发银行</string>
+	<key>huaxia</key>
+	<string>华夏银行</string>
+	<key>tencent</key>
+	<string>腾讯</string>
+	<key>alipay</key>
+	<string>阿里巴巴</string>
+	<key>suning</key>
+	<string>苏宁</string>
+	<key>wangyi</key>
+	<string>网易</string>
+	<key>baidu</key>
+	<string>百度</string>
+     <key>yfd</key>
+	<string>易方达</string>
+  
+</dict>
+</plist>

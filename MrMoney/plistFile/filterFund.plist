@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>选择基金类型</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>不限</string>
+			<key>content</key>
+			<string>none</string>
+			<key>selected</key>
+			<string>YES</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>股票型</string>
+			<key>content</key>
+			<string>股票型</string>
+			<key>selected</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>债券型</string>
+			<key>content</key>
+			<string>债券型</string>
+			<key>selected</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>货币型</string>
+			<key>content</key>
+			<string>货币型</string>
+			<key>selected</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>混合型</string>
+			<key>content</key>
+			<string>混合型</string>
+			<key>selected</key>
+			<string>NO</string>
+		</dict>
+	</array>
+</dict>
+</plist>
