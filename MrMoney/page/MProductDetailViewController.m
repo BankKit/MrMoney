@@ -285,7 +285,7 @@
 
 
 -(IBAction)onCommentListAction:(id)sender{
-    MCommentListViewController *commentList = [[MCommentListViewController alloc] initWithNibName:@"MCommentListViewController" bundle:nil];
+    MCommentListViewController *commentList = [[MCommentListViewController alloc] init];
     commentList.pid = self.data.mpid;
     [self.navigationController  pushViewController:commentList animated:YES];
 }

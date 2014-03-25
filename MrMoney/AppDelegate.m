@@ -358,7 +358,7 @@
             
         }
         
-        [self.window.rootViewController presentViewController:lockVc animated:YES completion:^{
+        [self.window.rootViewController presentViewController:lockVc animated:NO completion:^{
             
         }];
         
@@ -380,7 +380,7 @@
             
         }
         
-        [self.window.rootViewController presentViewController:lockVc animated:YES completion:^{
+        [self.window.rootViewController presentViewController:lockVc animated:NO completion:^{
             
         }];
         lastSecond = currentSecond;

@@ -6,12 +6,12 @@
 //  Copyright (c) 2014年 xingyong. All rights reserved.
 //
 
-#import "MBaseViewController.h"
+#import "MBaseTableViewController.h"
 #import "MCommentListAction.h"
-@interface MCommentListViewController : MBaseViewController<MCommentListActionDelegate>{
+@interface MCommentListViewController : MBaseTableViewController<MCommentListActionDelegate>{
     MCommentListAction *commentListAction;
 }
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 
 @property (nonatomic,assign) int                           totalNum;
 @property (nonatomic,assign) int                           currPageNum;

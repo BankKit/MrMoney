@@ -8,6 +8,7 @@
 
 #import "MBProgressHUD.h"
 #import "UIViewController+MBProgressHUD.h"
+#import "MHUDLoadingView.h"
 #import <objc/runtime.h>
 
 /* This key is used to dynamically create an instance variable
@@ -23,6 +24,7 @@ const char *finishedHandlerKey = "finishedHandlerKey";
 @interface UIViewController (MBProgressHUD_Private)
 
 @property (nonatomic, retain) MBProgressHUD *progressHUD;
+
 @property (nonatomic, copy) HUDFinishedHandler finishedHandler;
 
 @end
@@ -48,8 +50,18 @@ const char *finishedHandlerKey = "finishedHandlerKey";
 //        hud.removeFromSuperViewOnHide = YES;
 //        [hudSuperView addSubview:hud];
 //        self.progressHUD = hud;
+
+        
         UIView *hudSuperView = self.view;
+      
         hud = [[MBProgressHUD alloc] initWithView:hudSuperView];
+        MHUDLoadingView *loadingView  = [[MHUDLoadingView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+        [loadingView startAnimation];
+        
+        hud.customView = loadingView;
+    
+        hud.mode = MBProgressHUDModeCustomView;
+        
         hud.dimBackground = NO;
         hud.removeFromSuperViewOnHide = YES;
         [hudSuperView addSubview:hud];
@@ -87,6 +99,9 @@ const char *finishedHandlerKey = "finishedHandlerKey";
 
 - (void)showHUD
 {
+    MHUDLoadingView *loadingView = (MHUDLoadingView *)[self.view viewWithTag:8888];
+    [loadingView startAnimation];
+    
     [self _showHUDWithMessage:nil];
 }
 

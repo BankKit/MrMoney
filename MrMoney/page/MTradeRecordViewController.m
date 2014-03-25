@@ -31,7 +31,7 @@
 {
     [super viewDidLoad];
     [self createNavBarTitle:@"账户明细"];
-    
+     
     self.tableView.rowHeight = 60.;
     
     _currPageNum = 1;
@@ -58,9 +58,10 @@
 -(void)onResponseTradeRecordSuccess:(MPageData *)page{
     
     [self hideHUD];
-    [self.dataArray addObjectsFromArray:page.mpageArray];
     
     self.totalNum = page.mnumFound;
+    
+    [self.dataArray addObjectsFromArray:page.mpageArray];
     
     [self.tableView reloadData];
     
@@ -77,7 +78,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"MTradeRecodsCell";
 
     MTradeRecodsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -86,11 +87,9 @@
         cell = [MTradeRecodsCell loadFromNIB];
    
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        [MActionUtility cellBackgroundForRowAtIndexPath:indexPath tableView:tableView];
+         
 
     }
- 
     
     cell.data = [self.dataArray safeObjectAtIndex:indexPath.row];
     
@@ -116,8 +115,9 @@
     }
     
 }
-
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 60.0f;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

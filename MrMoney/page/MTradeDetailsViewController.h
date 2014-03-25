@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *monadButton;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
+
+
 @property(nonatomic,assign)int typeValue;
 
 /**

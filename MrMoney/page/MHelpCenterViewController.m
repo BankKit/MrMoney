@@ -28,14 +28,15 @@
 {
     [super viewDidLoad];
     [self createNavBarTitle:@"帮助中心"];
-    self.tableView.backgroundView = nil;
-    self.tableView.backgroundColor = self.view.backgroundColor;
-    self.tableView.rowHeight = 44;
+   
+    self.tableViewStyle = UITableViewStyleGrouped;
+     
     
     NSString *filePath = [NSString getBundlePathForFile:@"question.plist"];
-    self.dataDict = [NSDictionary dictionaryWithContentsOfFile:filePath];
     
+    self.dataDict = [NSDictionary dictionaryWithContentsOfFile:filePath];
     self.dataArray =[NSMutableArray arrayWithArray:[self.dataDict allKeys]];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -71,10 +72,6 @@
         cell.selectedBackgroundView = [[UIImageView alloc] initWithImage:imageSelectedBack];
         
     }
- 
-
-    
-    
     cell.answerLabel.hidden = ![self isSelectedIndexPath:indexPath];
   
     NSString *key = [self.dataArray objectAtIndex:indexPath.row];
@@ -97,6 +94,8 @@
     
     [self.tableView beginUpdates];
     _selectedRowIndexPath = indexPath;
+
+    
     [self.tableView reloadData];
     [self.tableView endUpdates];
 }
@@ -127,6 +126,11 @@
         return fmax(height + 18, 44);
     }
     
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)  return 20.0;
+    return 5;
 }
 
 @end

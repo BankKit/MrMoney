@@ -6,9 +6,8 @@
 //  Copyright (c) 2014年 xingyong. All rights reserved.
 //
 
-#import "MBaseViewController.h"
+#import "MBaseTableViewController.h"
 
-@interface MHelpCenterViewController : MBaseViewController
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@interface MHelpCenterViewController : MBaseTableViewController
+  
 @end

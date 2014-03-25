@@ -6,14 +6,14 @@
 //  Copyright (c) 2013年 xingyong. All rights reserved.
 //
 
-#import "MBaseViewController.h"
+#import "MBaseTableViewController.h"
 #import "MInvestRecordAction.h"
 #import "RKTabView.h"
-@interface MInvestRecordViewController : MBaseViewController<MInvestRecordActionDelegate,RKTabViewDelegate>{
+@interface MInvestRecordViewController : MBaseTableViewController<MInvestRecordActionDelegate,RKTabViewDelegate>{
     MInvestRecordAction *investAction;
 }
 @property (nonatomic,assign) MHomeViewControllerPushType   type;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+ 
 @property (nonatomic, weak)  IBOutlet RKTabView          * standardView;
 
 

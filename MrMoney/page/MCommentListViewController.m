@@ -30,7 +30,7 @@
     
     [self createNavBarTitle:@"产品评论"];
     
-    self.tableView.backgroundColor = self.view.backgroundColor;
+    self.tableViewStyle = UITableViewStylePlain;
 
     self.currPageNum = 1;
     commentListAction = [[MCommentListAction alloc] init];
@@ -53,9 +53,9 @@
     
     self.totalNum = pageData.mnumFound;
     
-    [self.dataArray addObjectsFromArray:pageData.mpageArray];
-  
-    [self.tableView reloadData];
+//    [self.dataArray addObjectsFromArray:pageData.mpageArray];
+    [self setTableDataArray:pageData.mpageArray];
+   
 }
 -(void)onResponseCommentListFail{
     [self hideHUD];

@@ -114,7 +114,7 @@
    
     if (indexPath.section == 0) {
         if (isUserLogin()) {
-            MAccountInfoViewController *info = [[MAccountInfoViewController alloc] initWithNibName:@"MAccountInfoViewController" bundle:nil];
+            MAccountInfoViewController *info = [[MAccountInfoViewController alloc] init];
             [self.navigationController pushViewController:info animated:YES];
             
         }
@@ -157,7 +157,7 @@
 
         
     }else if(indexPath.section == 3){
-        MHelpCenterViewController *help = [[MHelpCenterViewController alloc] initWithNibName:@"MHelpCenterViewController" bundle:nil];
+        MHelpCenterViewController *help = [[MHelpCenterViewController alloc] init ];
         [self.navigationController pushViewController:help animated:YES];
     }
     

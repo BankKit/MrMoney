@@ -155,11 +155,11 @@
 }
 - (IBAction)investRecordAction:(id)sender{
     if ([sender tag] == 1) {
-        MTradeRecordViewController *trade = [[MTradeRecordViewController alloc] initWithNibName:@"MTradeRecordViewController" bundle:nil];
+        MTradeRecordViewController *trade = [[MTradeRecordViewController alloc] init];
         [self.navigationController pushViewController:trade animated:YES];
     }
     else{
-        MInvestRecordViewController *invest = [[MInvestRecordViewController alloc] initWithNibName:@"MInvestRecordViewController" bundle:nil];
+        MInvestRecordViewController *invest = [[MInvestRecordViewController alloc] init];
         [self.navigationController pushViewController:invest animated:YES];
     }
 

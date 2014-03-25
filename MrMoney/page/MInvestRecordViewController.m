@@ -64,12 +64,9 @@
     self.standardView.drawSeparators = YES;
     
     self.standardView.tabItems = tabItems;
-    
-    
-    self.tableView.rowHeight = 120.0f;
-    
-    self.tableView.backgroundColor = self.view.backgroundColor;
-    
+      
+    self.tableView.frameHeight = self.tableView.frameHeight - 49;
+   
     _currPageNum =1;
     investAction = [[MInvestRecordAction alloc] init];
     investAction.m_delegate = self;
@@ -114,6 +111,7 @@
 -(void)onResponseInvestRecordSuccess:(MPageData *)pageData{
     [self hideHUD];
     self.totalNum = pageData.mnumFound;
+    
     [self.dataArray addObjectsFromArray:pageData.mpageArray];
     
     [self.tableView reloadData];

@@ -33,19 +33,14 @@
 {
     [super viewDidLoad];
     [self createNavBarTitle:@"账户信息"];
-    self.tableView.backgroundView = nil;
-    
-    self.tableView.backgroundColor = KVIEW_BACKGROUND_COLOR;
  
-    
+
+    self.tableViewStyle = UITableViewStyleGrouped;
     self.tableView.tableFooterView = _footView;
     
-    self.titleArrayOne = [NSArray arrayWithObjects:@"头像",@"姓名",@"设置密码", nil];
-    self.titleArrayTwo = [NSArray arrayWithObjects:@"编号",@"手机",@"邮箱", nil];
-    
-    
+    self.dataArray = [NSMutableArray arrayWithObjects:@"头像",@"姓名",@"设置密码",@"编号",@"手机",@"邮箱",  nil];
+  
     _user = [[MUserData allDbObjects] objectAtIndex:0];
-    
     
 }
 
@@ -60,11 +55,8 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return [self.titleArrayOne count];
-    }
+    return 3;
     
-    return [self.titleArrayTwo count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,13 +85,11 @@
     int section = indexPath.section;
     int row = indexPath.row;
     
-
-    
          
     if (section == 0) {
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        cell.textLabel.text = [self.titleArrayOne objectAtIndex:indexPath.row];
+        cell.textLabel.text = [self.dataArray objectAtIndex:indexPath.row ];
         
         if (indexPath.row == 0) {
             
@@ -120,7 +110,7 @@
         
     }
     if (section == 1) {
-        cell.textLabel.text = [self.titleArrayTwo objectAtIndex:indexPath.row];
+        cell.textLabel.text = [self.dataArray objectAtIndex:indexPath.row + 2];
         
         if ( row == 0) {
             cell.contentLabel.text = _user.mmid;
@@ -139,8 +129,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     if (section == 0)  return 20.0;
-    
-    return 0.;
+    return 5;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

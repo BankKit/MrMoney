@@ -26,8 +26,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     
-    [_contentView.layer borderWidth:1.0 borderColor:KVIEW_BORDER_COLOR cornerRadius:6.0];
+    
+    
+    UIImage *bgImage = [PNGIMAGE(@"detailsBg") stretchableImageWithLeftCapWidth:10 topCapHeight:100];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:_contentView.bounds];
+    imageView.image = bgImage;
+    
+    [_contentView insertSubview:imageView atIndex:0];
+//    [_contentView.layer borderWidth:1.0 borderColor:KVIEW_BORDER_COLOR cornerRadius:6.0];
     
     
     self.contentView.frameY = 20;

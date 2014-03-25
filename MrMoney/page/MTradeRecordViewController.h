@@ -6,15 +6,14 @@
 //  Copyright (c) 2014年 xingyong. All rights reserved.
 //
 
-#import "MBaseViewController.h"
+#import "MBaseTableViewController.h"
 #import "MTradeRecordAction.h"
 
-@interface MTradeRecordViewController : MBaseViewController<MTradeRecordActionDelegate>{
+@interface MTradeRecordViewController : MBaseTableViewController<MTradeRecordActionDelegate>{
     
     MTradeRecordAction *tradeAction;
 }
 @property(nonatomic,strong)NSString *tradeType;
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+ 
  
 @end

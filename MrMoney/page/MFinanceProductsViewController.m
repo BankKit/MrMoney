@@ -17,6 +17,7 @@
 #import "MFundDetailViewController.h"
 #import "MActProductData.h"
 #import "MSeckillViewController.h"
+#import "MLogoView.h"
 @interface MFinanceProductsViewController ()
 @property(nonatomic,strong)NSDictionary *editDict;
 @property(nonatomic,strong)MActProductData *actData;
@@ -47,6 +48,15 @@
 {
     [super viewDidLoad];
     self.isFirst = YES;
+    
+    
+    CGSize logoSize = CGSizeMake(90, 90);
+    
+    MLogoView * logo = [[MLogoView alloc] initWithFrame:Rect(0, -logoSize.height/2,CGRectGetWidth(self.tableView.bounds), logoSize.height)];
+    
+  
+    [self.tableView addSubview:logo];
+ 
     
     self.tableView.backgroundColor = KVIEW_BACKGROUND_COLOR;
     
@@ -280,9 +290,8 @@
     [dict setSafeObject:invest_cycle?invest_cycle:@"none" forKey:@"invest_cycle"];
     [dict setSafeObject:break_even?break_even:@"none" forKey:@"break_even"];
  
-    
-    
-//        [dict setSafeObject:[NSNumber numberWithInt:0] forKey:@"is_scheme"];
+     
+//  [dict setSafeObject:[NSNumber numberWithInt:0] forKey:@"is_scheme"];
     [dict setSafeObject:self.sortType forKey:@"sort"];
     [dict setSafeObject:[NSNumber numberWithInt:self.currPageNum] forKey:@"pageIdx"];
     
