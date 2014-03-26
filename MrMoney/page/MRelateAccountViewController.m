@@ -77,10 +77,10 @@
     }
     
     
-    [_submitBtn setBackgroundImage:KDEFAULT_BTN forState:UIControlStateNormal];
+//    [_submitBtn setBackgroundImage:KDEFAULT_BTN forState:UIControlStateNormal];
     
     
-    [_contentView.layer borderWidth:1.0 borderColor:KVIEW_BORDER_COLOR cornerRadius:6.];
+//    [_contentView.layer borderWidth:1.0 borderColor:KVIEW_BORDER_COLOR cornerRadius:6.];
     
     
     MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _contentView.frameHeight + _contentView.frameY + 20, 300, 208)];
@@ -128,9 +128,7 @@
     
     int count = [self.titleArray count];
     
-    if (row == 0) {
-        cell.field.keyboardType = UIKeyboardTypeNumberPad;
-    }else if (row == count - 1) {
+    if (row == count - 1) {
         
         cell.codeImageView.hidden = NO;
         cell.codeImageView.tag = 888;
@@ -186,9 +184,9 @@
     [relateAction requestAction];
     [self showHUD];
 }
-/**
- * 关联银行账户
- */
+
+#pragma mark -------------  关联银行账户 -----------------
+
 -(NSDictionary*)onRequestRelateAccountAction{
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
@@ -199,7 +197,7 @@
     [dict setSafeObject:self.cardPassword           forKey:@"Password"];
     [dict setSafeObject:self.authCode               forKey:@"VerifCode"];
     [dict setSafeObject:[self.bank_identifie lowercaseString]         forKey:@"BankCode"];
-    [dict setSafeObject:@"shanghai"                    forKey:@"ADD"];
+    [dict setSafeObject:@"none"                    forKey:@"ADD"];
     [dict setSafeObject:_authCodeData.mviewId       forKey:@"ViewID"];
     [dict setSafeObject:self.cardUserName           forKey:@"NickName"];
     [dict setSafeObject:@"1"                        forKey:@"LoginType"];
@@ -217,6 +215,7 @@
     appendAccountAction.m_delegate = self;
     
     [appendAccountAction requestAction];
+    [self showHUD];
  
  
 }
@@ -232,9 +231,9 @@
 }
 
 
-/**
- * 关联银行账户信息到本地
- */
+
+#pragma mark ------------- 关联银行账户信息到本地 -----------------
+
 -(NSDictionary*)onRequestAppendAssetAccountAction{
    
     
@@ -262,16 +261,17 @@
     return dict;
 }
 -(void)onResponseAppendAssetAccountSuccess{
+    [self hideHUD];
     [MActionUtility showAlert:KEMPTY_STR message:@"添加成功" delegate:self cancelButtonTitle:KCONFIRM_STR otherButtonTitles:nil];
 }
 -(void)onResponseAppendAssetAccountFail{
-    
+    [self hideHUD];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
     if (buttonIndex == 0) {
         NSArray *array =  [self.navigationController viewControllers];
-        MBaseViewController *viewController = [array objectAtIndex:1];
+        MBaseViewController *viewController = [array objectAtIndex:2];
         if ([viewController isKindOfClass:[MWalletViewController class]]) {
             [[NSNotificationCenter defaultCenter] postNotificationName:KNOTITICATION_ADDCOUNT object:self];
             [self.navigationController popToViewController:viewController animated:YES];

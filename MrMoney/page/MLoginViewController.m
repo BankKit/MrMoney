@@ -53,6 +53,7 @@
     return @{@"openid": self.openId};
 }
 -(void)onResponseQQAuthActionSuccess:(NSInteger)bindingValue{
+    [self hideHUD];
     if (bindingValue== 0) {
         MCompleteInfoViewController *info = [[MCompleteInfoViewController alloc] initWithNibName:@"MCompleteInfoViewController" bundle:nil];
         info.openid = self.openId;
@@ -77,7 +78,7 @@
  
 }
 -(void)onResponseQQAuthActionFail{
-    
+    [self hideHUDWithCompletionFailMessage:@"登录失败"];
 }
  
 - (IBAction)onClickTencentOAuth:(id)sender {
@@ -103,6 +104,7 @@
         authAction = [[MQQAuthAction alloc] init];
         authAction.m_delegate = self;
         [authAction requestAction];
+        [self showHUD];
         
         
     }

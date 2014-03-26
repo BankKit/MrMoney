@@ -15,18 +15,19 @@
 	if(!(self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
     self.backgroundColor = [UIColor clearColor];
     self.selectionStyle = UITableViewCellSelectionStyleNone;
-    _field = [[UITextField alloc] initWithFrame:CGRectZero];
+    _field = [[MTextField alloc] initWithFrame:CGRectZero];
+    
 	_field.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	_field.backgroundColor = [UIColor clearColor];
-    _field.borderStyle = UITextBorderStyleRoundedRect;
+    _field.borderStyle = UITextBorderStyleNone;
     
-    _field.font = [UIFont systemFontOfSize:14.0];
+    _field.font = FONT(kHelveticaLight, 16);
     
     _label = [[UILabel alloc] initWithFrame:CGRectZero];
 	_label.backgroundColor = [UIColor clearColor];
     _label.textAlignment = NSTextAlignmentLeft;
     _label.textColor = [UIColor blackColor];
-    _label.font = [UIFont systemFontOfSize:14.0];
+    _label.font = [UIFont systemFontOfSize:16.0];
     _label.adjustsFontSizeToFitWidth = YES;
     _label.baselineAdjustment = UIBaselineAdjustmentNone;
     _label.numberOfLines = 1;
@@ -70,10 +71,10 @@
 	_label.frame = rect;
     if (_codeImageView.hidden == NO)
          
-        _field.frame = CGRectMake(65 + _label.frameX , 6, self.contentView.frameWidth - 170, 26);
+        _field.frame = CGRectMake(65 + _label.frameX , 5, self.contentView.frameWidth - 170, 30);
    
     else
-        _field.frame = CGRectMake(65 + _label.frameX , 6, self.contentView.frameWidth - 100, 26);
+        _field.frame = CGRectMake(65 + _label.frameX , 5, self.contentView.frameWidth - 100, 30);
     
 
     _codeImageView.frame = CGRectMake(_field.frameWidth + _field.frameX + 10 ,5, 60, 30);

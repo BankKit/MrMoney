@@ -14,8 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *contentScrollView;
 @property (strong, nonatomic) UIButton *currentButton;
-@property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
-@property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
+ @property (weak, nonatomic) IBOutlet UIButton *nextStepBtn;
 @property (weak, nonatomic) IBOutlet UIView *middleView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
  

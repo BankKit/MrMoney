@@ -125,6 +125,10 @@ const NSString* M_URL_appendAssetAccount = @"https://www.qianxs.com/mrMoney/mobi
 const NSString* M_URL_syncAssetAccount = @"https://www.qianxs.com/mrMoney/mobile/assetAccount/syncAssetAccount";
 
 /**
+ *  解除绑定银行卡
+ */
+const NSString* M_URL_unbindAssetAccount = @"https://www.qianxs.com/mrMoney/mobile/assetAccount/unbindAssetAccount";
+/**
  *  活动聊天列表
  */
 const NSString* M_URL_listActivity = @"https://www.qianxs.com/mrMoney/mobile/invite/activity/listActivityComment.html";
@@ -163,6 +167,8 @@ const NSString* M_URL_binding =@"https://www.qianxs.com/mrMoney/mobile/qqoauth/b
  *  分享返还现金
  */
 const NSString* M_URL_presentedPrincipal = @"https://www.qianxs.com/mrMoney/mobile/invite/activity/presentedPrincipal";
+
+
 /**
  *  公用字段
  */

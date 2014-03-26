@@ -11,17 +11,17 @@
 #import "UICountingLabel.h"
 #import "MPopupViewController.h"
 #import "MCustomButton.h"
+#import "MUnbindAccountAction.h"
 
-@interface MWalletViewController : MBaseViewController<MQueryAccountActionDelegate,MPopupViewDelegate,UIGestureRecognizerDelegate>{
+@interface MWalletViewController : MBaseViewController<MQueryAccountActionDelegate,MPopupViewDelegate,UIGestureRecognizerDelegate,MUnbindAccountActionDelegate,UIAlertViewDelegate>{
     MQueryAccountAction *queryAction;
+    MUnbindAccountAction *unbindAction;
      
 }
 
 @property (nonatomic,assign)  MHomeViewControllerPushType   type;
-//@property (weak, nonatomic)   IBOutlet UIView             * tableHeaderView;
 @property (weak, nonatomic)   IBOutlet UITableView        * tableView;
-
-@property (assign, nonatomic) BOOL                          isFlag;
+@property (assign,nonatomic) BOOL                          isFlag;
 @property (weak,nonatomic)    IBOutlet UICountingLabel    * totalAssetLabel;
  
 

@@ -628,6 +628,7 @@
 		CFE5231B18AE0511000E7DEF /* btn_diary_light@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE5231918AE0511000E7DEF /* btn_diary_light@2x.png */; };
 		CFE5231C18AE0511000E7DEF /* btn_diary_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE5231A18AE0511000E7DEF /* btn_diary_normal@2x.png */; };
 		CFE5236818AE1173000E7DEF /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE5236718AE1173000E7DEF /* TTTAttributedLabel.m */; };
+		CFE8EB6F18E272980074A3A7 /* MUnbindAccountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CFE8EB6E18E272980074A3A7 /* MUnbindAccountAction.m */; };
 		CFF18E6418AB69A3001FB2ED /* MCenterCalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF18E6218AB69A3001FB2ED /* MCenterCalendarViewController.m */; };
 		CFF18E6518AB69A3001FB2ED /* MCenterCalendarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF18E6318AB69A3001FB2ED /* MCenterCalendarViewController.xib */; };
 		CFF18E6918AB69C5001FB2ED /* MEvaluateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF18E6718AB69C5001FB2ED /* MEvaluateViewController.m */; };
@@ -1607,6 +1608,8 @@
 		CFE5231A18AE0511000E7DEF /* btn_diary_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_diary_normal@2x.png"; sourceTree = "<group>"; };
 		CFE5236618AE1173000E7DEF /* TTTAttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTAttributedLabel.h; sourceTree = "<group>"; };
 		CFE5236718AE1173000E7DEF /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
+		CFE8EB6D18E272980074A3A7 /* MUnbindAccountAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUnbindAccountAction.h; sourceTree = "<group>"; };
+		CFE8EB6E18E272980074A3A7 /* MUnbindAccountAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUnbindAccountAction.m; sourceTree = "<group>"; };
 		CFF18E6118AB69A3001FB2ED /* MCenterCalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCenterCalendarViewController.h; sourceTree = "<group>"; };
 		CFF18E6218AB69A3001FB2ED /* MCenterCalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCenterCalendarViewController.m; sourceTree = "<group>"; };
 		CFF18E6318AB69A3001FB2ED /* MCenterCalendarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MCenterCalendarViewController.xib; sourceTree = "<group>"; };
@@ -2689,6 +2692,8 @@
 				CF6E1F3618B6065200298ACD /* MAppendAssetAccountAction.m */,
 				CF51169A18B62C6F0011C345 /* MSyncAssetAccountAction.h */,
 				CF51169B18B62C6F0011C345 /* MSyncAssetAccountAction.m */,
+				CFE8EB6D18E272980074A3A7 /* MUnbindAccountAction.h */,
+				CFE8EB6E18E272980074A3A7 /* MUnbindAccountAction.m */,
 				CFBE462118C449EF0084949D /* MWithdrawAction.h */,
 				CFBE462218C449EF0084949D /* MWithdrawAction.m */,
 				CF406E2C18C850ED00F1B60F /* MBalanceAction.h */,
@@ -4109,6 +4114,7 @@
 				CF8297E2189218C9004353B7 /* UIColor+MCategory.m in Sources */,
 				CFCEDEDD18CD7297001F2CCD /* MActProductData.m in Sources */,
 				CFE5236818AE1173000E7DEF /* TTTAttributedLabel.m in Sources */,
+				CFE8EB6F18E272980074A3A7 /* MUnbindAccountAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

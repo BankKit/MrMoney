@@ -9,7 +9,7 @@
 #import "MWalletViewController+Style.h"
 #import "MLineView.h"
 #import "MAccountsData.h"
-
+#define KTOPHEIGHT  7
 @implementation MWalletViewController (Style)
 
 - (UIView *) viewForTableViewHeaderWithText:(NSDictionary *)dataDict section:(NSInteger )section{
@@ -20,21 +20,26 @@
     NSArray *accountArray       = [dataDict objectForKey:l_key];
     
     UIView *view                = [[UIView alloc] init];
-    view.backgroundColor        = self.view.backgroundColor;
+    view.backgroundColor        = [UIColor whiteColor];
+//    self.view.backgroundColor;
     
     MLineView *lineView         = [[MLineView alloc] initWithFrame:CGRectMake(0, 0, 320, 1)];
     lineView.backgroundColor    = self.view.backgroundColor;
     [view addSubview:lineView];
     
+    if (section == 0) {
+        lineView.hidden = YES;
+    }
+    
     
     UIImage *logoImage          = bankLogoImage(l_key);
     
-    UIImageView *logo_iv        = [[UIImageView alloc] initWithFrame:CGRectMake(10, 6, logoImage.width/2, logoImage.height/2)];
+    UIImageView *logo_iv        = [[UIImageView alloc] initWithFrame:CGRectMake(10, KTOPHEIGHT + 4, logoImage.width/2, logoImage.height/2)];
     logo_iv.image               = logoImage;
     [view addSubview:logo_iv];
     
          
-    UILabel *label              = [[UILabel alloc] initWithFrame:CGRectMake(logoImage.width/2 + 20, 2, 100, 20)];
+    UILabel *label              = [[UILabel alloc] initWithFrame:CGRectMake(logoImage.width/2 + 20, KTOPHEIGHT, 100, 20)];
     label.backgroundColor       = view.backgroundColor;
     label.font                  = SYSTEMFONT(15);
     label.text                  = [KBANK_DICT objectForKey:[l_key lowercaseString]];
@@ -43,7 +48,7 @@
     CGSize size = [MStringUtility getStringSize:label.text font:label.font width:100.];
     
     
-    UILabel *moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(size.width + label.frameX + 5, 2, 200, 20)];
+    UILabel *moneyLabel = [[UILabel alloc] initWithFrame:CGRectMake(size.width + label.frameX + 5,KTOPHEIGHT, 200, 20)];
     moneyLabel.backgroundColor  = view.backgroundColor;
     moneyLabel.font             = SYSTEMFONT(12);
     [view addSubview:moneyLabel];

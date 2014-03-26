@@ -56,14 +56,8 @@
     [_bankDict removeObjectForKey:@"nfund"];
     [_bankDict removeObjectForKey:@"efmc"];
     [_bankDict removeObjectForKey:@"camc"];
+    [_bankDict removeObjectForKey:@"gzcb"];
     
-     
-    [_cancelBtn setBackgroundImage:[[UIImage imageNamed:@"btn_normal_gray"] stretchableImageWithLeftCapWidth:10 topCapHeight:5] forState:UIControlStateNormal];
-    
-    [_nextStepBtn setBackgroundImage:KDEFAULT_BTN forState:UIControlStateNormal];
-    
-    [_middleView.layer borderWidth:1.0 borderColor:KVIEW_BORDER_COLOR cornerRadius:6.];
-
  
     MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _nextStepBtn.frameHeight + _nextStepBtn.frameY + 30, 300, 208)];
     securityView.backgroundColor = [UIColor whiteColor];
@@ -98,7 +92,7 @@
     _pageControl.numberOfPages = count/10+1;
     _pageControl.currentPage = 0;
 
-    [self.middleView    addSubview:_pageControl];
+    [self.middleView  addSubview:_pageControl];
     
     for (int i = 0 ; i < count ; i ++) {
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];

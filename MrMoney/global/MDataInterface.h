@@ -38,6 +38,7 @@ extern const NSString* M_URL_uploadIcon;           //上传头像
 extern const NSString* M_URL_risk;                 //提交风险
 extern const NSString* M_URL_appendAssetAccount;   //添加银行账号到本地
 extern const NSString* M_URL_syncAssetAccount;     //同步账户信息
+extern const NSString* M_URL_unbindAssetAccount;   //解除绑定银行卡
 extern const NSString* M_URL_listActivity;         //活动聊天列表
 extern const NSString* M_URL_withdraw;             //申请提现
 extern const NSString* M_URL_useBalanceToBuy;      //钱宝宝支付

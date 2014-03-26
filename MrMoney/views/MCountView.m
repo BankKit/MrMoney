@@ -32,10 +32,10 @@
         if (self.flag) {
             _balanceLabel.textAlignment = NSTextAlignmentCenter;
             _balanceLabel.textColor = [UIColor whiteColor];
-            _balanceLabel.font = [UIFont systemFontOfSize:18];
+            _balanceLabel.font = FONT(kHelveticaLight, 18);
         }else{
-            _balanceLabel.font = [UIFont boldSystemFontOfSize:36];
-            _balanceLabel.shadowColor =[UIColor darkGrayColor];
+            _balanceLabel.font = FONT(kHelveticaLight, 38);
+//            _balanceLabel.shadowColor =[UIColor lightGrayColor];
             _balanceLabel.textColor =  [UIColor orangeColor];
         }
         
@@ -86,7 +86,7 @@
     double totalBalance   = _balance +  currentSceond;
     
     __weak MCountView *wself = self;
-    if (self.balance > 0.000000) {
+    if (self.balance > 0.0) {
         
         NSString *balanceStr =_flag ? STRING_FORMAT(@"￥%@",formatIntValue(totalBalance, 6)):formatIntValue(totalBalance, 6);
 
@@ -96,15 +96,19 @@
             if (![balanceStr containsString:@"."]) {
                 return nil;
             }
-//             NSRange range = [balanceStr rangeOfString:@"."];
             
-//             NSString *subString = [balanceStr substringFromIndex:range.location + 3];
-
-            NSRange boldRange ={wself.flag?7:6,4};
-   
-//            [[mutableAttributedString string] rangeOfString:subString options:NSCaseInsensitiveSearch];
+            NSRange range = [balanceStr rangeOfString:@"."];
+            
+             NSString *subString = [balanceStr substringFromIndex:range.location + 3];
+            
+             NSRange boldRange ={wself.flag?7:6,4};
+            
+            if (![subString isEqualToString:@"0000"]) {
+                boldRange = [balanceStr rangeOfString:subString];
+            }
  
-            UIFont *boldSystemFont = [UIFont systemFontOfSize:wself.flag ? 12: 28];
+            
+            UIFont *boldSystemFont = FONT(kHelveticaLight,wself.flag ? 12: 24);
             CTFontRef font = CTFontCreateWithName((CFStringRef)boldSystemFont.fontName, boldSystemFont.pointSize, NULL);
             if (font) {
                 [mutableAttributedString addAttribute:(NSString *)kCTFontAttributeName value:(__bridge id)font range:boldRange];

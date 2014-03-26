@@ -41,8 +41,8 @@
     self.secBank_logo.image = bankLogoImage(self.actData.mbankId);
     self.secProduct_nameLabel.text =STRING_FORMAT(@"%@ %@",bankName(self.actData.mbankId),self.actData.mproductName);
     self.secProdRateLabel.text = STRING_FORMAT(@"%.1f",[self.actData.mprodRate floatValue]/100);
-    self.secExpectedReturnRateLabel.text = STRING_FORMAT(@"%.1f%%",[self.actData.mexpectedReturnRate floatValue]/100);
-    self.secDRateLabel.text =  STRING_FORMAT(@"%.1f%%",[self.actData.mdRate floatValue]/100);;
+    self.secExpectedReturnRateLabel.text = STRING_FORMAT(@"%.2f%%",[self.actData.mexpectedReturnRate floatValue]/100);
+    self.secDRateLabel.text =  STRING_FORMAT(@"%.2f%%",[self.actData.mdRate floatValue]/100);;
     
     
 }
@@ -401,11 +401,6 @@
     
     return 68.0f;
 }
-
-
-
-#pragma mark -
-#pragma mark - MScrollFullScreenDelegate
 
 #pragma mark -
 #pragma mark - MScrollFullScreenDelegate

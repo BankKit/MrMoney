@@ -130,6 +130,8 @@
 #define kDefaultDateFormat2          @"yyyyMMdd"
 #define kDefaultTimeStampFormatHms   @"HH:mm:ss"
 
+#define kHelveticaLight              @"HelveticaNeue-Light"
+
 
 #pragma mark - 常用字符串
 

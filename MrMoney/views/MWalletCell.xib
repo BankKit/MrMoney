@@ -72,8 +72,8 @@
                         </connections>
                     </button>
                     <view contentMode="scaleToFill" id="dxm-gL-GOe" customClass="MDrawLineView">
-                        <rect key="frame" x="25" y="65" width="294" height="1"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <rect key="frame" x="25" y="67" width="294" height="1"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="DgY-XW-byD" customClass="MCustomButton">

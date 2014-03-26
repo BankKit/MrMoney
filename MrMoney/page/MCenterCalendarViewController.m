@@ -56,16 +56,14 @@
     _contentLabel.numberOfLines = 0;
     _contentLabel.kern = 1;
     _contentLabel.leading = 10;
- 
-    
+  
     [self.scrollView addSubview:_contentLabel];
  
     _evaluate = (MEvaluateViewController *)self.mm_drawerController.rightDrawerViewController;
     
     [self.mm_drawerController setRightDrawerViewController:nil];
  
-  
- 
+    
     calendarAction =  [[MCalendarAction alloc] init];
     calendarAction.m_delegate = self;
     [calendarAction requestAction];

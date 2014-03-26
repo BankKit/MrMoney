@@ -25,7 +25,7 @@
 #import "MHomeViewController+Style.h"
 #import "NSTimer+Addition.h"
 
-static NSString* const kHelveticaLight = @"HelveticaNeue-Light";
+
 
 @interface MHomeViewController ()<PDTSimpleCalendarViewDelegate,MPayViewControllerDelegate>
 

@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+#import "MTextField.h"
 typedef void(^imageViewTouchCompletionBlock)(void);
 
 
 @interface MTextFieldCell : UITableViewCell
 
-@property(nonatomic,strong) UITextField *field;
+@property(nonatomic,strong)  MTextField *field;
 @property(nonatomic,strong) UILabel *label;
 @property(nonatomic,strong) UIImageView *codeImageView;
  

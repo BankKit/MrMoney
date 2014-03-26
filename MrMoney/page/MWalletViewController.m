@@ -18,11 +18,12 @@
 #import "MWithdrawViewController.h"
 #import "MWalletViewController+Style.h"
 
+
 @interface MWalletViewController ()
 @property (strong, nonatomic) NSIndexPath *lastIndexPath;
 @property (strong, nonatomic) NSDictionary *dataDictionary;
-
 @property (strong, nonatomic) NSMutableArray *editArray;
+@property (copy, nonatomic) NSString *aid;
 @end
 
 @implementation MWalletViewController
@@ -38,7 +39,7 @@
 
 
 -(IBAction)onAddAccountAction:(id)sender{
-
+    
     if (self.type == MWalletType) {
         MAddAccountViewController *addAccount = [[MAddAccountViewController alloc] initWithNibName:@"MAddAccountViewController" bundle:nil];
         [self.navigationController pushViewController:addAccount animated:YES];
@@ -55,7 +56,7 @@
         
         alert.tag = 100;
         [alert show];
-
+        
     }
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
@@ -75,7 +76,7 @@
     
     NSArray *array  = [self arrayIndexPath:_lastIndexPath.section];
     MAccountsData *data = [array objectAtIndex:_lastIndexPath.row];
-
+    
     MWithdrawViewController *draw = [[MWithdrawViewController alloc] initWithNibName:@"MWithdrawViewController" bundle:nil];
     draw.data = data;
     draw.bankAddress = bankAddress;
@@ -97,14 +98,13 @@
     
     if (self.type == MWalletType) {
         [self createNavBarTitle:@"资产列表"];
-//        self.tableView.tableHeaderView = self.tableHeaderView;
-    }else{
+     }else{
         [self createNavBarTitle:@"选择到账账户"];
         [self.bottomButton setTitle:@"下一步" forState:UIControlStateNormal];
         self.tableView.tableHeaderView = nil;
     }
     
- 
+    
     
     if (isUserLogin()) {
         queryAction = [[MQueryAccountAction alloc] init];
@@ -152,7 +152,7 @@
     [self.tableView reloadData];
     
 }
-- (NSDictionary *)indexed:(NSArray *)data {
+- (NSDictionary *)indexed:(NSArray *)data{
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     
     NSString *index = nil;
@@ -185,7 +185,7 @@
         }
         
     }
-
+    
     return dict;
 }
 
@@ -213,16 +213,17 @@
     static NSString *CellIdentifier = @"MWalletCell";
     
     MWalletCell *cell = (MWalletCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    NSInteger sectionRows = [tableView numberOfRowsInSection:indexPath.section];
-	NSInteger row = indexPath.row;
+    
     if (cell == nil) {
         
         cell = [MWalletCell loadFromNIB];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-     
+        
     }
- 
+    NSInteger sectionRows = [tableView numberOfRowsInSection:indexPath.section];
+	NSInteger row = indexPath.row;
+    
     if (row == 0 && sectionRows == 1)
         cell.lineView.hidden = YES;
     else if (row == 0)
@@ -234,13 +235,14 @@
     
     
     if (self.type != MWalletType) {
+        
         if ([self isSelectedIndexPath:indexPath]) {
             cell.checkButton.selected = YES;
         }else{
             cell.checkButton.selected = NO;
         }
     }else{
-        
+  
         cell.roundButton.indexPath = indexPath;
         
         __weak MWalletViewController *wself = self;
@@ -261,19 +263,19 @@
             
             
         };
-
+        
     }
-  
-    
-
-    
     
     if (self.type == MMoneyBabyType) {
         cell.checkButton.hidden = NO;
+        cell.roundButton.hidden = YES;
+         cell.roundView.hidden = YES;
     }else{
+        cell.roundButton.hidden = NO;
+        cell.roundView.hidden = NO;
         cell.checkButton.hidden = YES;
     }
-     
+    
     NSArray *array = [self arrayIndexPath:indexPath.section];
     cell.data  =  [array objectAtIndex:indexPath.row];
     
@@ -287,31 +289,29 @@
     if (self.type == MWalletType) {
         return;
     }
-
+    
     if (![self isSelectedIndexPath:indexPath])
     {
         
         MWalletCell *oldCell  = (MWalletCell *)[tableView cellForRowAtIndexPath:_lastIndexPath];
         oldCell.checkButton.selected = NO;
-            
+        
         MWalletCell *cell  = (MWalletCell *)[tableView cellForRowAtIndexPath:indexPath];
         cell.checkButton.selected = YES;
-            
+        
         _lastIndexPath = indexPath;
         
     }
-   
- 
+    
+    
     [UIView animateWithDuration:0.5f delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         
-         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:[tableView cellForRowAtIndexPath:indexPath] cache:YES];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:[tableView cellForRowAtIndexPath:indexPath] cache:YES];
         
     } completion:^(BOOL finished) {
         
     }];
     
-    
-            
     
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
@@ -321,15 +321,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    NSArray *array =  [self arrayIndexPath:indexPath.section];
+    return 68.;
     
-    MAccountsData *data  =  [array objectAtIndex:indexPath.row];
-    
-    if ([data.mcurrency floatValue]/100 > 0.00) {
-        return 68.0f;
-    }
-    
-    return 50.0f;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 32;
 }
 
 
@@ -372,6 +368,59 @@
         }
     }
     return NO;
+}
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    if (self.type == MWalletType) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSString *key          = [[self.dataDictionary allKeys] objectAtIndex:indexPath.section];
+        NSMutableArray *array  = [self.dataDictionary objectForKey:key];
+        MAccountsData *account = [array objectAtIndex:indexPath.row];
+        
+        self.aid = account.maid;
+        
+        [array removeObjectAtIndex:indexPath.row];
+        
+        if (indexPath && self.aid) {
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
+            unbindAction = [[MUnbindAccountAction alloc] init];
+            unbindAction.m_delegate = self;
+            [unbindAction requestAction];
+            [self showHUD];
+        }
+
+        
+    }
+    
+}
+
+
+-(NSDictionary*)onRequestUnbindAccountAction{
+    MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:2];
+    [dict setSafeObject:userMid() forKey:@"mid"];
+    [dict setSafeObject:self.aid forKey: @"aid"];
+    return dict;
+}
+-(void)onResponseUnbindAccountSuccess{
+    [self hideHUD];
+//    [self.tableView reloadData];
+}
+-(void)onResponseUnbindAccountFail{
+    [self hideHUD];
+//    [self.tableView reloadData];
+    
+}
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return @"解除绑定";
 }
 
 
