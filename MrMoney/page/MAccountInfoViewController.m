@@ -110,7 +110,7 @@
         
     }
     if (section == 1) {
-        cell.textLabel.text = [self.dataArray objectAtIndex:indexPath.row + 2];
+        cell.textLabel.text = [self.dataArray objectAtIndex:indexPath.row + 3];
         
         if ( row == 0) {
             cell.contentLabel.text = _user.mmid;

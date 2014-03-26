@@ -47,8 +47,9 @@
             self.amountLabel.textColor = [UIColor orangeColor];
             
         }
-        
-        if (![_data.morderNo isEqualToString:@""]) {
+//        NSLog(@"---------_data.morderNo----------------------%@ \n\n",_data.morderNo);
+        if ([self isNumberString:_data.morderNo]) {
+    
              self.monadButton.hidden = NO;
         }
 
@@ -81,7 +82,8 @@
             self.amountLabel.textColor = [UIColor orangeColor];
             
         }
-        if ([self isNumberString]) {
+//        NSLog(@"-----------_investData.mPayId--------------------%@ \n\n",_investData.mPayId);
+        if ([self isNumberString:_investData.mPayId]) {
             self.monadButton.hidden = NO;
         }
         
@@ -119,38 +121,13 @@
     
     return date;
 }
--(BOOL)isNumberString{
-    NSRegularExpression *tNumRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[0-9]" options:NSRegularExpressionCaseInsensitive error:nil];
-   
-    //符合數字條件的有幾個字元
-     
-    int tNumMatchCount = [tNumRegularExpression numberOfMatchesInString:_investData.mPayId
-                          
-                                                                options:NSMatchingReportProgress
-                          
-                                                                  range:NSMakeRange(0, _investData.mPayId.length)];
- 
-    //英文字條件
-  
-    NSRegularExpression *tLetterRegularExpression = [NSRegularExpression regularExpressionWithPattern:@"[A-Za-z]" options:NSRegularExpressionCaseInsensitive error:nil];
+-(BOOL)isNumberString:(NSString *)input{
     
-    //符合英文字條件的有幾個字元
-    
-    int tLetterMatchCount = [tLetterRegularExpression numberOfMatchesInString:_investData.mPayId options:NSMatchingReportProgress range:NSMakeRange(0, _investData.mPayId.length)];
-   
-    
-    if (tNumMatchCount + tLetterMatchCount == _investData.mPayId.length)
-        
-    {
-        
-        //符合英文和符合數字條件的相加等於密碼長度
-       
-        return YES;
-        
+    if ([input length] == 0) {
+        return NO;
     }
-    
-    return NO;
-
+    return  [input matchesPatternRegexPattern:@"[A-Za-z]"] && [input matchesPatternRegexPattern:@"[0-9]"];
+ 
 }
 
 

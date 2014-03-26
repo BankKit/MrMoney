@@ -10,9 +10,11 @@
 #import "MCategory.h"
 #import "MQueryInvestAction.h"
 #import "MSignAlipayAction.h"
+#import "MScrollFullScreen.h"
 @class MMoneyBabyData;
 @class UICountingLabel;
-@interface MMoneyBabyViewController : MBaseViewController<MQueryInvestActionDelegate,MSignAlipayActionDelegate>{
+
+@interface MMoneyBabyViewController : MBaseViewController<MQueryInvestActionDelegate,MSignAlipayActionDelegate,UIScrollViewDelegate,MScrollFullScreenDelegate>{
     MQueryInvestAction *queryAction;
     MSignAlipayAction *signAlipayAction;
 }
@@ -36,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet UIView           * topView;
 @property (weak, nonatomic) IBOutlet UIView           * middleView;
 @property (weak, nonatomic) IBOutlet UIScrollView     * scrollView;
+@property (nonatomic,weak) IBOutlet UIView *toolBarView;
 
 
 

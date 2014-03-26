@@ -12,14 +12,15 @@
 #import "UICountingLabel.h"
 #import "MMoneyBabyData.h"
 #import "UIColor+MCategory.h"
- 
 #import "MRechargeViewController.h"
 #import "MCountView.h"
+#import "UIViewController+style.h"
 @interface MMoneyBabyViewController ()
 
 @property(nonatomic,assign)float todayIncome;
 @property(nonatomic,copy) NSString *canWithdrawMoney;
 @property(nonatomic,assign)double total;
+@property (nonatomic,strong) MScrollFullScreen *scrollProxy;
 @end
 
 @implementation MMoneyBabyViewController
@@ -51,7 +52,11 @@
 
     }];
     
-
+    _scrollProxy = [[MScrollFullScreen alloc] initWithForwardTarget:self];
+    
+    self.scrollView.delegate = _scrollProxy;
+    
+    _scrollProxy.delegate = self;
 
     if (self.money) {
         [self initViewData:self.money];
@@ -182,10 +187,39 @@
 }
 -(void)onResponseSignAlipayActionSuccess{
     [MActionUtility showAlert:@"签约成功"];
+    
 }
 -(void)onResponseSignAlipayActionFail{
     [MActionUtility showAlert:@"签约失败"];    
 }
+
+
+#pragma mark -
+#pragma mark - MScrollFullScreenDelegate
+
+- (void)scrollFullScreen:(MScrollFullScreen *)proxy scrollViewDidScrollUp:(CGFloat)deltaY
+{
+   
+    [self move:_toolBarView height:-deltaY]; // move to revese direction
+}
+
+- (void)scrollFullScreen:(MScrollFullScreen *)proxy scrollViewDidScrollDown:(CGFloat)deltaY
+{ 
+    [self showBarView:_toolBarView];
+}
+
+- (void)scrollFullScreenScrollViewDidEndDraggingScrollUp:(MScrollFullScreen *)proxy
+{
+    [self hiddenBarView:_toolBarView];
+}
+
+- (void)scrollFullScreenScrollViewDidEndDraggingScrollDown:(MScrollFullScreen *)proxy
+{
+    
+    [self showBarView:_toolBarView];
+}
+
+
 @end
 
 

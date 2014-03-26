@@ -62,57 +62,8 @@
         [self.delegate colorViewClick:button.tag];
     }
     
- 
- 
-  
-  
-    
 }
-
-//- (WBMessageObject *)messageToShare
-//{
-//     WBMessageObject *message = [WBMessageObject message];
-//    
-//     message.text =  [NSString stringWithFormat:@"钱先生-理财了、赚钱了、开心了 \n 立即注册并下载钱先生，获得100元理财本金。 http://www.qianxs.com/mrMoney/wap/wapProduct/prodsearch?rMid=%@",userMid()];
-// 
-//    WBImageObject *image = [WBImageObject object];
-//    image.imageData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"icon_home_press" ofType:@"png"]];
-//    message.imageObject = image;
-//    
-//    return message;
-//}
-//
-//- (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result
-//{
-//    NSString *title = nil;
-//    UIAlertView *alert = nil;
-//    
-//    title = @"收到网络回调";
-//    alert = [[UIAlertView alloc] initWithTitle:title
-//                                       message:[NSString stringWithFormat:@"%@",result]
-//                                      delegate:nil
-//                             cancelButtonTitle:@"确定"
-//                             otherButtonTitles:nil];
-//    [alert show];
-//   
-//}
-//
-//- (void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error;
-//{
-//    NSString *title = nil;
-//    UIAlertView *alert = nil;
-//    
-//    title = @"请求异常";
-//    alert = [[UIAlertView alloc] initWithTitle:title
-//                                       message:[NSString stringWithFormat:@"%@",error]
-//                                      delegate:nil
-//                             cancelButtonTitle:@"确定"
-//                             otherButtonTitles:nil];
-//    [alert show];
-//    
-//}
-//
-
+ 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect

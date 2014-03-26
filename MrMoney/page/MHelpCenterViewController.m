@@ -30,7 +30,8 @@
     [self createNavBarTitle:@"帮助中心"];
    
     self.tableViewStyle = UITableViewStyleGrouped;
-     
+    
+    self.tableView.backgroundView = nil;
     
     NSString *filePath = [NSString getBundlePathForFile:@"question.plist"];
     

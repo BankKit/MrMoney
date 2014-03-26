@@ -25,6 +25,8 @@
 #import "MHomeViewController+Style.h"
 #import "NSTimer+Addition.h"
 
+static NSString* const kHelveticaLight = @"HelveticaNeue-Light";
+
 @interface MHomeViewController ()<PDTSimpleCalendarViewDelegate,MPayViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *customDates;
@@ -299,9 +301,8 @@
         
         UILabel *incomeLabel = [[UILabel  alloc] initWithFrame:Rect(0, 13, 154, 40)];
         incomeLabel.backgroundColor = KCLEAR_COLOR;
-        incomeLabel.font = FONT(@"HelveticaNeue-Light", 24);
-//        SYSTEMFONT(24);
-//        [UIFont fontWithName:@"Helvetica-Neue" size:40];
+        incomeLabel.font = FONT(kHelveticaLight, 24);
+ 
         incomeLabel.textColor = [UIColor whiteColor];
         incomeLabel.text = STRING_FORMAT(@"%.2f%%",[internetData.me_returnRate floatValue]/100);
         incomeLabel.textAlignment = NSTextAlignmentCenter;
@@ -563,6 +564,12 @@
     
     self.star_bank_nameLabel.text = STRING_FORMAT(@"%@ %@", bankName(star.mstar_bankId),star.mstar_productName);
     self.star_bank_logo.image     = bankLogoImage(star.mstar_bankId);
+    if (!IsIOS7) {
+        self.star_earningsLabel.font =  FONT(kHelveticaLight, 40);
+        self.star_cycleLabel.font = FONT(kHelveticaLight, 22);
+
+    }
+
     self.star_earningsLabel.text  = STRING_FORMAT(@"%.1f",[star.mstar_returnRate floatValue]/100);
      self.star_cycleLabel.text     = STRING_FORMAT(@"%@",star.mstar_investCycle);
 }

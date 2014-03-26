@@ -18,7 +18,7 @@
         [self setBackgroundColor:[UIColor clearColor]];
         
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:Rect(0, 0,frame.size.height, frame.size.height)];
-        imageView.center = self.center;
+        imageView.centerX = self.centerX;
         imageView.image = [UIImage imageNamed:@"logoViewBg"];
         [self addSubview:imageView];
    

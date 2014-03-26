@@ -20,7 +20,7 @@
 
 + (void)go2MFinanceProductsViewController:(MBaseViewController *)viewCtrl
                                  pushType:(MHomeViewControllerPushType)type{
-    MFinanceProductsViewController *financeProducts = [[MFinanceProductsViewController alloc] initWithNibName:@"MFinanceProductsViewController" bundle:nil];
+    MFinanceProductsViewController *financeProducts = [[MFinanceProductsViewController alloc] init];
     financeProducts.type = type;
     [viewCtrl.navigationController pushViewController:financeProducts animated:YES];
     

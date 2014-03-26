@@ -6,13 +6,14 @@
 //  Copyright (c) 2013年 xingyong. All rights reserved.
 //
 
-#import "MBaseViewController.h"
+#import "MBaseTableViewController.h"
 #import "MFinanceProductAction.h"
 #import "RKTabView.h"
 #import "MSegmentView.h"
 #import "MFundAction.h"
+#import "MScrollFullScreen.h"
 
-@interface MFinanceProductsViewController : MBaseViewController<MFinanceProductActionDelegate,RKTabViewDelegate,UIAlertViewDelegate,MFundActionDelegate>{
+@interface MFinanceProductsViewController : MBaseTableViewController<MFinanceProductActionDelegate,RKTabViewDelegate,UIAlertViewDelegate,MFundActionDelegate,MScrollFullScreenDelegate>{
     MFinanceProductAction *financeAction;
     MFundAction *fundAction;
  
@@ -20,7 +21,6 @@
 
 @property (nonatomic, weak)  IBOutlet RKTabView          * standardView;
 @property (nonatomic,weak,)  IBOutlet UIView             * myView;
-@property (weak, nonatomic)  IBOutlet UITableView        * tableView;
 @property (weak, nonatomic)  IBOutlet UIButton           * filterBtn;
 
 @property (nonatomic,assign) MHomeViewControllerPushType   type;

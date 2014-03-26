@@ -18,10 +18,12 @@
 #import "MActProductData.h"
 #import "MSeckillViewController.h"
 #import "MLogoView.h"
+#import "UIViewController+style.h"
 @interface MFinanceProductsViewController ()
 @property(nonatomic,strong)NSDictionary *editDict;
 @property(nonatomic,strong)MActProductData *actData;
 @property(nonatomic,assign)BOOL isFirst;
+@property (nonatomic,strong) MScrollFullScreen *scrollProxy;
 @end
 
 @implementation MFinanceProductsViewController
@@ -44,28 +46,24 @@
     
     
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
     self.isFirst = YES;
     
+    _scrollProxy = [[MScrollFullScreen alloc] initWithForwardTarget:self];
+     
+      self.tableView.delegate = (id)_scrollProxy;
     
-    CGSize logoSize = CGSizeMake(90, 90);
+    _scrollProxy.delegate = self;
     
-    MLogoView * logo = [[MLogoView alloc] initWithFrame:Rect(0, -logoSize.height/2,CGRectGetWidth(self.tableView.bounds), logoSize.height)];
     
-  
-    [self.tableView addSubview:logo];
- 
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+//    self.tableView.frameHeight = self.tableView.frameHeight - 49.;
     
-    self.tableView.backgroundColor = KVIEW_BACKGROUND_COLOR;
     
-//    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//    
-//    self.tableView.separatorColor = [UIColor colorWithRed:0.97 green:0.58 blue:0.14 alpha:1.00];
-    
-    self.tableView.rowHeight = 68.0f;
-   
     NSArray *itemArray =self.type == MFundType ? @[@"周回报率",@"年回报率",@"累计回报率",@"筛选"] : @[@"收益率",@"期限",@"热度",@"筛选"];
     NSMutableArray *tabItems = [NSMutableArray arrayWithCapacity:0];
     for (int i= 0 ;i < 4 ; i ++ ) {
@@ -93,7 +91,9 @@
         }
         
     }
-    [_filterBtn bringSubviewToFront:self.standardView];
+//    [_filterBtn bringSubviewToFront:self.standardView];
+    [self.view insertSubview:_filterBtn aboveSubview:self.tableView];
+    [self.view insertSubview:_standardView aboveSubview:self.tableView];
     self.standardView.backgroundColor  = [UIColor colorWithRed:0.15 green:0.16 blue:0.17 alpha:1.00];
     self.standardView.enabledTabBackgrondColor = [UIColor colorWithRed:0.20 green:0.21 blue:0.23 alpha:1.00];
     self.standardView.darkensBackgroundForEnabledTabs = YES;
@@ -102,10 +102,10 @@
     self.standardView.tabItems = tabItems;
     
     [self.mm_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
-     
+    
     if (self.type == MFundType) {
         [self createNavBarTitle:@"基金产品"];
-
+        
         self.currPageNum = 1;
         self.sortType = @"week_return";
         fundAction = [[MFundAction alloc] init];
@@ -114,8 +114,8 @@
         
         [self showHUD];
     }else if (self.type == MFinanceProductsType || self.type == MPopType || self.type == MInternetType) {
-       
-       
+        
+        
         self.sortType = @"return_rate";
         self.currPageNum = 1;
         financeAction = [[MFinanceProductAction alloc] init];
@@ -126,13 +126,14 @@
             [financeAction requestAction:(NSString*)M_URL_internetProduct];
         }
         else{
-             [self createNavBarTitle:@"理财产品"];
+            [self createNavBarTitle:@"理财产品"];
+            
             self.tableView.tableHeaderView = self.headerView;
             _headerView.hidden = YES;
             [financeAction requestAction:(NSString*)M_URL_FinanceProduct];
         }
-            
- 
+        
+        
         
         [self showHUD];
         
@@ -150,8 +151,8 @@
         
         [self createNavBarTitle:@"我的收藏"];
         
-         __weak MFinanceProductsViewController *wself = self;
-      
+        __weak MFinanceProductsViewController *wself = self;
+        
         [self initRightButtonItem:@"nav_clear_shoppingcardBtn" title:@"清空" completionHandler:^{
             
             [MActionUtility showAlert:@"确定清空收藏？" message:nil delegate:wself cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
@@ -162,10 +163,11 @@
     if (!user_defaults_get_bool(@"isShade")) {
         _shadeImageView.hidden = NO;
         _shadeImageView.userInteractionEnabled = YES;
+        [self.view insertSubview:_shadeImageView aboveSubview:self.tableView];
         UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTap:)];
         [_shadeImageView addGestureRecognizer:singleTap];
     }
-  
+    
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterAction:) name:@"kfilter" object:nil];
     
@@ -182,17 +184,17 @@
     user_defaults_set_bool(@"isShade", YES);
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-
+    
     if (buttonIndex == 1) {
         [MStatusUtility clearCollectData];
         [self.dataArray removeAllObjects];
         [self.tableView reloadData];
     }
-
+    
 }
 - (void) filterAction:(NSNotification*) notification{
     
-   self.editDict = [notification userInfo];//获取到传递的对象
+    self.editDict = [notification userInfo];//获取到传递的对象
     
     [self.dataArray removeAllObjects];
     self.currPageNum = 1;
@@ -214,11 +216,11 @@
     filter.type = self.type;
     
     [self.mm_drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
- 
+    
     
 }
 - (void)tabView:(RKTabView *)tabView tabBecameEnabledAtIndex:(int)index tab:(RKTabItem *)tabItem {
-   
+    
     if (index== 0) {
         self.sortType =self.type == MFundType ? @"week_return":@"return_rate"; //收益率
     }else if (index == 1){
@@ -238,7 +240,7 @@
         [financeAction requestAction:(NSString *)M_URL_FinanceProduct];
     
     [self showHUD];
-     
+    
 }
 #pragma mark
 #pragma mark 基金产品 delegate
@@ -248,13 +250,13 @@
     NSString *product_type  = [self.editDict objectForKey:@"product_type"];
     NSString *sort   = [self.editDict objectForKey:@"sort"];
     NSString *fund_id   = [self.editDict objectForKey:@"fund_id"];
-
+    
     
     [dict setSafeObject:fund_id?fund_id:@"none" forKey:@"fund_id"];
     [dict setSafeObject:product_type?product_type : @"none" forKey:@"product_type"];
     [dict setSafeObject:sort?sort:self.sortType forKey:@"sort"];
     [dict setSafeObject:[NSNumber numberWithInt:self.currPageNum] forKey:@"pageIdx"];
-
+    
     return dict;
 }
 -(void)onResponseFundSuccess:(MPageData *)pageData{
@@ -281,7 +283,7 @@
     NSString *lowest_amount = [self.editDict objectForKey:@"lowest_amount"];
     NSString *invest_cycle  = [self.editDict objectForKey:@"invest_cycle"];
     NSString *break_even    = [self.editDict objectForKey:@"break_even"];
-     
+    
     [dict setSafeObject:bank_id?bank_id:@"none" forKey:@"bank_id"];
     [dict setSafeObject:currency?currency:@"none" forKey:@"currency"];
     [dict setSafeObject:sales_region?sales_region:@"none" forKey:@"sales_region"];
@@ -289,13 +291,13 @@
     [dict setSafeObject:lowest_amount?lowest_amount:@"none" forKey:@"lowest_amount"];
     [dict setSafeObject:invest_cycle?invest_cycle:@"none" forKey:@"invest_cycle"];
     [dict setSafeObject:break_even?break_even:@"none" forKey:@"break_even"];
- 
-     
-//  [dict setSafeObject:[NSNumber numberWithInt:0] forKey:@"is_scheme"];
+    
+    
+    //  [dict setSafeObject:[NSNumber numberWithInt:0] forKey:@"is_scheme"];
     [dict setSafeObject:self.sortType forKey:@"sort"];
     [dict setSafeObject:[NSNumber numberWithInt:self.currPageNum] forKey:@"pageIdx"];
     
-
+    
     return dict;
 }
 
@@ -304,7 +306,7 @@
     [self hideHUD];
     
     _headerView.hidden = NO;
-
+    
     self.actData = actData;
     
     self.totalNum = pageData.mnumFound;
@@ -351,25 +353,25 @@
         cell = [MFinanceProductsCell loadFromNIB];
         
     }
-  
+    
     if (self.type == MFundType) {
-        cell.sortType = self.sortType; 
+        cell.sortType = self.sortType;
         cell.fund =  [self.dataArray safeObjectAtIndex:indexPath.row];
-       
+        
     }else{
         cell.data =  [self.dataArray safeObjectAtIndex:indexPath.row];;
     }
- 
+    
     
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.type == MFundType) {
-       
+        
         MFundDetailViewController *detail = [[MFundDetailViewController alloc] initWithNibName:@"MFundDetailViewController" bundle:nil];
         detail.fund =  [self.dataArray safeObjectAtIndex:indexPath.row];;
-
+        
         [self.navigationController pushViewController:detail animated:YES];
     }else{
         MFinanceProductData *data =  [self.dataArray safeObjectAtIndex:indexPath.row];
@@ -379,7 +381,7 @@
         
         [self.navigationController pushViewController:controller animated:YES];
     }
- 
+    
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -395,6 +397,45 @@
     }
     
 }
+- (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 68.0f;
+}
+
+
+
+#pragma mark -
+#pragma mark - MScrollFullScreenDelegate
+
+#pragma mark -
+#pragma mark - MScrollFullScreenDelegate
+
+- (void)scrollFullScreen:(MScrollFullScreen *)proxy scrollViewDidScrollUp:(CGFloat)deltaY
+{
+    
+    [self move:_standardView height:-deltaY]; // move to revese direction
+        [self move:_filterBtn height:-deltaY];
+}
+
+- (void)scrollFullScreen:(MScrollFullScreen *)proxy scrollViewDidScrollDown:(CGFloat)deltaY
+{
+    [self showBarView:_standardView];
+    [self showBarView:_filterBtn];
+}
+
+- (void)scrollFullScreenScrollViewDidEndDraggingScrollUp:(MScrollFullScreen *)proxy
+{
+    [self hiddenBarView:_standardView];
+        [self hiddenBarView:_filterBtn];
+
+}
+
+- (void)scrollFullScreenScrollViewDidEndDraggingScrollDown:(MScrollFullScreen *)proxy
+{
+    [self showBarView:_standardView];
+       [self showBarView:_filterBtn];
+}
+
 
 -(void)dealloc{
     financeAction.m_delegate = nil;

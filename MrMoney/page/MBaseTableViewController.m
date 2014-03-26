@@ -29,16 +29,8 @@
     
     _tableView = [self contentTableView];
     
-    
     [self.view addSubview:_tableView];
     
-    
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void) dealloc {
@@ -51,6 +43,8 @@
     
     
     self.tableView = nil;
+    
+    self.dataArray = nil;
     
 }
 
@@ -108,11 +102,13 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.autoresizingMask = self.view.autoresizingMask;
     tableView.backgroundColor = [UIColor clearColor];
+    tableView.backgroundView = nil;
     tableView.delegate = self;
     tableView.dataSource = self;
     
     CGSize logoSize = CGSizeMake(90, 90);
-    MLogoView * logo = [[MLogoView alloc] initWithFrame:Rect(0, -logoSize.height/2,CGRectGetWidth(tableView.bounds), logoSize.height)];
+    
+    MLogoView * logo = [[MLogoView alloc] initWithFrame:Rect(0, -logoSize.height,CGRectGetWidth(tableView.bounds), logoSize.height)];
     [tableView addSubview:logo];
     
     return tableView;
@@ -154,5 +150,10 @@
     
     return cell;
     
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 @end

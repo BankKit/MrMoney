@@ -501,6 +501,10 @@
 		CF6E1F3118B5DD1A00298ACD /* home_product_shade.png in Resources */ = {isa = PBXBuildFile; fileRef = CF6E1F3018B5DD1A00298ACD /* home_product_shade.png */; };
 		CF6E1F3418B5F65800298ACD /* MRoundView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6E1F3318B5F65800298ACD /* MRoundView.m */; };
 		CF6E1F3718B6065200298ACD /* MAppendAssetAccountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6E1F3618B6065200298ACD /* MAppendAssetAccountAction.m */; };
+		CF7093DB18E1313700BD3A22 /* MLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7093DA18E1313700BD3A22 /* MLabel.m */; };
+		CF7093DE18E1484200BD3A22 /* MGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7093DD18E1484200BD3A22 /* MGradientView.m */; };
+		CF7093E118E157AF00BD3A22 /* MScrollFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7093E018E157AF00BD3A22 /* MScrollFullScreen.m */; };
+		CF7093E418E160DC00BD3A22 /* UIViewController+style.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7093E318E160DC00BD3A22 /* UIViewController+style.m */; };
 		CF747A2E1894B0970075BB7D /* NJKWebViewProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = CF747A2D1894B0970075BB7D /* NJKWebViewProgress.m */; };
 		CF747A331894B0A10075BB7D /* SDCachedURLResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CF747A301894B0A10075BB7D /* SDCachedURLResponse.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CF747A341894B0A10075BB7D /* SDURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CF747A321894B0A10075BB7D /* SDURLCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -1423,6 +1427,14 @@
 		CF6E1F3318B5F65800298ACD /* MRoundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRoundView.m; sourceTree = "<group>"; };
 		CF6E1F3518B6065200298ACD /* MAppendAssetAccountAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAppendAssetAccountAction.h; sourceTree = "<group>"; };
 		CF6E1F3618B6065200298ACD /* MAppendAssetAccountAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAppendAssetAccountAction.m; sourceTree = "<group>"; };
+		CF7093D918E1313700BD3A22 /* MLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLabel.h; sourceTree = "<group>"; };
+		CF7093DA18E1313700BD3A22 /* MLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLabel.m; sourceTree = "<group>"; };
+		CF7093DC18E1484200BD3A22 /* MGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGradientView.h; sourceTree = "<group>"; };
+		CF7093DD18E1484200BD3A22 /* MGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGradientView.m; sourceTree = "<group>"; };
+		CF7093DF18E157AF00BD3A22 /* MScrollFullScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MScrollFullScreen.h; sourceTree = "<group>"; };
+		CF7093E018E157AF00BD3A22 /* MScrollFullScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MScrollFullScreen.m; sourceTree = "<group>"; };
+		CF7093E218E160DC00BD3A22 /* UIViewController+style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+style.h"; sourceTree = "<group>"; };
+		CF7093E318E160DC00BD3A22 /* UIViewController+style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+style.m"; sourceTree = "<group>"; };
 		CF747A2C1894B0970075BB7D /* NJKWebViewProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJKWebViewProgress.h; sourceTree = "<group>"; };
 		CF747A2D1894B0970075BB7D /* NJKWebViewProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJKWebViewProgress.m; sourceTree = "<group>"; };
 		CF747A2F1894B0A10075BB7D /* SDCachedURLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCachedURLResponse.h; sourceTree = "<group>"; };
@@ -2296,6 +2308,12 @@
 				CF324A7A18D6DFB000539E51 /* MCountView.m */,
 				CFAC723E18E01C7700FF7774 /* MLogoView.h */,
 				CFAC723F18E01C7700FF7774 /* MLogoView.m */,
+				CF7093D918E1313700BD3A22 /* MLabel.h */,
+				CF7093DA18E1313700BD3A22 /* MLabel.m */,
+				CF7093DC18E1484200BD3A22 /* MGradientView.h */,
+				CF7093DD18E1484200BD3A22 /* MGradientView.m */,
+				CF7093DF18E157AF00BD3A22 /* MScrollFullScreen.h */,
+				CF7093E018E157AF00BD3A22 /* MScrollFullScreen.m */,
 			);
 			name = customViews;
 			sourceTree = "<group>";
@@ -2811,6 +2829,8 @@
 				CFD409BD18C460B20058E33E /* MLockViewController.h */,
 				CFD409BE18C460B20058E33E /* MLockViewController.m */,
 				CFD409BF18C460B20058E33E /* MLockViewController.xib */,
+				CF7093E218E160DC00BD3A22 /* UIViewController+style.h */,
+				CF7093E318E160DC00BD3A22 /* UIViewController+style.m */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -3850,6 +3870,7 @@
 				CF6E1F2718B5D00A00298ACD /* MYCustomPanel.m in Sources */,
 				CF367B39188FB7EA000F04AE /* MModifyPasswordAction.m in Sources */,
 				CF6487AE1856DCFF008E066E /* MFinanceProductData.m in Sources */,
+				CF7093E418E160DC00BD3A22 /* UIViewController+style.m in Sources */,
 				CF747A381894C4110075BB7D /* MSubFinanceData.m in Sources */,
 				CFFDE472184F114800F7C2AE /* MInvestRecordViewController.m in Sources */,
 				CFFDE477184F116000F7C2AE /* MMoneyBabyViewController.m in Sources */,
@@ -3861,6 +3882,7 @@
 				CF51169C18B62C6F0011C345 /* MSyncAssetAccountAction.m in Sources */,
 				CF471CF118DC204600D8BF05 /* MBindingAction.m in Sources */,
 				CF58341E184C64E800D2C276 /* MChatViewController.m in Sources */,
+				CF7093E118E157AF00BD3A22 /* MScrollFullScreen.m in Sources */,
 				CF32A0B618D2D152000106F2 /* ShareEngine.m in Sources */,
 				CF27B16B1894B00B005BD44D /* script.js in Sources */,
 				CF42FEE21855AAD400C56F81 /* MUserData.m in Sources */,
@@ -3892,6 +3914,7 @@
 				CF6E1F2618B5D00A00298ACD /* MYBlurIntroductionView.m in Sources */,
 				CF8E0AF618BF468F00969001 /* SGSheetMenu.m in Sources */,
 				CF14588718506E8100D01023 /* MProductDetailViewController.m in Sources */,
+				CF7093DB18E1313700BD3A22 /* MLabel.m in Sources */,
 				CF113C4D187BCCEE0060CC1B /* MPurchaseViewController.m in Sources */,
 				CF221941187D438C000AA9C7 /* MFieldCell.m in Sources */,
 				CF0A452F184D76740011E930 /* NSMutableSet+BlocksKit.m in Sources */,
@@ -3987,6 +4010,7 @@
 				CFAC723A18E00B9500FF7774 /* MHUDLoadingView.m in Sources */,
 				CF0A4716184DD0190011E930 /* ASIDataDecompressor.m in Sources */,
 				CFF18EA018AB703F001FB2ED /* NSDate+Week.m in Sources */,
+				CF7093DE18E1484200BD3A22 /* MGradientView.m in Sources */,
 				CFF18E9A18AB703F001FB2ED /* NSDate+Compare.m in Sources */,
 				CF0A4714184DD0190011E930 /* ASIAuthenticationDialog.m in Sources */,
 				CF0A4734184DD4500011E930 /* MHttpEngine.m in Sources */,

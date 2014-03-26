@@ -16,6 +16,7 @@
                 <outlet property="sumIncomeMoneyLabel" destination="DHP-ow-Oxk" id="1pE-L4-pJb"/>
                 <outlet property="todayIncomeLabel" destination="ZMM-UZ-9IQ" id="Tg9-2W-hzG"/>
                 <outlet property="todayInvestLabel" destination="RZw-LF-oqS" id="hg0-bu-nN5"/>
+                <outlet property="toolBarView" destination="lzk-OO-f5o" id="Gx8-60-tNT"/>
                 <outlet property="topView" destination="Y9d-nY-1gJ" id="LGl-l3-GzO"/>
                 <outlet property="unusedMoneyLabel" destination="JUb-Mz-fOw" id="wLl-CX-fEd"/>
                 <outlet property="userCountLabel" destination="Loa-5V-Oeb" id="arO-QH-p8q"/>
@@ -28,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="82G-xI-Rff">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="Y9d-nY-1gJ">
@@ -269,11 +270,11 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </scrollView>
                 <view contentMode="scaleToFill" id="lzk-OO-f5o">
-                    <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                    <rect key="frame" x="0.0" y="519" width="320" height="49"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Cby-0t-4YE" customClass="MButton">
-                            <rect key="frame" x="27" y="7" width="267" height="36"/>
+                            <rect key="frame" x="20" y="7" width="280" height="36"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <state key="normal" title="我要充值">
