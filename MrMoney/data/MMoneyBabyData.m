@@ -45,6 +45,7 @@
 
 @end
 
+/*
 @implementation MInternetData
 -(void)dealloc{
     
@@ -56,9 +57,8 @@
     
     
 }
-
-
+ 
 @end
-
+*/
 
 

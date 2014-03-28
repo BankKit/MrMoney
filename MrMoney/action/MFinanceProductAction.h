@@ -20,7 +20,8 @@
 @end
 @interface MFinanceProductAction : MBaseAction{
     ASIHTTPRequest *m_request;
- 
+    
+    BOOL ret;
 }
 @property(nonatomic,weak)id<MFinanceProductActionDelegate> m_delegate;
 

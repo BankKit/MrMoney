@@ -46,6 +46,7 @@
 
 @end
 
+/*
 @interface MInternetData : MBaseData
 
 @property (nonatomic,copy)NSString * me_bankId;
@@ -56,3 +57,4 @@
 
 
 @end
+*/

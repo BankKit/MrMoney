@@ -8,6 +8,7 @@
 
 #import "MQueryProductAction.h"
 #import "MMoneyBabyData.h"
+#import "MInternetData.h"
 @implementation MQueryProductAction
 
 @synthesize m_delegate;
@@ -85,11 +86,11 @@
             
             MInternetData *internet = [[MInternetData alloc] init];
             
-            internet.me_returnRate  = m_dictionaryValueToString([l_dict objectForKey:@"e_returnRate"]);
-            internet.me_productName = m_dictionaryValueToString([l_dict objectForKey:@"e_productName"]);
-            internet.me_bankId      = m_dictionaryValueToString([l_dict objectForKey:@"e_bankId"]);
-            internet.me_investCycle = m_dictionaryValueToString([l_dict objectForKey:@"e_investCycle"]);
-            internet.me_pid         = m_dictionaryValueToString([l_dict objectForKey:@"e_pid"]);
+            internet.mthis_year_return_rate  = m_dictionaryValueToString([l_dict objectForKey:@"e_returnRate"]);
+            internet.mproduct_name  = m_dictionaryValueToString([l_dict objectForKey:@"e_productName"]);
+            internet.msite_id      = m_dictionaryValueToString([l_dict objectForKey:@"e_bankId"]);
+            internet.mweek_return = m_dictionaryValueToString([l_dict objectForKey:@"e_investCycle"]);
+            internet.mpid         = m_dictionaryValueToString([l_dict objectForKey:@"e_pid"]);
     
             [l_array_internet addObject:internet];
         }

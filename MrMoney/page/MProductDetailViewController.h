@@ -33,8 +33,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *expect_earningsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currency_typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *product_typeLabel;
-@property (weak, nonatomic) IBOutlet UILabel *has_guaranteeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *invest_cycleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *has_guaranteeLabel;
+
 @property (weak, nonatomic) IBOutlet UILabel *product_codeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *value_dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *sales_regionLabel;

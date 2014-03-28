@@ -43,7 +43,8 @@ const NSString* M_URL_FinanceProduct = @"https://www.qianxs.com/mrMoney/mobile/P
 /**
  *  金融产品列表
  */
-const NSString* M_URL_internetProduct = @"https://www.qianxs.com/mrMoney/mobile/Product/searchInternetProd.json";
+const NSString* M_URL_internetProduct = @"https://www.qianxs.com/mrMoney/mobile/Internet/searchProd.json";
+
 
 /**
  *  产品详情

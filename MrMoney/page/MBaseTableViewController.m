@@ -106,10 +106,10 @@
     tableView.delegate = self;
     tableView.dataSource = self;
     
-    CGSize logoSize = CGSizeMake(90, 90);
-    
-    MLogoView * logo = [[MLogoView alloc] initWithFrame:Rect(0, -logoSize.height,CGRectGetWidth(tableView.bounds), logoSize.height)];
-    [tableView addSubview:logo];
+//    CGSize logoSize = CGSizeMake(90, 90);
+//    
+//    MLogoView * logo = [[MLogoView alloc] initWithFrame:Rect(0, -logoSize.height,CGRectGetWidth(tableView.bounds), logoSize.height)];
+//    [tableView addSubview:logo];
     
     return tableView;
 }

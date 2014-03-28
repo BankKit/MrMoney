@@ -163,17 +163,17 @@ const NSString* REG_PHONE = @"^(([0\\+]\\d{2,3}-?)?(0\\d{2,3})-?)?(\\d{7,8})";
     
 }
 
-+ (NSString *)formatterDateString:(NSString *)str{
-    
-    NSString *year  = [str substringToIndex:4];
-    
-    NSString *month = [str substringWithRange:NSMakeRange(4,2)];
-    
-    NSString *day   = [str substringWithRange:NSMakeRange(6,2)];
-    
-    
-    return [NSString stringWithFormat:@"%@-%@-%@",year,month,day];
-}
+//+ (NSString *)formatterDateString:(NSString *)str{
+//    
+//    NSString *year  = [str substringToIndex:4];
+//    
+//    NSString *month = [str substringWithRange:NSMakeRange(4,2)];
+//    
+//    NSString *day   = [str substringWithRange:NSMakeRange(6,2)];
+//    
+//    
+//    return [NSString stringWithFormat:@"%@-%@-%@",year,month,day];
+//}
 
 
 @end

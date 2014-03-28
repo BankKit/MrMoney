@@ -34,18 +34,27 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIView* titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, KHEIGHT_NAVGATIONBAR)];
+    titleView.backgroundColor = [UIColor clearColor];
+
+    UIImageView *imageView =  [[UIImageView alloc] initWithFrame:Rect(50,10, 96, 22)];
+    imageView.image = [UIImage imageNamed:@"sec_topBg"];
+    [titleView addSubview:imageView];
+    self.navigationItem.titleView = titleView;
  
-        [self createNavBarTitle:@"限时秒杀"];
+    
     
     _topView.frameY = 0.;
-    _topView.frameHeight = 73.;
-    _middleView.frameY = 73.;
+    _topView.frameHeight = 100.;
+    _middleView.frameY = 100.;
     _middleView.frameHeight = 200.;
     
-    _bottomView.frameY = 273.;
+    _bottomView.frameY = 300.;
 
    
-     
+    [_submitBtn setBackgroundImage:[[UIImage imageNamed:@"grabBuyBtn"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateNormal];
+    
     self.scrollView.contentSize = CGSizeMake(320, _bottomView.frameHeight + _bottomView.frameY);
  
       
@@ -55,10 +64,13 @@
     
  
     self.secExpectedReturnRateLabel.text = STRING_FORMAT(@"%.2f%%",[self.actData.mexpectedReturnRate floatValue]/100);
-    
+
     self.secDRateLabel.text =  STRING_FORMAT(@"%.2f%%",[self.actData.mdRate floatValue]/100);
     
     self.balanceLabel.text = STRING_FORMAT(@"%@元",formatValue([self.actData.mactRmAmount floatValue]/100));
+    
+
+    self.dayLabel.text = STRING_FORMAT(@"（%@天）",self.actData.minvestCycle);
     
     if ([self.actData.mactRmAmount floatValue] <= 0.0) {
         _balanceLabel.hidden = YES;
@@ -240,12 +252,15 @@
 }
 
 -(IBAction)onProtocolAction:(id)sender{
-//    int index = [(UIButton *)sender tag];
-//    if (index == 1) {
+    int index = [(UIButton *)sender tag];
+    if (index == 1) {
+        [MGo2PageUtility go2MWebBrowser:self title:@"活动规则" webUrl:@"http://qianxs.com/mrMoney/actRule.html"];
+    }else {
+         [MGo2PageUtility go2MWebBrowser:self title:@"用户服务协议" webUrl:@"http://qianxs.com/mrMoney/actAgreement.html"];
+    }
+    
  
-      //  [MGo2PageUtility go2MWebBrowser:self title:@"用户服务协议" webUrl:@"http://qianxs.com/mrMoney/actAgreement.html"];
- 
-         [MGo2PageUtility go2MWebBrowser:self title:@"活动规则" webUrl:@"http://qianxs.com/mrMoney/actRule.html"];
+     
  
 }
 

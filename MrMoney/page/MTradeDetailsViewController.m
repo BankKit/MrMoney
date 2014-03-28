@@ -57,7 +57,8 @@
    
         self.amountLabel.text =STRING_FORMAT(@"￥%@",formatValue([_data.mtran_amount floatValue]));
         
-        self.dateLabel.text = [MStringUtility formatterDateString:strOrEmpty(_data.mtran_time)];
+
+        self.dateLabel.text = [MUtility dateString:strOrEmpty(_data.mtran_time)];
         
         self.productNameLabel.text = _data.mtran_memo;
         

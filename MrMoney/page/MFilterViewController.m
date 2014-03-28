@@ -202,7 +202,15 @@
         content = @"none";
     }
   
-    [self.editDict setSafeObject:content forKey:self.type == MFundType ? @"fund_id":@"bank_id"];
+    NSString *l_key = nil;
+    if (self.type == MFundType) {
+        l_key = @"fund_id";
+    }else if (self.type == MFinanceProductsType){
+        l_key = @"bank_id";
+    }else{
+        l_key = @"site_id";
+    }
+    [self.editDict setSafeObject:content forKey:l_key];
     
 }
 #pragma mark - MRadio delegate

@@ -9,6 +9,7 @@
 #import "MColorView.h"
 #import "Common.h"
 #import "MHomeViewController.h"
+#import "MAnimation.h"
 @implementation MColorView
 
 - (id)initWithFrame:(CGRect)frame buttonTag:(NSInteger )tag
@@ -27,32 +28,13 @@
     }
     return self;
 }
-+ (CAKeyframeAnimation *)getKeyframeAni{
-    CAKeyframeAnimation* popAni=[CAKeyframeAnimation animationWithKeyPath:@"transform"];
-    popAni.duration = 0.5;
-    
-    popAni.values=@[[NSValue valueWithCATransform3D:CATransform3DMakeScale(0.95, 0.95, 1.0)],
-                    [NSValue valueWithCATransform3D:CATransform3DMakeScale(1.0, 1.0, 1.0)],
-                    [NSValue valueWithCATransform3D:CATransform3DMakeScale(0.95, 0.95, 1.0)],
-                    [NSValue valueWithCATransform3D:CATransform3DIdentity]
-                    ];
-   
-    popAni.keyTimes=@[@0.0,@0.5,@0.75,@1.0];
-    
-    popAni.timingFunctions=@[[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                             [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                             [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut],
-                             [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
-    
-    return popAni;
-}
 
 -(void)buttonClick:(id)sender{
  
     UIButton *button = (UIButton *)sender;
     button.userInteractionEnabled = NO;
     
-    CAKeyframeAnimation *popAnimation = [[self class] getKeyframeAni];
+    CAKeyframeAnimation *popAnimation = [MAnimation getKeyframeAnimation];
     
     [[self superview].layer addAnimation:popAnimation forKey:nil];
   

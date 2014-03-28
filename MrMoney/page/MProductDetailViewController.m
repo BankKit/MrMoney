@@ -58,7 +58,6 @@
 //    [self initRightButtonItem:@"nav_more.png" title:@"更多选项" completionHandler:^{
 //        
 //    }];
-     
     
     if (self.data.mStar) {
         detailAction = [[MProductDetailAction alloc] init];
@@ -180,16 +179,16 @@
 }
 -(void)setViewData:(MFinanceProductData *)data{
     
-    NSString *bank_name = nil;
-    
-    NSArray *keyArray =    [KTREASURE_DICT allKeys];
-    
-    if ([keyArray containsObject:[_data.mbank_id lowercaseString]]) {
-        bank_name = [KTREASURE_DICT objectForKey:[_data.mbank_id lowercaseString]];
-    }else{
-        bank_name            = bankName(_data.mbank_id);
-    }
-    
+//    NSString *bank_name = nil;
+//    
+//    NSArray *keyArray =    [KTREASURE_DICT allKeys];
+//    
+//    if ([keyArray containsObject:[_data.mbank_id lowercaseString]]) {
+//        bank_name = [KTREASURE_DICT objectForKey:[_data.mbank_id lowercaseString]];
+//    }else{
+//        bank_name            = bankName(_data.mbank_id);
+//    }
+//    
 
     
     
@@ -212,8 +211,7 @@
     
     self.bankNameLabel.frameX          = self.bank_logo_iv.frameX +  self.bank_logo_iv.frameWidth  + 5;
     
-    
-    self.bankNameLabel.text            = bank_name;
+    self.bankNameLabel.text            = bankName(_data.mbank_id);
     
     self.befromLabel.text             = STRING_FORMAT(@"来自于【%@网上银行】",bankName(_data.mbank_id));
  

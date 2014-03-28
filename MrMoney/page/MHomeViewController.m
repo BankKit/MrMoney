@@ -24,7 +24,9 @@
 #import "CycleScrollView.h"
 #import "MHomeViewController+Style.h"
 #import "NSTimer+Addition.h"
-
+#import "MAnimation.h"
+#import "MInternetData.h"
+#import "MLabel.h"
 
 
 @interface MHomeViewController ()<PDTSimpleCalendarViewDelegate,MPayViewControllerDelegate>
@@ -283,7 +285,7 @@
         
         MInternetData *internetData = _internetArray[i];
         
-        NSString *imageName = STRING_FORMAT(@"logo_%@",[internetData.me_bankId lowercaseString]);
+        NSString *imageName = STRING_FORMAT(@"logo_%@",[internetData.msite_id lowercaseString]);
         
         UIImage *image = [UIImage imageNamed:imageName];
         
@@ -297,14 +299,16 @@
         nameLabel.textColor = [UIColor whiteColor];
         
 
-        nameLabel.text = STRING_FORMAT(@"%@ %@",[KTREASURE_DICT objectForKey:[internetData.me_bankId lowercaseString]],internetData.me_productName);
-        
-        UILabel *incomeLabel = [[UILabel  alloc] initWithFrame:Rect(0, 13, 154, 40)];
+        nameLabel.text = STRING_FORMAT(@"%@ %@",[KTREASURE_DICT objectForKey:[internetData.msite_id lowercaseString]],internetData.mproduct_name);
+       
+        MLabel *incomeLabel = [[MLabel  alloc] initWithFrame:Rect(0, 13, 154, 40)];
         incomeLabel.backgroundColor = KCLEAR_COLOR;
         incomeLabel.font = FONT(kHelveticaLight, 24);
- 
         incomeLabel.textColor = [UIColor whiteColor];
-        incomeLabel.text = STRING_FORMAT(@"%.2f%%",[internetData.me_returnRate floatValue]/100);
+        incomeLabel.text = STRING_FORMAT(@"%.2f%%",[internetData.mthis_year_return_rate floatValue]/100);
+       
+        [incomeLabel setFont:FONT(kHelveticaLight, 14) string:@"%"];
+        
         incomeLabel.textAlignment = NSTextAlignmentCenter;
         
         [view addSubview:incomeLabel];
@@ -327,7 +331,7 @@
     self.mainScorllView.TapActionBlock = ^(NSInteger pageIndex){
         
         
-        CAKeyframeAnimation *popAnimation = [MColorView getKeyframeAni];
+        CAKeyframeAnimation *popAnimation = [MAnimation getKeyframeAnimation];
         [wself.moneyBabyView.layer addAnimation:popAnimation forKey:nil];
         [wself touchControlView];
         
@@ -346,7 +350,7 @@
 
 -(IBAction)onFundAction:(id)sender{
     NSInteger index = [(UIButton*)sender tag];
-    CAKeyframeAnimation *popAnimation = [MColorView getKeyframeAni];
+    CAKeyframeAnimation *popAnimation = [MAnimation getKeyframeAnimation];
     [self.mainFundView.layer addAnimation:popAnimation forKey:nil];
     [self touchControlView];
     __weak MHomeViewController *wself = self;
@@ -440,6 +444,11 @@
 #pragma mark --
 #pragma mark -- queryProductDelegate 
 -(void)onResponseQueryProductSuccess:(MMoneyBabyData *)moneyData{
+    
+    [UIView animateWithDuration:2.0 animations:^{
+        _topContentView.frameY = 0.0;
+    }];
+    
 
     self.starArray     = moneyData.mstartArray;
     self.internetArray = moneyData.minternetArray;
@@ -456,6 +465,10 @@
     
 }
 -(void)onResponseQueryProductFail{
+    [UIView animateWithDuration:2.0 animations:^{
+        _topContentView.frameY =  -self.topContentView.frameHeight;
+    }];
+    
     [self setCycleScrollView];
     [self.timer pauseTimer];
 }
@@ -503,37 +516,23 @@
     [_walletView addSubview:_countView];
     
 }
+#pragma mark ------------- 摇一摇 -----------------
 
 -(IBAction)onPromptBuyAction:(id)sender{
 
     UIButton *button = (UIButton *)sender;
     
     if (button.tag == 1) {
-
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+       
+        if (_topContentView.frameY == 0.0) {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            [button.layer addAnimation:[MAnimation shakeAnimation] forKey:@"imageView"];
+            
+            [UIView animateWithDuration:3.0 delay:2.0 options:UIViewAnimationOptionCurveEaseIn animations:Nil completion:^(BOOL finished) {
+                [self setStarView];
+            }];
+        }
         
-        CABasicAnimation* shake = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
-        //设置抖动幅度
-        shake.fromValue = [NSNumber numberWithFloat:-0.2];
-        
-        shake.toValue = [NSNumber numberWithFloat:+0.6];
-        
-        shake.duration = 0.1;
-        
-        shake.autoreverses = YES; //是否重复
-        
-        shake.repeatCount = 4;
-        
-        [button.layer addAnimation:shake forKey:@"imageView"];
-        
-        button.alpha = 1.0;
-        
- 
-        [UIView animateWithDuration:3.0 delay:2.0 options:UIViewAnimationOptionCurveEaseIn animations:Nil completion:^(BOOL finished) {
-            [self setStarView];
-        }];
-        
-
     }else{
         NSString *canInvestMoney = STRING_FORMAT(@"￥%@",formatValue(_canInvestMoney));
 
@@ -588,10 +587,6 @@
 }
 -(void)onResponseQueryInvestSuccess:(MMoneyBabyData *)money{
     
-    [UIView animateWithDuration:2.0 animations:^{
-        _topContentView.frameY = 0.0;
-    }];
-  
     
     [self.activityView stopAnimating];
     

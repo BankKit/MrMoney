@@ -26,7 +26,7 @@
     [_payBtn setBackgroundImage:[[UIImage imageNamed:@"home_pay_light"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateHighlighted];
     
     [_backImageView setImage:[[UIImage imageNamed:@"home_input"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]];
-      [_backImageView2 setImage:[[UIImage imageNamed:@"home_input"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]];
+    [_backImageView2 setImage:[[UIImage imageNamed:@"home_input"] stretchableImageWithLeftCapWidth:10 topCapHeight:10]];
     
 }
 /*

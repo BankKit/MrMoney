@@ -25,23 +25,21 @@
     
     if (self) {
 
-        
-        
-        
-//        [self setBackgroundImage:[[UIImage imageNamed:@"default_btn_bg"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateNormal];
-//        [self setBackgroundImage:[[UIImage imageNamed:@"default_btn_light"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateHighlighted];
-        
-        
-//        self.layer.borderWidth = 1;
-        self.layer.cornerRadius = 4.0;
-        self.layer.masksToBounds = YES;
-        [self setAdjustsImageWhenHighlighted:NO];
-        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self.titleLabel setFont:FONT(@"HelveticaNeue-Light",self.titleLabel.font.pointSize)];
-        
-        self.backgroundColor = [UIColor colorWithRed:217/255.0 green:83/255.0 blue:79/255.0 alpha:1];
-//        self.layer.borderColor = [[UIColor colorWithRed:212/255.0 green:63/255.0 blue:58/255.0 alpha:1] CGColor];
-        [self setBackgroundImage:[self buttonImageFromColor:[UIColor colorWithRed:210/255.0 green:48/255.0 blue:51/255.0 alpha:1]] forState:UIControlStateHighlighted];
+        [self setBackgroundImage:[[UIImage imageNamed:@"home_pay_normal"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateNormal];
+        [self setBackgroundImage:[[UIImage imageNamed:@"home_pay_light"] stretchableImageWithLeftCapWidth:10 topCapHeight:10] forState:UIControlStateHighlighted];
+         [self.titleLabel setFont:SYSTEMFONT(16)];
+
+
+ 
+//        self.layer.cornerRadius = 4.0;
+//        self.layer.masksToBounds = YES;
+//        [self setAdjustsImageWhenHighlighted:NO];
+//        [self setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//        [self.titleLabel setFont:FONT(@"HelveticaNeue-Light",self.titleLabel.font.pointSize)];
+//        
+//        self.backgroundColor = [UIColor colorWithRed:217/255.0 green:83/255.0 blue:79/255.0 alpha:1];
+// 
+//        [self setBackgroundImage:[self buttonImageFromColor:[UIColor colorWithRed:210/255.0 green:48/255.0 blue:51/255.0 alpha:1]] forState:UIControlStateHighlighted];
     }
     
     return self;

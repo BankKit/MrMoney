@@ -217,6 +217,7 @@
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     RDVTabBarController *tabBarController = (RDVTabBarController *)self.viewController;
+
     if (navigationController.viewControllers.count > 1) {
         
         [tabBarController setTabBarHidden:YES animated:NO];
@@ -226,67 +227,6 @@
     }
     
 }
-//
-//- (void)didReceiveWeiboResponse:(WBBaseResponse *)response
-//{
-//    NSLog(@"=====WBBaseResponse= 微博分享 ===== ");
-//    
-//    if([response isKindOfClass:[WBSendMessageToWeiboResponse class]])
-//    {
-//        if (response.statusCode == 0) {
-//            
-//            [MActionUtility showAlert:@"微博分享成功"];
-//            
-//        }
-//        else
-//        {
-//            [MActionUtility showAlert:@"微博分享失败"];
-//        }
-//        
-//    }
-//    
-////    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
-////    {
-////        NSString *title = @"发送结果";
-////        NSString *message = [NSString stringWithFormat:@"响应状态: %d\n响应UserInfo数据: %@\n原请求UserInfo数据: %@",(int)response.statusCode, response.userInfo, response.requestUserInfo];
-////        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-////                                                        message:message
-////                                                       delegate:nil
-////                                              cancelButtonTitle:@"确定"
-////                                              otherButtonTitles:nil];
-////        [alert show];
-////      
-////    }
-////    else if ([response isKindOfClass:WBAuthorizeResponse.class])
-////    {
-////        NSString *title = @"认证结果";
-////        NSString *message = [NSString stringWithFormat:@"响应状态: %d\nresponse.userId: %@\nresponse.accessToken: %@\n响应UserInfo数据: %@\n原请求UserInfo数据: %@",(int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken], response.userInfo, response.requestUserInfo];
-////        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-////                                                        message:message
-////                                                       delegate:nil
-////                                              cancelButtonTitle:@"确定"
-////                                              otherButtonTitles:nil];
-////        
-////        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
-////        [alert show];
-////   
-////    }
-//}
-
-
-
-//-(void) onResp:(BaseResp*)resp
-//{
-//    if([resp isKindOfClass:[SendMessageToWXResp class]])
-//    {
-//        if (resp.errCode == 0)
-//            
-//            [MActionUtility showAlert:@"微信分享成功"];
-// 
-//            [MActionUtility showAlert:@"微信分享失败"];
-//    }
-//}
-
 
 //- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 //{

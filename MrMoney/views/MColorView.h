@@ -22,7 +22,5 @@
 @property(nonatomic,weak)id<MColorViewDelegate>delegate;
 
 - (id)initWithFrame:(CGRect)frame buttonTag:(NSInteger )tag;
-
-+ (CAKeyframeAnimation *)getKeyframeAni;
  
 @end

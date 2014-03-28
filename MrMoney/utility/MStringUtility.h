@@ -60,14 +60,14 @@
 + (NSString *)joinString:(float)floatValue;
 
  
-/**
- *  格式化时间
- *
- *  @param str 时间字符串
- *
- *  @return 时间格式的字符串
- */
-+ (NSString *)formatterDateString:(NSString *)str;
+///**
+// *  格式化时间
+// *
+// *  @param str 时间字符串
+// *
+// *  @return 时间格式的字符串
+// */
+//+ (NSString *)formatterDateString:(NSString *)str;
 
 /**
  判断字符串是否符合手机号格式。
