@@ -17,6 +17,7 @@
 #import "MUserData.h"
 #import "rmb_convert.h"
 #import "MBankViewController.h"
+#import "BlurView.h"
 
 @interface MRechargeViewController ()
 @property(nonatomic,strong)NSArray *titleArray;
@@ -100,17 +101,28 @@
         
         [alert show];
     }else{
-        rechargeAction = [[MRechargeAction alloc] init];
-        rechargeAction.m_delegate = self;
-        [rechargeAction requestAction];
-        
-     
-        [self showHUD];
+        [self goPay];
         
     }
     
 }
+-(void)goPay{
+    int  amount =  [[self.editFieldArray safeObjectAtIndex:0] intValue] *100;
+    __weak MRechargeViewController *wself = self;
+    BlurView *blur = [[BlurView alloc] initWithFrame:Rect(0, 50, 300, 255) withXib:@"MRechargeView" action:^{
+        
+            rechargeAction = [[MRechargeAction alloc] init];
+            rechargeAction.m_delegate = wself;
+            [rechargeAction requestAction];
+            [wself showHUD];
+        
+    } orderData:nil amount:amount payStyle:self.payTypeName];
+    
+    [blur show];
 
+    
+
+}
 -(NSDictionary*)onRequestRechargeAction{
     MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:0];
     
@@ -165,11 +177,8 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    
     if(section == 0) return 2;
-    
-//
-//    
+     
     return 1;
 }
 -(void)setCellBackground:(UITableViewCell *)cell indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView{

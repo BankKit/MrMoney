@@ -67,7 +67,7 @@
       
     self.tableView.frameHeight = self.tableView.frameHeight - 49;
    
-    _currPageNum =1;
+    _currPageNum = 1;
     investAction = [[MInvestRecordAction alloc] init];
     investAction.m_delegate = self;
     [investAction requestAction];
@@ -164,7 +164,6 @@
     }
     
 }
-
 
 - (void)didReceiveMemoryWarning
 {

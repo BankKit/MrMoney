@@ -76,13 +76,18 @@
         
     }
     
-    
-//    [_submitBtn setBackgroundImage:KDEFAULT_BTN forState:UIControlStateNormal];
-    
-    
-//    [_contentView.layer borderWidth:1.0 borderColor:KVIEW_BORDER_COLOR cornerRadius:6.];
-    
-    
+    if (self.ptype == MPushWalletType) {
+        _contentView.hidden = NO;
+        
+     
+        
+    }else{
+        _contentView.hidden = YES;
+        _mainView.frame = CGRectMake(10, 20, 300, 233);
+        
+        [self.scrollView addSubview:_mainView];
+    }
+     
     MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _contentView.frameHeight + _contentView.frameY + 20, 300, 208)];
     securityView.backgroundColor = [UIColor whiteColor];
     [self.scrollView  addSubview:securityView];
@@ -91,10 +96,13 @@
     
     self.tableView.backgroundView = nil;
     
-    getCodeAction = [[MAuthCodeAction alloc] init];
-    getCodeAction.m_delegate = self;
-    [getCodeAction requestAction];
-    [self showHUD];
+ 
+    if (self.ptype == MPushWalletType) {
+        getCodeAction = [[MAuthCodeAction alloc] init];
+        getCodeAction.m_delegate = self;
+        [getCodeAction requestAction];
+        [self showHUD];
+    }
 }
 
 -(NSDictionary*)onRequestAuthCodeAction{
@@ -114,7 +122,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.titleArray count] ;
+    return [self.titleArray count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

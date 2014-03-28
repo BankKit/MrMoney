@@ -44,12 +44,10 @@
     self.navigationItem.titleView = titleView;
  
     
-    
     _topView.frameY = 0.;
     _topView.frameHeight = 100.;
     _middleView.frameY = 100.;
     _middleView.frameHeight = 200.;
-    
     _bottomView.frameY = 300.;
 
    
@@ -60,7 +58,7 @@
       
     
     self.secBank_logo.image = bankLogoImage(self.actData.mbankId);
-    self.secProduct_nameLabel.text =STRING_FORMAT(@"%@ %@",bankName(self.actData.mbankId),self.actData.mproductName);
+    self.secProduct_nameLabel.text =STRING_FORMAT(@"%@ %@",bankName(self.actData.mbankId),strOrEmpty(self.actData.mproductName));
     
  
     self.secExpectedReturnRateLabel.text = STRING_FORMAT(@"%.2f%%",[self.actData.mexpectedReturnRate floatValue]/100);

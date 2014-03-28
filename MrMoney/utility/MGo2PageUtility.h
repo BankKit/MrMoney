@@ -11,6 +11,12 @@
 @class MFinanceProductData;
 typedef void(^loginBlockHandler)(void);
 
+typedef enum : NSUInteger {
+    MPushWalletType,
+    MPushWithdrawType
+    
+} MPushType;
+
 /**
  *  定义跳转枚举
  */
@@ -181,5 +187,15 @@ typedef enum {
                              data:(MFinanceProductData *)data
                          pushType:(MHomeViewControllerPushType)type
                          buyMoney:(NSString *)buyMoney;
+/**
+ *  添加资产
+ *
+ *  @param viewCtrl 主控器
+ *  @param type     跳转类型
+ */
++ (void)go2AddCountViewController:(MBaseViewController *)viewCtrl
+                           pushType:(MPushType)ptype;
+
+ 
 
 @end

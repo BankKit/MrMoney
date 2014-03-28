@@ -21,6 +21,7 @@
 @property (strong, nonatomic) SMPageControl *pageControl;
 @property (assign, nonatomic) int  buttonIndex;
 
+@property(nonatomic,assign)MPushType ptype;
   
 -(IBAction)onNextStepAction:(id)sender;
 @end

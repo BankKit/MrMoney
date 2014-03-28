@@ -16,6 +16,7 @@
 #import "DZWebBrowser.h"
 #import "MProductDetailViewController.h"
 #import "MPurchaseViewController.h"
+#import "MAddAccountViewController.h"
 @implementation MGo2PageUtility
 
 + (void)go2MFinanceProductsViewController:(MBaseViewController *)viewCtrl
@@ -105,4 +106,14 @@
     purchase.buyMoney = buyMoney;
     [viewCtrl.navigationController pushViewController:purchase animated:YES];
 }
++ (void)go2AddCountViewController:(MBaseViewController *)viewCtrl
+                         pushType:(MPushType)ptype{
+
+    MAddAccountViewController *addAccount = [[MAddAccountViewController alloc] initWithNibName:@"MAddAccountViewController" bundle:nil];
+    addAccount.ptype = ptype;
+    [viewCtrl.navigationController pushViewController:addAccount animated:YES];
+    
+}
+
+
 @end

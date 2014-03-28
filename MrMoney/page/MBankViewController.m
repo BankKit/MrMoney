@@ -30,10 +30,7 @@
 {
     [super viewDidLoad];
     [self createNavBarTitle:@"选择支付方式"];
-    CGSize logoSize = CGSizeMake(90, 90);
-    MLogoView * logo = [[MLogoView alloc] initWithFrame:Rect(0, -logoSize.height/2,CGRectGetWidth(self.tableView.bounds), logoSize.height)];
-    
-    [self.tableView addSubview:logo];
+   
     
     _tableView.rowHeight = 50.0f;
     

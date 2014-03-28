@@ -45,7 +45,6 @@ const NSString* M_URL_FinanceProduct = @"https://www.qianxs.com/mrMoney/mobile/P
  */
 const NSString* M_URL_internetProduct = @"https://www.qianxs.com/mrMoney/mobile/Internet/searchProd.json";
 
-
 /**
  *  产品详情
  */
@@ -168,6 +167,10 @@ const NSString* M_URL_binding =@"https://www.qianxs.com/mrMoney/mobile/qqoauth/b
  *  分享返还现金
  */
 const NSString* M_URL_presentedPrincipal = @"https://www.qianxs.com/mrMoney/mobile/invite/activity/presentedPrincipal";
+/**
+ *  发表评论
+ */
+const NSString* M_URL_addComment = @"https://www.qianxs.com/mrMoney/mobile/member/addComment.html";
 
 
 /**

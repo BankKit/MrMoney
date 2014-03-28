@@ -10,13 +10,14 @@
 #import "UIImage+ImageEffects.h"
 #import "MPopView.h"
 #import "MSecKillView.h"
+#import "MOrderView.h"
+#import "MRechargeView.h"
+
+
 #define kButtonHeight 50.f
 #define kCancelButtonHeight 60.f
-
 #define kAnimationDuration 0.35f
-
 #define kSeparatorWidth .5f
-
 #define kMargin 10.f
 #define kBottomMargin 10.f
 
@@ -38,13 +39,12 @@ static UIWindow *__sheetWindow = nil;
         
         _blurView.userInteractionEnabled = YES;
         
- 
-//        self.backgroundColor = [UIColor colorWithWhite:1.f alpha:0.95f];
+        self.xib = xib;
         
         self.clipsToBounds = YES;
         
         if ([xib isEqualToString:@"MPopView"]) {
-            MPopView *popView = [[[NSBundle mainBundle] loadNibNamed:@"MPopView" owner:self options:nil] lastObject];
+            MPopView *popView = [[[NSBundle mainBundle] loadNibNamed:xib owner:self options:nil] lastObject];
             [popView.fadeOutBtn addTarget:self action:@selector(fadeOut) forControlEvents:UIControlEventTouchUpInside];
             [popView.fadeOutBuyBtn addTarget:self action:@selector(onFadeBuyAction) forControlEvents:UIControlEventTouchUpInside];
             popView.center = self.center;
@@ -55,7 +55,7 @@ static UIWindow *__sheetWindow = nil;
         
         if([xib isEqualToString:@"MSecKillView"]){
             
-             MSecKillView *seckillView = [[[NSBundle mainBundle] loadNibNamed:@"MSecKillView" owner:self options:nil] lastObject];
+             MSecKillView *seckillView = [[[NSBundle mainBundle] loadNibNamed:xib owner:self options:nil] lastObject];
             [seckillView.fadeOutBtn addTarget:self action:@selector(fadeOut) forControlEvents:UIControlEventTouchUpInside];
             [seckillView.fadeOutBuyBtn addTarget:self action:@selector(onFadeBuyAction) forControlEvents:UIControlEventTouchUpInside];
             seckillView.center = self.center;
@@ -67,6 +67,60 @@ static UIWindow *__sheetWindow = nil;
         
         self.center =window.center;
       
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame withXib:(NSString *)xib action:(blurViewBlock )actionBlock orderData:(MFinanceProductData *)data amount:(int )amount payStyle:(NSString *)pay{
+    
+    self = [super initWithFrame:frame];
+    if (self) {
+        
+        self.actionBlock = actionBlock;
+        
+
+        self.xib = xib;
+ 
+        _overlayView = [[UIControl alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+        _overlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        
+        
+        
+        if ([xib isEqualToString:@"MOrderView"]) {
+            MOrderView *orderView = [[[NSBundle mainBundle] loadNibNamed:xib owner:self options:nil] lastObject];
+            
+            orderView.data = data;
+            
+            orderView.amount = amount;
+            
+            orderView.payStyle = pay ;
+            
+            [orderView.cancelBtn addTarget:self action:@selector(fadeOut) forControlEvents:UIControlEventTouchUpInside];
+            
+            [orderView.submitBtn addTarget:self action:@selector(onFadeBuyAction) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self addSubview:orderView];
+        }
+        
+        if ([xib isEqualToString:@"MRechargeView"]) {
+            MRechargeView *rechargeView =  [[[NSBundle mainBundle] loadNibNamed:xib owner:self options:nil] lastObject];
+            rechargeView.amount = amount;
+            
+            rechargeView.payStyle = pay ;
+            
+            [rechargeView.cancelBtn addTarget:self action:@selector(fadeOut) forControlEvents:UIControlEventTouchUpInside];
+            
+            [rechargeView.submitBtn addTarget:self action:@selector(onFadeBuyAction) forControlEvents:UIControlEventTouchUpInside];
+            
+            [self addSubview:rechargeView];
+
+        }
+        
+        [_overlayView addSubview:self];
+        UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+        
+        self.center =window.center;
+
     }
     return self;
 }
@@ -85,16 +139,22 @@ static UIWindow *__sheetWindow = nil;
 - (void)show {
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
     
-
     [self layoutIfNeeded];
+  
     
-    [window addSubview:self.blurView];
+    if ([self.xib isEqualToString:@"MOrderView"] || [self.xib isEqualToString:@"MRechargeView"]) {
+        [window addSubview:self.overlayView];
+        
+     }else{
 
-   
-    [window addSubview:self];
-    
-    
-    [self loadBlurViewContents];
+         [window addSubview:self.blurView];
+         
+         [window addSubview:self];
+      
+        
+        [self loadBlurViewContents];
+    }
+
     
     self.transform = CGAffineTransformMakeScale(1.3, 1.3);
     self.alpha = 0;
@@ -104,8 +164,6 @@ static UIWindow *__sheetWindow = nil;
         self.blurView.alpha = 1.f;
         self.transform = CGAffineTransformMakeScale(1, 1);
         
-//        self.center = window.center;
-
     }];
     
   
@@ -114,13 +172,16 @@ static UIWindow *__sheetWindow = nil;
 
 - (void)fadeOut
 {
+    
     [UIView animateWithDuration:kAnimationDuration animations:^{
         self.transform = CGAffineTransformMakeScale(1.3, 1.3);
         self.alpha = 0.0;
         self.blurView.alpha = 0.0;
+        self.overlayView.alpha = 0.0;
     } completion:^(BOOL finished) {
         if (finished) {
             [self removeFromSuperview];
+            [self.overlayView removeFromSuperview];
             [self.blurView removeFromSuperview];
         }
     }];
@@ -146,8 +207,6 @@ static UIWindow *__sheetWindow = nil;
     image = UIGraphicsGetImageFromCurrentImageContext();
 
     UIGraphicsEndImageContext();
-    
-     
     
     
     UIImage *blurredImage = [image applyBlurWithRadius:4.f tintColor:self.blurTintColor saturationDeltaFactor:1.f maskImage:nil];

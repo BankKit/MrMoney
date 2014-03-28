@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MFinanceProductData;
 
 typedef void(^blurViewBlock)(void);
+
+typedef MFinanceProductData* (^orderDataBlock)(void);
+
 
 @interface BlurView : UIView
 
@@ -18,13 +22,17 @@ typedef void(^blurViewBlock)(void);
 
 @property(nonatomic, copy) blurViewBlock actionBlock;
 
+@property(nonatomic, strong) UIControl *overlayView;
+
+@property(nonatomic, strong) NSString *xib;
+
 - (void)show;
 
 - (id)initWithFrame:(CGRect)frame withXib:(NSString *)xib action:(blurViewBlock )actionBlock;
 
-//BlurView *blurView =[[BlurView alloc] initWithFrame:CGRectMake(0, 0, 250, 375) withNib:@"MPopView" action:^{
-//    [MGo2PageUtility go2MFinanceProductsViewController:self pushType:MPopType];
-//    
-//}];
+- (id)initWithFrame:(CGRect)frame withXib:(NSString *)xib action:(blurViewBlock )actionBlock orderData:(MFinanceProductData *)data amount:(int )amount payStyle:(NSString *)pay;
+ 
+
+ 
 
 @end

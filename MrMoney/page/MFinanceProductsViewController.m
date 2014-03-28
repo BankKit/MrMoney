@@ -40,7 +40,7 @@
 
 -(void)setHeaderViewUI{
     self.secBank_logo.image = bankLogoImage(self.actData.mbankId);
-    self.secProduct_nameLabel.text =STRING_FORMAT(@"%@ %@",bankName(self.actData.mbankId),self.actData.mproductName);
+    self.secProduct_nameLabel.text =STRING_FORMAT(@"%@ %@",bankName(self.actData.mbankId),strOrEmpty(self.actData.mproductName));
     self.secProdRateLabel.text = STRING_FORMAT(@"%.1f",[self.actData.mprodRate floatValue]/100);
     self.secExpectedReturnRateLabel.text = STRING_FORMAT(@"%.2f%%",[self.actData.mexpectedReturnRate floatValue]/100);
     self.secDRateLabel.text =  STRING_FORMAT(@"%.2f%%",[self.actData.mdRate floatValue]/100);;
@@ -67,10 +67,11 @@
     NSArray *itemArray = nil;
     if (self.type == MFundType) {
         itemArray = @[@"周回报率",@"年回报率",@"累计回报率",@"筛选"];
-    }else if (self.type == MFinanceProductsType){
-       itemArray = @[@"收益率",@"期限",@"热度",@"筛选"];
-    }else{
+    }else if (self.type == MInternetType){
         itemArray = @[@"七日年化收益",@"投资起售金额",@"筛选"];
+    }else{
+          itemArray = @[@"收益率",@"期限",@"热度",@"筛选"];
+
     }
     
     int count = [itemArray count];
@@ -111,8 +112,7 @@
         
     }
  
-    [self.view insertSubview:_filterBtn aboveSubview:self.tableView];
-    [self.view insertSubview:_standardView aboveSubview:self.tableView];
+ 
     self.standardView.backgroundColor  = [UIColor colorWithRed:0.15 green:0.16 blue:0.17 alpha:1.00];
     self.standardView.enabledTabBackgrondColor = [UIColor colorWithRed:0.20 green:0.21 blue:0.23 alpha:1.00];
     self.standardView.darkensBackgroundForEnabledTabs = YES;
@@ -122,61 +122,37 @@
     
     [self.mm_drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModeAll];
     
+     self.currPageNum = 1;
+    
     if (self.type == MFundType) {
         [self createNavBarTitle:@"基金产品"];
         
-        self.currPageNum = 1;
         self.sortType = @"week_return";
         fundAction = [[MFundAction alloc] init];
         fundAction.m_delegate = self;
         [fundAction requestAction];
-        
-        [self showHUD];
-    }else if (self.type == MFinanceProductsType || self.type == MPopType || self.type == MInternetType) {
-        
-        self.sortType = self.type == MInternetType ? @"week_return_rate": @"return_rate";
-        self.currPageNum = 1;
+       
+    }else if(self.type == MInternetType){
+        self.sortType = @"week_return_rate";
         financeAction = [[MFinanceProductAction alloc] init];
         financeAction.m_delegate = self;
-        if (self.type == MInternetType){
-            
-            [self createNavBarTitle:@"互联网产品"];
-            [financeAction requestAction:(NSString*)M_URL_internetProduct];
-        }
-        else{
-            [self createNavBarTitle:@"理财产品"];
-            
-            self.tableView.tableHeaderView = self.headerView;
-            _headerView.hidden = YES;
-            [financeAction requestAction:(NSString*)M_URL_FinanceProduct];
-        }
+        [self createNavBarTitle:@"互联网产品"];
+        [financeAction requestAction:(NSString*)M_URL_internetProduct];
+ 
         
+    }else{
+        [self createNavBarTitle:@"理财产品"];
+        self.sortType = @"return_rate";
         
+        financeAction = [[MFinanceProductAction alloc] init];
+        financeAction.m_delegate = self;
+        self.tableView.tableHeaderView = self.headerView;
+        _headerView.hidden = YES;
+        [financeAction requestAction:(NSString*)M_URL_FinanceProduct];
         
-        [self showHUD];
-        
-        
-        
-    }else if (self.type == MFavoriteType){
-        
-        self.tableView.frameHeight += 50;
-        self.standardView.hidden = YES;
-        self.filterBtn.hidden = YES;
-        
-        NSArray *array = [MFinanceProductData allDbObjects];
-        
-        [self.dataArray addObjectsFromArray:array];
-        
-        [self createNavBarTitle:@"我的收藏"];
-        
-        __weak MFinanceProductsViewController *wself = self;
-        
-        [self initRightButtonItem:@"nav_clear_shoppingcardBtn" title:@"清空" completionHandler:^{
-            
-            [MActionUtility showAlert:@"确定清空收藏？" message:nil delegate:wself cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
-            
-        }];
     }
+    
+    [self showHUD];
     
     if (!user_defaults_get_bool(@"isShade")) {
         _shadeImageView.hidden = NO;
@@ -186,12 +162,16 @@
         [_shadeImageView addGestureRecognizer:singleTap];
     }
     
+    [self.view insertSubview:_filterBtn aboveSubview:self.tableView];
+    [self.view insertSubview:_standardView aboveSubview:self.tableView];
+    [self.view insertSubview:_shadeImageView aboveSubview:_standardView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(filterAction:) name:@"kfilter" object:nil];
     
 }
 //秒杀
 - (IBAction)onSeckillAction:(id)sender{
+    NSLog(@"-------------onSeckillAction-----------------");
     MSeckillViewController *seckill = [[MSeckillViewController alloc] initWithNibName:@"MSeckillViewController" bundle:nil];
     seckill.actData = self.actData;
     [self.navigationController pushViewController:seckill animated:YES];
@@ -242,10 +222,10 @@
     if (index== 0) {
         if (self.type == MFundType) {
             self.sortType = @"week_return";
-        }else if (self.type == MFinanceProductsType){
-            self.sortType = @"return_rate";
-        }else{
+        }else if (self.type == MInternetType){
             self.sortType = @"week_return_rate";
+        }else{
+            self.sortType = @"return_rate";
         }
 
     }else if (index == 1){
@@ -309,7 +289,16 @@
 -(NSDictionary*)onRequestFinanceProductAction{
     
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-    if (self.type == MFinanceProductsType) {
+    if (self.type == MInternetType) {
+        NSString *site_id = [self.editDict objectForKey:@"site_id"];
+        
+        [dict setSafeObject:site_id?site_id:@"none" forKey:@"site_id"];
+        [dict setSafeObject:@"none" forKey:@"week_return_rate"];
+        [dict setSafeObject:@"none" forKey:@"lowest_amount"];
+        [dict setSafeObject:@"none" forKey:@"keywords"];
+        [dict setSafeObject:self.sortType forKey:@"sort"];
+        
+    }else{
         NSString *bank_id       = [self.editDict objectForKey:@"bank_id"];
         NSString *currency      = [self.editDict objectForKey:@"currency"];
         NSString *sales_region  = [self.editDict objectForKey:@"sales_region"];
@@ -326,16 +315,7 @@
         [dict setSafeObject:invest_cycle?invest_cycle:@"none" forKey:@"invest_cycle"];
         [dict setSafeObject:break_even?break_even:@"none" forKey:@"break_even"];
         [dict setSafeObject:self.sortType forKey:@"sort"];
-        
-    }else{
-        
-        NSString *site_id = [self.editDict objectForKey:@"site_id"];
- 
-        [dict setSafeObject:site_id?site_id:@"none" forKey:@"site_id"];
-        [dict setSafeObject:@"none" forKey:@"week_return_rate"];
-        [dict setSafeObject:@"none" forKey:@"lowest_amount"];
-        [dict setSafeObject:@"none" forKey:@"keywords"];
-        [dict setSafeObject:self.sortType forKey:@"sort"];
+       
     }
    
 
@@ -401,11 +381,12 @@
         cell.sortType = self.sortType;
         cell.fund =  [self.dataArray safeObjectAtIndex:indexPath.row];
         
-    }else if(self.type == MFinanceProductsType){
-        cell.data =  [self.dataArray safeObjectAtIndex:indexPath.row];;
-    }else{
+    }else if(self.type == MInternetType){
         cell.sortType = self.sortType;
-        cell.internet =  [self.dataArray safeObjectAtIndex:indexPath.row];;
+        cell.internet =  [self.dataArray safeObjectAtIndex:indexPath.row];
+
+    }else{
+        cell.data =  [self.dataArray safeObjectAtIndex:indexPath.row];;       
     }
     
     return cell;
@@ -413,22 +394,29 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (self.type == MFundType) {
-        
-        MFundDetailViewController *detail = [[MFundDetailViewController alloc] initWithNibName:@"MFundDetailViewController" bundle:nil];
-        detail.fund =  [self.dataArray safeObjectAtIndex:indexPath.row];;
-        
-        [self.navigationController pushViewController:detail animated:YES];
+        MFundData *fund = [self.dataArray safeObjectAtIndex:indexPath.row];
+        if (fund) {
+            MFundDetailViewController *detail = [[MFundDetailViewController alloc] initWithNibName:@"MFundDetailViewController" bundle:nil];
+            detail.fund = fund;
+            
+            [self.navigationController pushViewController:detail animated:YES];
+        }
+   
     }else if(self.type == MFinanceProductsType){
         
         MFinanceProductData *data = [self.dataArray safeObjectAtIndex:indexPath.row];
-        
-        [MGo2PageUtility go2MProductDetailViewController:self data:data];
+        if (data) {
+         [MGo2PageUtility go2MProductDetailViewController:self data:data];
+        }
+
     }else{
         MInternetData *data = [self.dataArray safeObjectAtIndex:indexPath.row];
-
-        MInternetDetailViewController *internet = [[MInternetDetailViewController alloc] initWithNibName:@"MInternetDetailViewController" bundle:nil];
-        internet.data = data;
-        [self.navigationController pushViewController:internet animated:YES];
+        if (data) {
+            MInternetDetailViewController *internet = [[MInternetDetailViewController alloc] initWithNibName:@"MInternetDetailViewController" bundle:nil];
+            internet.data = data;
+            [self.navigationController pushViewController:internet animated:YES];
+        }
+    
     }
     
 }

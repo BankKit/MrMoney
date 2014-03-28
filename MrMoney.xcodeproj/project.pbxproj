@@ -652,6 +652,11 @@
 		CFF60A9318B1F9E20037E650 /* logo_otherbanks.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF60A9218B1F9E20037E650 /* logo_otherbanks.png */; };
 		CFF7C1BA18CECE5000EF5181 /* MBankViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF7C1B818CECE5000EF5181 /* MBankViewController.m */; };
 		CFF7C1BB18CECE5000EF5181 /* MBankViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF7C1B918CECE5000EF5181 /* MBankViewController.xib */; };
+		CFF9A39318E50E5300B507A1 /* UIViewController+product.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A39218E50E5300B507A1 /* UIViewController+product.m */; };
+		CFF9A39618E50EBC00B507A1 /* MOrderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A39518E50EBC00B507A1 /* MOrderView.m */; };
+		CFF9A39818E50ECD00B507A1 /* MOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9A39718E50ECD00B507A1 /* MOrderView.xib */; };
+		CFF9A39B18E54C8F00B507A1 /* MRechargeView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF9A39A18E54C8F00B507A1 /* MRechargeView.m */; };
+		CFF9A39D18E54C9E00B507A1 /* MRechargeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFF9A39C18E54C9E00B507A1 /* MRechargeView.xib */; };
 		CFFBC28C187E3C0D0042E700 /* MPayAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFBC28B187E3C0D0042E700 /* MPayAction.m */; };
 		CFFBC290187E3CB40042E700 /* MPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFBC28E187E3CB40042E700 /* MPayViewController.m */; };
 		CFFBC291187E3CB40042E700 /* MPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFFBC28F187E3CB40042E700 /* MPayViewController.xib */; };
@@ -1656,6 +1661,14 @@
 		CFF7C1B718CECE5000EF5181 /* MBankViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBankViewController.h; sourceTree = "<group>"; };
 		CFF7C1B818CECE5000EF5181 /* MBankViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBankViewController.m; sourceTree = "<group>"; };
 		CFF7C1B918CECE5000EF5181 /* MBankViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MBankViewController.xib; sourceTree = "<group>"; };
+		CFF9A39118E50E5300B507A1 /* UIViewController+product.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+product.h"; sourceTree = "<group>"; };
+		CFF9A39218E50E5300B507A1 /* UIViewController+product.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+product.m"; sourceTree = "<group>"; };
+		CFF9A39418E50EBC00B507A1 /* MOrderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MOrderView.h; sourceTree = "<group>"; };
+		CFF9A39518E50EBC00B507A1 /* MOrderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MOrderView.m; sourceTree = "<group>"; };
+		CFF9A39718E50ECD00B507A1 /* MOrderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MOrderView.xib; sourceTree = "<group>"; };
+		CFF9A39918E54C8F00B507A1 /* MRechargeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRechargeView.h; sourceTree = "<group>"; };
+		CFF9A39A18E54C8F00B507A1 /* MRechargeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRechargeView.m; sourceTree = "<group>"; };
+		CFF9A39C18E54C9E00B507A1 /* MRechargeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRechargeView.xib; sourceTree = "<group>"; };
 		CFFBC28A187E3C0D0042E700 /* MPayAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPayAction.h; sourceTree = "<group>"; };
 		CFFBC28B187E3C0D0042E700 /* MPayAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPayAction.m; sourceTree = "<group>"; };
 		CFFBC28D187E3CB40042E700 /* MPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPayViewController.h; sourceTree = "<group>"; };
@@ -2146,6 +2159,8 @@
 				CF113C4A187BCCEE0060CC1B /* MPurchaseViewController.h */,
 				CF113C4B187BCCEE0060CC1B /* MPurchaseViewController.m */,
 				CF113C4C187BCCEE0060CC1B /* MPurchaseViewController.xib */,
+				CFF9A39118E50E5300B507A1 /* UIViewController+product.h */,
+				CFF9A39218E50E5300B507A1 /* UIViewController+product.m */,
 				CFF7C1B718CECE5000EF5181 /* MBankViewController.h */,
 				CFF7C1B818CECE5000EF5181 /* MBankViewController.m */,
 				CFF7C1B918CECE5000EF5181 /* MBankViewController.xib */,
@@ -3239,6 +3254,12 @@
 				CFADCA9E18D9859800B2FAE1 /* MSecKillView.h */,
 				CFADCA9F18D9859800B2FAE1 /* MSecKillView.m */,
 				CFADCAA118D985A700B2FAE1 /* MSecKillView.xib */,
+				CFF9A39418E50EBC00B507A1 /* MOrderView.h */,
+				CFF9A39518E50EBC00B507A1 /* MOrderView.m */,
+				CFF9A39718E50ECD00B507A1 /* MOrderView.xib */,
+				CFF9A39918E54C8F00B507A1 /* MRechargeView.h */,
+				CFF9A39A18E54C8F00B507A1 /* MRechargeView.m */,
+				CFF9A39C18E54C9E00B507A1 /* MRechargeView.xib */,
 			);
 			path = BlurView;
 			sourceTree = "<group>";
@@ -3550,6 +3571,7 @@
 				CF9B38CA18DA85780009FE4D /* logo_tencent.png in Resources */,
 				CF50EE8D187FCD4D00E9E8E4 /* btn_tade_gray1@2x.png in Resources */,
 				CF5593FC187AD3E5009CD682 /* btn_segment_normal1.png in Resources */,
+				CFF9A39818E50ECD00B507A1 /* MOrderView.xib in Resources */,
 				CF48F31818B72C24006FF5C4 /* txt_sos.png in Resources */,
 				CF42FF2C1855CCB600C56F81 /* ZHCellTopNormal@2x.png in Resources */,
 				CF1C6A3218557BE900921B58 /* secure_desc1.png in Resources */,
@@ -3629,6 +3651,7 @@
 				CF14A39718ACA85E006B1A13 /* calendar_slogan.png in Resources */,
 				CF32798B18C72A6400CE9F90 /* home_input@2x.png in Resources */,
 				CF4ABDB6188FCFC1003CC717 /* night_share_platform_wechattimeline.png in Resources */,
+				CFF9A39D18E54C9E00B507A1 /* MRechargeView.xib in Resources */,
 				CFCEDEED18CD9D17001F2CCD /* sec_check.png in Resources */,
 				CF583487184C738100D2C276 /* icon_chat_press@2x.png in Resources */,
 				CF747A4D189514920075BB7D /* ZHCellSingleHighlight@2x.png in Resources */,
@@ -3891,6 +3914,7 @@
 				CF5B35E218D9612F00AAB862 /* CycleScrollView.m in Sources */,
 				CF1CDD4318AF68EE0079263C /* MForgetPasswordAction.m in Sources */,
 				CF0A4535184D76740011E930 /* NSTimer+BlocksKit.m in Sources */,
+				CFF9A39B18E54C8F00B507A1 /* MRechargeView.m in Sources */,
 				CFDA292618BDD3D1000FE0F7 /* MActivityData.m in Sources */,
 				CF5593F3187ACCEF009CD682 /* MSegmentView.m in Sources */,
 				CF260C9118582AED005954DE /* MAuthCodeAction.m in Sources */,
@@ -4000,6 +4024,7 @@
 				CF7AD91E18C0927F00DD8D09 /* MWithdrawViewController.m in Sources */,
 				CF6C3E4D1883CC4800E1135C /* MMoneyBabyData.m in Sources */,
 				CF6E1F3718B6065200298ACD /* MAppendAssetAccountAction.m in Sources */,
+				CFF9A39618E50EBC00B507A1 /* MOrderView.m in Sources */,
 				CFD409C018C460B20058E33E /* MLockViewController.m in Sources */,
 				CF14A38D18AC942D006B1A13 /* MCalendarData.m in Sources */,
 				CF399BDC185AEF48008EA576 /* MAboutViewController.m in Sources */,
@@ -4016,6 +4041,7 @@
 				CF1CDD3618AF39520079263C /* MSecurityView.m in Sources */,
 				CF14587A185063F400D01023 /* MWalletCell.m in Sources */,
 				CF4169EB1859BC3F0056A271 /* MQueryInvestAction.m in Sources */,
+				CFF9A39318E50E5300B507A1 /* UIViewController+product.m in Sources */,
 				CF221939187D3F35000AA9C7 /* MProtocolCell.m in Sources */,
 				CF747A331894B0A10075BB7D /* SDCachedURLResponse.m in Sources */,
 				CF42DB1418B9BBEA00ABC378 /* rmb_convert.c in Sources */,

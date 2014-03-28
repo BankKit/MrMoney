@@ -18,6 +18,7 @@
 #import "rmb_convert.h"
 #import "IPAddress.h"
 #import "MBankViewController.h"
+#import "BlurView.h"
 #define KBTN_TAG 1000
 
 @interface MPurchaseViewController ()
@@ -84,6 +85,7 @@
     
 }
 
+#pragma mark ------------- 前往支付 -----------------
 
 -(IBAction)nextStepAction:(id)sender{
     
@@ -107,10 +109,7 @@
             [MActionUtility showAlert:@"购买金额过大"];
             return;
         }
-        balanceAction = [[MBalanceAction alloc] init];
-        balanceAction.m_delegate = self;
-        [balanceAction requestAction];
-        [self showHUD];
+        [self goPay];
     }else{
         
         if ([self.payTypeName isEqualToString:@"OTHERBANKS"]) {
@@ -124,17 +123,41 @@
             
             [alert show];
         }else{
-            submitAction = [[MSubmitOrderAction alloc] init];
-            submitAction.m_delegate = self;
-            [submitAction requestAction];
-            [self showHUD];
+
+            [self goPay];
             
         }
 
     }
     
 }
-#pragma mark --
+
+-(void)goPay{
+ 
+    int  amount =  [[self.editFieldArray safeObjectAtIndex:0] intValue] *100;
+    __weak MPurchaseViewController *wself = self;
+    BlurView *blur = [[BlurView alloc] initWithFrame:Rect(0, 50, 300, 355) withXib:@"MOrderView" action:^{
+    
+        if (![wself.bankArray containsObject:wself.bankPayStyle]) {
+            balanceAction = [[MBalanceAction alloc] init];
+            balanceAction.m_delegate = wself;
+            [balanceAction requestAction];
+            [wself showHUD];
+        }else {
+            submitAction = [[MSubmitOrderAction alloc] init];
+            submitAction.m_delegate = wself;
+            [submitAction requestAction];
+            [wself showHUD];
+        }
+        
+        
+        
+    } orderData:self.data amount:amount payStyle:self.payTypeName];
+    
+    [blur show];
+    
+    
+}
 #pragma mark -- 余额购买 delegate
 -(NSDictionary*)onRequestBalanceAction{
     
@@ -154,7 +177,7 @@
  
     __weak MPurchaseViewController *wself = self;
     [self hideHUDWithCompletionMessage:@"交易成功" finishedHandler:^{
-//        NSString *url = [NSString stringWithFormat:@"http://www.qianxs.com/mrMoney/portal/payOrder/showRecord.html?OrderNo=%@",orderNo];
+ 
 
         [MGo2PageUtility go2MWebBrowser:wself title:@"支付结果" webUrl:KSHOW_RECORD(orderNo)];
     }];
@@ -166,8 +189,8 @@
 
 }
 
-#pragma mark --
-#pragma mark -- 初始化订单购买 delegate
+#pragma mark ------------- 初始化订单购买 delegate  -----------------
+
 -(NSDictionary*)onRequestSubmitOrderAction{
     MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:0];
     
@@ -182,10 +205,10 @@
      
     return dict;
 }
+
 -(void)onResponseSubmitOrderSuccess:(MOrderData *)orderData{
     
     [self hideHUD];
-    
     
     self.orderData              = orderData;
     
@@ -290,7 +313,6 @@
             float value = [[self.editFieldArray safeObjectAtIndex:row] floatValue];
             cell.amountLabel.text =STRING_FORMAT(@"￥%@", formatValue(value));
         }
-//
         
         return cell;
         

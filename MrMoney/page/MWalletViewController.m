@@ -41,8 +41,8 @@
 -(IBAction)onAddAccountAction:(id)sender{
     
     if (self.type == MWalletType) {
-        MAddAccountViewController *addAccount = [[MAddAccountViewController alloc] initWithNibName:@"MAddAccountViewController" bundle:nil];
-        [self.navigationController pushViewController:addAccount animated:YES];
+        [MGo2PageUtility go2AddCountViewController:self pushType:MPushWalletType];
+ 
     }
     else{
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"输入开户行" message:@"" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:KCONFIRM_STR, nil];
@@ -101,10 +101,14 @@
      }else{
         [self createNavBarTitle:@"选择到账账户"];
         [self.bottomButton setTitle:@"下一步" forState:UIControlStateNormal];
-        self.tableView.tableHeaderView = nil;
+
+         [self initRightButtonItem:@"nav_addBtn" title:@"添加账户" completionHandler:^{
+             
+             [MGo2PageUtility go2AddCountViewController:self pushType:MPushWithdrawType];
+         }];
     }
     
-    
+   
     
     if (isUserLogin()) {
         queryAction = [[MQueryAccountAction alloc] init];

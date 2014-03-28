@@ -13,6 +13,8 @@
 #import "MCustomButton.h"
 #import "MUnbindAccountAction.h"
 
+
+
 @interface MWalletViewController : MBaseViewController<MQueryAccountActionDelegate,MPopupViewDelegate,UIGestureRecognizerDelegate,MUnbindAccountActionDelegate,UIAlertViewDelegate>{
     MQueryAccountAction *queryAction;
     MUnbindAccountAction *unbindAction;

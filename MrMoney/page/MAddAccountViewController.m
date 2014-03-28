@@ -166,6 +166,7 @@
          
         MRelateAccountViewController *relate = [[MRelateAccountViewController alloc] initWithNibName:@"MRelateAccountViewController" bundle:nil];
         relate.bank_identifie = [[_bankDict allKeys] objectAtIndex:self.buttonIndex];
+        relate.ptype = self.ptype;
         [self.navigationController pushViewController:relate animated:YES];
        
     }else{

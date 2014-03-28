@@ -45,9 +45,10 @@ extern const NSString* M_URL_useBalanceToBuy;      //钱宝宝支付
 extern const NSString* M_URL_queryProduct;         //首页查询产品
 extern const NSString* M_URL_rechargeOrder;        //充值订单
 extern const NSString* M_URL_signAlipay;           //一键签约余额宝
-extern const NSString* M_URL_qqoauth;               //认证qq
+extern const NSString* M_URL_qqoauth;              //认证qq
 extern const NSString* M_URL_binding;              //绑定qq
-extern const NSString* M_URL_presentedPrincipal;    //分享返还现金
+extern const NSString* M_URL_presentedPrincipal;   //分享返还现金
+extern const NSString* M_URL_addComment;           //发表评论
 
 /**
  *  公用字段

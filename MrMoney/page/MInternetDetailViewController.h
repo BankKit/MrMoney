@@ -19,10 +19,27 @@
 @property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *product_nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expect_earningsLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *currency_typeLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *product_typeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *bank_logo_iv;
 @property (weak, nonatomic) IBOutlet UILabel *invest_cycleLabel;
+
+
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel3;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel4;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel5;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel6;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel7;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel8;
+@property (weak, nonatomic) IBOutlet UILabel *middleLabel9;
+
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel1;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel2;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel3;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel4;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel5;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel6;
+@property (weak, nonatomic) IBOutlet UILabel *bottomLabel7;
 
 
 @end

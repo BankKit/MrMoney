@@ -135,7 +135,7 @@
     
     
     if ([self.sortType isEqualToString:@"week_return_rate"]) {
-        _dayLabel.text             = STRING_FORMAT(@"%.3f", [internet.mweek_return_rate floatValue]);
+        _dayLabel.text             = STRING_FORMAT(@"%.3f", [internet.mincome_10th floatValue]);
  
         _dateLabel.text            = @"万份收益率";
  
