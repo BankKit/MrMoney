@@ -16,7 +16,7 @@
 #import "MRiskAssessmentViewController.h"
 #import "NSDate+Calendar.h"
 #import "MMapViewController.h"
-
+#import "UIViewController+product.h"
 
 @interface MProductDetailViewController ()
 @property(nonatomic,assign)BOOL isSoldout;//下架
@@ -55,9 +55,7 @@
     [super viewDidLoad];
     [self createNavBarTitle:@"产品详情"];
 
-//    [self initRightButtonItem:@"nav_more.png" title:@"更多选项" completionHandler:^{
-//        
-//    }];
+ 
     
     if (self.data.mStar) {
         detailAction = [[MProductDetailAction alloc] init];
@@ -103,7 +101,7 @@
 }
 -(void)addContainerAction{
     
-    
+    self.topContainer = [self  topView:self.data];
     
     _topContainer.frameX     = 10.;
     _topContainer.frameY     = 10.;
@@ -179,43 +177,33 @@
 }
 -(void)setViewData:(MFinanceProductData *)data{
     
-//    NSString *bank_name = nil;
-//    
-//    NSArray *keyArray =    [KTREASURE_DICT allKeys];
-//    
-//    if ([keyArray containsObject:[_data.mbank_id lowercaseString]]) {
-//        bank_name = [KTREASURE_DICT objectForKey:[_data.mbank_id lowercaseString]];
-//    }else{
-//        bank_name            = bankName(_data.mbank_id);
-//    }
-//    
-
-    
-    
-    self.product_nameLabel.text        = strOrEmpty(data.mproduct_name);
-    
-    CGFloat height = [MStringUtility getStringHight:data.mproduct_name font:SYSTEMFONT(16) width:260.];
-    
-    self.product_nameLabel.frameHeight = height + 5.;
-    
-    UIView *contentView                = [_topContainer viewWithTag:1];
-    
-    contentView.frameY                 = self.product_nameLabel.frameY + self.product_nameLabel.frameHeight - 5.;
-    
-    _topContainer.frameHeight          = contentView.frameY + contentView.frameHeight ;
-    
-    
-    self.bank_logo_iv.image            = bankLogoImage(data.mbank_id);
-    
-    self.bank_logo_iv.frameWidth       = [bankLogoImage(_data.mbank_id) size].width/2;
-    
-    self.bankNameLabel.frameX          = self.bank_logo_iv.frameX +  self.bank_logo_iv.frameWidth  + 5;
-    
-    self.bankNameLabel.text            = bankName(_data.mbank_id);
-    
-    self.befromLabel.text             = STRING_FORMAT(@"来自于【%@网上银行】",bankName(_data.mbank_id));
  
-    self.expect_earningsLabel.text     =STRING_FORMAT(@"%.1f%%",[data.mreturn_rate floatValue]/100);
+//    
+//    
+//    self.product_nameLabel.text        = strOrEmpty(data.mproduct_name);
+//    
+//    CGFloat height = [MStringUtility getStringHight:data.mproduct_name font:SYSTEMFONT(16) width:260.];
+//    
+//    self.product_nameLabel.frameHeight = height + 5.;
+//    
+//    UIView *contentView                = [_topContainer viewWithTag:1];
+//    
+//    contentView.frameY                 = self.product_nameLabel.frameY + self.product_nameLabel.frameHeight - 5.;
+//    
+//    _topContainer.frameHeight          = contentView.frameY + contentView.frameHeight ;
+//    
+//    
+//    self.bank_logo_iv.image            = bankLogoImage(data.mbank_id);
+//    
+//    self.bank_logo_iv.frameWidth       = [bankLogoImage(_data.mbank_id) size].width/2;
+//    
+//    self.bankNameLabel.frameX          = self.bank_logo_iv.frameX +  self.bank_logo_iv.frameWidth  + 5;
+//    
+//    self.bankNameLabel.text            = bankName(_data.mbank_id);
+//    
+    self.befromLabel.text             = STRING_FORMAT(@"来自于【%@网上银行】",bankName(_data.mbank_id));
+//
+//    self.expect_earningsLabel.text     =STRING_FORMAT(@"%.1f%%",[data.mreturn_rate floatValue]/100);
     
     if ([_data.minvest_cycle intValue] == -1) {
         self.invest_cycleLabel.text             = @"灵活周期";

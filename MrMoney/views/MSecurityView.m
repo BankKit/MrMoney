@@ -15,12 +15,10 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-       
-//        self =  [MSecurityView loadFromNIB];
+  
         NSArray *nibViews=[[NSBundle mainBundle] loadNibNamed:@"MSecurityView" owner:self options:nil]; //通过这个方法,取得我们的视图
         self = [nibViews objectAtIndex:0];
         self.frame=frame; //设置frame
-        
         [self.layer borderWidth:1. borderColor:KVIEW_BORDER_COLOR cornerRadius:6.];
 
     }

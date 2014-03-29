@@ -27,10 +27,10 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIImageView *bank_logo_iv;
-@property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *product_nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *expect_earningsLabel;
+//@property (weak, nonatomic) IBOutlet UIImageView *bank_logo_iv;
+//@property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *product_nameLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *expect_earningsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currency_typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *product_typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *invest_cycleLabel;

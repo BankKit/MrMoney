@@ -11,6 +11,7 @@
 #import "MRelateAccountViewController.h"
 #import "MSecurityView.h"
 #import "UIViewController+CWPopup.h"
+#import "UIViewController+style.h"
 #define KCOUNT 10
 @interface MAddAccountViewController ()
 @property(nonatomic,strong) NSMutableDictionary *bankDict;
@@ -58,9 +59,9 @@
     [_bankDict removeObjectForKey:@"camc"];
     [_bankDict removeObjectForKey:@"gzcb"];
     
- 
-    MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _nextStepBtn.frameHeight + _nextStepBtn.frameY + 30, 300, 208)];
-    securityView.backgroundColor = [UIColor whiteColor];
+
+    MSecurityView * securityView =  [self securityView:_middleView];
+
     [self.scrollView  addSubview:securityView];
     
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, securityView.frameY + securityView.frameHeight + 5);

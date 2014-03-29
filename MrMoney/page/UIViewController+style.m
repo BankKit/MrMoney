@@ -7,92 +7,18 @@
 //
 
 #import "UIViewController+style.h"
-
+#import "MSecurityView.h"
 @implementation UIViewController (style)
 
-//#pragma mark -
-//#pragma mark manage ToolBar
-//
-//- (void)showToolbar:(BOOL)animated
-//{
-//    CGSize viewSize = self.navigationController.view.frame.size;
-//    CGFloat viewHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? viewSize.height : viewSize.width;
-//    CGFloat toolbarHeight = self.navigationController.toolbar.frame.size.height;
-//    [self setToolbarOriginY:viewHeight - toolbarHeight animated:animated];
-//}
-//
-//- (void)hideToolbar:(BOOL)animated
-//{
-//    CGSize viewSize = self.navigationController.view.frame.size;
-//    CGFloat viewHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? viewSize.height : viewSize.width;
-//    [self setToolbarOriginY:viewHeight animated:animated];
-//}
-//
-//- (void)moveToolbar:(CGFloat)deltaY animated:(BOOL)animated
-//{
-//    CGRect frame = self.navigationController.toolbar.frame;
-//    CGFloat nextY = frame.origin.y + deltaY;
-//    [self setToolbarOriginY:nextY animated:animated];
-//}
-//
-//- (void)setToolbarOriginY:(CGFloat)y animated:(BOOL)animated
-//{
-//    CGRect frame = self.navigationController.toolbar.frame;
-//    CGFloat toolBarHeight = frame.size.height;
-//    CGSize viewSize = self.navigationController.view.frame.size;
-//    CGFloat viewHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? viewSize.height : viewSize.width;
-//    
-//    CGFloat topLimit = viewHeight - toolBarHeight;
-//    CGFloat bottomLimit = viewHeight;
-//    
-//    frame.origin.y = fmin(fmax(y, topLimit), bottomLimit); // limit over moving
-//    
-//    [UIView animateWithDuration:animated ? 0.1 : 0 animations:^{
-//        self.navigationController.toolbar.frame = frame;
-//    }];
-//}
-//
-//#pragma mark -
-//#pragma mark manage TabBar
-//
-//- (void)showTabBar:(BOOL)animated
-//{
-//    CGFloat viewHeight = self.tabBarController.view.frame.size.height;
-//    CGFloat toolbarHeight = self.tabBarController.tabBar.frame.size.height;
-//    [self setToolbarOriginY:viewHeight - toolbarHeight animated:animated];
-//}
-//
-//- (void)hideTabBar:(BOOL)animated
-//{
-//    CGSize viewSize = self.tabBarController.view.frame.size;
-//    CGFloat viewHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? viewSize.height : viewSize.width;
-//    [self setToolbarOriginY:viewHeight animated:animated];
-//}
-//
-//- (void)moveTabBar:(CGFloat)deltaY animated:(BOOL)animated
-//{
-//    CGRect frame =  self.tabBarController.tabBar.frame;
-//    CGFloat nextY = frame.origin.y + deltaY;
-//    [self setToolbarOriginY:nextY animated:animated];
-//}
-//
-//- (void)setTabBarOriginY:(CGFloat)y animated:(BOOL)animated
-//{
-//    CGRect frame = self.tabBarController.tabBar.frame;
-//    CGFloat toolBarHeight = frame.size.height;
-//    CGSize viewSize = self.tabBarController.view.frame.size;
-//    CGFloat viewHeight = UIInterfaceOrientationIsPortrait(self.interfaceOrientation) ? viewSize.height : viewSize.width;
-//    
-//    CGFloat topLimit = viewHeight - toolBarHeight;
-//    CGFloat bottomLimit = viewHeight;
-//    
-//    frame.origin.y = fmin(fmax(y, topLimit), bottomLimit); // limit over moving
-//    
-//    [UIView animateWithDuration:animated ? 0.1 : 0 animations:^{
-//        self.tabBarController.tabBar.frame = frame;
-//    }];
-//}
-//
+-(MSecurityView *)securityView:(UIView *)topView{
+    
+    MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, topView.frameHeight + topView.frameY + 20, 300, 208)];
+    
+    securityView.backgroundColor = [UIColor whiteColor];
+    
+    return securityView;
+    
+}
 
 -(void)hiddenBarView:(UIView *)toolBarView{
     [UIView animateWithDuration:0.2 animations:^{

@@ -7,28 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MSecurityView;
 @interface UIViewController (style)
-
-//- (void)showNavigationBar:(BOOL)animated;
-//- (void)hideNavigationBar:(BOOL)animated;
-//- (void)moveNavigtionBar:(CGFloat)deltaY animated:(BOOL)animated;
-//- (void)setNavigationBarOriginY:(CGFloat)y animated:(BOOL)animated;
-
-//- (void)showToolbar:(BOOL)animated;
-//- (void)hideToolbar:(BOOL)animated;
-//- (void)moveToolbar:(CGFloat)deltaY animated:(BOOL)animated;
-//- (void)setToolbarOriginY:(CGFloat)y animated:(BOOL)animated;
-//
-//- (void)showTabBar:(BOOL)animated;
-//- (void)hideTabBar:(BOOL)animated;
-//- (void)moveTabBar:(CGFloat)deltaY animated:(BOOL)animated;
-//- (void)setTabBarOriginY:(CGFloat)y animated:(BOOL)animated;
-
-
+ 
 -(void)hiddenBarView:(UIView *)toolBarView;
 -(void)showBarView:(UIView *)toolBarView;
 
 -(void)move:(UIView *)toolBarView height:(float)height;
+
+-(MSecurityView *)securityView:(UIView *)topView;
 
 @end

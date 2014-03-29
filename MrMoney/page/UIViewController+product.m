@@ -7,7 +7,14 @@
 //
 
 #import "UIViewController+product.h"
-
+#import "MProductTopView.h"
 @implementation UIViewController (product)
-
+-(UIView *)topView:(MFinanceProductData *)data{
+    MProductTopView *topView = [[[NSBundle mainBundle] loadNibNamed:@"MProductTopView" owner:self options:nil] lastObject];
+    
+    topView.data = data;
+    
+    return topView;
+ 
+}
 @end

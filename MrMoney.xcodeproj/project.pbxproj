@@ -345,6 +345,8 @@
 		CF4ABDB5188FCFC1003CC717 /* night_share_platform_sina.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4ABDB1188FCFC1003CC717 /* night_share_platform_sina.png */; };
 		CF4ABDB6188FCFC1003CC717 /* night_share_platform_wechattimeline.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4ABDB2188FCFC1003CC717 /* night_share_platform_wechattimeline.png */; };
 		CF4ABDB7188FD27A003CC717 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF0A472C184DD2B50011E930 /* MessageUI.framework */; };
+		CF4C303D18E6B696006964FB /* MProductTopView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4C303C18E6B696006964FB /* MProductTopView.m */; };
+		CF4C303F18E6B6B3006964FB /* MProductTopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4C303E18E6B6B3006964FB /* MProductTopView.xib */; };
 		CF4CDAE118B44B5E00034DF2 /* MRiskAssessmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4CDADF18B44B5E00034DF2 /* MRiskAssessmentViewController.m */; };
 		CF4CDAE218B44B5E00034DF2 /* MRiskAssessmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4CDAE018B44B5E00034DF2 /* MRiskAssessmentViewController.xib */; };
 		CF4CDAE518B4571300034DF2 /* MRiskAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4CDAE418B4571300034DF2 /* MRiskAction.m */; };
@@ -1208,6 +1210,9 @@
 		CF4ABDB0188FCFC1003CC717 /* night_share_platform_imessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night_share_platform_imessage.png; sourceTree = "<group>"; };
 		CF4ABDB1188FCFC1003CC717 /* night_share_platform_sina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night_share_platform_sina.png; sourceTree = "<group>"; };
 		CF4ABDB2188FCFC1003CC717 /* night_share_platform_wechattimeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night_share_platform_wechattimeline.png; sourceTree = "<group>"; };
+		CF4C303B18E6B696006964FB /* MProductTopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MProductTopView.h; sourceTree = "<group>"; };
+		CF4C303C18E6B696006964FB /* MProductTopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MProductTopView.m; sourceTree = "<group>"; };
+		CF4C303E18E6B6B3006964FB /* MProductTopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MProductTopView.xib; sourceTree = "<group>"; };
 		CF4CDADE18B44B5E00034DF2 /* MRiskAssessmentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRiskAssessmentViewController.h; sourceTree = "<group>"; };
 		CF4CDADF18B44B5E00034DF2 /* MRiskAssessmentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRiskAssessmentViewController.m; sourceTree = "<group>"; };
 		CF4CDAE018B44B5E00034DF2 /* MRiskAssessmentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MRiskAssessmentViewController.xib; sourceTree = "<group>"; };
@@ -2119,6 +2124,9 @@
 		CF113C51187BE5970060CC1B /* financeProducts */ = {
 			isa = PBXGroup;
 			children = (
+				CF4C303B18E6B696006964FB /* MProductTopView.h */,
+				CF4C303C18E6B696006964FB /* MProductTopView.m */,
+				CF4C303E18E6B6B3006964FB /* MProductTopView.xib */,
 				CF113C52187BE5F60060CC1B /* MProductBriefCell.h */,
 				CF113C53187BE5F60060CC1B /* MProductBriefCell.m */,
 				CF113C55187BE6080060CC1B /* MProductBriefCell.xib */,
@@ -3576,6 +3584,7 @@
 				CF42FF2C1855CCB600C56F81 /* ZHCellTopNormal@2x.png in Resources */,
 				CF1C6A3218557BE900921B58 /* secure_desc1.png in Resources */,
 				CF619E3E18C6CD6600429B45 /* home_experience_normal.png in Resources */,
+				CF4C303F18E6B6B3006964FB /* MProductTopView.xib in Resources */,
 				CF9B38D518DA8E950009FE4D /* logo_yfd.png in Resources */,
 				CF095D9518B8A85700993645 /* filter.plist in Resources */,
 				CF58347F184C728B00D2C276 /* icon_setting_press.png in Resources */,
@@ -3964,6 +3973,7 @@
 				CF221932187D3702000AA9C7 /* MBankCell.m in Sources */,
 				CF260C981858451A005954DE /* MTextFieldCell.m in Sources */,
 				CF6C3E531883D8F600E1135C /* TSCurrencyTextField.m in Sources */,
+				CF4C303D18E6B696006964FB /* MProductTopView.m in Sources */,
 				CF6E1F3418B5F65800298ACD /* MRoundView.m in Sources */,
 				CF0A46F3184DCFB00011E930 /* SDWebImagePrefetcher.m in Sources */,
 				CF6E1F2918B5D00A00298ACD /* MYIntroductionPanel.m in Sources */,

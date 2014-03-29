@@ -17,6 +17,7 @@
 #import <TencentOpenAPI/TencentOAuthObject.h>
 #import <TencentOpenAPI/TencentMessageObject.h>
 #import "MCompleteInfoViewController.h"
+#import "UIViewController+style.h"
 @interface MLoginViewController ()
 @property(nonatomic,copy)NSString *openId;
 @end
@@ -40,8 +41,8 @@
      
     [_registBtn setBackgroundImage:KDEFAULT_GRAY_BTN forState:UIControlStateNormal];
     
-    MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _registBtn.frameHeight + _registBtn.frameY + 75, 300, 208)];
-
+    MSecurityView *securityView = [self securityView:_markLabel];
+  
     [self.scrollView  addSubview:securityView];
     
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, securityView.frameY + securityView.frameHeight + 5);

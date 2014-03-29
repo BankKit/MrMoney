@@ -10,6 +10,7 @@
 #import "MSecurityView.h"
 #import "AppDelegate.h"
 #import "RDVTabBarController.h"
+#import "UIViewController+style.h"
 @interface MCompleteInfoViewController ()
 
 @end
@@ -29,8 +30,9 @@
 {
     [super viewDidLoad];
     [self createNavBarTitle:@"完善信息"];
-    MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _confirmPasswordTf.frameHeight + _confirmPasswordTf.frameY + 100, 300, 208)];
-    
+ 
+   MSecurityView *securityView = [self securityView:_confirmPasswordTf];
+   
     [self.scrollView  addSubview:securityView];
     
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, securityView.frameY + securityView.frameHeight + 5);

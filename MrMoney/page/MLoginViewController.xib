@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MLoginViewController">
             <connections>
+                <outlet property="markLabel" destination="X97-LP-Wuk" id="PRp-a8-wuh"/>
                 <outlet property="passwordTf" destination="CvW-Q7-M5Z" id="pBN-y8-be8"/>
                 <outlet property="registBtn" destination="jyf-ec-Zuo" id="ogh-rn-ZYh"/>
                 <outlet property="scrollView" destination="9T8-6L-3mP" id="WrM-9J-Efo"/>

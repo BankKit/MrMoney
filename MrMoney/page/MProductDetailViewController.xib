@@ -7,22 +7,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MProductDetailViewController">
             <connections>
-                <outlet property="bankNameLabel" destination="u0i-bE-ymv" id="EVx-6t-BQA"/>
-                <outlet property="bank_logo_iv" destination="c1y-py-JzG" id="n3F-CR-8zv"/>
                 <outlet property="bottomBtn" destination="EXx-Sh-wev" id="iqt-BU-gOP"/>
                 <outlet property="commentContainer" destination="zyc-lE-Qv7" id="C3t-9G-B7P"/>
                 <outlet property="currency_typeLabel" destination="VG5-HL-Wu1" id="BuT-uB-tLN"/>
-                <outlet property="expect_earningsLabel" destination="iV2-X3-h53" id="XSU-bG-lSc"/>
                 <outlet property="has_guaranteeLabel" destination="j2Q-j0-0mX" id="Ufu-fN-jEA"/>
-                <outlet property="invest_cycleLabel" destination="QdT-PK-uol" id="VpD-3Y-KB1"/>
                 <outlet property="middleContainer" destination="7aP-Bb-wLY" id="SeI-cI-vhA"/>
                 <outlet property="product_codeLabel" destination="a3P-ex-tOV" id="Sl8-wM-AVv"/>
-                <outlet property="product_nameLabel" destination="6Sh-Ye-gXo" id="Fli-YM-Lpg"/>
                 <outlet property="product_typeLabel" destination="75a-cT-jqQ" id="zpW-SM-y5E"/>
                 <outlet property="sales_regionLabel" destination="QdD-Sh-w2G" id="ePO-zn-hrU"/>
                 <outlet property="scrollView" destination="9Yd-4r-xr8" id="C48-w7-hPW"/>
                 <outlet property="tableView" destination="rG9-n9-r4Y" id="jji-pS-MJM"/>
-                <outlet property="topContainer" destination="E2G-G5-tw5" id="o1e-Mj-inb"/>
                 <outlet property="value_dateLabel" destination="d1q-ac-Vfr" id="2Lo-HB-dym"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -59,81 +53,6 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-        </view>
-        <view contentMode="scaleToFill" id="E2G-G5-tw5" customClass="MBorderView">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="156"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <subviews>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="6Sh-Ye-gXo">
-                    <rect key="frame" x="20" y="6" width="260" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view tag="1" contentMode="scaleToFill" id="9MH-uJ-gic">
-                    <rect key="frame" x="0.0" y="35" width="300" height="106"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_bob.png" id="c1y-py-JzG">
-                            <rect key="frame" x="112" y="10" width="12" height="12"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="平安银行" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="u0i-bE-ymv">
-                            <rect key="frame" x="129" y="7" width="88" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="投资期限" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bf5-pB-Bbd">
-                            <rect key="frame" x="180" y="58" width="70" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="预期收益率" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pR2-o1-W3a">
-                            <rect key="frame" x="38" y="58" width="85" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5.8%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iV2-X3-h53">
-                            <rect key="frame" x="37" y="36" width="87" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.83921575546264648" green="0.16078431904315948" blue="0.19607844948768616" alpha="1" colorSpace="deviceRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20天" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QdT-PK-uol">
-                            <rect key="frame" x="171" y="36" width="88" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.83921575550000005" green="0.16078431900000001" blue="0.1960784495" alpha="1" colorSpace="deviceRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" id="M60-YS-HaY" customClass="MLineView">
-                            <rect key="frame" x="10" y="29" width="280" height="1"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        </view>
-                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="一元起 跨行购" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ewi-u3-heH">
-                            <rect key="frame" x="194" y="81" width="92" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="product_credit_yuan.png" id="sWj-Oc-Gfm">
-                            <rect key="frame" x="176" y="86" width="12" height="12"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        </imageView>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
-            </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
         </view>
         <view contentMode="scaleToFill" id="7aP-Bb-wLY" customClass="MBorderView">
             <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
@@ -263,7 +182,5 @@
     </objects>
     <resources>
         <image name="home_line_ horizontal.png" width="215" height="1"/>
-        <image name="logo_bob.png" width="24" height="24"/>
-        <image name="product_credit_yuan.png" width="24" height="24"/>
     </resources>
 </document>

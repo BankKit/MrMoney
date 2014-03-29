@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MFinanceProductData;
 @interface UIViewController (product)
+
+-(UIView *)topView:(MFinanceProductData *)data;
 
 @end

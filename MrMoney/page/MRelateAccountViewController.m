@@ -13,6 +13,7 @@
 #import "MWalletViewController.h"
 #import "MSecurityView.h"
 #import "MUserData.h"
+#import "UIViewController+style.h"
 #ifndef TEXTFIELDTAG
 #define TEXTFIELDTAG 2000
 #endif
@@ -87,8 +88,9 @@
         
         [self.scrollView addSubview:_mainView];
     }
-     
-    MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _contentView.frameHeight + _contentView.frameY + 20, 300, 208)];
+    
+    MSecurityView *securityView = [self securityView:_contentView];
+ 
     securityView.backgroundColor = [UIColor whiteColor];
     [self.scrollView  addSubview:securityView];
     

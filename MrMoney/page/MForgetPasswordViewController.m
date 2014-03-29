@@ -10,7 +10,7 @@
 #import "MSecurityView.h"
 #import "RDVTabBarController.h"
 #import "AppDelegate.h"
-
+#import "UIViewController+style.h"
 #define kTimeInterval 60
 
 
@@ -90,10 +90,10 @@
     
     [_topView.layer borderWidth:1. borderColor:KVIEW_BORDER_COLOR cornerRadius:6.];
     
-    
-    MSecurityView *securityView = [[MSecurityView alloc] initWithFrame:Rect(10, _topView.frameHeight + _topView.frameY + 20, 300, 208)];
+    MSecurityView *securityView = [self securityView:_topView];
     
     [self.scrollView  addSubview:securityView];
+    
     
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, securityView.frameY + securityView.frameHeight + 5);
     
