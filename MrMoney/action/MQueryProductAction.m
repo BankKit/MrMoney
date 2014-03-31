@@ -52,7 +52,7 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"首页产品查询 -----  %@",l_dict_response);
+    DLog(@"首页产品查询 -----  %@",l_dict_response);
 
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {

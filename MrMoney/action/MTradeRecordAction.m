@@ -51,10 +51,7 @@
     NSString *l_str_response=[request responseString];
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
-    
-    NSLog(@"交易明细-----  %@",l_dict_response);
-
-    
+ 
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         NSMutableArray *l_array_response = [NSMutableArray arrayWithCapacity:0];
         

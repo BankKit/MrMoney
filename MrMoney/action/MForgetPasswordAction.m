@@ -51,7 +51,7 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@" 重置密码 -----  %@",l_dict_response);
+    DLog(@" 重置密码 -----  %@",l_dict_response);
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         

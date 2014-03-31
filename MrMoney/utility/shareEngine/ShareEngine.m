@@ -162,17 +162,17 @@ static ShareEngine *sharedSingleton_ = nil;
 #pragma mark - weibo respon
 - (void)loginSuccess:(WeiboType)weibotype
 {
-    if (nil != self.delegate && [self.delegate respondsToSelector:@selector(shareEngineDidLogIn:)])
+    if (nil != self.delegate && [self.delegate respondsToSelector:@selector(shareEngineDiNSLogIn:)])
     {
-        [self.delegate shareEngineDidLogIn:weibotype];
+        [self.delegate shareEngineDiNSLogIn:weibotype];
     }
 }
 
 - (void)logOutSuccess:(WeiboType)weibotype
 {
-    if (nil != self.delegate && [self.delegate respondsToSelector:@selector(shareEngineDidLogOut:)])
+    if (nil != self.delegate && [self.delegate respondsToSelector:@selector(shareEngineDiNSLogOut:)])
     {
-        [self.delegate shareEngineDidLogOut:weibotype];
+        [self.delegate shareEngineDiNSLogOut:weibotype];
     }
 }
 

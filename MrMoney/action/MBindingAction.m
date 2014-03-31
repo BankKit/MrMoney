@@ -52,7 +52,7 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"一 qq绑定 --2035296092---  %@",l_dict_response);
+    DLog(@"一 qq绑定 --2035296092---  %@",l_dict_response);
     
     NSLog(@"-------------------------------%@ \n\n",[l_dict_response objectForKey:@"message"]);
     

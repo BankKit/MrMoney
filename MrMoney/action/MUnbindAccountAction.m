@@ -51,7 +51,7 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"解除绑定 -----  %@",l_dict_response);
+    DLog(@"解除绑定 -----  %@",l_dict_response);
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         

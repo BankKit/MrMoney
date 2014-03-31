@@ -53,7 +53,7 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"一 百度地图 -----  %@",l_dict_response);
+    DLog(@"一 百度地图 -----  %@",l_dict_response);
     
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {

@@ -93,7 +93,7 @@
 }
 #pragma mark --- ---
 #pragma mark --- qq登录回调 ---
-- (void)tencentDidLogin {
+- (void)tencentDiNSLogin {
 	// 登录成功
     
     

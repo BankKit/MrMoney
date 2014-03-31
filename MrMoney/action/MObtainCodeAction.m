@@ -49,7 +49,7 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"=======获取短信验证码=== %@",l_dict_response);
+    DLog(@"=======获取短信验证码=== %@",l_dict_response);
     
     
     if ([[l_dict_response objectForKey:@"result"] intValue]== 1) {

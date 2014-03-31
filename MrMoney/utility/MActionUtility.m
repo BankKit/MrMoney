@@ -289,7 +289,7 @@ static UIAlertView *_alertView = nil;
 //            [l_str appendFormat:@"|%@",l_data_product.mdetailCode];
 //        }
 //    }
-//    DLog(@"商品规格字符串----%@", l_str);
+//    NSLog(@"商品规格字符串----%@", l_str);
 //    return l_str;
 //}
 //

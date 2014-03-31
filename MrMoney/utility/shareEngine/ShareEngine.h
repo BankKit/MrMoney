@@ -54,13 +54,13 @@
  *@description 发送微博成功
  *@param weibotype:微博类型
  */
-- (void)shareEngineDidLogIn:(WeiboType)weibotype;
+- (void)shareEngineDiNSLogIn:(WeiboType)weibotype;
 
 /**
  *@description 发送微博成功
  *@param weibotype:微博类型
  */
-- (void)shareEngineDidLogOut:(WeiboType)weibotype;
+- (void)shareEngineDiNSLogOut:(WeiboType)weibotype;
 
 /**
  *@description 发送微博成功

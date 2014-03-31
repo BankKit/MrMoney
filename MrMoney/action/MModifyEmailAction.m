@@ -51,8 +51,8 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@" 邮箱修改 -----  %@",l_dict_response);
-    NSLog(@" 邮箱修改 -----  %@",[l_dict_response objectForKey:@"message"]);
+    DLog(@" 邮箱修改 -----  %@",l_dict_response);
+    DLog(@" 邮箱修改 -----  %@",[l_dict_response objectForKey:@"message"]);
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         

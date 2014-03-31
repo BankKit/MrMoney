@@ -52,9 +52,9 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"--地址模糊查询--  %@",l_dict_response);
+    DLog(@"--地址模糊查询--  %@",l_dict_response);
     
-    NSLog(@"-------------------------------%@ \n\n",[l_dict_response objectForKey:@"message"]);
+    DLog(@"-------------------------------%@ \n\n",[l_dict_response objectForKey:@"message"]);
     
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {

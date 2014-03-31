@@ -51,9 +51,9 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"提现申请 -----  %@",l_dict_response);
+    DLog(@"提现申请 -----  %@",l_dict_response);
     
-     NSLog(@"message -----  %@", [l_dict_response objectForKey:@"message"]);
+     DLog(@"message -----  %@", [l_dict_response objectForKey:@"message"]);
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         

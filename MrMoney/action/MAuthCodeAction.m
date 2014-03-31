@@ -64,14 +64,13 @@
   
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
-//        NSLog(@"获取验证码------------ %@",l_dict_response);
+         DLog(@"获取验证码------------ %@",l_dict_response);
         MAuthCodeData *code = [[MAuthCodeData alloc] init];
         code.mviewId = m_dictionaryValueToString([l_dict_response objectForKey:@"viewId"]);
         code.maccessId =m_dictionaryValueToString([l_dict_response objectForKey:@"accessId"]);
         NSData *imgData = [GTMBase64 decodeString:[l_dict_response objectForKey:@"img"]];
         
-//        NSLog(@"imgData ------------ %@", [UIImage imageWithData:imgData]);
-
+ 
          code.mimg =  [UIImage imageWithData:imgData];
         
         

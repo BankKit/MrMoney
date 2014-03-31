@@ -169,16 +169,11 @@
 
 #define KLIGHTRED [UIColor colorWithRed:0.96 green:0.45 blue:0.45 alpha:1.00]
 #define KLIGHTBLUE [UIColor colorWithRed:0.56 green:0.76 blue:0.76 alpha:1.00]
-
-
-
-
-
-
+ 
 
 #ifndef DLog
 #if DEBUG
-#define DLog( s, ... ) NSLog( @"\n\n-----------------------\n\t<%p %@:(%d)>\n\n\t%@\n----------------------\n\n", self, \
+#define DLog( s, ... ) NSLog( @"\n\n************************************* DEBUG *************************************\n\t<%p %@:(%d)>\n\n\t%@\n*********************************************************************************\n\n", self, \
 [[NSString stringWithUTF8String:__FUNCTION__] lastPathComponent], __LINE__, \
 [NSString stringWithFormat:(s), ##__VA_ARGS__] )
 #else

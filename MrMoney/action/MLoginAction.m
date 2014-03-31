@@ -50,7 +50,7 @@
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
     
-    NSLog(@"returnMsg---- 登录返回 %@",l_dict_response);
+    DLog(@"returnMsg---- 登录返回 %@",l_dict_response);
     
     
 	if (l_dict_response != nil) {

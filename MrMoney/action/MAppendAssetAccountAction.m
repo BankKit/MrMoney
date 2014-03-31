@@ -51,7 +51,7 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"银行信息到本地 -----  %@",l_dict_response);
+    DLog(@"银行信息到本地 -----  %@",l_dict_response);
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         

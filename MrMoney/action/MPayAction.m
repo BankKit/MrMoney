@@ -81,8 +81,8 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"支付-----  %@",l_str_response);
-    //    NSLog(@"支付-----  %@",        [l_dict_response objectForKey:@"message"]);
+    DLog(@"支付-----  %@",l_str_response);
+    //    DLog(@"支付-----  %@",        [l_dict_response objectForKey:@"message"]);
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         

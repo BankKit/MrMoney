@@ -51,9 +51,8 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    NSLog(@"我的投资记录 %@",l_dict_response);
-
-    NSLog(@"message -----------  %@", [l_dict_response objectForKey:@"message"]);
+    DLog(@"我的投资记录 %@",l_dict_response);
+ 
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         NSMutableArray *l_array_response = [NSMutableArray array];
 

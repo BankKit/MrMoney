@@ -111,7 +111,7 @@
 //    
 //    </update>
     
-   NSLog(@"版本更新 -----  %@",l_str_response);
+   DLog(@"版本更新 -----  %@",l_str_response);
 
 
     GDataXMLDocument *xmlDoc = [[GDataXMLDocument alloc] initWithXMLString:l_str_response options:0 error:nil];

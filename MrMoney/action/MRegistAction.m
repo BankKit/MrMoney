@@ -48,7 +48,6 @@
 -(void)onRequestUserRegisterFinishResponse:(ASIHTTPRequest*)request{
     NSString *str_response=[request responseString];
     
-    NSLog(@"l_str_response-------- %@",str_response);
     
     NSDictionary *l_dict_response = [str_response objectFromJSONString];
     
