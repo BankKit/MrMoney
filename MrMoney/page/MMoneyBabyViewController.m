@@ -103,9 +103,9 @@
     _todayInvestLabel.text = formatValue([money.mcurrentInvestMoney floatValue]/100);
     _sumIncomeMoneyLabel.text = formatValue([money.msumIncomeMoney floatValue]/100);
     
-    _rate7Label.text = STRING_FORMAT(@"%@%%",money.mReal7Int);
-    _balanceTreasureLabel.text = formatValue([money.mcyclBal floatValue]/100);
-    _unusedMoneyLabel.text = formatValue([money.mdrawMoney floatValue]/100);
+    _rate7Label.text = STRING_FORMAT(@"%@%%",strOrEmpty(money.mReal7Int));
+    _balanceTreasureLabel.text = formatValue([strOrEmpty(money.mcyclBal) floatValue]/100);
+    _unusedMoneyLabel.text = formatValue([strOrEmpty(money.mdrawMoney) floatValue]/100);
     
     
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];

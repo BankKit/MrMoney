@@ -59,6 +59,9 @@
     [_bankDict removeObjectForKey:@"camc"];
     [_bankDict removeObjectForKey:@"gzcb"];
     
+    if (self.ptype == MPushWithdrawType) {
+        [_bankDict removeObjectForKey:@"alipay"];
+    }
 
     MSecurityView * securityView =  [self securityView:_middleView];
 

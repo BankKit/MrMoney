@@ -11,10 +11,12 @@
 #import "MRelateAccountAction.h"
 #import "MAuthCodeAction.h"
 #import "MAppendAssetAccountAction.h"
-@interface MRelateAccountViewController : MBaseViewController<MRelateAccountActionDelegate,UITextFieldDelegate,MAuthCodeActionDelegate,UIAlertViewDelegate,MAppendAssetAccountActionDelegate>{
+#import "MFuzzyQueryAction.h"
+@interface MRelateAccountViewController : MBaseViewController<MRelateAccountActionDelegate,UITextFieldDelegate,MAuthCodeActionDelegate,UIAlertViewDelegate,MAppendAssetAccountActionDelegate,MFuzzyQueryActionDelegate>{
     MAuthCodeAction *getCodeAction;
     MRelateAccountAction *relateAction;
     MAppendAssetAccountAction *appendAccountAction;
+    MFuzzyQueryAction *fuzzyAction;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -38,7 +40,9 @@
 @property (nonatomic,weak) IBOutlet UITextField *cardNoTf;
 @property (nonatomic,weak) IBOutlet UITextField *cardNameTf;
 @property (nonatomic,weak) IBOutlet UITextField *cardAddressTf;
+@property (nonatomic,strong) NSString *fuzzyAddress;
 @property(nonatomic,assign)MPushType ptype;
 
 -(IBAction)onSubmitAction:(id)sender;
+-(IBAction)onFuzzyQueryAction:(id)sender;
 @end

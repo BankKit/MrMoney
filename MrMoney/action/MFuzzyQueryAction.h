@@ -11,7 +11,7 @@
 @protocol MFuzzyQueryActionDelegate
 
 -(NSDictionary*)onRequestFuzzyQueryAction;
--(void)onResponseFuzzyQueryActionSuccess;
+-(void)onResponseFuzzyQueryActionSuccess:(NSArray *)bankArray;
 -(void)onResponseFuzzyQueryActionFail;
 
 @end

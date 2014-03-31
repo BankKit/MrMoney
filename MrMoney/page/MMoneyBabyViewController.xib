@@ -218,7 +218,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" 0.0%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Toj-5M-cr6">
-                                            <rect key="frame" x="60" y="60" width="64" height="21"/>
+                                            <rect key="frame" x="60" y="60" width="101" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" red="0.98039221759999995" green="0.36470589040000001" blue="0.392156899" alpha="1" colorSpace="deviceRGB"/>

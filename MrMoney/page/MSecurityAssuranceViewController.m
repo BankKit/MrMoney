@@ -29,8 +29,7 @@
     [self createNavBarTitle:@"安全保证"];
   
     self.scrollView.contentSize = CGSizeMake(320, self.bottomView.frameY + self.bottomView.frameHeight);
-  
-    
+   
      
     if (IsIOS7) {
         _topView.frameHeight = 180.;

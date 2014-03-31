@@ -32,13 +32,12 @@
     
     
     m_request  = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_fuzzyQuery
-                                             getParams:l_dict_request
+                                             postParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)
                                         onFailedAction:@selector(onRequestFailResponse:)];
     
-    
-    [m_request  startAsynchronous];
+    [m_request startAsynchronous];
 }
 
 /**
@@ -54,15 +53,14 @@
     
     DLog(@"--地址模糊查询--  %@",l_dict_response);
     
-    DLog(@"-------------------------------%@ \n\n",[l_dict_response objectForKey:@"message"]);
-    
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         
+        NSArray *array = [l_dict_response objectForKey:@"bank"];
         
-        if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseFuzzyQueryActionSuccess)]) {
+        if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseFuzzyQueryActionSuccess:)]) {
             
-            [m_delegate onResponseFuzzyQueryActionSuccess];
+            [m_delegate onResponseFuzzyQueryActionSuccess:array];
         }
         
         

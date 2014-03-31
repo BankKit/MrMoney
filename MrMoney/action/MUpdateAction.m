@@ -59,7 +59,7 @@
         alert.tag = 100;
         [alert show];
         
-    }else if([minVersion intValue] < [@"305" intValue]){
+    }else if( [newVersion intValue] < [minVersion intValue]){
         
         [MActionUtility showAlert:@"更新提示" message:log delegate:self cancelButtonTitle:@"更新" otherButtonTitles:nil];
     }

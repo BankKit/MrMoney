@@ -177,6 +177,9 @@
 		CF15FDED18E03B1A00B31D01 /* MAccountInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15FDEC18E03B1A00B31D01 /* MAccountInfoViewController.xib */; };
 		CF15FDEF18E041F500B31D01 /* MInvestRecordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF15FDEE18E041F500B31D01 /* MInvestRecordViewController.xib */; };
 		CF17C8FB18E953D100509A22 /* MFuzzyQueryAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF17C8FA18E953D100509A22 /* MFuzzyQueryAction.m */; };
+		CF17C8FE18E9616100509A22 /* UIViewController+MaryPopin.m in Sources */ = {isa = PBXBuildFile; fileRef = CF17C8FD18E9616100509A22 /* UIViewController+MaryPopin.m */; };
+		CF17C90218E9619F00509A22 /* MAddressListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF17C90018E9619F00509A22 /* MAddressListViewController.m */; };
+		CF17C90318E9619F00509A22 /* MAddressListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF17C90118E9619F00509A22 /* MAddressListViewController.xib */; };
 		CF1C69D118555EC600921B58 /* MLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF1C69CF18555EC600921B58 /* MLoginViewController.m */; };
 		CF1C69D218555EC600921B58 /* MLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF1C69D018555EC600921B58 /* MLoginViewController.xib */; };
 		CF1C69D91855645100921B58 /* btn_black_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = CF1C69D31855645100921B58 /* btn_black_normal.png */; };
@@ -977,6 +980,11 @@
 		CF15FDEE18E041F500B31D01 /* MInvestRecordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MInvestRecordViewController.xib; sourceTree = "<group>"; };
 		CF17C8F918E953D100509A22 /* MFuzzyQueryAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFuzzyQueryAction.h; sourceTree = "<group>"; };
 		CF17C8FA18E953D100509A22 /* MFuzzyQueryAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFuzzyQueryAction.m; sourceTree = "<group>"; };
+		CF17C8FC18E9616100509A22 /* UIViewController+MaryPopin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MaryPopin.h"; sourceTree = "<group>"; };
+		CF17C8FD18E9616100509A22 /* UIViewController+MaryPopin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MaryPopin.m"; sourceTree = "<group>"; };
+		CF17C8FF18E9619F00509A22 /* MAddressListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAddressListViewController.h; sourceTree = "<group>"; };
+		CF17C90018E9619F00509A22 /* MAddressListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAddressListViewController.m; sourceTree = "<group>"; };
+		CF17C90118E9619F00509A22 /* MAddressListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MAddressListViewController.xib; sourceTree = "<group>"; };
 		CF1C69CE18555EC600921B58 /* MLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLoginViewController.h; sourceTree = "<group>"; };
 		CF1C69CF18555EC600921B58 /* MLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLoginViewController.m; sourceTree = "<group>"; };
 		CF1C69D018555EC600921B58 /* MLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLoginViewController.xib; sourceTree = "<group>"; };
@@ -2543,6 +2551,9 @@
 				CF7AD91B18C0927F00DD8D09 /* MWithdrawViewController.h */,
 				CF7AD91C18C0927F00DD8D09 /* MWithdrawViewController.m */,
 				CF7AD91D18C0927F00DD8D09 /* MWithdrawViewController.xib */,
+				CF17C8FF18E9619F00509A22 /* MAddressListViewController.h */,
+				CF17C90018E9619F00509A22 /* MAddressListViewController.m */,
+				CF17C90118E9619F00509A22 /* MAddressListViewController.xib */,
 			);
 			name = wallet;
 			sourceTree = "<group>";
@@ -2888,6 +2899,8 @@
 				CFD409BF18C460B20058E33E /* MLockViewController.xib */,
 				CF7093E218E160DC00BD3A22 /* UIViewController+style.h */,
 				CF7093E318E160DC00BD3A22 /* UIViewController+style.m */,
+				CF17C8FC18E9616100509A22 /* UIViewController+MaryPopin.h */,
+				CF17C8FD18E9616100509A22 /* UIViewController+MaryPopin.m */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -3510,6 +3523,7 @@
 				CF1C6A2F18556F6400921B58 /* btn_uncheck.png in Resources */,
 				CFFDE47D184F210000F7C2AE /* MFinanceProductsCell.xib in Resources */,
 				CF747A48189514920075BB7D /* ZHCellBottomHighlight.png in Resources */,
+				CF17C90318E9619F00509A22 /* MAddressListViewController.xib in Resources */,
 				CF0A474E184DE5260011E930 /* setup_share@2x.png in Resources */,
 				CF955897187EC3DF00DD9854 /* btn_segment_normal2@2x.png in Resources */,
 				CF95589A187EC3DF00DD9854 /* btn_segment_selected1@2x.png in Resources */,
@@ -3968,6 +3982,7 @@
 				CF27B16B1894B00B005BD44D /* script.js in Sources */,
 				CF42FEE21855AAD400C56F81 /* MUserData.m in Sources */,
 				CF7B389A18892B6200B8B4BC /* MStatusUtility.m in Sources */,
+				CF17C8FE18E9616100509A22 /* UIViewController+MaryPopin.m in Sources */,
 				CF50EEB8188010E900E9E8E4 /* MUtility.m in Sources */,
 				CF50EEA3187FD2F800E9E8E4 /* MTradeData.m in Sources */,
 				CF4CDAE118B44B5E00034DF2 /* MRiskAssessmentViewController.m in Sources */,
@@ -4037,6 +4052,7 @@
 				CF0A46F2184DCFB00011E930 /* SDWebImageManager.m in Sources */,
 				CF8A3806188D254A00AB63D8 /* MCustomButton.m in Sources */,
 				CF7AD91E18C0927F00DD8D09 /* MWithdrawViewController.m in Sources */,
+				CF17C90218E9619F00509A22 /* MAddressListViewController.m in Sources */,
 				CF6C3E4D1883CC4800E1135C /* MMoneyBabyData.m in Sources */,
 				CF6E1F3718B6065200298ACD /* MAppendAssetAccountAction.m in Sources */,
 				CFF9A39618E50EBC00B507A1 /* MOrderView.m in Sources */,
@@ -4336,7 +4352,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0AE50B71-9F13-403C-8C46-6FC5EFD6D761";
+				PROVISIONING_PROFILE = "CF026F75-59E0-4270-855B-F3377BC5A266";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4370,7 +4386,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0AE50B71-9F13-403C-8C46-6FC5EFD6D761";
+				PROVISIONING_PROFILE = "CF026F75-59E0-4270-855B-F3377BC5A266";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

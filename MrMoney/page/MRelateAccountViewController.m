@@ -13,7 +13,9 @@
 #import "MWalletViewController.h"
 #import "MSecurityView.h"
 #import "MUserData.h"
+#import "MAddressListViewController.h"
 #import "UIViewController+style.h"
+#import "UIViewController+MaryPopin.h"
 #ifndef TEXTFIELDTAG
 #define TEXTFIELDTAG 2000
 #endif
@@ -197,6 +199,21 @@
         [relateAction requestAction];
         [self showHUD];
     }else{
+        
+        if ([_cardNoTf.text length] == 0) {
+            [MActionUtility showAlert:@"卡号不能为空"];
+            return;
+        }
+        if ([_cardNameTf.text length] == 0) {
+            [MActionUtility showAlert:@"户名不能为空"];
+            return;
+        }
+        if ([_cardAddressTf.text length] == 0) {
+            [MActionUtility showAlert:@"开户行不能为空"];
+            return;
+        }
+
+        
         appendAccountAction = [[MAppendAssetAccountAction alloc] init];
         
         appendAccountAction.m_delegate = self;
@@ -251,8 +268,7 @@
     imageView.image = [UIImage imageNamed:@"btn_refresh_code"];
     [MActionUtility showAlert:@"请求超时"];
 }
-
-
+ 
 
 #pragma mark ------------- 关联银行账户信息到本地 -----------------
 
@@ -312,15 +328,74 @@
         
     }
 }
--(void)dealloc{
-    getCodeAction.m_delegate = nil;
-    relateAction.m_delegate = nil;
-    appendAccountAction.m_delegate = nil;
+-(IBAction)onFuzzyQueryAction:(id)sender{
+    [_cardAddressTf resignFirstResponder];
+    [_cardNameTf resignFirstResponder];
+    [_cardNoTf resignFirstResponder];
+    
+    if ([_cardNoTf.text length] == 0) {
+        [MActionUtility showAlert:@"卡号不能为空"];
+        return;
+    }
+    if ([_cardNameTf.text length] == 0) {
+        [MActionUtility showAlert:@"户名不能为空"];
+        return;
+    }
+    if ([_cardAddressTf.text length] == 0) {
+        [MActionUtility showAlert:@"开户行不能为空"];
+        return;
+    }
+    
+    self.fuzzyAddress = _cardAddressTf.text;
+    
+    fuzzyAction = [[MFuzzyQueryAction alloc] init];
+    fuzzyAction.m_delegate = self;
+    [fuzzyAction requestAction];
 }
+
+-(NSDictionary*)onRequestFuzzyQueryAction{
+    MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:2];
+    [dict setSafeObject:self.bank_identifie forKey:@"bankId"];
+    [dict setSafeObject:self.fuzzyAddress forKey:@"keyWord"];
+    return dict;
+}
+
+-(void)onResponseFuzzyQueryActionSuccess:(NSArray *)bankArray{
+    if ([bankArray count] == 0) {
+        [MActionUtility showAlert:@"没有相匹配的地址"];
+        return;
+    }
+    MAddressListViewController *popin = [[MAddressListViewController alloc] init];
+    [popin setPopinTransitionStyle:BKTPopinTransitionStyleSlide];
+    [popin setPopinOptions:BKTPopinDefault];
+ 
+    [popin setPopinTransitionDirection:BKTPopinTransitionDirectionTop];
+    popin.bankArray = bankArray;
+    
+    [self.navigationController presentPopinController:popin animated:YES completion:^{
+        
+    }];
+    
+    popin.completionBlock = ^(NSString *addressName){
+        _cardAddressTf.text = addressName;
+        self.fuzzyAddress = addressName;
+      NSLog(@"-------------------addressName------------%@ \n\n",addressName);
+    };
+
+}
+-(void)onResponseFuzzyQueryActionFail{
+    
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+-(void)dealloc{
+    getCodeAction.m_delegate = nil;
+    relateAction.m_delegate = nil;
+    appendAccountAction.m_delegate = nil;
+    fuzzyAction.m_delegate = nil;
+}
 @end

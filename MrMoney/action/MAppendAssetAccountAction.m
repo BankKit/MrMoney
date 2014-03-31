@@ -63,8 +63,12 @@
             }
             
         }else{
-            [MActionUtility showAlert:[l_dict_response objectForKey:@"message"]];
-            return;
+            if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseAppendAssetAccountFail)]) {
+                [m_delegate onResponseAppendAssetAccountFail];
+            }
+            
+//            [MActionUtility showAlert:[l_dict_response objectForKey:@"message"]];
+//            return;
         }
         
         
