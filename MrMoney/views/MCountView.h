@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class TTTAttributedLabel;
+@class MLabel;
 
 @interface MCountView : UIView
 @property (nonatomic, strong) NSTimer *animationTimer;
@@ -21,7 +21,7 @@
 
 @property (nonatomic,assign) BOOL flag;
 
-@property (nonatomic,strong)TTTAttributedLabel *balanceLabel;
+@property (nonatomic,strong)MLabel *balanceLabel;
 
 - (id)initWithFrame:(CGRect)frame
             balance:(double )balance

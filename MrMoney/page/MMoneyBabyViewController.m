@@ -75,19 +75,24 @@
 
 -(void)setBalanceLabelValue{
   
-    MCountView *countView = [[MCountView alloc] initWithFrame:CGRectMake(12, 57, 303, 40) balance:_total todayIncome:_todayIncome type:MMoneyBabyType];
+    MCountView *countView = [[MCountView alloc] initWithFrame:CGRectMake(12, 45, 303, 40) balance:_total todayIncome:_todayIncome type:MMoneyBabyType];
     [self.topView addSubview:countView];
  
 }
 -(void)initViewData:(MMoneyBabyData *)money{
-    float currentIncome   = [money.mcurrentIncomeMoney floatValue]/100;
-    float currentInvest   = [money.mcurrentInvestMoney  floatValue]/100;
-    float blance          = [money.mbalance   floatValue]/100;
-    float officialBalance = [money.mofficialBalance   floatValue]/100;
-    float loadMoney       = [money.mloadMoney floatValue]/100;
+    if ([money.mfCyclBal intValue] == 1) {
+        _cyclBalBtn.hidden = YES;
+    }
+//    float currentIncome   = [money.mcurrentIncomeMoney floatValue]/100;
+//    float currentInvest   = [money.mcurrentInvestMoney floatValue]/100;
+//    float blance          = [money.mbalance     floatValue]/100;
+//    float officialBalance = [money.mofficialBalance   floatValue]/100;
+    _total       = [money.mQbbAssets   floatValue]/100;
     _todayIncome          = [money.mtodayIncome floatValue]/100;
-    _total   = currentIncome + currentInvest + blance + officialBalance + loadMoney;
     
+    
+    _principalMoneyLabel.text = formatValue([money.mpresentMoney floatValue]/100);
+ 
 
     [self setBalanceLabelValue];
     

@@ -552,7 +552,7 @@
         _currentNum = 0;
     }
 
-    MStarData *star            = [self.starArray objectAtIndex:_currentNum];
+    MStarData *star            = [self.starArray safeObjectAtIndex:_currentNum];
     
      MFinanceProductData *l_data = [[MFinanceProductData alloc] init];
     l_data.mpid = star.mstar_pid;
@@ -591,16 +591,16 @@
     [self.activityView stopAnimating];
     
     self.moneyData = money;
-         
-    float currentIncome   = [money.mcurrentIncomeMoney floatValue]/100;
-    float currentInvest   = [money.mcurrentInvestMoney  floatValue]/100;
+  
     _canInvestMoney =  [money.mcanInvestMoney floatValue]/100;
-    float blance          = [money.mbalance   floatValue]/100;
-    float officialBalance = [money.mofficialBalance   floatValue]/100;
-    float loadMoney       = [money.mloadMoney floatValue]/100;
-    _todayIncome          = [money.mtodayIncome floatValue]/100;
+ 
+    float qbbAssets    = [money.mQbbAssets   floatValue]/100;
+    float presentMoney = [money.mpresentMoney floatValue]/100;
+    _todayIncome       = [money.mtodayIncome floatValue]/100;
     
-    _total   = currentIncome + currentInvest + blance + officialBalance + loadMoney;
+    _total   = presentMoney + qbbAssets;
+    
+    NSLog(@"--------------------------_total-----%f \n\n",_total);
     
     [self setBalanceLabelValue];
     
@@ -729,7 +729,7 @@
     }
 
     
-    MCalendarData *lastData = [notificationArray objectAtIndex:[notificationArray count] -1];
+    MCalendarData *lastData = [notificationArray safeObjectAtIndex:[notificationArray count] -1];
     _calendarViewController.selectedDate = lastData.minvestDate;
 }
 

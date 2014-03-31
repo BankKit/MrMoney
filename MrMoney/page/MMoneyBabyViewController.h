@@ -33,6 +33,8 @@
 
 @property (weak, nonatomic) IBOutlet UICountingLabel  * userCountLabel;
 @property (weak, nonatomic) IBOutlet UICountingLabel  * canDrawMoneyLabel;
+@property (nonatomic,weak) IBOutlet UIButton     *cyclBalBtn;
+@property (weak, nonatomic) IBOutlet UILabel  * principalMoneyLabel;
 
 @property (weak, nonatomic) IBOutlet UIView           * bottomView;
 @property (weak, nonatomic) IBOutlet UIView           * topView;

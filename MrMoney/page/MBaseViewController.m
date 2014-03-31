@@ -105,6 +105,7 @@
     capa.mask = maskLayer;
 }
 
+
 -(void)initRightButtonItem:(NSString *)buttonImage title:(NSString*)title completionHandler:(buttonHandler)handler{
     
     UIImage *image = [UIImage imageNamed:buttonImage];

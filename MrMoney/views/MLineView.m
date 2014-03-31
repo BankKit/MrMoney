@@ -33,18 +33,19 @@
 
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
+// 7.0 bit
 - (void)drawRect:(CGRect)rect
 {
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextBeginPath(context);
-    CGContextSetLineWidth(context, 1.0);
-    CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
-    float lengths[]  = {5,5};
-    CGContextSetLineDash(context, 0, lengths,1);
-    CGContextMoveToPoint(context, 0.0, 1.0);
-    CGContextAddLineToPoint(context, self.frame.size.width,1.0);
-    CGContextStrokePath(context);
-//     CGContextClosePath(context);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextBeginPath(context);
+//    CGContextSetLineWidth(context, 1.0);
+//    CGContextSetStrokeColorWithColor(context, [UIColor lightGrayColor].CGColor);
+//    float lengths[]  = {5,5};
+//    CGContextSetLineDash(context, 0, lengths,1);
+//    CGContextMoveToPoint(context, 0.0, 1.0);
+//    CGContextAddLineToPoint(context, self.frame.size.width,1.0);
+//    CGContextStrokePath(context);
+ 
 }
 
 

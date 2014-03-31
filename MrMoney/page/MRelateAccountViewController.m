@@ -21,6 +21,7 @@
 @property(nonatomic,strong)NSArray *titleArray;
 @property(nonatomic,strong)NSArray *placeholderArray;
 @property(nonatomic,strong)MAccountsData *account;
+@property(nonatomic,assign) NSInteger buttonIndex;
 @end
 
 @implementation MRelateAccountViewController
@@ -180,6 +181,7 @@
 
 
 -(void)onSubmitAction:(id)sender{
+    self.buttonIndex =  [(UIButton *)sender tag];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.titleArray count] - 1 inSection:0];
     MTextFieldCell *cell = (MTextFieldCell *)[self.tableView cellForRowAtIndexPath:indexPath];
     
@@ -188,6 +190,7 @@
             [view resignFirstResponder];
         }
     }
+    
     
     relateAction = [[MRelateAccountAction alloc] init];
     relateAction.m_delegate = self;

@@ -292,13 +292,14 @@ NSString* formatIntValue(double value,int fractionDigits){
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     formatter.numberStyle = kCFNumberFormatterCurrencyStyle;
   
-    formatter.minimumFractionDigits = fractionDigits + 1;
+    formatter.minimumFractionDigits = fractionDigits;
     
     NSString *formatted = [formatter stringFromNumber:@((double)value)];
     
     NSString *l_str =  [formatted substringFromIndex:1];
+     
  
-    return [l_str substringToIndex:[l_str length]-1];
+    return [l_str substringToIndex:[l_str length]];
      
 }
 

@@ -64,8 +64,6 @@
         money.mfCyclBal          = m_dictionaryValueToString([l_dict_response objectForKey:@"fCyclBal"]);
 
         money.mcyclBal          = m_dictionaryValueToString([l_dict_response objectForKey:@"cyclBal"]);
-
-        money.mpresentMoney          = m_dictionaryValueToString([l_dict_response objectForKey:@"presentMoney"]);
  
         money.mbalance            = m_dictionaryValueToString([l_dict_response objectForKey:@"balance"]);
         money.mcanDrawMoney       = m_dictionaryValueToString([l_dict_response objectForKey:@"canDrawMoney"]);
@@ -81,6 +79,11 @@
         money.muserCount          = m_dictionaryValueToString([l_dict_response objectForKey:@"userCount"]);
         money.myestodayIncome     = m_dictionaryValueToString([l_dict_response objectForKey:@"yestodayIncome"]);
         money.msumInvestMoney     = m_dictionaryValueToString([l_dict_response objectForKey:@"sumInvestMoney"]);
+        
+        money.mQbbAssets        = m_dictionaryValueToString([l_dict_response objectForKey:@"QbbAssets"]);
+
+        money.mQbbPrincipal     = m_dictionaryValueToString([l_dict_response objectForKey:@"QbbPrincipal"]);
+          money.mpresentMoney          = m_dictionaryValueToString([l_dict_response objectForKey:@"presentMoney"]);
  
         if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseQueryInvestSuccess:)]) {
                 [m_delegate onResponseQueryInvestSuccess:money];

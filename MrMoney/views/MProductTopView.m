@@ -35,7 +35,7 @@
     
     self.product_nameLabel.text        = strOrEmpty(_data.mproduct_name);
     
-    CGFloat height = [MStringUtility getStringHight:_data.mproduct_name font:SYSTEMFONT(16) width:260.];
+    CGFloat height = [MStringUtility getStringHight:_data.mproduct_name font:SYSTEMFONT(16) width:300.];
     
     self.product_nameLabel.frameHeight = height + 5.;
     

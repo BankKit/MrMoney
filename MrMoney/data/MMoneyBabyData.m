@@ -27,6 +27,8 @@
     self.mcyclBal             = nil;
     self.mpresentMoney        = nil;
     self.mfCyclBal            = nil;
+    self.mQbbAssets           = nil;
+    self.mQbbPrincipal        = nil;
     self.mstartArray          = nil;
 }
 @end

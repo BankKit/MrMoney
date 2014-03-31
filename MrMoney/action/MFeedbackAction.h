@@ -14,8 +14,8 @@
 -(void)onResponseFeedbackActionSuccess;
 -(void)onResponseFeedbackActionFail;
 
-
 @end
+
 @interface MFeedbackAction : MBaseAction
 {
     

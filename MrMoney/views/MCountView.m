@@ -7,7 +7,8 @@
 //
 
 #import "MCountView.h"
-#import "TTTAttributedLabel.h"
+//#import "TTTAttributedLabel.h"
+#import "MLabel.h"
 @implementation MCountView
 
 - (id)initWithFrame:(CGRect)frame
@@ -20,7 +21,7 @@
         
         self.balance = balance;
         self.todayIncome = todayIncome;
-        _balanceLabel = [[TTTAttributedLabel alloc] initWithFrame:Rect(0, 0, frame.size.width, frame.size.height)];
+        _balanceLabel = [[MLabel  alloc] initWithFrame:Rect(0, 0, frame.size.width, frame.size.height)];
         self.type = type;
      
         self.flag = self.type == MHomeType ? YES : NO;
@@ -34,8 +35,8 @@
             _balanceLabel.textColor = [UIColor whiteColor];
             _balanceLabel.font = FONT(kHelveticaLight, 18);
         }else{
-            _balanceLabel.font = FONT(kHelveticaLight, 38);
-//            _balanceLabel.shadowColor =[UIColor lightGrayColor];
+            _balanceLabel.font = FONT(kHelveticaLight, 36);
+ 
             _balanceLabel.textColor =  [UIColor orangeColor];
         }
         
@@ -52,11 +53,14 @@
 - (void)didMoveToSuperview;
 {
  
-    if (self.superview != nil) {
-        [self setupUpdateTimer];
-    } else {
-        [self.animationTimer invalidate];
-        self.animationTimer = nil;
+    if (_todayIncome > 0.0) {
+        if (self.superview != nil) {
+            [self setupUpdateTimer];
+        } else {
+            [self.animationTimer invalidate];
+            self.animationTimer = nil;
+        }
+
     }
 }
 
@@ -66,7 +70,7 @@
 - (void)setupUpdateTimer;
 {
     
-    self.animationTimer = [NSTimer timerWithTimeInterval:1.0 target:self
+    self.animationTimer = [NSTimer timerWithTimeInterval:3.0 target:self
                                                     selector:@selector(handleTimer:)
                                                     userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.animationTimer forMode:NSRunLoopCommonModes];
@@ -84,50 +88,34 @@
     double currentSceond =  ([MUtility getSecond] * _todayIncome);
     
     double totalBalance   = _balance +  currentSceond;
-    
-    __weak MCountView *wself = self;
-    if (self.balance > 0.0) {
-        
-        NSString *balanceStr =_flag ? STRING_FORMAT(@"￥%@",formatIntValue(totalBalance, 6)):formatIntValue(totalBalance, 6);
-
-        
-        [_balanceLabel setText:balanceStr afterInheritingLabelAttributesAndConfiguringWithBlock:^ NSMutableAttributedString  *(NSMutableAttributedString *mutableAttributedString) {
-            
-            if (![balanceStr containsString:@"."]) {
-                return nil;
-            }
-            
-            NSRange range = [balanceStr rangeOfString:@"."];
-            
-             NSString *subString = [balanceStr substringFromIndex:range.location + 3];
-            
-             NSRange boldRange ={wself.flag?7:6,4};
-            
-            if (![subString isEqualToString:@"0000"]) {
-                boldRange = [balanceStr rangeOfString:subString];
-            }
  
-            
-            UIFont *boldSystemFont = FONT(kHelveticaLight,wself.flag ? 12: 24);
-            CTFontRef font = CTFontCreateWithName((CFStringRef)boldSystemFont.fontName, boldSystemFont.pointSize, NULL);
-            if (font) {
-                [mutableAttributedString addAttribute:(NSString *)kCTFontAttributeName value:(__bridge id)font range:boldRange];
-                [mutableAttributedString addAttribute:(NSString*)kCTForegroundColorAttributeName value:wself.flag?(id)[[UIColor whiteColor] CGColor] :(id)[[UIColor orangeColor] CGColor] range:boldRange];
-                
-                CFRelease(font);
-            }
-            
-            return mutableAttributedString;
-        }];
+    if (totalBalance > 0.0) {
         
-    }
+        NSString *l_str =  formatIntValue(totalBalance, 6);
+         
+        NSString *balanceStr = self.flag ? STRING_FORMAT(@"￥%@",l_str) : l_str;
+      
+        if ([balanceStr length] > 4) {
+            NSRange boldRange ={[balanceStr length] - 4,4};
+            
+            UIFont *boldSystemFont = FONT(kHelveticaLight,self.flag ? 12: 22);
+            
+            _balanceLabel.text = balanceStr;
+            
+            [_balanceLabel setFont:boldSystemFont range:boldRange];
+        }
+        
+}
 
     
 }
 - (void)start
 {
     if (self.animationTimer == nil) {
-        [self setupUpdateTimer];
+        if (_todayIncome > 0.0) {
+            [self setupUpdateTimer];
+        }
+        
     }
 }
 

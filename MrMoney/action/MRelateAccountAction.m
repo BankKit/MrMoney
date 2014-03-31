@@ -70,11 +70,8 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-      NSLog(@"--------- 关联账户 ------ %@",l_dict_response);
-//    NSLog(@"---------CustomerName------ %@",[l_dict_response objectForKey:@"CustomerName"]);
-//    NSLog(@"---------CHSReason------ %@",[l_dict_response objectForKey:@"CHSReason"]);
-    
-    
+    NSLog(@"--------- 关联账户 ------ %@",l_dict_response);
+  
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
 
         if ([[l_dict_response objectForKey:@"Result"] intValue] == 1) {

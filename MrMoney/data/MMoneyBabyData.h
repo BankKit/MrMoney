@@ -28,6 +28,9 @@
 @property (nonatomic,copy)NSString *  mpresentMoney;
 @property (nonatomic,copy)NSString *  mjiashiDate;
 @property (nonatomic,copy)NSString *  mjiashiReturnRate;
+@property (nonatomic,copy)NSString *  mQbbAssets;
+@property (nonatomic,copy)NSString *  mQbbPrincipal;
+
 
 @property (nonatomic,strong)NSArray * mstartArray;
 @property (nonatomic,strong)NSArray * minternetArray;

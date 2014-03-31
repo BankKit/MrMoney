@@ -211,18 +211,15 @@ static ShareEngine *sharedSingleton_ = nil;
     message.description = @"立即注册并下载钱先生，获得100元理财本金.";
     
     [message setThumbImage:PNGIMAGE(@"icon_home_press")];
-    
     WXWebpageObject *ext = [WXWebpageObject object];
     
     ext.webpageUrl = STRING_FORMAT(@"http://www.qianxs.com/mrMoney/wap/wapProduct/prodsearch?rMid=%@",userMid());
     
     message.mediaObject = ext;
-    
     SendMessageToWXReq* req = [[SendMessageToWXReq alloc] init];
     req.bText = NO;
     req.message = message;
     req.scene = WXSceneTimeline;
-    
     [WXApi sendReq:req];
     
 }
