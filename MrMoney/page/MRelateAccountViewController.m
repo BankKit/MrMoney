@@ -81,7 +81,7 @@
     if (self.ptype == MPushWalletType) {
         _contentView.hidden = NO;
         
-     
+        
         
     }else{
         _contentView.hidden = YES;
@@ -91,7 +91,7 @@
     }
     
     MSecurityView *securityView = [self securityView:_contentView];
- 
+    
     securityView.backgroundColor = [UIColor whiteColor];
     [self.scrollView  addSubview:securityView];
     
@@ -99,7 +99,7 @@
     
     self.tableView.backgroundView = nil;
     
- 
+    
     if (self.ptype == MPushWalletType) {
         getCodeAction = [[MAuthCodeAction alloc] init];
         getCodeAction.m_delegate = self;
@@ -176,7 +176,7 @@
     }else {
         self.cardUserName = textField.text;
     }
-     
+    
 }
 
 
@@ -191,11 +191,20 @@
         }
     }
     
+    if (self.buttonIndex == 1) {
+        relateAction = [[MRelateAccountAction alloc] init];
+        relateAction.m_delegate = self;
+        [relateAction requestAction];
+        [self showHUD];
+    }else{
+        appendAccountAction = [[MAppendAssetAccountAction alloc] init];
+        
+        appendAccountAction.m_delegate = self;
+        
+        [appendAccountAction requestAction];
+        [self showHUD];
+    }
     
-    relateAction = [[MRelateAccountAction alloc] init];
-    relateAction.m_delegate = self;
-    [relateAction requestAction];
-    [self showHUD];
 }
 
 #pragma mark -------------  关联银行账户 -----------------
@@ -221,16 +230,16 @@
 -(void)onResponseRelateAccountSuccess:(MAccountsData *)account{
     [self hideHUD];
     self.account = account;
-
+    
     
     appendAccountAction = [[MAppendAssetAccountAction alloc] init];
-
+    
     appendAccountAction.m_delegate = self;
     
     [appendAccountAction requestAction];
     [self showHUD];
- 
- 
+    
+    
 }
 
 -(void)onResponseRelateAccountFail{
@@ -248,29 +257,40 @@
 #pragma mark ------------- 关联银行账户信息到本地 -----------------
 
 -(NSDictionary*)onRequestAppendAssetAccountAction{
-   
     
     MUserData *user = [[MUserData allDbObjects] objectAtIndex:0];
-    MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:0];
+    MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:13];
     
-    
-    [dict setSafeObject:[self.account.mbankId uppercaseString] forKey:@"bankId"];
-    [dict setSafeObject:@"00" forKey:@"accountType"];
-    [dict setSafeObject:self.account.mAccNum   forKey:@"accountNum"];
-    [dict setSafeObject:self.account.mname forKey:@"aName"];
-    
-
-    [dict setSafeObject:self.account.mBalance forKey:@"balances"];
-    [dict setSafeObject:@"" forKey:@"products"];
-    
-    [dict setSafeObject:user.mmid forKey:@"mid"];
-    [dict setSafeObject:user.msessionId forKey:@"sessionId"];
-    [dict setSafeObject:@"" forKey:@"accountAddress"];
-    [dict setSafeObject:[MSMD5(self.cardPassword) uppercaseString]  forKey:@"queryPwd"];
-    [dict setSafeObject:@"" forKey:@"nickName"];
-    [dict setSafeObject:@"" forKey:@"openAddress"];
-    [dict setSafeObject:@"0" forKey:@"loginType"];
-    
+    if (_buttonIndex == 1) {
+        [dict setSafeObject:[self.account.mbankId uppercaseString] forKey:@"bankId"];
+        [dict setSafeObject:@"00" forKey:@"accountType"];
+        [dict setSafeObject:self.account.mAccNum   forKey:@"accountNum"];
+        [dict setSafeObject:self.account.mname forKey:@"aName"];
+        [dict setSafeObject:self.account.mBalance forKey:@"balances"];
+        [dict setSafeObject:@"" forKey:@"products"];
+        [dict setSafeObject:user.mmid forKey:@"mid"];
+        [dict setSafeObject:user.msessionId forKey:@"sessionId"];
+        [dict setSafeObject:@"" forKey:@"accountAddress"];
+        [dict setSafeObject:[MSMD5(self.cardPassword) uppercaseString]  forKey:@"queryPwd"];
+        [dict setSafeObject:@"" forKey:@"nickName"];
+        [dict setSafeObject:@"" forKey:@"openAddress"];
+        [dict setSafeObject:@"0" forKey:@"loginType"];
+    }else{
+        [dict setSafeObject:self.bank_identifie forKey:@"bankId"];
+        [dict setSafeObject:@"00" forKey:@"accountType"];
+        [dict setSafeObject:_cardNoTf.text   forKey:@"accountNum"];
+        [dict setSafeObject:_cardNameTf.text forKey:@"aName"];
+        [dict setSafeObject:@"" forKey:@"balances"];
+        [dict setSafeObject:@"" forKey:@"products"];
+        [dict setSafeObject:user.mmid forKey:@"mid"];
+        [dict setSafeObject:user.msessionId forKey:@"sessionId"];
+        [dict setSafeObject:@"" forKey:@"accountAddress"];
+        [dict setSafeObject:@""  forKey:@"queryPwd"];
+        [dict setSafeObject:_cardNameTf.text forKey:@"nickName"];
+        [dict setSafeObject:_cardAddressTf.text forKey:@"openAddress"];
+        [dict setSafeObject:@"0" forKey:@"loginType"];
+    }
+     
     return dict;
 }
 -(void)onResponseAppendAssetAccountSuccess{

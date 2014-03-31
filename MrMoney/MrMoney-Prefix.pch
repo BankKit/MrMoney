@@ -20,5 +20,4 @@
     #import <QuartzCore/QuartzCore.h>
     #import "PDTSimpleCalendar.h"
     #import "NSDate+Calendar.h"
-
 #endif

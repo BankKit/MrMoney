@@ -172,6 +172,10 @@ const NSString* M_URL_presentedPrincipal = @"https://www.qianxs.com/mrMoney/mobi
  */
 const NSString* M_URL_addComment = @"https://www.qianxs.com/mrMoney/mobile/member/addComment.html";
 
+/**
+ *  地址模糊查询
+ */
+const NSString* M_URL_fuzzyQuery = @"https://www.qianxs.com/mrMoney/portal/invite/withdraw/mFuzzyQuery";
 
 /**
  *  公用字段
