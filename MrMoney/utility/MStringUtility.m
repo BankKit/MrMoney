@@ -349,8 +349,8 @@ NSString* bankName(NSString *bankName){
 UIImage* bankLogoImage(NSString *bankName){
     
     NSString *name = STRING_FORMAT(@"logo_%@",strOrEmpty([bankName lowercaseString]));
-    
-    return PNGIMAGE(name);
+
+    return  [UIImage imageNamed:name];
 }
 
 

@@ -67,11 +67,11 @@
     self.expect_earningsLabel.text =  STRING_FORMAT(@"%.2f倍",multipleValue);
     
     
-     self.dateLabel.text            = [MUtility dateString:_fund.mnet_date];
+    self.dateLabel.text            = [MUtility dateString:_fund.mnet_date];
  
-    
+      [self setNeedsLayout];
 }
-//20140403
+
 - (void)setData:(MFinanceProductData *)data{
     _data = data;
     
@@ -79,13 +79,12 @@
     
     self.bank_logo_iv.image        = image;
     
-    
     self.bank_logo_iv.frameWidth   = image.width/2;
     self.bank_logo_iv.frameHeight  = image.height/2;
     
     self.bank_nameLabel.frameX =self.bank_logo_iv.frameX + image.width/2 + 5;
-    
-    self.bank_nameLabel.text       = STRING_FORMAT(@"%@ %@",bankName(_data.mbank_id),strOrEmpty(_data.mproduct_name));;
+
+    self.bank_nameLabel.text       = STRING_FORMAT(@"%@ %@",bankName(_data.mbank_id),strOrEmpty(_data.mproduct_name));
     
     self.earningsLabel.text        = STRING_FORMAT(@"%.2f%%",[_data.mreturn_rate floatValue]/100);
     
@@ -101,7 +100,7 @@
     
     self.dateLabel.text            = [MUtility dateString:_data.mvalue_date];
   
-//    [self setNeedsLayout];
+//     [self setNeedsLayout];
 }
 
 -(void)setInternet:(MInternetData *)internet{
@@ -119,8 +118,7 @@
     self.bank_nameLabel.frameX =self.bank_logo_iv.frameX + image.width/2 + 5;
     
     self.bank_nameLabel.text       = STRING_FORMAT(@"%@ %@",bankName(_internet.msite_id),strOrEmpty(_internet.mproduct_name));;
-    
-    NSLog(@"-------------------------------%@ \n\n",_internet.mweek_return_rate);
+ 
     self.earningsLabel.text        = STRING_FORMAT(@"%@%%",_internet.mweek_return_rate);
     
     [_earningsLabel setFontColor:[UIColor lightGrayColor] string:@"%"];
@@ -153,6 +151,11 @@
     
 }
 
+
+-(void)layoutSubviews{
+    [super layoutSubviews];
+    self.contentView.backgroundColor = KVIEW_BACKGROUND_COLOR;
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

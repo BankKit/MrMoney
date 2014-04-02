@@ -355,8 +355,8 @@
 }
 -(void)onResponseFinanceProductFail{
     [self hideHUD];
-    _headerView.hidden = YES;
     [MActionUtility showAlert:@"网络异常"];
+
 }
  
 #pragma mark -----------tableView delegate----------

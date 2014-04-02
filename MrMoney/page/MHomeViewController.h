@@ -10,18 +10,14 @@
 #import "MQueryInvestAction.h"
 #import "MColorView.h"
 #import "MCalendarAction.h"
-#import "DropDownListView.h"
-#import "MSubmitOrderAction.h"
-#import "MBalanceAction.h"
 #import "MQueryProductAction.h"
 #import "MLabel.h"
 @class MMoneyBabyData;
 
 
-@interface MHomeViewController : MBaseViewController<UIScrollViewDelegate,MQueryInvestActionDelegate,MColorViewDelegate,kDropDownListViewDelegate,MSubmitOrderActionDelegate,UIAlertViewDelegate,MBalanceActionDelegate,MQueryProductActionDelegate>{
+@interface MHomeViewController : MBaseViewController<UIScrollViewDelegate,MQueryInvestActionDelegate,MColorViewDelegate,UIAlertViewDelegate,MQueryProductActionDelegate>{
     MQueryInvestAction *queryAction;
-    MSubmitOrderAction *submitAction;
-    MBalanceAction *balanceAction;
+
     MQueryProductAction *productAction;
 
 }
@@ -31,7 +27,6 @@
 @property (nonatomic,weak)   IBOutlet UIView       * slideView;
 @property (nonatomic,weak)   IBOutlet UIView       * mainFundView;
 @property (nonatomic,weak)   IBOutlet UIView       * mainSlideView;
-;
 @property (nonatomic,weak)   IBOutlet UIView       * financeProductsView;
 @property (nonatomic,weak)   IBOutlet UIView       * fundView;
 @property (nonatomic,weak)   IBOutlet UIView       * moneyBabyView;
@@ -50,13 +45,11 @@
 @property (nonatomic,weak)   IBOutlet UILabel      * fundLabel;
 @property (nonatomic,weak)   IBOutlet UILabel      * star_earningsLabel;
 @property (nonatomic,weak)   IBOutlet UILabel      * star_bank_nameLabel;
-@property (nonatomic,weak)   IBOutlet MLabel      * star_cycleLabel;
+@property (nonatomic,weak)   IBOutlet MLabel       * star_cycleLabel;
 @property (nonatomic,weak)   IBOutlet UIImageView  * star_bank_logo;
 
 @property (nonatomic,strong) MMoneyBabyData        * moneyData;
-
-@property (nonatomic,strong) NSArray *arryList;
-@property (nonatomic,strong) DropDownListView *listView;
+ 
 
 -(IBAction)onPromptBuyAction:(id)sender;
 

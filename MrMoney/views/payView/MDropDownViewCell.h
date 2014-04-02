@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DropDownViewCell : UITableViewCell
+@interface MDropDownViewCell : UITableViewCell
 
 @end

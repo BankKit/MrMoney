@@ -37,18 +37,19 @@
     _investDateLabel.text = dateStr;
  
     if ([_data.mtran_amount containsString:@"-"]) {
-        _investMoneyLabel.text = STRING_FORMAT(@"%@元",_data.mtran_amount);
+
+        _investMoneyLabel.text = STRING_FORMAT(@"%@元",formatValue([_data.mtran_amount floatValue]));
 
         _investMoneyLabel.textColor = [UIColor colorWithRed:0.25 green:0.61 blue:0.18 alpha:1.00];
 
     }else if ([_data.mCrDr intValue] == 1) {
      
-        _investMoneyLabel.text = STRING_FORMAT(@"-%@元",_data.mtran_amount);
+        _investMoneyLabel.text = STRING_FORMAT(@"-%@元",        formatValue([_data.mtran_amount floatValue]));
         
         _investMoneyLabel.textColor = [UIColor colorWithRed:0.25 green:0.61 blue:0.18 alpha:1.00];
     }else{
 
-        _investMoneyLabel.text = STRING_FORMAT(@"+%@元",_data.mtran_amount);
+        _investMoneyLabel.text = STRING_FORMAT(@"+%@元",        formatValue([_data.mtran_amount floatValue]));
     }
   
     _investBalanceLabel.text = _data.mtransTypeDesc;

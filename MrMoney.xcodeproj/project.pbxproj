@@ -244,10 +244,8 @@
 		CF324A8218D7096B00539E51 /* viewBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF324A8018D7096B00539E51 /* viewBack@2x.png */; };
 		CF3258E018B2F74400C940D2 /* MSendEmailAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3258DF18B2F74400C940D2 /* MSendEmailAction.m */; };
 		CF3258E318B2F8FF00C940D2 /* MUploadIconAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF3258E218B2F8FF00C940D2 /* MUploadIconAction.m */; };
-		CF32797818C7077500CE9F90 /* DropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF32797218C7077500CE9F90 /* DropDownListView.m */; };
-		CF32797918C7077500CE9F90 /* DropDownViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF32797418C7077500CE9F90 /* DropDownViewCell.m */; };
-		CF32797A18C7077500CE9F90 /* MPayView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF32797618C7077500CE9F90 /* MPayView.m */; };
-		CF32797B18C7077500CE9F90 /* MPayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF32797718C7077500CE9F90 /* MPayView.xib */; };
+		CF32797818C7077500CE9F90 /* MDropDownListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF32797218C7077500CE9F90 /* MDropDownListView.m */; };
+		CF32797918C7077500CE9F90 /* MDropDownViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF32797418C7077500CE9F90 /* MDropDownViewCell.m */; };
 		CF32797E18C71F3C00CE9F90 /* home_leftArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = CF32797C18C71F3C00CE9F90 /* home_leftArrow.png */; };
 		CF32797F18C71F3C00CE9F90 /* home_leftArrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF32797D18C71F3C00CE9F90 /* home_leftArrow@2x.png */; };
 		CF32798418C7290900CE9F90 /* home_pay_light.png in Resources */ = {isa = PBXBuildFile; fileRef = CF32798018C7290900CE9F90 /* home_pay_light.png */; };
@@ -591,6 +589,8 @@
 		CFA5A4F618CDAB970077AEA9 /* MSeckillViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFA5A4F418CDAB970077AEA9 /* MSeckillViewController.xib */; };
 		CFA5A4F918CDAE880077AEA9 /* sec_input.png in Resources */ = {isa = PBXBuildFile; fileRef = CFA5A4F718CDAE880077AEA9 /* sec_input.png */; };
 		CFA5A4FA18CDAE880077AEA9 /* sec_input@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFA5A4F818CDAE880077AEA9 /* sec_input@2x.png */; };
+		CFA78A1E18EBDBEF00EE8AE8 /* MSpeedyPayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFA78A1C18EBDBEF00EE8AE8 /* MSpeedyPayViewController.m */; };
+		CFA78A1F18EBDBEF00EE8AE8 /* MSpeedyPayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFA78A1D18EBDBEF00EE8AE8 /* MSpeedyPayViewController.xib */; };
 		CFAC168C18CF3E7A00E3AD29 /* seckill_cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAC168B18CF3E7A00E3AD29 /* seckill_cancel.png */; };
 		CFAC723618E0039B00FF7774 /* detailsBg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAC723418E0039B00FF7774 /* detailsBg.png */; };
 		CFAC723718E0039B00FF7774 /* detailsBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFAC723518E0039B00FF7774 /* detailsBg@2x.png */; };
@@ -1075,13 +1075,10 @@
 		CF3258DF18B2F74400C940D2 /* MSendEmailAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSendEmailAction.m; sourceTree = "<group>"; };
 		CF3258E118B2F8FF00C940D2 /* MUploadIconAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUploadIconAction.h; sourceTree = "<group>"; };
 		CF3258E218B2F8FF00C940D2 /* MUploadIconAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUploadIconAction.m; sourceTree = "<group>"; };
-		CF32797118C7077500CE9F90 /* DropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownListView.h; sourceTree = "<group>"; };
-		CF32797218C7077500CE9F90 /* DropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownListView.m; sourceTree = "<group>"; };
-		CF32797318C7077500CE9F90 /* DropDownViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownViewCell.h; sourceTree = "<group>"; };
-		CF32797418C7077500CE9F90 /* DropDownViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownViewCell.m; sourceTree = "<group>"; };
-		CF32797518C7077500CE9F90 /* MPayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPayView.h; sourceTree = "<group>"; };
-		CF32797618C7077500CE9F90 /* MPayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPayView.m; sourceTree = "<group>"; };
-		CF32797718C7077500CE9F90 /* MPayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPayView.xib; sourceTree = "<group>"; };
+		CF32797118C7077500CE9F90 /* MDropDownListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDropDownListView.h; sourceTree = "<group>"; };
+		CF32797218C7077500CE9F90 /* MDropDownListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDropDownListView.m; sourceTree = "<group>"; };
+		CF32797318C7077500CE9F90 /* MDropDownViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDropDownViewCell.h; sourceTree = "<group>"; };
+		CF32797418C7077500CE9F90 /* MDropDownViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDropDownViewCell.m; sourceTree = "<group>"; };
 		CF32797C18C71F3C00CE9F90 /* home_leftArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_leftArrow.png; sourceTree = "<group>"; };
 		CF32797D18C71F3C00CE9F90 /* home_leftArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_leftArrow@2x.png"; sourceTree = "<group>"; };
 		CF32798018C7290900CE9F90 /* home_pay_light.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_pay_light.png; sourceTree = "<group>"; };
@@ -1580,6 +1577,9 @@
 		CFA5A4F418CDAB970077AEA9 /* MSeckillViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSeckillViewController.xib; sourceTree = "<group>"; };
 		CFA5A4F718CDAE880077AEA9 /* sec_input.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sec_input.png; sourceTree = "<group>"; };
 		CFA5A4F818CDAE880077AEA9 /* sec_input@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sec_input@2x.png"; sourceTree = "<group>"; };
+		CFA78A1B18EBDBEF00EE8AE8 /* MSpeedyPayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSpeedyPayViewController.h; sourceTree = "<group>"; };
+		CFA78A1C18EBDBEF00EE8AE8 /* MSpeedyPayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSpeedyPayViewController.m; sourceTree = "<group>"; };
+		CFA78A1D18EBDBEF00EE8AE8 /* MSpeedyPayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSpeedyPayViewController.xib; sourceTree = "<group>"; };
 		CFAC168B18CF3E7A00E3AD29 /* seckill_cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seckill_cancel.png; sourceTree = "<group>"; };
 		CFAC723418E0039B00FF7774 /* detailsBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detailsBg.png; sourceTree = "<group>"; };
 		CFAC723518E0039B00FF7774 /* detailsBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "detailsBg@2x.png"; sourceTree = "<group>"; };
@@ -2185,8 +2185,6 @@
 				CF113C4A187BCCEE0060CC1B /* MPurchaseViewController.h */,
 				CF113C4B187BCCEE0060CC1B /* MPurchaseViewController.m */,
 				CF113C4C187BCCEE0060CC1B /* MPurchaseViewController.xib */,
-				CFF9A39118E50E5300B507A1 /* UIViewController+product.h */,
-				CFF9A39218E50E5300B507A1 /* UIViewController+product.m */,
 				CFF7C1B718CECE5000EF5181 /* MBankViewController.h */,
 				CFF7C1B818CECE5000EF5181 /* MBankViewController.m */,
 				CFF7C1B918CECE5000EF5181 /* MBankViewController.xib */,
@@ -2286,13 +2284,10 @@
 		CF32797018C7077500CE9F90 /* payView */ = {
 			isa = PBXGroup;
 			children = (
-				CF32797118C7077500CE9F90 /* DropDownListView.h */,
-				CF32797218C7077500CE9F90 /* DropDownListView.m */,
-				CF32797318C7077500CE9F90 /* DropDownViewCell.h */,
-				CF32797418C7077500CE9F90 /* DropDownViewCell.m */,
-				CF32797518C7077500CE9F90 /* MPayView.h */,
-				CF32797618C7077500CE9F90 /* MPayView.m */,
-				CF32797718C7077500CE9F90 /* MPayView.xib */,
+				CF32797118C7077500CE9F90 /* MDropDownListView.h */,
+				CF32797218C7077500CE9F90 /* MDropDownListView.m */,
+				CF32797318C7077500CE9F90 /* MDropDownViewCell.h */,
+				CF32797418C7077500CE9F90 /* MDropDownViewCell.m */,
 				CF32798C18C72E0F00CE9F90 /* MBankView.h */,
 				CF32798D18C72E0F00CE9F90 /* MBankView.m */,
 				CF32798F18C72E1C00CE9F90 /* MBankView.xib */,
@@ -2893,21 +2888,19 @@
 				CF52D5F318869A5D0008ED2E /* wallet */,
 				CF50EE73187FBD8A00E9E8E4 /* money baby */,
 				CF14588318506E3300D01023 /* financeProducts */,
+				CFA78A2018EBDC0C00EE8AE8 /* UIViewController-catrgory */,
 				CF583415184C64B600D2C276 /* MHomeViewController.h */,
 				CF583416184C64B600D2C276 /* MHomeViewController.m */,
 				CF583417184C64B600D2C276 /* MHomeViewController.xib */,
-				CF5B35E418D961B800AAB862 /* MHomeViewController+Style.h */,
-				CF5B35E518D961B800AAB862 /* MHomeViewController+Style.m */,
+				CFA78A1B18EBDBEF00EE8AE8 /* MSpeedyPayViewController.h */,
+				CFA78A1C18EBDBEF00EE8AE8 /* MSpeedyPayViewController.m */,
+				CFA78A1D18EBDBEF00EE8AE8 /* MSpeedyPayViewController.xib */,
 				CF14586618503B5200D01023 /* MSecurityAssuranceViewController.h */,
 				CF14586718503B5200D01023 /* MSecurityAssuranceViewController.m */,
 				CF14586818503B5200D01023 /* MSecurityAssuranceViewController.xib */,
 				CFD409BD18C460B20058E33E /* MLockViewController.h */,
 				CFD409BE18C460B20058E33E /* MLockViewController.m */,
 				CFD409BF18C460B20058E33E /* MLockViewController.xib */,
-				CF7093E218E160DC00BD3A22 /* UIViewController+style.h */,
-				CF7093E318E160DC00BD3A22 /* UIViewController+style.m */,
-				CF17C8FC18E9616100509A22 /* UIViewController+MaryPopin.h */,
-				CF17C8FD18E9616100509A22 /* UIViewController+MaryPopin.m */,
 			);
 			name = home;
 			sourceTree = "<group>";
@@ -3276,6 +3269,21 @@
 			path = xml;
 			sourceTree = "<group>";
 		};
+		CFA78A2018EBDC0C00EE8AE8 /* UIViewController-catrgory */ = {
+			isa = PBXGroup;
+			children = (
+				CFF9A39118E50E5300B507A1 /* UIViewController+product.h */,
+				CFF9A39218E50E5300B507A1 /* UIViewController+product.m */,
+				CF7093E218E160DC00BD3A22 /* UIViewController+style.h */,
+				CF7093E318E160DC00BD3A22 /* UIViewController+style.m */,
+				CF17C8FC18E9616100509A22 /* UIViewController+MaryPopin.h */,
+				CF17C8FD18E9616100509A22 /* UIViewController+MaryPopin.m */,
+				CF5B35E418D961B800AAB862 /* MHomeViewController+Style.h */,
+				CF5B35E518D961B800AAB862 /* MHomeViewController+Style.m */,
+			);
+			name = "UIViewController-catrgory";
+			sourceTree = "<group>";
+		};
 		CFADCA9218D9852700B2FAE1 /* BlurView */ = {
 			isa = PBXGroup;
 			children = (
@@ -3561,7 +3569,6 @@
 				CF095D8C18B891E600993645 /* fund_selected_4.png in Resources */,
 				CFFDE4AA184F2EBD00F7C2AE /* logo_ccb.png in Resources */,
 				CFFBC291187E3CB40042E700 /* MPayViewController.xib in Resources */,
-				CF32797B18C7077500CE9F90 /* MPayView.xib in Resources */,
 				CF095D8518B891E600993645 /* fund_normal_4@2x.png in Resources */,
 				CF0A474C184DE5260011E930 /* setup_account@2x.png in Resources */,
 				CF095D9418B8A85700993645 /* bankName.plist in Resources */,
@@ -3680,6 +3687,7 @@
 				CF297AAA18BED31D0016B320 /* MActivityCell.xib in Resources */,
 				CF6E1F2818B5D00A00298ACD /* MYCustomPanel.xib in Resources */,
 				CF221943187D439A000AA9C7 /* MFieldCell.xib in Resources */,
+				CFA78A1F18EBDBEF00EE8AE8 /* MSpeedyPayViewController.xib in Resources */,
 				CF52D5FA1886A3020008ED2E /* home_diary.png in Resources */,
 				CF0A46C3184DBF580011E930 /* nav_clear_shoppingcardBtn.png in Resources */,
 				CFFDE485184F2BB200F7C2AE /* home_Arrow@2x.png in Resources */,
@@ -3992,6 +4000,7 @@
 				CF7093E118E157AF00BD3A22 /* MScrollFullScreen.m in Sources */,
 				CF32A0B618D2D152000106F2 /* ShareEngine.m in Sources */,
 				CF27B16B1894B00B005BD44D /* script.js in Sources */,
+				CFA78A1E18EBDBEF00EE8AE8 /* MSpeedyPayViewController.m in Sources */,
 				CF42FEE21855AAD400C56F81 /* MUserData.m in Sources */,
 				CF7B389A18892B6200B8B4BC /* MStatusUtility.m in Sources */,
 				CF17C8FE18E9616100509A22 /* UIViewController+MaryPopin.m in Sources */,
@@ -4094,7 +4103,6 @@
 				CF0A44EF184D6E820011E930 /* UIButton+MCategory.m in Sources */,
 				CF0A4529184D76740011E930 /* NSIndexSet+BlocksKit.m in Sources */,
 				CF5833E0184C63A500D2C276 /* main.m in Sources */,
-				CF32797A18C7077500CE9F90 /* MPayView.m in Sources */,
 				CF0A471C184DD0190011E930 /* ASIWebPageRequest.m in Sources */,
 				CF4169E818597A990056A271 /* NSArray+MCategory.m in Sources */,
 				CF406E3E18C8876900F1B60F /* MRechargeAction.m in Sources */,
@@ -4130,7 +4138,7 @@
 				CF1C69D118555EC600921B58 /* MLoginViewController.m in Sources */,
 				CF50EE71187FB63100E9E8E4 /* MBProgressHUD.m in Sources */,
 				CFBE462318C449EF0084949D /* MWithdrawAction.m in Sources */,
-				CF32797818C7077500CE9F90 /* DropDownListView.m in Sources */,
+				CF32797818C7077500CE9F90 /* MDropDownListView.m in Sources */,
 				CF30E1AE18BB121600DA7B21 /* MProductDetailAction.m in Sources */,
 				CF0A46EB184DCFB00011E930 /* MKAnnotationView+WebCache.m in Sources */,
 				CF4360071851AEFF00460BDF /* MLineButton.m in Sources */,
@@ -4191,7 +4199,7 @@
 				CF747A341894B0A10075BB7D /* SDURLCache.m in Sources */,
 				CFFDE45E184EF20300F7C2AE /* Common.m in Sources */,
 				CF01A9D518D8486E0035C05E /* MWalletViewController+Style.m in Sources */,
-				CF32797918C7077500CE9F90 /* DropDownViewCell.m in Sources */,
+				CF32797918C7077500CE9F90 /* MDropDownViewCell.m in Sources */,
 				CF0A46EC184DCFB00011E930 /* NSData+GIF.m in Sources */,
 				CF406E3518C8772F00F1B60F /* MRechargeViewController.m in Sources */,
 				CFDA292318BDCEB2000FE0F7 /* MListActivityAction.m in Sources */,
@@ -4341,8 +4349,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mr.Money Inc. (84DKTFL8C9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mr.Money Inc. (84DKTFL8C9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ZhiWei Jin (LXHZNTEE29)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ZhiWei Jin (LXHZNTEE29)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MrMoney/vendor/tencent",
@@ -4364,7 +4372,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "83984679-70A4-40CB-8B7A-61362F9CE316";
+				PROVISIONING_PROFILE = "CF026F75-59E0-4270-855B-F3377BC5A266";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
@@ -4375,8 +4383,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mr.Money Inc. (84DKTFL8C9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mr.Money Inc. (84DKTFL8C9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: ZhiWei Jin (LXHZNTEE29)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: ZhiWei Jin (LXHZNTEE29)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MrMoney/vendor/tencent",
@@ -4398,7 +4406,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "83984679-70A4-40CB-8B7A-61362F9CE316";
+				PROVISIONING_PROFILE = "CF026F75-59E0-4270-855B-F3377BC5A266";
 				VALID_ARCHS = "armv7 armv7s";
 				WRAPPER_EXTENSION = app;
 			};

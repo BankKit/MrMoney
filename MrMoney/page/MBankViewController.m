@@ -7,7 +7,7 @@
 //
 
 #import "MBankViewController.h"
-#import "DropDownViewCell.h"
+#import "MDropDownViewCell.h"
 #import "MMoneyBabyData.h"
 #import "MLogoView.h"
 @interface MBankViewController ()
@@ -78,9 +78,9 @@
 {
     static NSString *cellIdentity = @"Cell";
     
-    DropDownViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentity];
+    MDropDownViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentity];
     if (cell ==nil) {
-        cell = [[DropDownViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentity];
+        cell = [[MDropDownViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentity];
     }
     
     int row = [indexPath row];

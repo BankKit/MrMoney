@@ -17,7 +17,6 @@
 #import "UIViewController+MMDrawerController.h"
 #import "MPageData.h"
 #import <AudioToolbox/AudioToolbox.h>
-#import "MPayViewController.h"
 #import "BlurView.h"
 #import "ShareEngine.h"
 #import "MCountView.h"
@@ -27,197 +26,36 @@
 #import "MAnimation.h"
 #import "MInternetData.h"
 #import "MLabel.h"
-
+#import "UIViewController+MaryPopin.h"
+#import "MSpeedyPayViewController.h"
+#import "MPayViewController.h"
 
 
 @interface MHomeViewController ()<PDTSimpleCalendarViewDelegate,MPayViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *customDates;
-@property (nonatomic, strong) MFinanceProductData *starData;
+
 @property (nonatomic, strong) PDTSimpleCalendarViewController *calendarViewController;
 @property (nonatomic, strong) MCenterCalendarViewController *center;
 @property (nonatomic, strong) MCountView *countView;
-@property (nonatomic,assign)float todayIncome;
+@property (nonatomic,assign) float todayIncome;
 @property (nonatomic,assign) float           canInvestMoney;
 @property (nonatomic,assign) double          total;
 @property (nonatomic,assign) int             currentNum;
 @property (nonatomic,assign) BOOL            isFlag;
 @property (nonatomic,strong) NSArray         *starArray;
 @property (nonatomic,strong) NSArray         *internetArray;
-@property (nonatomic,assign) float           star_balance;
-@property (nonatomic,copy  ) NSString        *star_bankId;
-@property (nonatomic,copy  ) NSString        *deviceIP;
-@property (nonatomic,copy  ) NSString        *orderNo;
 @property (nonatomic,strong) NSTimer         *timer;
 @property (nonatomic,assign) BOOL            isAnmation;
 @property (nonatomic,strong) CycleScrollView *mainScorllView;
-@property (nonatomic,strong) NSString        *bankCode;
+
+@property (nonatomic,strong) MStarData *starData;
+
+@property (nonatomic,strong) NSString *orderNo;
 @end
 
 @implementation MHomeViewController
--(void)payResultNotify{
-    
-    [MActionUtility showAlert:@"购买提示" message:@"请确认您这次购买产品的结果" delegate:self cancelButtonTitle:@"遇到问题？" otherButtonTitles:@"支付成功",nil];
-    
-}
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
- 
-        if (buttonIndex == 1) {
-            //支付成功  发送通知 让首页更改数据显示
-            [self startQueryAction];
-            
-            [MGo2PageUtility go2MWebBrowser:self title:@"支付结果" webUrl:KSHOW_RECORD(self.orderNo)];
-            
-        }
-   
-}
-
-- (void)DropDownListViewDidButtonClick:(float)money bankId:(NSString *)bank_id{
-    
-    self.star_balance = money * 100;
-//    self.star_bankId = bank_id;
-
-    NSLog(@"-------------DropDownListViewDidButtonClick------------bank_id------%@ \n\n",bank_id);
-        
-    if (![bank_id containsString:@"￥"]) {
-        submitAction = [[MSubmitOrderAction alloc] init];
-        submitAction.m_delegate = self;
-        [submitAction requestAction];
-       
-    }
-    else
-    {
-        balanceAction = [[MBalanceAction alloc] init];
-        balanceAction.m_delegate = self;
-        [balanceAction requestAction];
-    }
-
-    [_listView fadeOut];
-    
-    [self showHUD];
-    
-}
-#pragma mark --
-#pragma mark -- balance delegate
--(NSDictionary*)onRequestBalanceAction{
-
-    MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:3];
-    
-    [dict setSafeObject:userMid() forKey:@"mId"];
-    
-    [dict setSafeObject:self.starData.mpid forKey:@"pid"];
-
-    [dict setSafeObject:[NSNumber numberWithFloat:self.star_balance/100] forKey:@"investMoney"];
-
-    return dict;
-}
--(void)onResponseBalanceSuccess:(NSString *)orderNo{
- 
-    __weak MHomeViewController *wself = self;
-    [self hideHUDWithCompletionMessage:@"交易成功" finishedHandler:^{
-  
-        [MGo2PageUtility go2MWebBrowser:wself title:@"支付结果" webUrl:KSHOW_RECORD(orderNo)];
-    }];
-}
--(void)onResponseBalanceFail{
- 
-    [self hideHUDWithCompletionFailMessage:@"交易失败"];
-}
--(NSString *)payName:(NSString *)bankId{
-    NSString *bankName = [bankId uppercaseString];
-    if ([bankName isEqualToString:@"BOCOM"]) {
-        return  @"COMM";
-    }else if ([bankName isEqualToString:@"PAB"]) {
-        return   @"SZPAB";
-    }else if ([bankName isEqualToString:@"BOB"]) {
-        return  @"BCCB";
-    }
-    return bankName;
-
-}
-#pragma mark --
-#pragma mark -- submitOrder delegate
--(NSDictionary*)onRequestSubmitOrderAction{
-    
-    MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:0];
-
-    [dict setSafeObject:userMid()                           forKey:@"mId"];
-    [dict setSafeObject:self.starData.mpid                  forKey:@"pid"];
-    //
-    [dict setSafeObject:self.star_bankId                   forKey:@"instCode"];
-    [dict setSafeObject:self.deviceIP                       forKey:@"buyerIp"];
- 
-    [dict setSafeObject:[NSNumber numberWithFloat:self.star_balance]    forKey:@"money"];
-    [dict setSafeObject:[MDataInterface commonParam:@"kmobile"] forKey:@"mobile"];
-    [dict setSafeObject:[NSNumber numberWithInt:0]          forKey:@"quickPass"];
-
-    
-//    [dict setSafeObject:userMid()                       forKey:@"mId"];
-//    [dict setSafeObject:self.starData.mpid              forKey:@"pid"];
-//    [dict setSafeObject:[NSNumber numberWithFloat:self.star_balance]    forKey:@"money"];
-//    [dict setSafeObject:@"PT001"                            forKey:@"payType"];
-//    [dict setSafeObject:[self payName:self.star_bankId]            forKey:@"instCode"];
-//    [dict setSafeObject:self.deviceIP    forKey:@"buyerIp"];
-//    [dict setSafeObject:[MDataInterface commonParam:@"kmobile"] forKey:@"mobile"];
-//    [dict setSafeObject:[NSNumber numberWithInt:0]          forKey:@"quickPass"];
-    
-    
-    return dict;
-}
--(void)onResponseSubmitOrderSuccess:(MOrderData *)orderData{
- 
-    [self hideHUD];
-    self.orderNo = orderData.morderId;
-    MPayViewController *pay = [[MPayViewController alloc] initWithNibName:@"MPayViewController" bundle:nil];
-    pay.delegate            = self;
-    pay.order               = orderData;
-    pay.amount              = self.star_balance/100;
-    pay.ip                  = self.deviceIP;
- 
-    [self.navigationController pushViewController:pay animated:YES];
-}
--(void)onResponseSubmitOrderFail{
-
-    [self hideHUD];
-}
-
-
--(void)showPopUpWithTitle:(NSString*)popupTitle withOption:(NSArray*)arrOptions xy:(CGPoint)point size:(CGSize)size isMultiple:(BOOL)isMultiple{
-    
-    _listView = [[DropDownListView alloc] initWithTitle:popupTitle options:arrOptions xy:point size:size isMultiple:isMultiple];
-    _listView.delegate = self;
-    [_listView showInView:self.view animated:YES];
-    
-    
-}
-- (void)DropDownListView:(DropDownListView *)dropdownListView didSelectedIndex:(NSInteger)anIndex{
-    
-    [_listView fadeOut];
-    
-    NSString *title = nil;
-    if (anIndex == 0) {
-        title = STRING_FORMAT(@"￥%@",formatValue(_canInvestMoney));
-    }else{
-        
-        NSDictionary *bankDict =  [KPAY_DICT objectForKey:STRING_FORMAT(@"%d",anIndex)];
- 
-        self.star_bankId = [MUtility payName:[bankDict objectForKey:@"bank"]];
-        title = [bankDict objectForKey:@"name"];
-        
-    }
-     
-    [self showPopUpWithTitle:title withOption:_arryList xy:CGPointMake(5, 20) size:CGSizeMake(300, 240) isMultiple:YES];
-    
-}
-- (void)DropDownListView:(DropDownListView *)dropdownListView Datalist:(NSMutableArray*)ArryData{
-  
-    [_listView fadeOut];
-   
-    NSString *canInvestMoney = formatValue(_canInvestMoney);
-    [self showPopUpWithTitle:canInvestMoney withOption:_arryList xy:CGPointMake(5, 20) size:CGSizeMake(300, 320) isMultiple:NO];
-    
-}
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -406,10 +244,6 @@
     _mainSlideView.frameY = -82.0;
     [_mainFundView addSubview:_mainSlideView];
     
-  
-    self.arryList =  [NSMutableArray arrayWithArray: [[KPAY_DICT allKeys] sortedArrayUsingSelector:@selector(compare:)]];
-    
-    self.deviceIP = [MUtility deviceIPAdress];
     
     self.customDates = [NSMutableArray array];
     
@@ -505,8 +339,11 @@
     
 }
 -(void)startQueryAction{
-    queryAction = [[MQueryInvestAction alloc] init];
-    queryAction.m_delegate = self;
+    if (queryAction == nil) {
+        queryAction = [[MQueryInvestAction alloc] init];
+        queryAction.m_delegate = self;
+    }
+   
     [queryAction requestAction];
     
     [self.activityView startAnimating];
@@ -524,7 +361,7 @@
     [_walletView addSubview:_countView];
     
 }
-#pragma mark ------------- 摇一摇 -----------------
+#pragma mark ------------- 摇一摇 快捷支付购买 -----------------
 
 -(IBAction)onPromptBuyAction:(id)sender{
 
@@ -542,13 +379,68 @@
         }
         
     }else{
-        NSString *canInvestMoney = STRING_FORMAT(@"￥%@",formatValue(_canInvestMoney));
+        __weak MHomeViewController *wself = self;
+        MSpeedyPayViewController  *speedy = [[MSpeedyPayViewController alloc] initWithNibName:@"MSpeedyPayViewController" bundle:nil];
+        
+        speedy.payBlock = ^(MOrderData *orderData , float amount){
+            self.orderNo = orderData.morderId;
+            MPayViewController *pay = [[MPayViewController alloc] initWithNibName:@"MPayViewController" bundle:nil];
+            pay.delegate            = wself;
+            pay.order               = orderData;
+            pay.amount              = amount;
+            pay.ip                  = [MUtility deviceIPAdress];
+            
+            [self.navigationController  pushViewController:pay animated:YES];
+        };
+        
+        speedy.successBlock = ^(NSString *orderNo){
+            self.orderNo = orderNo;
+            [MGo2PageUtility go2MWebBrowser:self title:@"支付结果" webUrl:KSHOW_RECORD(orderNo)];
 
-        [self showPopUpWithTitle:canInvestMoney withOption:_arryList xy:CGPointMake(5, 20) size:CGSizeMake(300, 240) isMultiple:YES];
+        };
+        
+        [speedy setPopinTransitionStyle:BKTPopinTransitionStyleSlide];
+        [speedy setPopinOptions:BKTPopinDisableAutoDismiss];
+        
+        [speedy setPopinTransitionDirection:BKTPopinTransitionDirectionTop];
+        
+        speedy.canInvestMoney = _canInvestMoney;
+        
+        speedy.starData = self.starData;
+        
+        speedy.controller = self;
+        
+        [self.mm_drawerController presentPopinController:speedy animated:YES completion:^{
+            
+        }];
+ 
      }
     
 }
 
+
+#pragma mark ------------- 支付成功 通知  -----------------
+
+-(void)payResultNotify{
+    
+    [MActionUtility showAlert:@"购买提示" message:@"请确认您这次购买产品的结果" delegate:self cancelButtonTitle:@"遇到问题？" otherButtonTitles:@"支付成功",nil];
+    
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (buttonIndex == 1) {
+         
+         [self startQueryAction];
+        
+        [MGo2PageUtility go2MWebBrowser:self title:@"支付结果" webUrl:KSHOW_RECORD(self.orderNo)];
+        
+    }
+    
+}
+
+
+ 
 -(void)setStarView{
     if (![self.starArray isEmpty]) {
         return;
@@ -561,14 +453,7 @@
     }
 
     MStarData *star            = [self.starArray safeObjectAtIndex:_currentNum];
-    
-     MFinanceProductData *l_data = [[MFinanceProductData alloc] init];
-    l_data.mpid = star.mstar_pid;
-    l_data.mproduct_name = star.mstar_productName;
-    
-     l_data.mStar = YES;
-    self.starData = l_data;
-    
+    self.starData = star;
     self.star_bank_nameLabel.text = STRING_FORMAT(@"%@ %@", bankName(star.mstar_bankId),star.mstar_productName);
     self.star_bank_logo.image     = bankLogoImage(star.mstar_bankId);
     if (!IsIOS7) {
@@ -638,6 +523,9 @@
             [MGo2PageUtility go2MFinanceProductsViewController:wself pushType:MFundType];
 
         }else if (index == 3){
+            if (![self.starArray isEmpty] ) {
+                [productAction requestAction];
+            }
             [MGo2PageUtility go2MFinanceProductsViewController:wself pushType:MInternetType];
 
         }else if (index == 4){

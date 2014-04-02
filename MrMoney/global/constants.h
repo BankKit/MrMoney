@@ -92,14 +92,14 @@
 #endif
 
 #define KGeneratingEnvironmentURL    @"https://www.qianxs.com"
-#define KDebuggingEnvironmentURL     @"https://www.qianxs.com"
-//@"http://www.huchao.org:8088"
+#define KDebuggingEnvironmentURL     @"http://www.huchao.org:8088"
+
+
 
 #define KSHOW_RECORD(orderNo) STRING_FORMAT(@"%@/mrMoney/portal/payOrder/showRecord.html?OrderNo=%@",KDebuggingEnvironmentURL,orderNo)
 
 
 #define KAVATAR_PATH(mId,iconPath) [NSURL URLWithString:[NSString stringWithFormat:@"%@/mrMoney/mobile/invite/file/showMemIcon.html?mId=%@&pic=%@",KDebuggingEnvironmentURL,mId,iconPath]]
-
 
 #ifndef KLOCAL_KEY
 #define KLOCAL_KEY @"HU8W3N09J24NQ7KL"
@@ -144,7 +144,8 @@
 #define STRING_FORMAT(...) [NSString stringWithFormat: __VA_ARGS__]
 
 // 加载图片
-#define PNGIMAGE(NAME)          [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(NAME) ofType:@"png"]]
+#define PNGIMAGE(NAME)   [UIImage imageNamed:NAME]
+//[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:(NAME) ofType:@"png"]]
 
 
 // 字体大小(常规/粗体)

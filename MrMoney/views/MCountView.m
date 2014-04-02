@@ -70,7 +70,7 @@
 - (void)setupUpdateTimer;
 {
     
-    self.animationTimer = [NSTimer timerWithTimeInterval:3.0 target:self
+    self.animationTimer = [NSTimer timerWithTimeInterval:1 target:self
                                                 selector:@selector(handleTimer:)
                                                 userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.animationTimer forMode:NSRunLoopCommonModes];
@@ -85,13 +85,14 @@
 
 - (void)updateValuesAnimated:(BOOL)animated;
 {
+    
     double currentSceond =  ([MUtility getSecond] * _todayIncome);
     
     double totalBalance   = _balance +  currentSceond;
     
     NSString *l_str =  formatIntValue(totalBalance, 6);
     
-    NSString *balanceStr = self.flag ? STRING_FORMAT(@"￥%@",l_str) : l_str;
+    NSString *balanceStr =  STRING_FORMAT(@"￥%@",l_str);
     
     if ([balanceStr length] > 4) {
         NSRange boldRange ={[balanceStr length] - 4,4};

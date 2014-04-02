@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 macmini17. All rights reserved.
 //
 
-#import "DropDownViewCell.h"
+#import "MDropDownViewCell.h"
 
-@implementation DropDownViewCell
+@implementation MDropDownViewCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {

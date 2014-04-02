@@ -53,6 +53,7 @@
     if (self = [super init]) {
         
         _tableViewStyle = UITableViewStylePlain;
+         
         
         [self addObserver:self forKeyPath:@"dataArray" options:0 context:NULL];
         
@@ -68,7 +69,7 @@
                        ofObject:(id)object
                          change:(NSDictionary *)change
                         context:(void *)context {
-    NSLog(@"keyPath-------------------------------%@ \n\n",keyPath);
+//    NSLog(@"keyPath-------------------------------%@ \n\n",keyPath);
     if ([keyPath isEqualToString:@"dataArray"]) {
         
         [_tableView reloadData];
@@ -101,7 +102,7 @@
 
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     tableView.autoresizingMask = self.view.autoresizingMask;
-    tableView.backgroundColor = [UIColor clearColor];
+    tableView.backgroundColor = KVIEW_BACKGROUND_COLOR;
     tableView.backgroundView = nil;
     tableView.delegate = self;
     tableView.dataSource = self;
