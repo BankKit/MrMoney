@@ -57,8 +57,11 @@
    
         self.amountLabel.text =STRING_FORMAT(@"￥%@",formatValue([_data.mtran_amount floatValue]));
         
-
-        self.dateLabel.text = [MUtility dateString:strOrEmpty(_data.mtran_time)];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm";
+        NSString *dateStr = [formatter stringFromDate:[self formatterDateString:_data.mtran_time]];
+        
+        self.dateLabel.text = dateStr;
         
         self.productNameLabel.text = _data.mtran_memo;
         
@@ -83,7 +86,7 @@
             self.amountLabel.textColor = [UIColor orangeColor];
             
         }
-//        NSLog(@"-----------_investData.mPayId--------------------%@ \n\n",_investData.mPayId);
+        
         if ([self isNumberString:_investData.mPayId]) {
             self.monadButton.hidden = NO;
         }
@@ -122,6 +125,8 @@
     
     return date;
 }
+
+
 -(BOOL)isNumberString:(NSString *)input{
     
     if ([input length] == 0) {

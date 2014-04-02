@@ -50,6 +50,7 @@ extern const NSString* M_URL_binding;              //绑定qq
 extern const NSString* M_URL_presentedPrincipal;   //分享返还现金
 extern const NSString* M_URL_addComment;           //发表评论
 extern const NSString* M_URL_fuzzyQuery;           //地址模糊查询
+extern const NSString* M_URL_obtainFee;            //获取手续费
 /**
  *  公用字段
  */

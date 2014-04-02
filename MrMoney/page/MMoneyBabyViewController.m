@@ -58,20 +58,12 @@
     
     _scrollProxy.delegate = self;
 
-    if (self.money) {
-        [self initViewData:self.money];
-    }else{
-        
-        queryAction = [[MQueryInvestAction alloc] init];
-        queryAction.m_delegate = self;
-        [queryAction requestAction];
-        
-        [self showHUD];
+    queryAction = [[MQueryInvestAction alloc] init];
+    queryAction.m_delegate = self;
+    [queryAction requestAction];
+    [self showHUD];
 
-    }
-    
 }
-
 
 -(void)setBalanceLabelValue{
   
@@ -88,7 +80,7 @@
 //    float blance          = [money.mbalance     floatValue]/100;
 //    float officialBalance = [money.mofficialBalance   floatValue]/100;
     _total       = [money.mQbbAssets   floatValue]/100;
-    _todayIncome          = [money.mtodayIncome floatValue]/100;
+    _todayIncome = [money.mtodayIncome floatValue]/100;
     
     
     _principalMoneyLabel.text = formatValue([money.mpresentMoney floatValue]/100);

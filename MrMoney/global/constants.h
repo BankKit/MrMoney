@@ -84,18 +84,21 @@
 #endif
 
 #ifndef KPAY_DICT
-#define KPAY_DICT [NSDictionary dictionaryWithContentsOfFile:[NSString getBundlePathForFile:@"payStyle.plist"]]
+#define KPAY_DICT [NSDictionary dictionaryWithContentsOfFile:[NSString getBundlePathForFile:@"payBankOrder.plist"]]
 #endif
 
 #ifndef KTREASURE_DICT
 #define KTREASURE_DICT [NSDictionary dictionaryWithContentsOfFile:[NSString getBundlePathForFile:@"treasure.plist"]]
 #endif
 
+#define KGeneratingEnvironmentURL    @"https://www.qianxs.com"
+#define KDebuggingEnvironmentURL     @"https://www.qianxs.com"
+//@"http://www.huchao.org:8088"
 
-#define KSHOW_RECORD(orderNo) STRING_FORMAT(@"https://www.qianxs.com/mrMoney/portal/payOrder/showRecord.html?OrderNo=%@",orderNo)
+#define KSHOW_RECORD(orderNo) STRING_FORMAT(@"%@/mrMoney/portal/payOrder/showRecord.html?OrderNo=%@",KDebuggingEnvironmentURL,orderNo)
 
 
-
+#define KAVATAR_PATH(mId,iconPath) [NSURL URLWithString:[NSString stringWithFormat:@"%@/mrMoney/mobile/invite/file/showMemIcon.html?mId=%@&pic=%@",KDebuggingEnvironmentURL,mId,iconPath]]
 
 
 #ifndef KLOCAL_KEY
@@ -117,9 +120,6 @@
 #ifndef KNOTITICATION_ADDCOUNT
 #define KNOTITICATION_ADDCOUNT @"knotitication_addcount"
 #endif
-
-
-#define KAVATAR_PATH(mId,iconPath) [NSURL URLWithString:[NSString stringWithFormat:@"http://www.qianxs.com/mrMoney/mobile/invite/file/showMemIcon.html?mId=%@&pic=%@",mId,iconPath]]
 
  
 #define kCurrentPattern			@"KeyForCurrentPatternToUnlock"

@@ -8,7 +8,7 @@
 
 #import "CycleScrollView.h"
 #import "NSTimer+Addition.h"
-//#import "MyPageControl.h"
+
 
 @interface CycleScrollView () <UIScrollViewDelegate>
 
@@ -20,40 +20,26 @@
 @property (nonatomic , strong) NSTimer *animationTimer;
 @property (nonatomic , assign) NSTimeInterval animationDuration;
 
-//@property (nonatomic , strong) MyPageControl *pageControl;
 
 @end
 
 @implementation CycleScrollView
 
-//- (MyPageControl *)pageControl
-//{
-//    //少于或者等于一页的话，没有必要显示pageControl
-//    if (self.totalPageCount > 1) {
-//        if (!_pageControl) {
-//            NSInteger totalPageCounts = self.totalPageCount;
-//            CGFloat dotGapWidth = 8.0;
-//            UIImage *normalDotImage = [UIImage imageNamed:@"page_state_normal"];
-//            CGFloat pageControlWidth = totalPageCounts * normalDotImage.size.width + (totalPageCounts - 1) * dotGapWidth;
-//            CGRect pageControlFrame = CGRectMake(CGRectGetMidX(self.scrollView.frame) - 0.5 * pageControlWidth , 0.9 * CGRectGetHeight(self.scrollView.frame), pageControlWidth, normalDotImage.size.height);
-//            //        NSLog(@"NSStringFromCGRect(pageControlFrame) = %@",NSStringFromCGRect(pageControlFrame));
-//            _pageControl = [[MyPageControl alloc] initWithFrame:pageControlFrame
-//                                                    normalImage:normalDotImage
-//                                               highlightedImage:[UIImage imageNamed:@"page_state_highlight"]
-//                                                     dotsNumber:totalPageCounts sideLength:dotGapWidth dotsGap:dotGapWidth];
-//            _pageControl.hidden = NO;
-//        }
-//    }
-//    return _pageControl;
-//}
+
 
 - (void)setTotalPagesCount:(NSInteger (^)(void))totalPagesCount
 {
     self.totalPageCount = totalPagesCount();
     if (_totalPageCount > 0) {
+        if (self.totalPageCount > 1) {
+            self.scrollView.scrollEnabled = YES;
+            self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
+            [self.animationTimer resumeTimerAfterTimeInterval:self.animationDuration];
+        } else {
+            self.scrollView.scrollEnabled = NO;
+        }
         [self configContentViews];
-        [self.animationTimer resumeTimerAfterTimeInterval:self.animationDuration];
-//        [self addSubview:self.pageControl];
+      
     }
 }
 
@@ -67,7 +53,7 @@
 - (void)setCurrentPageIndex:(NSInteger)currentPageIndex
 {
     _currentPageIndex = currentPageIndex;
-//    [self.pageControl setCurrentPage:_currentPageIndex];
+  
 }
 
 - (id)initWithFrame:(CGRect)frame animationDuration:(NSTimeInterval)animationDuration
@@ -94,8 +80,11 @@
         self.scrollView.autoresizingMask = 0xFF;
         self.scrollView.contentMode = UIViewContentModeCenter;
         self.scrollView.contentSize = CGSizeMake(3 * CGRectGetWidth(self.scrollView.frame), CGRectGetHeight(self.scrollView.frame));
+        
+        self.scrollView.showsHorizontalScrollIndicator = NO;
+        
         self.scrollView.delegate = self;
-        self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
+        //        self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
         self.scrollView.pagingEnabled = YES;
         [self addSubview:self.scrollView];
         self.currentPageIndex = 0;
@@ -114,6 +103,9 @@
     NSInteger counter = 0;
     for (UIView *contentView in self.contentViews) {
         contentView.userInteractionEnabled = YES;
+        UILongPressGestureRecognizer *longTapGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTapGestureAction:)];
+        [contentView addGestureRecognizer:longTapGesture];
+        
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(contentViewTapAction:)];
         [contentView addGestureRecognizer:tapGesture];
         CGRect rightRect = contentView.frame;
@@ -122,7 +114,9 @@
         contentView.frame = rightRect;
         [self.scrollView addSubview:contentView];
     }
-    [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width, 0)];
+    if (self.totalPageCount > 1) {
+        [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width, 0)];
+    }
 }
 
 /**
@@ -138,9 +132,22 @@
     [self.contentViews removeAllObjects];
     
     if (self.fetchContentViewAtIndex) {
-        [self.contentViews addObject:self.fetchContentViewAtIndex(previousPageIndex)];
-        [self.contentViews addObject:self.fetchContentViewAtIndex(_currentPageIndex)];
-        [self.contentViews addObject:self.fetchContentViewAtIndex(rearPageIndex)];
+        id set = (self.totalPageCount == 1)?[NSSet setWithObjects:@(previousPageIndex),@(_currentPageIndex),@(rearPageIndex), nil]:@[@(previousPageIndex),@(_currentPageIndex),@(rearPageIndex)];
+        for (NSNumber *tempNumber in set) {
+            NSInteger tempIndex = [tempNumber integerValue];
+            if ([self isValidArrayIndex:tempIndex]) {
+                [self.contentViews addObject:self.fetchContentViewAtIndex(tempIndex)];
+            }
+        }
+    }
+}
+
+- (BOOL)isValidArrayIndex:(NSInteger)index
+{
+    if (index >= 0 && index <= self.totalPageCount - 1) {
+        return YES;
+    } else {
+        return NO;
     }
 }
 
@@ -173,12 +180,12 @@
     int contentOffsetX = scrollView.contentOffset.x;
     if(contentOffsetX >= (2 * CGRectGetWidth(scrollView.frame))) {
         self.currentPageIndex = [self getValidNextPageIndexWithPageIndex:self.currentPageIndex + 1];
-//               NSLog(@"next，当前页:%d",self.currentPageIndex);
+        //        NSLog(@"next，当前页:%d",self.currentPageIndex);
         [self configContentViews];
     }
     if(contentOffsetX <= 0) {
         self.currentPageIndex = [self getValidNextPageIndexWithPageIndex:self.currentPageIndex - 1];
-//               NSLog(@"previous，当前页:%d",self.currentPageIndex);
+        //        NSLog(@"previous，当前页:%d",self.currentPageIndex);
         [self configContentViews];
     }
 }
@@ -190,6 +197,18 @@
 
 #pragma mark -
 #pragma mark - 响应事件
+
+- (void)longTapGestureAction:(UILongPressGestureRecognizer *)tapGesture
+{
+    if (tapGesture.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"UIGestureRecognizerStateBegan");
+        [self.animationTimer pauseTimer];
+    }
+    if (tapGesture.state == UIGestureRecognizerStateEnded) {
+        [self.animationTimer resumeTimer];
+        NSLog(@"UIGestureRecognizerStateEnded");
+    }
+}
 
 - (void)animationTimerDidFired:(NSTimer *)timer
 {

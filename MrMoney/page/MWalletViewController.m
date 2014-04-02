@@ -164,7 +164,7 @@
     
     for (MAccountsData *item in data) {
         
-        index =  item.mbankId;
+        index =  [item.mbankId lowercaseString];
         if ([index isEqualToString:@"PABACCT"]) {
             index = @"PAB";
         }

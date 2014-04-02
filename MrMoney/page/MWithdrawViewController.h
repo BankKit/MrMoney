@@ -8,10 +8,12 @@
 
 #import "MBaseViewController.h"
 #import "MWithdrawAction.h"
+#import "MObtainFeeAction.h"
 @class MAccountsData;
 
-@interface MWithdrawViewController : MBaseViewController<MWithdrawActionDelegate>{
+@interface MWithdrawViewController : MBaseViewController<UIAlertViewDelegate,MWithdrawActionDelegate,MObtainActionDelegate>{
     MWithdrawAction *withdrawAction;
+    MObtainFeeAction *obtainFeeAction;
 }
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

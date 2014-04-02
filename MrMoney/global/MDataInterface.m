@@ -7,175 +7,180 @@
 //
 
 #import "MDataInterface.h"
-
-
-/**
- *  用户注册 pp
- */
-const NSString* M_URL_Regist = @"https://www.qianxs.com/mrMoney/mobile/invite/member/regByMobile.html";
-
-/**
- *  注册时获取短信验证码 ppp
- */
-const NSString* M_URL_ObtainCode = @"https://www.qianxs.com/mrMoney/mobile/invite/member/validateMobileOnly.html";
-
-/**
- *  初始化盛付通交易订单
- */
-//const NSString* M_URL_SubmitOrder =  @"https://www.qianxs.com/mrMoney/mobile/invite/sdo/initOrder.html";
-//银生宝接口
-const NSString* M_URL_SubmitOrder =  @"https://www.qianxs.com/mrMoney/mobile/invite/ysb/initYsbOrder.html";
-/**
- *  查询交易明细 记账明细
- */
-const NSString* M_URL_TradeRecords = @"https://www.qianxs.com/mrMoney/mobile/invite/member/queryTransRecords.html";
-/**
- *  盛付通支付界面
- */
-
-const NSString *M_URL_Pay  = @"https://mas.sdo.com/web-acquire-channel/cashier.htm";
-
-/**
- *  理财产品列表 searchInternetProd
- */
-const NSString* M_URL_FinanceProduct = @"https://www.qianxs.com/mrMoney/mobile/Product/searchProd.json";
-
-/**
- *  金融产品列表
- */
-const NSString* M_URL_internetProduct = @"https://www.qianxs.com/mrMoney/mobile/Internet/searchProd.json";
-
-/**
- *  产品详情
- */
-const NSString* M_URL_productDetail = @"https://www.qianxs.com/mrMoney/mobile/Product/haveProdDetail";
-/**
- *  我的钱宝宝
- */
-const NSString* M_URL_queryInvestState  = @"https://www.qianxs.com/mrMoney/mobile/invite/member/queryInvestStatV2.html";
-/**
- *  基金产品
- */
-const NSString* M_URL_fund = @"https://www.qianxs.com/mrMoney/mobile/Fund/searchFund.json";
-/**
- *  查询关联卡信息 pp
- */
-const NSString* M_URL_queryAssetAccount = @"https://www.qianxs.com/mrMoney/mobile/invite/member/queryAssetAccount.html";
-
 /**
  *  获取验证码 124.207.84.162:888/mrServer/GetAuthCode?hxb_2
  */
 const NSString* M_URL_GetAuthCode = @"http://robot.qianxs.com:888/mrServer/GetAuthCode";
 
 /**
+ *  发送邮件
+ */
+const NSString* M_URL_sendEmail = @"http://www.huchao.org/trace/bat";
+/**
+ *  盛付通支付界面
+ */
+
+const NSString *M_URL_Pay  = @"https://mas.sdo.com/web-acquire-channel/cashier.htm";
+/**
  *  购买产品
  */
 const NSString* M_URL_BuyProduct = @"http://robot.qianxs.com:888/mrServer/IronRobot_Login";
+
+
+/**
+ *  用户注册
+ */
+const NSString* M_URL_Regist = @"/mrMoney/mobile/invite/member/regByMobile.html";
+
+/**
+ *  注册时获取短信验证码 ppp
+ */
+const NSString* M_URL_ObtainCode = @"/mrMoney/mobile/invite/member/validateMobileOnly.html";
+
+/**
+ *  初始化盛付通交易订单
+ */
+//const NSString* M_URL_SubmitOrder =  @"/mrMoney/mobile/invite/sdo/initOrder.html";
+//银生宝接口
+const NSString* M_URL_SubmitOrder =  @"/mrMoney/mobile/invite/ysb/initYsbOrder.html";
+/**
+ *  查询交易明细 记账明细
+ */
+const NSString* M_URL_TradeRecords = @"/mrMoney/mobile/invite/member/queryTransRecords.html";
+
+
+/**
+ *  理财产品列表 searchInternetProd
+ */
+const NSString* M_URL_FinanceProduct = @"/mrMoney/mobile/Product/searchProd.json";
+
+/**
+ *  金融产品列表
+ */
+const NSString* M_URL_internetProduct = @"/mrMoney/mobile/Internet/searchProd.json";
+
+/**
+ *  产品详情
+ */
+const NSString* M_URL_productDetail = @"/mrMoney/mobile/Product/haveProdDetail";
+/**
+ *  我的钱宝宝
+ */
+const NSString* M_URL_queryInvestState  = @"/mrMoney/mobile/invite/member/queryInvestStatV2.html";
+/**
+ *  基金产品
+ */
+const NSString* M_URL_fund = @"/mrMoney/mobile/Fund/searchFund.json";
+/**
+ *  查询关联卡信息 pp
+ */
+const NSString* M_URL_queryAssetAccount = @"/mrMoney/mobile/invite/member/queryAssetAccount.html";
+
 
 /**
  *  用户登录
  */
  
-const NSString* M_URL_Login = @"https://www.qianxs.com/mrMoney/mobile/member/login";
+const NSString* M_URL_Login = @"/mrMoney/mobile/member/login";
 /**
  *  产品评论列表
  */
-const NSString* M_URL_AllComment = @"https://www.qianxs.com/mrMoney/mobile/member/getAllCommentByProductId.html";
+const NSString* M_URL_AllComment = @"/mrMoney/mobile/member/getAllCommentByProductId.html";
 /**
  *  修改密码
  */
-const NSString* M_URL_ModifyPassword = @"https://www.qianxs.com/mrMoney/mobile/invite/joiner/modifyPassword.html";
+const NSString* M_URL_ModifyPassword = @"/mrMoney/mobile/invite/joiner/modifyPassword.html";
 /**
  *  修改邮箱
  */
-const NSString* M_URL_ModifyEmail = @"https://www.qianxs.com/mrMoney/mobile/invite/member/modifyMem.html";
+const NSString* M_URL_ModifyEmail = @"/mrMoney/mobile/invite/member/modifyMem.html";
 /**
  *  我的投资记录
  */
-const NSString* M_URL_queryTransStreams = @"https://www.qianxs.com/mrMoney/mobile/invite/member/queryTransStreams.html";
+const NSString* M_URL_queryTransStreams = @"/mrMoney/mobile/invite/member/queryTransStreams.html";
 /**
  *  投资日记
  */
-const NSString* M_URL_Calendar = @"https://www.qianxs.com/mrMoney/mobile/invite/activity/queryMemberJournal.html";
+const NSString* M_URL_Calendar = @"/mrMoney/mobile/invite/activity/queryMemberJournal.html";
 /**
  *  重置密码
  */
-const NSString* M_URL_resetPwd = @"https://www.qianxs.com/mrMoney/mobile/invite/member/resetPwd.html";
+const NSString* M_URL_resetPwd = @"/mrMoney/mobile/invite/member/resetPwd.html";
 
-/**
- *  发送邮件
- */
-const NSString* M_URL_sendEmail = @"http://www.huchao.org/trace/bat";
 /**
  *     上传头像
  */
-const NSString* M_URL_uploadIcon= @"https://www.qianxs.com/mrMoney/mobile/invite/member/uploadMemIcon.html";
+const NSString* M_URL_uploadIcon= @"/mrMoney/mobile/invite/member/uploadMemIcon.html";
 /**
  *  提交风险
  */
-const NSString* M_URL_risk = @"https://www.qianxs.com/mrMoney/mobile/invite/member/submitRisk.html";
+const NSString* M_URL_risk = @"/mrMoney/mobile/invite/member/submitRisk.html";
 
 /**
  *  添加银行账号到本地
  */
-const NSString* M_URL_appendAssetAccount = @"https://www.qianxs.com/mrMoney/mobile/assetAccount/appendAssetAccount";
+const NSString* M_URL_appendAssetAccount = @"/mrMoney/mobile/assetAccount/appendAssetAccount";
 /**
  *  同步银行账户
  */
-const NSString* M_URL_syncAssetAccount = @"https://www.qianxs.com/mrMoney/mobile/assetAccount/syncAssetAccount";
+const NSString* M_URL_syncAssetAccount = @"/mrMoney/mobile/assetAccount/syncAssetAccount";
 
 /**
  *  解除绑定银行卡
  */
-const NSString* M_URL_unbindAssetAccount = @"https://www.qianxs.com/mrMoney/mobile/assetAccount/unbindAssetAccount";
+const NSString* M_URL_unbindAssetAccount = @"/mrMoney/mobile/assetAccount/unbindAssetAccount";
 /**
  *  活动聊天列表
  */
-const NSString* M_URL_listActivity = @"https://www.qianxs.com/mrMoney/mobile/invite/activity/listActivityComment.html";
+const NSString* M_URL_listActivity = @"/mrMoney/mobile/invite/activity/listActivityComment.html";
 /**
  *  申请提现
  */
-const NSString* M_URL_withdraw = @"https://www.qianxs.com/mrMoney/mobile/invite/withdraw/confirmWithDraw.html";
+const NSString* M_URL_withdraw = @"/mrMoney/mobile/invite/withdraw/confirmWithDraw.html";
 /**
  *  使用钱宝宝购买
  */
-const NSString* M_URL_useBalanceToBuy = @"https://www.qianxs.com/mrMoney/mobile/invite/sdo/useBalanceToBuy.html";
+const NSString* M_URL_useBalanceToBuy = @"/mrMoney/mobile/invite/sdo/useBalanceToBuy.html";
 
 /**
  *  首页查询产品
  */
-const NSString* M_URL_queryProduct = @"https://www.qianxs.com/mrMoney/mobile/invite/member/queryAnotherProd.html";
+const NSString* M_URL_queryProduct = @"/mrMoney/mobile/invite/member/queryAnotherProd.html";
 /**
  *  充值订单
  */
-const NSString* M_URL_rechargeOrder = @"https://www.qianxs.com/mrMoney/mobile/invite/ysb/initYsbRechargeOrder.html";
-//const NSString* M_URL_rechargeOrder = @"https://www.qianxs.com/mrMoney/mobile/invite/sdo/initRechargeOrder.html";
+const NSString* M_URL_rechargeOrder = @"/mrMoney/mobile/invite/ysb/initYsbRechargeOrder.html";
+//const NSString* M_URL_rechargeOrder = @"/mrMoney/mobile/invite/sdo/initRechargeOrder.html";
 /**
  *  一键签约余额宝
  */
-const NSString* M_URL_signAlipay =@"https://www.qianxs.com/mrMoney/mobile/invite/member/ transMoneyToAlipay.html";
+const NSString* M_URL_signAlipay =@"/mrMoney/mobile/invite/member/ transMoneyToAlipay.html";
 
 /**
  * 认证qq
  */
-const NSString* M_URL_qqoauth =@"https://www.qianxs.com/mrMoney/mobile/qqoauth/checkin";
+const NSString* M_URL_qqoauth =@"/mrMoney/mobile/qqoauth/checkin";
 /**
  *  绑定接口
  */
-const NSString* M_URL_binding =@"https://www.qianxs.com/mrMoney/mobile/qqoauth/binduser";
+const NSString* M_URL_binding =@"/mrMoney/mobile/qqoauth/binduser";
 /**
  *  分享返还现金
  */
-const NSString* M_URL_presentedPrincipal = @"https://www.qianxs.com/mrMoney/mobile/invite/activity/presentedPrincipal";
+const NSString* M_URL_presentedPrincipal = @"/mrMoney/mobile/invite/activity/presentedPrincipal";
 /**
  *  发表评论
  */
-const NSString* M_URL_addComment = @"https://www.qianxs.com/mrMoney/mobile/member/addComment.html";
+const NSString* M_URL_addComment = @"/mrMoney/mobile/member/addComment.html";
 
 /**
  *  地址模糊查询
  */
-const NSString* M_URL_fuzzyQuery = @"https://www.qianxs.com/mrMoney/portal/invite/withdraw/mFuzzyQuery";
+const NSString* M_URL_fuzzyQuery = @"/mrMoney/portal/invite/withdraw/mFuzzyQuery";
+/**
+ *  获取书续费
+ */
+const NSString* M_URL_obtainFee = @"/mrMoney/mobile/invite/member/getFee.html";
 
 /**
  *  公用字段
@@ -184,7 +189,7 @@ const NSString* M_KEY_REQUESTID=@"RequestId";//请求标识，由客户端产生
 const NSString* M_KEY_MSGTOKEN=@"MsgToken";//信息校验令牌
 const NSString* M_KEY_DEVICEID=@"DeviceId";//客户端设备标识
 const NSString* M_KEY_APPVERSION=@"AppVersion";//客户端版本号
-const NSString* M_VALUE_APPVERSION=@"3.0.5";//客户端版本号
+const NSString* M_VALUE_APPVERSION=@"3.0.6";//客户端版本号
 const NSString* M_KEY_DEVICEMODEL=@"DeviceModel";//终端设备的型号信息
 const NSString* M_KEY_PLATTYPE=@"PlatType";//系统平台类型
 const NSString* M_VALUE_PLATTYPE=@"i";//系统平台类型

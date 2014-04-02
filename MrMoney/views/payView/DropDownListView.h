@@ -18,9 +18,10 @@
     UIControl   *_overlayView;
 }
 @property(nonatomic,strong)NSMutableArray *arryData;
+@property(nonatomic,strong)NSMutableDictionary *dataDict;
 @property(nonatomic,strong)MPayView *payView;
- 
 @property (nonatomic, assign) id<kDropDownListViewDelegate> delegate;
+
 
 - (void)fadeOut;
 - (id)initWithTitle:(NSString *)aTitle options:(NSArray *)aOptions xy:(CGPoint)point size:(CGSize)size isMultiple:(BOOL)isMultiple;

@@ -34,7 +34,6 @@
     _overlayView = [[UIControl alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _overlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
  
-    
     isMultipleSelection=isMultiple;
     CGRect rect = CGRectMake(point.x, point.y,size.width,size.height);
     if (self = [super initWithFrame:rect])
@@ -50,7 +49,7 @@
         [bankView.backBtn addTarget:self action:@selector(fadeOut) forControlEvents:UIControlEventTouchUpInside];
         
         _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, DROPDOWNVIEW_HEADER_HEIGHT, 300, 320 - DROPDOWNVIEW_HEADER_HEIGHT)];
-         
+        
         _tableView.rowHeight = 50.;
         _tableView.backgroundColor = KVIEW_BACKGROUND_COLOR;
         _tableView.dataSource = self;
@@ -60,11 +59,9 @@
         
         _payView = [[[NSBundle mainBundle] loadNibNamed:@"MPayView" owner:self options:nil] lastObject];
         _payView.frame = rect;
-        
-        NSString *content =  [_kDropDownOption componentsJoinedByString:@","];
-
-        if ([content containsString:_kTitleText]) {
-            _payView.bankLabel.text = STRING_FORMAT(@"已选%@网银支付",bankName(_kTitleText));
+ 
+        if (![aTitle containsString:@"￥"]) {
+            _payView.bankLabel.text = STRING_FORMAT(@"已选%@网银支付",_kTitleText);
             _payView.bankLabel.hidden = NO;
             _payView.investMoneyLabel.hidden = YES;
             _payView.titleMarkLabel.hidden = YES;
@@ -74,7 +71,7 @@
             _payView.investMoneyLabel.hidden = NO;
             _payView.titleMarkLabel.hidden = NO;
         }
-
+        
         [_payView.backBtn addTarget:self action:@selector(fadeOut) forControlEvents:UIControlEventTouchUpInside];
         [_payView.switchBtn addTarget:self action:@selector(Click_Done) forControlEvents:UIControlEventTouchUpInside];
         [_payView.payBtn addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
@@ -95,9 +92,7 @@
         [MActionUtility showAlert:@"账户密码错误"];
         return;
     }
-
-
-
+    
     if (self.delegate && [self.delegate respondsToSelector:@selector(DropDownListViewDidButtonClick:bankId:)]) {
         [self.delegate DropDownListViewDidButtonClick:[_payView.moneyTf.text floatValue] bankId:_kTitleText];
     }
@@ -162,7 +157,7 @@
 #pragma mark - Tableview datasource & delegates
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_kDropDownOption count] + 1;
+    return [_kDropDownOption count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -173,20 +168,19 @@
     if (cell ==nil) {
         cell = [[DropDownViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentity];
     }
-
+    
     int row = [indexPath row];
     
-    if (row != 0) {
-        NSString *bank_id =  [_kDropDownOption safeObjectAtIndex:row - 1];
-        cell.imageView.image = bankLogoImage(bank_id);
-        cell.textLabel.text = bankName(bank_id);
-        cell.detailTextLabel.text = [KPAY_DICT objectForKey:bank_id];
+    NSString *bankOrderkey =  [_kDropDownOption safeObjectAtIndex:row];
+    
+    NSDictionary *cellDict = [KPAY_DICT objectForKey:bankOrderkey];
+    cell.imageView.image = bankLogoImage([cellDict objectForKey:@"bank"]);
+    cell.textLabel.text = [cellDict objectForKey:@"name"];
+    if (row == 0) {
         
-        
+        cell.detailTextLabel.text = STRING_FORMAT(@"%@%@",[cellDict objectForKey:@"content"],_kTitleText);
     }else{
-        cell.imageView.image = [UIImage imageNamed:@"round_logo"];
-        cell.textLabel.text = @"钱宝宝账户支付";
-        cell.detailTextLabel.text = _kTitleText;
+        cell.detailTextLabel.text =[cellDict objectForKey:@"content"];
     }
     
     
@@ -196,6 +190,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(DropDownListView:didSelectedIndex:)]) {

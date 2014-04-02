@@ -31,7 +31,7 @@
     
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_fuzzyQuery
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_fuzzyQuery]
                                              postParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)

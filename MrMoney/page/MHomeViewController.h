@@ -14,6 +14,7 @@
 #import "MSubmitOrderAction.h"
 #import "MBalanceAction.h"
 #import "MQueryProductAction.h"
+#import "MLabel.h"
 @class MMoneyBabyData;
 
 
@@ -49,7 +50,7 @@
 @property (nonatomic,weak)   IBOutlet UILabel      * fundLabel;
 @property (nonatomic,weak)   IBOutlet UILabel      * star_earningsLabel;
 @property (nonatomic,weak)   IBOutlet UILabel      * star_bank_nameLabel;
-@property (nonatomic,weak)   IBOutlet UILabel      * star_cycleLabel;
+@property (nonatomic,weak)   IBOutlet MLabel      * star_cycleLabel;
 @property (nonatomic,weak)   IBOutlet UIImageView  * star_bank_logo;
 
 @property (nonatomic,strong) MMoneyBabyData        * moneyData;

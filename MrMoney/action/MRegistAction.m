@@ -20,6 +20,7 @@
  *
  *	请求用户注册
  */
+
 -(void)requestUserRegister{
     if (m_request_userRegister!=nil && [m_request_userRegister isFinished]) {
         return;
@@ -29,8 +30,10 @@
     NSDictionary *l_dict_request=[MActionUtility getRequestAllDict:[m_delegate_userRegister onRequestUserRegisterAction]];
     
     //  NSString *l_str_url=[MActionUtility getUserRquestURLWithMethod:(NSString*)M_URL_Regist];
+//    "https://www.qianxs.com/mrMoney/mobile/invite/member/regByMobile.html
     
-    m_request_userRegister=[[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_Regist
+    
+    m_request_userRegister=[[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString *)M_URL_Regist]
                                                       postParams:l_dict_request
                                                           object:self
                                                 onFinishedAction:@selector(onRequestUserRegisterFinishResponse:)

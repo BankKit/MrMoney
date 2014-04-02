@@ -235,7 +235,7 @@
     [dict setSafeObject:self.cardNo                 forKey:@"AccNum"];
     [dict setSafeObject:self.cardPassword           forKey:@"Password"];
     [dict setSafeObject:self.authCode               forKey:@"VerifCode"];
-    [dict setSafeObject:[self.bank_identifie lowercaseString]         forKey:@"BankCode"];
+    [dict setSafeObject:[self.bank_identifie lowercaseString]  forKey:@"BankCode"];
     [dict setSafeObject:@"none"                    forKey:@"ADD"];
     [dict setSafeObject:_authCodeData.mviewId       forKey:@"ViewID"];
     [dict setSafeObject:self.cardUserName           forKey:@"NickName"];
@@ -379,8 +379,7 @@
     popin.completionBlock = ^(NSString *addressName){
         _cardAddressTf.text = addressName;
         self.fuzzyAddress = addressName;
-      NSLog(@"-------------------addressName------------%@ \n\n",addressName);
-    };
+     };
 
 }
 -(void)onResponseFuzzyQueryActionFail{

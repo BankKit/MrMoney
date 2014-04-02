@@ -10,7 +10,7 @@
 #import "MAccountsData.h"
 #import "rmb_convert.h"
 @interface MWithdrawViewController ()
-
+@property(nonatomic,assign) float feeValue;
 @end
 
 @implementation MWithdrawViewController
@@ -63,9 +63,7 @@
         
         _canWithdrawLabel.text = STRING_FORMAT(@"%.2f元", moneyValue);
     }
-   
-//    _moneyUpperLabel.text = [NSString stringWithUTF8String:to_upper_rmb([self.canWithdrawMoney floatValue]/100)];
-  
+ 
     
 }
  
@@ -77,40 +75,84 @@
         _moneyUpperLabel.text = [NSString stringWithUTF8String:to_upper_rmb([textField.text floatValue])];
         
     }
-    
+}
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if (buttonIndex == 1) {
+        withdrawAction = [[MWithdrawAction alloc] init];
+        withdrawAction.m_delegate = self;
+        [withdrawAction requestAction];
+        [self showHUD];
+    }
+}
+#pragma mark -------------  查询手续费 -----------------
+
+-(NSDictionary*)onRequestObtainAction{
+    MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:3];
+    [dict setSafeObject:userMid() forKey:@"mid"];
+    [dict setSafeObject:[NSNumber numberWithInt:[_balanceField.text intValue]] forKey:@"withDrawMoney"];
+    [dict setSafeObject:@"03" forKey:@"tranChannel"];
+
+    return dict;
     
 }
+-(void)onResponseObtainActionSuccess:(NSString *)fee{
+    [self hideHUD];
+    self.feeValue = [fee floatValue];
+    NSString *msg = STRING_FORMAT(@"当前提现的手续费位%.2f元，将在返回给你的资金中直接扣取，确认现在提现？",[fee floatValue]);
+    [MActionUtility showAlert:@"提示" message:msg delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+    
+}
+-(void)onResponseObtainActionFail{
+    [self hideHUD];
+}
 -(IBAction)onWithdrawAction:(id)sender{
+    NSLog(@"----------------mcurrency---------------%f \n\n", [self.canWithdrawMoney floatValue]);
+    NSLog(@"----------------_balanceField.text---------------%f \n\n", [_balanceField.text floatValue]);
+ 
+    
+    if ([_passwordField.text length] == 0) {
+        [MActionUtility showAlert:@"密码不能为空"];
+        return;
+    }
+    
     NSString *password = MSMD5(_passwordField.text);
+    
     if ([self.canWithdrawMoney floatValue]/100 < 1) {
         [MActionUtility showAlert:@"没有可提现金额"];
         return;
     }
-    if ([_balanceField.text intValue] < 0) {
+    if ([_balanceField.text floatValue] < 0.) {
         [MActionUtility showAlert:@"提现金额必须大于零"];
         return;
-    }else if([_balanceField.text intValue] > [self.data.mcurrency intValue]/100){
+    }else if([_balanceField.text floatValue] > [self.canWithdrawMoney floatValue]/100){
         
-        [MActionUtility showAlert:@"提现金额大于可提现金额"];
+        [MActionUtility showAlert:@"提现金额金额过大"];
         return;
     }else if (![password isEqualToString:user_defaults_get_string(@"KPASSWORD")]){
         [MActionUtility showAlert:@"账户密码错误"];
         return;
     }
-//
+
     
-    withdrawAction = [[MWithdrawAction alloc] init];
-    withdrawAction.m_delegate = self;
-    [withdrawAction requestAction];
+    //查询手续费
+    obtainFeeAction =  [[MObtainFeeAction alloc] init];
+    obtainFeeAction.m_delegate = self;
+    [obtainFeeAction requestAction];
     [self showHUD];
+   
 
 }
+#pragma mark -------------  申请提现代理 -----------------
+
 -(NSDictionary*)onRequestWithdrawAction{
     MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:0];
+
     [dict setSafeObject:userMid() forKey:@"mId"];
     [dict setSafeObject:[NSNumber numberWithInt:[_balanceField.text intValue]*100] forKey:@"applyAmount"];
     [dict setSafeObject:self.data.maid forKey:@"aid"];
     [dict setSafeObject:_bankAddressLabel.text forKey:@"cardAddress"];
+    [dict setSafeObject:[NSNumber numberWithFloat:self.feeValue] forKey:@"fee"];
+    [dict setSafeObject:@"03" forKey:@"tranChannel"];
 
     return dict;
 }

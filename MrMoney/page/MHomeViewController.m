@@ -29,6 +29,7 @@
 #import "MLabel.h"
 
 
+
 @interface MHomeViewController ()<PDTSimpleCalendarViewDelegate,MPayViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *customDates;
@@ -50,6 +51,7 @@
 @property (nonatomic,strong) NSTimer         *timer;
 @property (nonatomic,assign) BOOL            isAnmation;
 @property (nonatomic,strong) CycleScrollView *mainScorllView;
+@property (nonatomic,strong) NSString        *bankCode;
 @end
 
 @implementation MHomeViewController
@@ -71,12 +73,14 @@
    
 }
 
-- (void)DropDownListViewDidButtonClick:(float )money bankId:(NSString *)bank_id{
+- (void)DropDownListViewDidButtonClick:(float)money bankId:(NSString *)bank_id{
     
     self.star_balance = money * 100;
-    self.star_bankId = bank_id;
+//    self.star_bankId = bank_id;
 
-    if ([self.arryList containsObject:bank_id]) {
+    NSLog(@"-------------DropDownListViewDidButtonClick------------bank_id------%@ \n\n",bank_id);
+        
+    if (![bank_id containsString:@"￥"]) {
         submitAction = [[MSubmitOrderAction alloc] init];
         submitAction.m_delegate = self;
         [submitAction requestAction];
@@ -140,7 +144,8 @@
 
     [dict setSafeObject:userMid()                           forKey:@"mId"];
     [dict setSafeObject:self.starData.mpid                  forKey:@"pid"];
-    [dict setSafeObject:self.star_bankId     forKey:@"instCode"];
+    //
+    [dict setSafeObject:self.star_bankId                   forKey:@"instCode"];
     [dict setSafeObject:self.deviceIP                       forKey:@"buyerIp"];
  
     [dict setSafeObject:[NSNumber numberWithFloat:self.star_balance]    forKey:@"money"];
@@ -194,8 +199,11 @@
     if (anIndex == 0) {
         title = STRING_FORMAT(@"￥%@",formatValue(_canInvestMoney));
     }else{
+        
+        NSDictionary *bankDict =  [KPAY_DICT objectForKey:STRING_FORMAT(@"%d",anIndex)];
  
-        title =  [self.arryList safeObjectAtIndex:anIndex - 1];
+        self.star_bankId = [MUtility payName:[bankDict objectForKey:@"bank"]];
+        title = [bankDict objectForKey:@"name"];
         
     }
      
@@ -206,7 +214,7 @@
   
     [_listView fadeOut];
    
-    NSString *canInvestMoney = STRING_FORMAT(@"可投资金额：￥%@",formatValue(_canInvestMoney));
+    NSString *canInvestMoney = formatValue(_canInvestMoney);
     [self showPopUpWithTitle:canInvestMoney withOption:_arryList xy:CGPointMake(5, 20) size:CGSizeMake(300, 320) isMultiple:NO];
     
 }
@@ -317,7 +325,7 @@
         [viewsArray addObject:view];
     }
     
-    self.mainScorllView = [[CycleScrollView alloc] initWithFrame:rect animationDuration:3];
+    self.mainScorllView = [[CycleScrollView alloc] initWithFrame:rect animationDuration:4];
     self.mainScorllView.backgroundColor = KCLEAR_COLOR;
 
     self.mainScorllView.totalPagesCount = ^NSInteger(void){
@@ -399,7 +407,7 @@
     [_mainFundView addSubview:_mainSlideView];
     
   
-    self.arryList =[NSMutableArray arrayWithArray:[KPAY_DICT allKeys]];
+    self.arryList =  [NSMutableArray arrayWithArray: [[KPAY_DICT allKeys] sortedArrayUsingSelector:@selector(compare:)]];
     
     self.deviceIP = [MUtility deviceIPAdress];
     
@@ -570,7 +578,9 @@
     }
 
     self.star_earningsLabel.text  = STRING_FORMAT(@"%.1f",[star.mstar_returnRate floatValue]/100);
-     self.star_cycleLabel.text     = STRING_FORMAT(@"%@",star.mstar_investCycle);
+    self.star_cycleLabel.text     = STRING_FORMAT(@"%@天",star.mstar_investCycle);
+
+    [self.star_cycleLabel setFont:SYSTEMFONT(14) string:@"天"];
 }
 
 #pragma mark --
@@ -599,8 +609,7 @@
     _todayIncome       = [money.mtodayIncome floatValue]/100;
     
     _total   = presentMoney + qbbAssets;
-    
-    NSLog(@"--------------------------_total-----%f \n\n",_total);
+     
     
     [self setBalanceLabelValue];
     

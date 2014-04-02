@@ -1,14 +1,14 @@
 //
-//  MUnbindAccountAction.m
+//  MObtainAction.m
 //  MrMoney
 //
-//  Created by xingyong on 14-3-26.
+//  Created by xingyong on 14-4-1.
 //  Copyright (c) 2014年 xingyong. All rights reserved.
 //
 
-#import "MUnbindAccountAction.h"
+#import "MObtainFeeAction.h"
 
-@implementation MUnbindAccountAction
+@implementation MObtainFeeAction
 
 @synthesize m_delegate;
 
@@ -27,17 +27,17 @@
         return;
     }
     
-    NSDictionary *l_dict_request =[MActionUtility getRequestAllDict:[m_delegate  onRequestUnbindAccountAction]];
+    NSDictionary *l_dict_request=[MActionUtility getRequestAllDict:[m_delegate onRequestObtainAction]];
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_unbindAssetAccount]
+    
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_obtainFee]
                                             getParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)
                                         onFailedAction:@selector(onRequestFailResponse:)];
     
-    
-    [m_request  startAsynchronous];
+    [m_request startAsynchronous];
 }
 
 /**
@@ -51,27 +51,23 @@
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
     
-    DLog(@"解除绑定 -----  %@",l_dict_response);
+    DLog(@"---------获取手续费--  %@",[l_dict_response objectForKey:@"message"]);
+    
     
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         
-        int result = [[l_dict_response objectForKey:@"result"] intValue];
-        if (result == 0) {
+        NSString *fee = [l_dict_response objectForKey:@"CustPaySum"];
+        
+        if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseObtainActionSuccess:)]) {
             
-            if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseUnbindAccountSuccess)]) {
-                [m_delegate onResponseUnbindAccountSuccess];
-            }
-            
-        }else{
-            [MActionUtility showAlert:[l_dict_response objectForKey:@"message"]];
-            return;
+            [m_delegate onResponseObtainActionSuccess:fee];
         }
         
         
     }else{
         
-        if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseUnbindAccountFail)]) {
-            [m_delegate onResponseUnbindAccountFail];
+        if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseObtainActionFail)]) {
+            [m_delegate onResponseObtainActionFail];
         }
         
     }
@@ -87,11 +83,11 @@
  */
 -(void)onRequestFailResponse:(ASIHTTPRequest*)request{
     
-    if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseUnbindAccountFail)]) {
-        [m_delegate  onResponseUnbindAccountFail];
+    if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseObtainActionFail)]) {
+        [m_delegate onResponseObtainActionFail];
     }
     m_request = nil;
 }
 
-@end
 
+@end

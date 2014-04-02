@@ -30,6 +30,7 @@
 @property(nonatomic,copy)NSString *emailAddress;
 @property(nonatomic,strong)UIButton *lastBtn;
 @property(nonatomic,copy)NSString *bankPayStyle;
+@property(nonatomic,assign)float accountBalance;
 @property(nonatomic,assign)int  buttonIndex;
 
 @end
@@ -56,11 +57,9 @@
     
     self.titleArray       = @[@"购买金额 : ",@"预期收益 : "];
     
-    self.bankArray        = [KPAY_DICT allKeys];
      
     self.deviceIP         = [MUtility deviceIPAdress];
     
-//    NSLog(@"-------- self.deviceIP---- %@", self.deviceIP);
     
     if ([self.deviceIP isEqualToString:@"(null)"]){
        self.deviceIP  = @"192.168.1.100";
@@ -97,16 +96,20 @@
         [MActionUtility showAlert:@"购买金额不能为空"];
         return;
     }
-    
-    if (!self.payTypeName) {
-        
-        [MActionUtility showAlert:@"请选择支付方式"];
-        return;
+    if (_accountBalance == 0) {
+        if (!self.payTypeName) {
+            
+            [MActionUtility showAlert:@"请选择支付方式"];
+            return;
+        }
     }
+  
     
-    if (![self.bankArray containsObject:self.bankPayStyle]) {
-        if (amount > [self.bankPayStyle intValue]) {
-            [MActionUtility showAlert:@"购买金额过大"];
+    if (_accountBalance > 0) {
+        
+        NSLog(@"-------------------_accountBalance---------%f \n\n",_accountBalance);
+        if (amount >  _accountBalance) {
+            [MActionUtility showAlert:@"您输入的购买金额过大"];
             return;
         }
         [self goPay];
@@ -136,9 +139,10 @@
  
     int  amount =  [[self.editFieldArray safeObjectAtIndex:0] intValue] *100;
     __weak MPurchaseViewController *wself = self;
+    
     BlurView *blur = [[BlurView alloc] initWithFrame:Rect(0, 50, 300, 355) withXib:@"MOrderView" action:^{
     
-        if (![wself.bankArray containsObject:wself.bankPayStyle]) {
+        if (_accountBalance > 0.) {
             balanceAction = [[MBalanceAction alloc] init];
             balanceAction.m_delegate = wself;
             [balanceAction requestAction];
@@ -336,13 +340,11 @@
             
         }
         
-        BOOL isEmpty = [strOrEmpty(self.bankPayStyle) isEqualToString:@""];
-        cell.bank_logo.hidden = isEmpty;
-        cell.bankNameLabel.hidden = isEmpty;
-        if (![self.bankArray containsObject:self.bankPayStyle]) {
-         
+  
+        if (_accountBalance >0.) {
+ 
             cell.bank_logo.image   =  [UIImage imageNamed:@"round_logo"];
-            cell.bankNameLabel.text = STRING_FORMAT(@"￥%@",self.bankPayStyle);
+            cell.bankNameLabel.text = STRING_FORMAT(@"￥%.2f",_accountBalance);
         }else{
   
             cell.bank_logo.image   = bankLogoImage(self.bankPayStyle);
@@ -498,8 +500,9 @@
         
         MBankViewController *bank = [[MBankViewController alloc] initWithNibName:@"MBankViewController" bundle:nil];
   
-        bank.blockBank = ^(NSString *bank_id){
+        bank.blockBank = ^(NSString *bank_id ,float accountBalance){
             self.bankPayStyle = bank_id;
+            self.accountBalance = accountBalance;
             
             [self.tableView reloadData];
         };

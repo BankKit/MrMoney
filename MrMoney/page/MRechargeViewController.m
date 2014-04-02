@@ -107,6 +107,7 @@
     
 }
 -(void)goPay{
+    
     int  amount =  [[self.editFieldArray safeObjectAtIndex:0] intValue] *100;
     __weak MRechargeViewController *wself = self;
     BlurView *blur = [[BlurView alloc] initWithFrame:Rect(0, 50, 300, 255) withXib:@"MRechargeView" action:^{
@@ -125,22 +126,8 @@
 }
 -(NSDictionary*)onRequestRechargeAction{
     MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:0];
-    
-//    [dict setSafeObject:userMid()                           forKey:@"mId"];
-////    [dict setSafeObject:_data.mpid                          forKey:@"pid"];
-//    
-//    int  amount =  [[self.editFieldArray objectAtIndex:0] intValue] *100;
-//    
-//    [dict setSafeObject:[NSNumber numberWithInt:amount]    forKey:@"money"];
-//    [dict setSafeObject:@"PT001"                            forKey:@"payType"];
-//    [dict setSafeObject:self.payTypeName                    forKey:@"instCode"];
-//    
-//    [dict setSafeObject:self.deviceIP    forKey:@"buyerIp"];
-//    [dict setSafeObject:[MDataInterface commonParam:@"kmobile"] forKey:@"mobile"];
-//    [dict setSafeObject:[NSNumber numberWithInt:0]          forKey:@"quickPass"];
 
     [dict setSafeObject:userMid()                           forKey:@"mId"];
-//    [dict setSafeObject:_data.mpid                          forKey:@"pid"];
     [dict setSafeObject:self.payTypeName                    forKey:@"instCode"];
     [dict setSafeObject:self.deviceIP                       forKey:@"buyerIp"];
     int  amount =  [[self.editFieldArray safeObjectAtIndex:0] intValue] *100;
@@ -289,7 +276,6 @@
     
     UIButton *button = (UIButton *)sender;
     
-    
     self.isChecked  = ! self.isChecked;
     
     button.selected = self.isChecked ;
@@ -377,7 +363,7 @@
         MBankViewController *bank = [[MBankViewController alloc] initWithNibName:@"MBankViewController" bundle:nil];
         bank.pushType =  MRechargeType;
         
-        bank.blockBank = ^(NSString *bank_id){
+        bank.blockBank = ^(NSString *bank_id,float accountBalance){
             self.bankPayStyle = bank_id;
             
             [self.tableView reloadData];
@@ -389,8 +375,7 @@
     if (indexPath.section == 2) {
         
         [MGo2PageUtility go2MWebBrowser:self title:@"使用条款和隐私政策" webUrl:@"http://www.qianxs.com/mrMoney/mobile/invite/member/license.html"];
-        
-        
+         
     }
     
 }
@@ -405,8 +390,6 @@
     return 44.;
     
 }
-
-
 
 - (void)didReceiveMemoryWarning
 {

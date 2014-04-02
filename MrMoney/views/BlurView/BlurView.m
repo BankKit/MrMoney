@@ -93,7 +93,7 @@ static UIWindow *__sheetWindow = nil;
             
             orderView.amount = amount;
             
-            orderView.payStyle = pay ;
+            orderView.payStyle = pay;
             
             [orderView.cancelBtn addTarget:self action:@selector(fadeOut) forControlEvents:UIControlEventTouchUpInside];
             

@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
     <dict>
-        <key>1</key>
+        <key>0</key>
 		<dict>
             <key>bank</key>
             <key>qianbb</key>
             <key>content</key>
-            <string>每日限额2000元，可在网银调整</string>
+            <string>可投资金额：</string>
             <key>amount</key>
             <string>2000</string>
             <key>name</key>
@@ -99,5 +99,5 @@
         </dict>
         
     </dict>
-
+    
 </plist>

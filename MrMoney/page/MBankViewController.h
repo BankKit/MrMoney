@@ -9,7 +9,7 @@
 #import "MBaseViewController.h"
 #import "MQueryInvestAction.h"
 
-typedef void (^BlockBank_id)(NSString *bankId);
+typedef void (^BlockBank_id)(NSString *bankId,float accountBalance);
 
 @interface MBankViewController : MBaseViewController<MQueryInvestActionDelegate>{
     MQueryInvestAction *queryAction;
@@ -25,7 +25,5 @@ typedef void (^BlockBank_id)(NSString *bankId);
 @property(copy,nonatomic)BlockBank_id blockBank;
 
 @property(assign,nonatomic)MHomeViewControllerPushType pushType;
-
-
--(IBAction)onButtonAction:(id)sender;
+ 
 @end

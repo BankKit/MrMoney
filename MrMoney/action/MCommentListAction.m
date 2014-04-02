@@ -31,7 +31,7 @@
     NSDictionary *l_dict_request=[MActionUtility getRequestAllDict:[m_delegate  onRequestCommentListAction]];
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_AllComment
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_AllComment]
                                              getParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)

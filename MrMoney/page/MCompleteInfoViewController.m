@@ -31,7 +31,7 @@
     [super viewDidLoad];
     [self createNavBarTitle:@"完善信息"];
  
-   MSecurityView *securityView = [self securityView:_confirmPasswordTf];
+    MSecurityView *securityView = [self securityView:_topView];
    
     [self.scrollView  addSubview:securityView];
     

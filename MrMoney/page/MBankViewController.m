@@ -12,7 +12,9 @@
 #import "MLogoView.h"
 @interface MBankViewController ()
 
-@property(nonatomic,copy)NSString *balance;
+@property(nonatomic,assign)float canInvestMoney;
+@property(nonatomic,strong)NSMutableDictionary *dataDict;
+
 @end
 
 @implementation MBankViewController
@@ -31,16 +33,18 @@
     [super viewDidLoad];
     [self createNavBarTitle:@"选择支付方式"];
    
-    
     _tableView.rowHeight = 50.0f;
     
+    self.dataDict = [NSMutableDictionary dictionaryWithDictionary:KPAY_DICT];
     
-    self.dataArray =[NSMutableArray arrayWithArray:[KPAY_DICT allKeys]];
- 
+    if (self.pushType == MRechargeType) {
+        [self.dataDict removeObjectForKey:@"0"];
+    }
+    
+    self.dataArray =[NSMutableArray arrayWithArray:[[self.dataDict allKeys] sortedArrayUsingSelector:@selector(compare:)]];
+     
     if (self.pushType != MRechargeType) {
-   
-        self.tableView.tableHeaderView = _headerView;
-        
+    
         queryAction = [[MQueryInvestAction alloc] init];
         queryAction.m_delegate = self;
         [queryAction requestAction];
@@ -49,22 +53,15 @@
 
     
 }
--(void)setHeaderViewUI{
-    self.balanceLabel.text =STRING_FORMAT(@"可投资金额：%@",_balance);
-    self.nameLabel.text = @"钱宝宝账户支付";
-}
+
 -(NSDictionary*)onRequestQueryInvestAction{
     return @{@"mId": userMid()};
 }
 -(void)onResponseQueryInvestSuccess:(MMoneyBabyData *)money{
     [self hideHUD];
- 
-    _balance = formatValue([money.mcanInvestMoney floatValue]/100);
-    _bank_logo.image =  [UIImage imageNamed:@"round_logo"];
-   
-    
-     [self setHeaderViewUI];
-    
+
+    self.canInvestMoney  = [money.mcanInvestMoney floatValue]/100;
+
     [self.tableView reloadData];
     
 }
@@ -87,10 +84,17 @@
     }
     
     int row = [indexPath row];
-    NSString *bank_id =  [self.dataArray safeObjectAtIndex:row];
-    cell.imageView.image = bankLogoImage(bank_id);
-    cell.textLabel.text = bankName(bank_id);
-    cell.detailTextLabel.text = [KPAY_DICT objectForKey:bank_id];
+    NSString *bankOrderkey =  [self.dataArray safeObjectAtIndex:row];
+    NSDictionary *cellDict = [self.dataDict objectForKey:bankOrderkey];
+    cell.imageView.image = bankLogoImage([cellDict objectForKey:@"bank"]);
+    cell.textLabel.text = [cellDict objectForKey:@"name"];
+    if ((self.pushType != MRechargeType) && (row == 0)) {
+       
+        cell.detailTextLabel.text = STRING_FORMAT(@"%@%@",[cellDict objectForKey:@"content"], formatValue(_canInvestMoney));
+    }else{
+        cell.detailTextLabel.text =[cellDict objectForKey:@"content"];
+    }
+
     
     return cell;
 }
@@ -98,33 +102,41 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSString *bank_id =  [self.dataArray safeObjectAtIndex:indexPath.row];
-
+    
+    NSString *bankOrderkey =  [self.dataArray safeObjectAtIndex:indexPath.row];
+    NSDictionary *cellDict = [self.dataDict objectForKey:bankOrderkey];
+    
     if (self.blockBank) {
         
-        self.blockBank(bank_id);
+        if ((self.pushType != MRechargeType) && (indexPath.row == 0)) {
+        self.blockBank(nil,_canInvestMoney);
+        }else {
+            self.blockBank([cellDict objectForKey:@"bank"],0.0);
+        }
+
         
         [self onButtonActionBack:nil];
 
     }
    
 }
-
--(IBAction)onButtonAction:(id)sender{
-    if ([_balance floatValue]> 0.0) {
-        if (self.blockBank) {
-            
-            self.blockBank(_balance);
-            
-            [self onButtonActionBack:nil];
-            
-        }
-    }else{
-        [MActionUtility showAlert:@"投资金额为空"];
-        return;
-    }
-}
-
+//
+//-(IBAction)onButtonAction:(id)sender{
+//    if (_canInvestMoney> 0.0) {
+//        
+//        if (self.blockBank) {
+//            
+//            self.blockBank(nil,_canInvestMoney);
+//            
+//            [self onButtonActionBack:nil];
+//            
+//        }
+//    }else{
+//        [MActionUtility showAlert:@"投资金额为空"];
+//        return;
+//    }
+//}
+//
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

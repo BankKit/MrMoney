@@ -167,9 +167,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入提现金额" textAlignment="right" minimumFontSize="17" id="cgc-AI-wbk" customClass="MTextField">
-                    <rect key="frame" x="120" y="71" width="167" height="30"/>
+                    <rect key="frame" x="105" y="70" width="180" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="Rta-nQ-Qge"/>
@@ -197,9 +197,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入钱先生登录密码" textAlignment="right" minimumFontSize="17" id="QoO-gB-GEQ" customClass="MTextField">
-                    <rect key="frame" x="120" y="132" width="166" height="30"/>
+                    <rect key="frame" x="105" y="131" width="180" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="4U3-VH-xeq"/>

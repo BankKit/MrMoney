@@ -91,12 +91,20 @@
     
 	[_tencentOAuth authorize:_permissions inSafari:NO];
 }
-#pragma mark --- ---
+
 #pragma mark --- qq登录回调 ---
-- (void)tencentDiNSLogin {
+
+-(void)tencentDidNotNetWork{
+    [MActionUtility showAlert:@"网络异常"];
+    return;
+}
+-(void)tencentDidNotLogin:(BOOL)cancelled{
+    [MActionUtility showAlert:@"QQ登录失败"];
+    return;
+}
+- (void)tencentDidLogin{
 	// 登录成功
-    
-    
+     
     if (_tencentOAuth.openId  && 0 != [_tencentOAuth.openId length])
     {
         self.openId = _tencentOAuth.openId;

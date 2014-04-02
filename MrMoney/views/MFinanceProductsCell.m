@@ -120,7 +120,8 @@
     
     self.bank_nameLabel.text       = STRING_FORMAT(@"%@ %@",bankName(_internet.msite_id),strOrEmpty(_internet.mproduct_name));;
     
-    self.earningsLabel.text        = STRING_FORMAT(@"%.3f%%",[_internet.mweek_return_rate floatValue]);
+    NSLog(@"-------------------------------%@ \n\n",_internet.mweek_return_rate);
+    self.earningsLabel.text        = STRING_FORMAT(@"%@%%",_internet.mweek_return_rate);
     
     [_earningsLabel setFontColor:[UIColor lightGrayColor] string:@"%"];
     [_earningsLabel setFont:SYSTEMFONT(12) string:@"%"];
@@ -135,9 +136,10 @@
     
     
     if ([self.sortType isEqualToString:@"week_return_rate"]) {
-        _dayLabel.text             = STRING_FORMAT(@"%.3f", [internet.mincome_10th floatValue]);
+        
+        _dayLabel.text             = STRING_FORMAT(@"%@",internet.mincome_10th);
  
-        _dateLabel.text            = @"万份收益率";
+        _dateLabel.text            = @"万份收益";
  
         
     }else if([self.sortType isEqualToString:@"lowest_amount"]){

@@ -68,8 +68,7 @@
     [self.scrollView  addSubview:securityView];
     
     self.scrollView.contentSize = CGSizeMake(self.view.bounds.size.width, securityView.frameY + securityView.frameHeight + 5);
-    
-    self.scrollView.contentSize = CGSizeMake(320, securityView.frameY + securityView.frameHeight + 5);
+ 
     
     
     [self initContentScrollView];

@@ -14,7 +14,7 @@
 - (id)initWithFrame:(CGRect)frame
             balance:(double )balance
         todayIncome:(float)todayIncome
-           type:(MHomeViewControllerPushType )type
+               type:(MHomeViewControllerPushType )type
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -23,10 +23,10 @@
         self.todayIncome = todayIncome;
         _balanceLabel = [[MLabel  alloc] initWithFrame:Rect(0, 0, frame.size.width, frame.size.height)];
         self.type = type;
-     
+        
         self.flag = self.type == MHomeType ? YES : NO;
-         self.userInteractionEnabled = NO;
-
+        self.userInteractionEnabled = NO;
+        
         _balanceLabel.lineBreakMode = NSLineBreakByWordWrapping;
         _balanceLabel.backgroundColor = KCLEAR_COLOR;
         _balanceLabel.numberOfLines = 0;
@@ -36,7 +36,7 @@
             _balanceLabel.font = FONT(kHelveticaLight, 18);
         }else{
             _balanceLabel.font = FONT(kHelveticaLight, 36);
- 
+            
             _balanceLabel.textColor =  [UIColor orangeColor];
         }
         
@@ -52,7 +52,7 @@
 
 - (void)didMoveToSuperview;
 {
- 
+    
     if (_todayIncome > 0.0) {
         if (self.superview != nil) {
             [self setupUpdateTimer];
@@ -60,7 +60,7 @@
             [self.animationTimer invalidate];
             self.animationTimer = nil;
         }
-
+        
     }
 }
 
@@ -71,11 +71,11 @@
 {
     
     self.animationTimer = [NSTimer timerWithTimeInterval:3.0 target:self
-                                                    selector:@selector(handleTimer:)
-                                                    userInfo:nil repeats:YES];
+                                                selector:@selector(handleTimer:)
+                                                userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.animationTimer forMode:NSRunLoopCommonModes];
     
-  
+    
 }
 
 - (void)handleTimer:(NSTimer*)timer;
@@ -84,29 +84,24 @@
 }
 
 - (void)updateValuesAnimated:(BOOL)animated;
-{ 
+{
     double currentSceond =  ([MUtility getSecond] * _todayIncome);
     
     double totalBalance   = _balance +  currentSceond;
- 
-    if (totalBalance > 0.0) {
+    
+    NSString *l_str =  formatIntValue(totalBalance, 6);
+    
+    NSString *balanceStr = self.flag ? STRING_FORMAT(@"￥%@",l_str) : l_str;
+    
+    if ([balanceStr length] > 4) {
+        NSRange boldRange ={[balanceStr length] - 4,4};
         
-        NSString *l_str =  formatIntValue(totalBalance, 6);
-         
-        NSString *balanceStr = self.flag ? STRING_FORMAT(@"￥%@",l_str) : l_str;
-      
-        if ([balanceStr length] > 4) {
-            NSRange boldRange ={[balanceStr length] - 4,4};
-            
-            UIFont *boldSystemFont = FONT(kHelveticaLight,self.flag ? 12: 22);
-            
-            _balanceLabel.text = balanceStr;
-            
-            [_balanceLabel setFont:boldSystemFont range:boldRange];
-        }
+        UIFont *boldSystemFont = FONT(kHelveticaLight,self.flag ? 12: 22);
         
-}
-
+        _balanceLabel.text = balanceStr;
+        
+        [_balanceLabel setFont:boldSystemFont range:boldRange];
+    }
     
 }
 - (void)start
@@ -126,12 +121,12 @@
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
 
 @end

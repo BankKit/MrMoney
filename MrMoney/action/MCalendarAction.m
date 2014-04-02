@@ -31,7 +31,7 @@
     NSDictionary *l_dict_request=[MActionUtility getRequestAllDict:[m_delegate  onRequestCalendarAction]];
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_Calendar
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_Calendar]
                                              getParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)

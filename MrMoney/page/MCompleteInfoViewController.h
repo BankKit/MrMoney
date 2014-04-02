@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTf;
 @property (weak, nonatomic) IBOutlet UITextField *confirmPasswordTf;
 @property (weak, nonatomic) IBOutlet UITextField *nameTf;
+@property (nonatomic,weak) IBOutlet UIButton *confirmBtn;
+@property (nonatomic,weak) IBOutlet UIView *topView;
  
 @property(nonatomic,copy)NSString *openid;
 

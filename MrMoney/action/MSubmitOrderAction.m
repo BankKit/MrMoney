@@ -30,7 +30,7 @@
     NSDictionary *l_dict_request=[MActionUtility getRequestAllDict:[m_delegate  onRequestSubmitOrderAction]];
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_SubmitOrder
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_SubmitOrder]
                                              postParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)

@@ -19,6 +19,13 @@ static UIAlertView *_alertView = nil;
 @implementation MActionUtility
 
 
++(NSString *)getURL:(NSString *)url{
+//    https://www.qianxs.com  生成环境
+//    http://www.huchao.org:8088 测试环境
+ 
+    return [NSString stringWithFormat:@"%@%@",KDebuggingEnvironmentURL,url];
+    
+}
 +(NSDictionary*)getRequestCommonDict{
     //    NSString *l_str_userId=[QMDataInterface commonParam:QM_KEY_USERID];
     //

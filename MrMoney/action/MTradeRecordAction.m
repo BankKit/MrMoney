@@ -31,7 +31,7 @@
     NSDictionary *l_dict_request=[MActionUtility getRequestAllDict:[m_delegate  onRequestTradeRecordAction]];
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_TradeRecords
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_TradeRecords]
                                             getParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)
@@ -51,7 +51,7 @@
     NSString *l_str_response=[request responseString];
     
     NSDictionary *l_dict_response=[l_str_response objectFromJSONString];
- 
+    DLog(@"-----账户明细--- %@",l_dict_response);
     if ([MActionUtility isRequestJSONSuccess:l_dict_response]) {
         NSMutableArray *l_array_response = [NSMutableArray arrayWithCapacity:0];
         

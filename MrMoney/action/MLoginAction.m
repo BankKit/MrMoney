@@ -28,7 +28,7 @@
     
     NSDictionary *l_dict_request = [MActionUtility getRequestAllDict:[m_delegate_userLogin onRequestUserLoginAction]];
     
-    m_request_userLogin = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_Login
+    m_request_userLogin = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString *)M_URL_Login]
                                                       getParams:l_dict_request
                                                          object:self
                                                onFinishedAction:@selector(onRequestUserLoginFinishResponse:)

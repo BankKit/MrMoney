@@ -2,7 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
- 
 	<key>guangfa</key>
 	<string>广发银行</string>
 	<key>huaxia</key>
@@ -17,8 +16,9 @@
 	<string>网易</string>
 	<key>baidu</key>
 	<string>百度</string>
-     <key>yfd</key>
+	<key>yfd</key>
 	<string>易方达</string>
-  
+	<key>dbfund</key>
+	<string>德邦基金</string>
 </dict>
 </plist>

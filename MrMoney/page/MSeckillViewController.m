@@ -68,7 +68,7 @@
     self.balanceLabel.text = STRING_FORMAT(@"%@元",formatValue([self.actData.mactRmAmount floatValue]/100));
     
 
-    self.dayLabel.text = STRING_FORMAT(@"（%@天）",self.actData.minvestCycle);
+    self.dayLabel.text = STRING_FORMAT(@"（%@天）",strOrEmpty(self.actData.minvestCycle));
     
     if ([self.actData.mactRmAmount floatValue] <= 0.0) {
         _balanceLabel.hidden = YES;

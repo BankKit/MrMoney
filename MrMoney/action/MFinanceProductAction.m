@@ -37,7 +37,7 @@
     NSDictionary *l_dict_request= [MActionUtility getRequestAllDict:[m_delegate  onRequestFinanceProductAction]];
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:requestUrl
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:requestUrl]
                                                       postParams:l_dict_request
                                                          object:self
                                                onFinishedAction:@selector(onRequestFinishResponse:)

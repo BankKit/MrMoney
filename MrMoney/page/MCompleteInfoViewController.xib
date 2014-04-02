@@ -7,11 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MCompleteInfoViewController">
             <connections>
+                <outlet property="confirmBtn" destination="bob-Jn-Dhh" id="hQV-4c-Tnj"/>
                 <outlet property="confirmPasswordTf" destination="Cmm-l1-YoL" id="l2L-Mo-NsW"/>
                 <outlet property="mobileTf" destination="pGP-2o-cYn" id="eQN-aA-6HO"/>
                 <outlet property="nameTf" destination="20L-WV-Sm1" id="8pD-IO-nJ0"/>
                 <outlet property="passwordTf" destination="h3e-lg-g0d" id="Qpi-e6-TC9"/>
                 <outlet property="scrollView" destination="d8r-IT-dXW" id="S9E-hD-9iS"/>
+                <outlet property="topView" destination="Pvp-dS-Xcv" id="6Tp-jQ-Rmg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -65,18 +67,6 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bob-Jn-Dhh" customClass="MButton">
-                                    <rect key="frame" x="30" y="158" width="241" height="34"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <state key="normal" title="账户绑定">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="onSubmitAction:" destination="-1" eventType="touchUpInside" id="gYR-4o-n0o"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="姓名：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Bv1-1b-dvN">
                                     <rect key="frame" x="20" y="55" width="64" height="21"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -89,6 +79,18 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits"/>
                                 </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bob-Jn-Dhh" customClass="MButton">
+                                    <rect key="frame" x="30" y="158" width="241" height="34"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <state key="normal" title="账户绑定">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onSubmitAction:" destination="-1" eventType="touchUpInside" id="gYR-4o-n0o"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>

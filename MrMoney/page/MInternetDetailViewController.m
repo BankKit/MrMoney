@@ -86,17 +86,24 @@
     self.middleLabel9.text = product_type;
     
     
+    self.bottomLabel1.text = [self formatValue:_data.mincome_10th];
+    self.bottomLabel2.text = [self formatValue:_data.mmonth_return_rate];
+    self.bottomLabel3.text = [self formatValue:_data.mhalf_year_return_rate];
+    self.bottomLabel4.text = [self formatValue:_data.myear_return_rate];
+    self.bottomLabel5.text = [self formatValue:_data.myear_return_rate];
+    self.bottomLabel6.text = [self formatValue:_data.mestablish_return_rate];
+    self.bottomLabel7.text = [self formatValue:_data.mrise_and_decline];
     
-    self.bottomLabel1.text = m_dictionaryValueToString(_data.mincome_10th);
-    self.bottomLabel2.text = m_dictionaryValueToString(_data.mmonth_return_rate);
-    self.bottomLabel3.text = m_dictionaryValueToString(_data.mhalf_year_return_rate);
-    self.bottomLabel4.text = m_dictionaryValueToString(_data.myear_return_rate);
-    self.bottomLabel5.text = m_dictionaryValueToString(_data.mthis_year_return_rate);
-    self.bottomLabel6.text = m_dictionaryValueToString(_data.mestablish_return_rate);
-    self.bottomLabel7.text = m_dictionaryValueToString(_data.mrise_and_decline);
     
-     
+}
+-(NSString *)formatValue:(NSString *)value{
 
+    if ([value integerValue] == -1) {
+        return @"---";
+    }else{
+        return m_dictionaryValueToString(value);
+    }
+    
 }
 - (void)viewDidLoad
 {

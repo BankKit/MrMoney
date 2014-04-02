@@ -30,7 +30,7 @@
     NSDictionary *l_dict_request =[MActionUtility getRequestAllDict:[m_delegate  onRequestAppendAssetAccountAction]];
     
     
-    m_request  = [[KDATAWORLD httpEngine] buildRequest:(NSString*)M_URL_appendAssetAccount
+    m_request  = [[KDATAWORLD httpEngine] buildRequest:[MActionUtility getURL:(NSString*)M_URL_appendAssetAccount]
                                             postParams:l_dict_request
                                                 object:self
                                       onFinishedAction:@selector(onRequestFinishResponse:)

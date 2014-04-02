@@ -52,6 +52,9 @@
  */
 +(NSDictionary*)getRequestAllDict:(NSDictionary*)l_dict_other;
 
+
++(NSString *)getURL:(NSString *)url;
+
 /**
  *	@brief	判断是否有网络
  *	@return

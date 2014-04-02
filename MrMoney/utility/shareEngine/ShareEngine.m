@@ -83,7 +83,7 @@ static ShareEngine *sharedSingleton_ = nil;
 {
     //向微信注册
     
-    [WXApi registerApp:kWeChatAppId withDescription:@"钱先生 3.0.4"];
+    [WXApi registerApp:kWeChatAppId withDescription:@"钱先生 3.0.6"];
     
     [WeiboSDK enableDebugMode:YES];
     
