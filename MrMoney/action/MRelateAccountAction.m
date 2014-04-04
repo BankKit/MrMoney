@@ -26,7 +26,7 @@
     if (m_request !=nil && [m_request  isFinished]) {
         return;
     }
-    
+    // ff
     NSDictionary *l_dict_request=[m_delegate  onRequestRelateAccountAction];
     
  
@@ -46,7 +46,9 @@
                      
                      ];
  
-    NSLog(@"l_dict_request-------- %@",l_dict_request);
+    NSLog(@"l_dict_request--  关联------ %@",l_dict_request);
+    
+     NSLog(@"l_dict_request--  url------ %@",url);
     m_request  = [[KDATAWORLD httpEngine] buildDistributeRequest:(NSString *)url
                                                        getParams:l_dict_request
                                                           object:self

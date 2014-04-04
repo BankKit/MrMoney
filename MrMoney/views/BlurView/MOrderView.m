@@ -72,8 +72,12 @@
     }else if ([payStyle isEqualToString:@"bccb"]){
         payStyle = @"bob";
     }
-    
-    self.payStyleLabel.text = bankName(payStyle);
+    NSString *payMehtodString = strOrEmpty(bankName(payStyle));
+
+    if ([payMehtodString isEqualToString:@""]) {
+        payMehtodString = @"钱宝宝账户支付";
+    }
+    self.payStyleLabel.text = payMehtodString;
 }
 -(void)layoutSubviews{
     [super layoutSubviews];

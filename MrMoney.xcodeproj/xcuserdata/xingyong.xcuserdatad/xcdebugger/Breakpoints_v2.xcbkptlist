@@ -55,13 +55,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MrMoney/page/MSpeedyPayViewController.m"
-            timestampString = "418126665.134136"
+            filePath = "MrMoney/page/MSyncAccountViewController.m"
+            timestampString = "418299204.360702"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "-onSpeedPayAction:"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "-onRequestRelateAccountAction"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

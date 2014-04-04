@@ -6,11 +6,11 @@
 //  Copyright (c) 2013年 xingyong. All rights reserved.
 //
 
-#import "MColorView.h"
+#import "MColorButton.h"
 #import "Common.h"
 #import "MHomeViewController.h"
 #import "MAnimation.h"
-@implementation MColorView
+@implementation MColorButton
 
 - (id)initWithFrame:(CGRect)frame buttonTag:(NSInteger )tag
 {
@@ -19,12 +19,10 @@
         // Initialization code
         [self setExclusiveTouch:YES];
         
-        UIButton *colorBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        colorBtn.frame = frame;
-        colorBtn.tag = tag;
-        [self addSubview:colorBtn];
+ 
+        self.tag = tag;
         
-        [colorBtn addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
+        [self addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -32,16 +30,14 @@
 -(void)buttonClick:(id)sender{
  
     UIButton *button = (UIButton *)sender;
-    button.userInteractionEnabled = NO;
-    
+  
     CAKeyframeAnimation *popAnimation = [MAnimation getKeyframeAnimation];
     
     [[self superview].layer addAnimation:popAnimation forKey:nil];
   
-    if (self.delegate && [self.delegate respondsToSelector:@selector(colorViewClick:)]) {
-        button.userInteractionEnabled = YES;
-        
-        [self.delegate colorViewClick:button.tag];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(colorButtonClick:)]) {
+ 
+        [self.delegate colorButtonClick:button.tag];
     }
     
 }

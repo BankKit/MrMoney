@@ -26,9 +26,7 @@ typedef void(^PaySuccessBlock)(NSString *orderNo);
 }
  
 @property (nonatomic, strong) MStarData *starData;
-
-@property(nonatomic,weak)IBOutlet UIImageView *backImageView;
-@property(nonatomic,weak)IBOutlet UIImageView *backImageView2;
+ 
 
 @property(nonatomic,weak)IBOutlet UITextField *passwordTf;
 @property(nonatomic,weak)IBOutlet UITextField *balanceTf;

@@ -21,5 +21,6 @@
 #import "NSArray+MCategory.h"
 #import "MBasics.h"
 #import "UILabel+MCategory.h"
+#import "UIAlertView+Blocks.h"
 
 #endif

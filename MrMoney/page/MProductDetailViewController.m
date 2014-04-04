@@ -211,8 +211,7 @@
         self.invest_cycleLabel.text        = STRING_FORMAT(@"%@天",strOrEmpty(data.minvest_cycle));
     }
 
-    
-    
+     
     self.has_guaranteeLabel.text       = [strOrEmpty(data.mbreak_even) intValue] == 0 ?@"不保本" :@"保本";
     self.sales_regionLabel.text        = strOrEmpty(data.msales_region);
     

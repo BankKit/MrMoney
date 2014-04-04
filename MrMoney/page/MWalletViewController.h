@@ -9,13 +9,11 @@
 #import "MBaseViewController.h"
 #import "MQueryAccountAction.h"
 #import "UICountingLabel.h"
-#import "MPopupViewController.h"
+#import "MSyncAccountViewController.h"
 #import "MCustomButton.h"
 #import "MUnbindAccountAction.h"
 
-
-
-@interface MWalletViewController : MBaseViewController<MQueryAccountActionDelegate,MPopupViewDelegate,UIGestureRecognizerDelegate,MUnbindAccountActionDelegate,UIAlertViewDelegate>{
+@interface MWalletViewController : MBaseViewController<MQueryAccountActionDelegate,MUnbindAccountActionDelegate,UIAlertViewDelegate>{
     MQueryAccountAction *queryAction;
     MUnbindAccountAction *unbindAction;
      

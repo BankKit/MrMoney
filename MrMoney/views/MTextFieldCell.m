@@ -7,7 +7,7 @@
 //
 
 #import "MTextFieldCell.h"
-
+#define KHeight 6
 @implementation MTextFieldCell
 
 
@@ -20,6 +20,7 @@
 	_field.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	_field.backgroundColor = [UIColor clearColor];
     _field.borderStyle = UITextBorderStyleNone;
+    _field.frameHeight = 32;
     
     _field.font = FONT(kHelveticaLight, 16);
     
@@ -66,18 +67,18 @@
 - (void) layoutSubviews {
     [super layoutSubviews];
 	 _field.autocapitalizationType = UITextAutocapitalizationTypeNone;
-    CGRect rect = CGRectInset(self.contentView.bounds, IsIOS7 ? 14: 8, 4);
+    CGRect rect = CGRectInset(self.contentView.bounds, IsIOS7 ? 14:KHeight,KHeight);
 	rect.size = CGSizeMake(65,27);
 	_label.frame = rect;
     if (_codeImageView.hidden == NO)
          
-        _field.frame = CGRectMake(65 + _label.frameX , 5, self.contentView.frameWidth - 170, 30);
+        _field.frame = CGRectMake(65 + _label.frameX ,KHeight, self.contentView.frameWidth - 170, 30);
    
     else
-        _field.frame = CGRectMake(65 + _label.frameX , 5, self.contentView.frameWidth - 100, 30);
+        _field.frame = CGRectMake(65 + _label.frameX ,KHeight, self.contentView.frameWidth - 100, 30);
     
 
-    _codeImageView.frame = CGRectMake(_field.frameWidth + _field.frameX + 10 ,5, 60, 30);
+    _codeImageView.frame = CGRectMake(_field.frameWidth + _field.frameX + 10 ,KHeight, 60, 30);
     
 //    _field.returnKeyType = UIReturnKeyDone;
 //    _field.delegate = self;

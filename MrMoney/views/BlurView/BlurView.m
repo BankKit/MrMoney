@@ -83,9 +83,7 @@ static UIWindow *__sheetWindow = nil;
  
         _overlayView = [[UIControl alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
         _overlayView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-        
-        
-        
+         
         if ([xib isEqualToString:@"MOrderView"]) {
             MOrderView *orderView = [[[NSBundle mainBundle] loadNibNamed:xib owner:self options:nil] lastObject];
             

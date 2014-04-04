@@ -31,6 +31,7 @@
 #import "MPayViewController.h"
 
 
+
 @interface MHomeViewController ()<PDTSimpleCalendarViewDelegate,MPayViewControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *customDates;
@@ -124,43 +125,10 @@
     
     CGRect rect = CGRectMake(0, 0, 154, 82);
     for (int i = 0; i < count; i++) {
-        
-        UIView *view = [[UIView alloc] initWithFrame:rect];
-        view.backgroundColor = KCLEAR_COLOR;
-        
-        
+       
         MInternetData *internetData = _internetArray[i];
-        
-        NSString *imageName = STRING_FORMAT(@"logo_%@",[internetData.msite_id lowercaseString]);
-        
-        UIImage *image = [UIImage imageNamed:imageName];
-        
 
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:Rect(2, 55., image.width*2/3, image.height*2/3)];
-        imageView.image = image; 
- 
-        UILabel *nameLabel = [[UILabel alloc] initWithFrame:Rect(imageView.frameWidth + 5,52.,154- imageView.frameWidth,21)];
-        nameLabel.backgroundColor = KCLEAR_COLOR;
-        nameLabel.font = SYSTEMFONT(14);
-        nameLabel.textColor = [UIColor whiteColor];
-        
-
-        nameLabel.text = STRING_FORMAT(@"%@ %@",[KTREASURE_DICT objectForKey:[internetData.msite_id lowercaseString]],internetData.mproduct_name);
-       
-        MLabel *incomeLabel = [[MLabel  alloc] initWithFrame:Rect(0, 13, 154, 40)];
-        incomeLabel.backgroundColor = KCLEAR_COLOR;
-        incomeLabel.font = FONT(kHelveticaLight, 24);
-        incomeLabel.textColor = [UIColor whiteColor];
-        incomeLabel.text = STRING_FORMAT(@"%.2f%%",[internetData.mthis_year_return_rate floatValue]/100);
-       
-        [incomeLabel setFont:FONT(kHelveticaLight, 14) string:@"%"];
-        
-        incomeLabel.textAlignment = NSTextAlignmentCenter;
-        
-        [view addSubview:incomeLabel];
-        [view addSubview:nameLabel];
-        [view addSubview:imageView];
-        [viewsArray addObject:view];
+        [viewsArray addObject: [self cyleViewWithInternetData:internetData]];
     }
     
     self.mainScorllView = [[CycleScrollView alloc] initWithFrame:rect animationDuration:4];
@@ -257,7 +225,7 @@
     self.scrollView.contentSize = size;
  
     
-    [self setHomeColorView];
+    [self setHomeColorButtonView];
     
     if (isUserLogin()) {
         [self startQueryAction];
@@ -365,6 +333,7 @@
 
 -(IBAction)onPromptBuyAction:(id)sender{
 
+ 
     UIButton *button = (UIButton *)sender;
     
     if (button.tag == 1) {
@@ -394,8 +363,14 @@
         };
         
         speedy.successBlock = ^(NSString *orderNo){
-            self.orderNo = orderNo;
-            [MGo2PageUtility go2MWebBrowser:self title:@"支付结果" webUrl:KSHOW_RECORD(orderNo)];
+ 
+            [UIAlertView showConfirmationDialogWithTitle:@"购买成功" message:@"您已经购买成功，是否查看订单?" handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                
+                if (buttonIndex == 1) {
+                    [MGo2PageUtility go2MWebBrowser:wself title:@"支付结果" webUrl:KSHOW_RECORD(orderNo)];
+                }
+            }];
+          
 
         };
         
@@ -410,9 +385,7 @@
         
         speedy.controller = self;
         
-        [self.mm_drawerController presentPopinController:speedy animated:YES completion:^{
-            
-        }];
+        [self.mm_drawerController presentPopinController:speedy animated:YES completion:nil];
  
      }
     
@@ -508,7 +481,9 @@
 }
 #pragma mark -------------  colorViewClick -----------------
 
--(void)colorViewClick:(int)index{
+-(void)colorButtonClick:(int)index{
+    
+    NSLog(@"---------------index----------------%d \n\n",index);
  
     [self touchControlView];
     __weak MHomeViewController *wself = self;

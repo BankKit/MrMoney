@@ -152,10 +152,6 @@
 }
 
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    self.contentView.backgroundColor = KVIEW_BACKGROUND_COLOR;
-}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

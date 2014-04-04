@@ -140,6 +140,9 @@
     int  amount =  [[self.editFieldArray safeObjectAtIndex:0] intValue] *100;
     __weak MPurchaseViewController *wself = self;
     
+     
+    NSLog(@"----------------self.payTypeName---------------%@ \n\n",self.payTypeName);
+    
     BlurView *blur = [[BlurView alloc] initWithFrame:Rect(0, 50, 300, 355) withXib:@"MOrderView" action:^{
     
         if (_accountBalance > 0.) {
@@ -414,7 +417,6 @@
             //支付成功  发送通知 让首页更改数据显示
             [[NSNotificationCenter defaultCenter] postNotificationName:KNOTITICATION_BLANCE object:nil];
             
-
             [MGo2PageUtility go2MWebBrowser:self title:@"支付结果" webUrl:KSHOW_RECORD(self.orderData.morderId)];
              
         }
@@ -471,8 +473,7 @@
     NSIndexPath *indexPath0 = [NSIndexPath indexPathForRow:0 inSection:1];
     MFieldCell *cell0 = (MFieldCell *)[self.tableView cellForRowAtIndexPath:indexPath0];
  
-
-    
+ 
     float value = [MUtility expectEarning:self.data];
     
     NSString *earn =  [NSString stringWithFormat:@"%.2f",value * [amountStr floatValue]];

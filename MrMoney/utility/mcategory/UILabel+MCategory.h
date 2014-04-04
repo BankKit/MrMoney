@@ -11,4 +11,5 @@
 @interface UILabel (MCategory)
 +(UILabel *) labelWithText:(NSString *)text;
 +(UILabel *) labelWithText:(NSString *)text font:(UIFont *)font;
+- (CGSize)contentSize;
 @end

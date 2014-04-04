@@ -7,19 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "WeiboSDK.h"
-#import "WXApi.h"
+ 
 
-@protocol MColorViewDelegate <NSObject>
+@protocol MColorButtonDelegate <NSObject>
 
--(void)colorViewClick:(int)index;
+-(void)colorButtonClick:(int)index;
 
 @end
 
-@interface MColorView : UIView
+@interface MColorButton : UIButton
 @property (nonatomic, strong) UIColor *startColor;
 @property (nonatomic, strong) UIColor *endColor;
-@property(nonatomic,weak)id<MColorViewDelegate>delegate;
+@property(nonatomic,weak)id<MColorButtonDelegate>delegate;
 
 - (id)initWithFrame:(CGRect)frame buttonTag:(NSInteger )tag;
  

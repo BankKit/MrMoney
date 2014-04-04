@@ -121,7 +121,8 @@
     cell.textLabel.text = [cellDict objectForKey:@"name"];
     if (row == 0) {
         
-        cell.detailTextLabel.text = STRING_FORMAT(@"%@%@",[cellDict objectForKey:@"content"],titleText);
+        cell.detailTextLabel.text = STRING_FORMAT(@"%@%@",[cellDict objectForKey:@"content"],formatValue([titleText floatValue]));
+        cell.detailTextLabel.textColor = [UIColor orangeColor];
     }else{
         cell.detailTextLabel.text =[cellDict objectForKey:@"content"];
     }

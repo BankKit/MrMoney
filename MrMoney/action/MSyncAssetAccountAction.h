@@ -8,7 +8,7 @@
 
 #import "MBaseAction.h"
 @protocol  MSyncAssetAccountActionDelegate
-
+//123
 -(NSDictionary*)onRequestSyncAssetAccountAction;
 -(void)onResponseSyncAssetAccountSuccess;
 -(void)onResponseSyncAssetAccountFail;

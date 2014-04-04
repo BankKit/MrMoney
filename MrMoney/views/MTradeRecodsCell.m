@@ -9,7 +9,7 @@
 #import "MTradeRecodsCell.h"
 #import "MTradeData.h"
 #import "CALayer+MCategory.h"
- 
+#import "NSDate+DateTools.h"
 @implementation MTradeRecodsCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -29,12 +29,16 @@
     return date;
 }
 -(void)setData:(MTradeData *)data{
-    _data                    = data;
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
-    NSString *dateStr = [formatter stringFromDate:[self formatterDateString:_data.mtran_time]];
     
-    _investDateLabel.text = dateStr;
+   
+    _data                    = data;
+    
+ 
+    NSDate *tran_date = [MUtility dateFormatter:_data.mtran_time formatter:kDefaultTimeStampFull];
+    NSString *tran_time =  [tran_date formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
+    
+    
+    _investDateLabel.text = tran_time;
  
     if ([_data.mtran_amount containsString:@"-"]) {
 

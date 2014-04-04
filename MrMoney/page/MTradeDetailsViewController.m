@@ -7,7 +7,7 @@
 //
 
 #import "MTradeDetailsViewController.h"
-
+#import "NSDate+DateTools.h"
 @interface MTradeDetailsViewController ()
 
 @end
@@ -47,21 +47,30 @@
             self.amountLabel.textColor = [UIColor orangeColor];
             
         }
-//        NSLog(@"---------_data.morderNo----------------------%@ \n\n",_data.morderNo);
+        
+        
         if ([self isNumberString:_data.morderNo]) {
     
              self.monadButton.hidden = NO;
         }
 
+        NSLog(@"-------------statusLabel------------------%@ \n\n",_data.mtransTypeDesc);
         self.titleStatusLabel.text = _data.mtransTypeDesc;
+        
+        if ([_data.mtrans_status intValue] == 0) {
+            self.statusLabel.text = @"交易成功";
+        }
+
    
         self.amountLabel.text =STRING_FORMAT(@"￥%@",formatValue([_data.mtran_amount floatValue]));
         
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        formatter.dateFormat = @"yyyy-MM-dd HH:mm";
-        NSString *dateStr = [formatter stringFromDate:[self formatterDateString:_data.mtran_time]];
+    
+
+        NSDate *tran_date = [MUtility dateFormatter:_data.mtran_time formatter:kDefaultTimeStampFull];
+        NSString *tran_time =  [tran_date formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
+  
+        self.dateLabel.text = tran_time;
         
-        self.dateLabel.text = dateStr;
         
         self.productNameLabel.text = _data.mtran_memo;
         
@@ -92,6 +101,11 @@
         }
         
         self.titleStatusLabel.text = _investData.mtransTypeDesc;
+        
+            self.statusLabel.text =_investData.mBsnsStsDesc;
+ 
+
+        
 
         if ([_investData.mTrxType intValue]==2) {
             self.amountLabel.textColor = [UIColor orangeColor];
@@ -101,12 +115,15 @@
         }
         self.amountLabel.text =STRING_FORMAT(@"￥%@",formatValue([_investData.mtran_amount floatValue]));
         
-        self.dateLabel.text = [MUtility stringForDate:[self formatterDateString:_investData.mtran_time]];
- 
+         NSDate *tran_date = [MUtility dateFormatter:_investData.mtran_time formatter:kDefaultTimeStampFull];
+        NSString *tran_time = [tran_date formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
         
-        self.productNameLabel.text = _investData.mBsnsStsDesc;
+        self.dateLabel.text = tran_time;
+  
         
-        float height = [MStringUtility getStringHight:_investData.mBsnsStsDesc font:SYSTEMFONT(14) width:180.0];
+        self.productNameLabel.text = _investData.mtran_memo;
+        
+        float height = [MStringUtility getStringHight:_investData.mtran_memo font:SYSTEMFONT(14) width:180.0];
         
         self.productNameLabel.frameHeight = height + 5;
        
@@ -117,14 +134,7 @@
     }
     
 }
-- (NSDate *)formatterDateString:(NSString *)dateStr{
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat       = @"yyyyMMddHHmmss";
-    NSDate *date               = [formatter dateFromString:dateStr];
-    
-    return date;
-}
+
 
 
 -(BOOL)isNumberString:(NSString *)input{

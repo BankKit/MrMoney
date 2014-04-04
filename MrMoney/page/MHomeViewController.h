@@ -8,14 +8,14 @@
 
 #import "MBaseViewController.h"
 #import "MQueryInvestAction.h"
-#import "MColorView.h"
+#import "MColorButton.h"
 #import "MCalendarAction.h"
 #import "MQueryProductAction.h"
 #import "MLabel.h"
 @class MMoneyBabyData;
 
 
-@interface MHomeViewController : MBaseViewController<UIScrollViewDelegate,MQueryInvestActionDelegate,MColorViewDelegate,UIAlertViewDelegate,MQueryProductActionDelegate>{
+@interface MHomeViewController : MBaseViewController<UIScrollViewDelegate,MQueryInvestActionDelegate,MColorButtonDelegate,UIAlertViewDelegate,MQueryProductActionDelegate>{
     MQueryInvestAction *queryAction;
 
     MQueryProductAction *productAction;

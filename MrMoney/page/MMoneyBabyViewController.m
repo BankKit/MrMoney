@@ -67,7 +67,7 @@
 
 -(void)setBalanceLabelValue{
   
-    MCountView *countView = [[MCountView alloc] initWithFrame:CGRectMake(12, 45, 303, 40) balance:_total todayIncome:_todayIncome type:MMoneyBabyType];
+    MCountView *countView = [[MCountView alloc] initWithFrame:CGRectMake(8, 45, 303, 40) balance:_total todayIncome:_todayIncome type:MMoneyBabyType];
     [self.topView addSubview:countView];
  
 }

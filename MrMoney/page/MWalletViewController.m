@@ -14,9 +14,10 @@
 #import "MLineView.h"
 #import "MCustomButton.h"
 #import "FXNotifications.h"
-#import "MPopupViewController.h"
+#import "MSyncAccountViewController.h"
 #import "MWithdrawViewController.h"
 #import "MWalletViewController+Style.h"
+#import "UIViewController+MaryPopin.h"
 
 
 @interface MWalletViewController ()
@@ -165,11 +166,11 @@
     for (MAccountsData *item in data) {
         
         index =  [item.mbankId lowercaseString];
-        if ([index isEqualToString:@"PABACCT"]) {
-            index = @"PAB";
+        if ([index isEqualToString:@"pabacct"]) {
+            index = @"pab";
         }
         if (self.type == MMoneyBabyType) {
-            if (![index isEqualToString:@"ALIPAY"]) {
+            if (![index isEqualToString:@"alipay"]) {
                 arr = [dict objectForKey:index];
                 if (arr.count == 0) {
                     NSMutableArray *l_arr = [NSMutableArray arrayWithObject:item];
@@ -252,20 +253,19 @@
         __weak MWalletViewController *wself = self;
         
         cell.btnHandler = ^(NSIndexPath *index,MRoundView *roundView){
-            [roundView play];
-            NSArray *array               = [wself arrayIndexPath:index.section];
+//            [roundView play];
             
-            MPopupViewController  *popup = [[MPopupViewController alloc] initWithNibName:@"MPopupViewController" bundle:nil];
-            popup.delegate               = wself;
+            MSyncAccountViewController *sync = [[MSyncAccountViewController alloc] initWithNibName:@"MSyncAccountViewController" bundle:nil];
             
-            popup.account                = [array objectAtIndex:indexPath.row];
+            [sync setPopinTransitionStyle:BKTPopinTransitionStyleSlide];
+            [sync setPopinOptions:BKTPopinIgnoreKeyboardNotification];
+            [sync setPopinTransitionDirection:BKTPopinTransitionDirectionTop];
             
-            [wself presentPopupViewController:popup animated:YES completion:^(void) {
-                
-            }];
+            NSArray *array     = [wself arrayIndexPath:index.section];
+            sync.account       = [array objectAtIndex:indexPath.row];
             
-            
-            
+            [self.navigationController presentPopinController:sync animated:YES completion:nil];
+ 
         };
         
     }
@@ -332,27 +332,27 @@
     return 32;
 }
 
-
--(void)popupBtnClick:(int)index{
-    if (index == 1) {
-        [self dismissPopupViewControllerAnimated:YES completion:^{
-            [self.tableView reloadData];
-        }];
-        
-    }else{
-        [self dismissPopupViewControllerAnimated:YES completion:^{
-            [queryAction requestAction];
-        }];
-    }
-    
-}
-- (void)dismissPopup {
-    if (self.popupViewController != nil) {
-        [self dismissPopupViewControllerAnimated:YES completion:^{
-            NSLog(@"popup view dismissed");
-        }];
-    }
-}
+//
+//-(void)popupBtnClick:(int)index{
+//    if (index == 1) {
+//        [self dismissPopupViewControllerAnimated:YES completion:^{
+//            [self.tableView reloadData];
+//        }];
+//        
+//    }else{
+//        [self dismissPopupViewControllerAnimated:YES completion:^{
+//            [queryAction requestAction];
+//        }];
+//    }
+//    
+//}
+//- (void)dismissPopup {
+//    if (self.popupViewController != nil) {
+//        [self dismissPopupViewControllerAnimated:YES completion:^{
+//            NSLog(@"popup view dismissed");
+//        }];
+//    }
+//}
 -(NSArray *)arrayIndexPath:(NSInteger )section{
     
     NSArray *keyArray  = [self.dataDictionary allKeys];
@@ -407,6 +407,7 @@
     
 }
 
+#pragma mark -------------  解除绑定 delegate  -----------------
 
 -(NSDictionary*)onRequestUnbindAccountAction{
     MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:2];
@@ -416,11 +417,11 @@
 }
 -(void)onResponseUnbindAccountSuccess{
     [self hideHUD];
-//    [self.tableView reloadData];
+ 
 }
 -(void)onResponseUnbindAccountFail{
     [self hideHUD];
-//    [self.tableView reloadData];
+ 
     
 }
 - (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{

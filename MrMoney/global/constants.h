@@ -92,7 +92,8 @@
 #endif
 
 #define KGeneratingEnvironmentURL    @"https://www.qianxs.com"
-#define KDebuggingEnvironmentURL     @"http://www.huchao.org:8088"
+#define KDebuggingEnvironmentURL     @"https://www.qianxs.com"
+//@"http://www.huchao.org:8088"
 
 
 
@@ -129,11 +130,14 @@
 #define kDefaultDateFormat1          @"yyyy-MM-dd"
 #define kDefaultDateFormat2          @"yyyyMMdd"
 #define kDefaultTimeStampFormatHms   @"HH:mm:ss"
+#define kDefaultTimeStampFull        @"yyyyMMddHHmmss"
 
 #define kHelveticaLight              @"HelveticaNeue-Light"
 
 
 #pragma mark - 常用字符串
+
+#define  PWD_K2  @"N8#H25D="
 
 #define KEMPTY_STR                                    @""
 

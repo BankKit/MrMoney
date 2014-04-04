@@ -138,7 +138,15 @@
             
             if (self.wrongGuessCount >= 5) {
                 self.infoLabel.text = @"密码错误，还可以再输入0次";
-                [MActionUtility showAlert:@"提示" message:@"忘记手势密码需要重新登录" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定",nil];
+                [UIAlertView showErrorWithMessage:@"忘记手势密码需要重新登录" handler:^(UIAlertView *alertView, NSInteger buttonIndex) {
+                    
+                    [MGo2PageUtility go2MLoginViewController:self completionHandler:^{
+                        self.infoLabelStatus = InfoStatusFirstTimeSetting;
+                        [self updateOutlook];
+                        
+                    }];
+                }];
+            
             }
 			break;
 		case InfoStatusSuccessMatch:

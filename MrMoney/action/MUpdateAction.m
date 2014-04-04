@@ -52,18 +52,17 @@
         
         [MActionUtility showAlert:@"更新提示" message:log delegate:self cancelButtonTitle:@"更新" otherButtonTitles:nil];
         
-    }else  if ([version intValue] > [newVersion intValue]) {
-      
-
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"更新提示" message:log delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        alert.tag = 100;
-        [alert show];
-        
     }else if( [newVersion intValue] < [minVersion intValue]){
         
         [MActionUtility showAlert:@"更新提示" message:log delegate:self cancelButtonTitle:@"更新" otherButtonTitles:nil];
+        
+    }else  if ([version intValue] > [newVersion intValue]) {
+        
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"更新提示" message:log delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        alert.tag = 100;
+        [alert show];
     }
-
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

@@ -62,7 +62,7 @@
     
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-//    self.tableView.frameHeight = self.tableView.frameHeight - 49.;
+//    self.tableView.backgroundColor = self.tableView.frameHeight - 49.;
     
     NSArray *itemArray = nil;
     if (self.type == MFundType) {
@@ -398,25 +398,26 @@
         if (fund) {
             MFundDetailViewController *detail = [[MFundDetailViewController alloc] initWithNibName:@"MFundDetailViewController" bundle:nil];
             detail.fund = fund;
-            
             [self.navigationController pushViewController:detail animated:YES];
+            
         }
    
-    }else if(self.type == MFinanceProductsType){
+    }else if(self.type ==  MInternetType){
         
-        MFinanceProductData *data = [self.dataArray safeObjectAtIndex:indexPath.row];
-        if (data) {
-         [MGo2PageUtility go2MProductDetailViewController:self data:data];
-        }
-
-    }else{
         MInternetData *data = [self.dataArray safeObjectAtIndex:indexPath.row];
         if (data) {
             MInternetDetailViewController *internet = [[MInternetDetailViewController alloc] initWithNibName:@"MInternetDetailViewController" bundle:nil];
             internet.data = data;
             [self.navigationController pushViewController:internet animated:YES];
         }
-    
+
+    }else{
+        
+        MFinanceProductData *data = [self.dataArray safeObjectAtIndex:indexPath.row];
+        if (data) {
+            [MGo2PageUtility go2MProductDetailViewController:self data:data];
+        }
+        
     }
     
 }

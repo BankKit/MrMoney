@@ -389,8 +389,8 @@
 		CF50EEB8188010E900E9E8E4 /* MUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CF50EEB7188010E900E9E8E4 /* MUtility.m */; };
 		CF51169C18B62C6F0011C345 /* MSyncAssetAccountAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF51169B18B62C6F0011C345 /* MSyncAssetAccountAction.m */; };
 		CF52D5F218869A360008ED2E /* UIViewController+CWPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52D5F118869A360008ED2E /* UIViewController+CWPopup.m */; };
-		CF52D5F718869AB80008ED2E /* MPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52D5F518869AB80008ED2E /* MPopupViewController.m */; };
-		CF52D5F818869AB80008ED2E /* MPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF52D5F618869AB80008ED2E /* MPopupViewController.xib */; };
+		CF52D5F718869AB80008ED2E /* MSyncAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF52D5F518869AB80008ED2E /* MSyncAccountViewController.m */; };
+		CF52D5F818869AB80008ED2E /* MSyncAccountViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF52D5F618869AB80008ED2E /* MSyncAccountViewController.xib */; };
 		CF52D5FA1886A3020008ED2E /* home_diary.png in Resources */ = {isa = PBXBuildFile; fileRef = CF52D5F91886A3020008ED2E /* home_diary.png */; };
 		CF52D5FC1886A43F0008ED2E /* btn_account_bind.png in Resources */ = {isa = PBXBuildFile; fileRef = CF52D5FB1886A43F0008ED2E /* btn_account_bind.png */; };
 		CF52DA5518ADB7F900192FF7 /* calendar_ daily.png in Resources */ = {isa = PBXBuildFile; fileRef = CF52DA5318ADB7F900192FF7 /* calendar_ daily.png */; };
@@ -460,9 +460,16 @@
 		CF5834A4184C898F00D2C276 /* home_page_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5834A1184C898F00D2C276 /* home_page_orange.png */; };
 		CF5834B2184C97B600D2C276 /* MFinanceProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5834B0184C97B600D2C276 /* MFinanceProductsViewController.m */; };
 		CF5834B3184C97B600D2C276 /* MFinanceProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5834B1184C97B600D2C276 /* MFinanceProductsViewController.xib */; };
+		CF59FA1D18ED961600E3B2E1 /* DesUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FA1C18ED961600E3B2E1 /* DesUtil.m */; };
+		CF59FA2018ED964700E3B2E1 /* ConverUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FA1F18ED964700E3B2E1 /* ConverUtil.m */; };
+		CF59FA2618EDA74100E3B2E1 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FA2518EDA74100E3B2E1 /* Utility.m */; };
 		CF5B35E218D9612F00AAB862 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5B35DF18D9612F00AAB862 /* CycleScrollView.m */; };
 		CF5B35E318D9612F00AAB862 /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5B35E118D9612F00AAB862 /* NSTimer+Addition.m */; };
 		CF5B35E618D961B800AAB862 /* MHomeViewController+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5B35E518D961B800AAB862 /* MHomeViewController+Style.m */; };
+		CF5CC0FD18ED02BE00349DE4 /* NSDate+DateTools.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5CC0FC18ED02BE00349DE4 /* NSDate+DateTools.m */; };
+		CF5CC10018ED0DBB00349DE4 /* UIAlertView+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5CC0FF18ED0DBB00349DE4 /* UIAlertView+Blocks.m */; };
+		CF5CC10318ED3C9100349DE4 /* MImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5CC10218ED3C9000349DE4 /* MImageView.m */; };
+		CF5CC10618ED43F100349DE4 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5CC10518ED43F100349DE4 /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
 		CF60DDA81887974B00F3E3EE /* navigationBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF60DDA71887974B00F3E3EE /* navigationBg@2x.png */; };
 		CF60DDB11887B79D00F3E3EE /* MTradeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF60DDAF1887B79D00F3E3EE /* MTradeDetailsViewController.m */; };
 		CF60DDB21887B79D00F3E3EE /* MTradeDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF60DDB01887B79D00F3E3EE /* MTradeDetailsViewController.xib */; };
@@ -674,7 +681,7 @@
 		CFFBC298187E6AA30042E700 /* btn_invest_detail@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFBC296187E6AA30042E700 /* btn_invest_detail@2x.png */; };
 		CFFDE457184ED72100F7C2AE /* home_shopCart.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDE455184ED72100F7C2AE /* home_shopCart.png */; };
 		CFFDE458184ED72100F7C2AE /* home_shopCart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFFDE456184ED72100F7C2AE /* home_shopCart@2x.png */; };
-		CFFDE45B184ED99200F7C2AE /* MColorView.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDE45A184ED99200F7C2AE /* MColorView.m */; };
+		CFFDE45B184ED99200F7C2AE /* MColorButton.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDE45A184ED99200F7C2AE /* MColorButton.m */; };
 		CFFDE45E184EF20300F7C2AE /* Common.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDE45D184EF20300F7C2AE /* Common.m */; };
 		CFFDE46D184F101100F7C2AE /* MWalletViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CFFDE46B184F101100F7C2AE /* MWalletViewController.m */; };
 		CFFDE46E184F101100F7C2AE /* MWalletViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFFDE46C184F101100F7C2AE /* MWalletViewController.xib */; };
@@ -1283,9 +1290,9 @@
 		CF51169B18B62C6F0011C345 /* MSyncAssetAccountAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSyncAssetAccountAction.m; sourceTree = "<group>"; };
 		CF52D5F018869A360008ED2E /* UIViewController+CWPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+CWPopup.h"; sourceTree = "<group>"; };
 		CF52D5F118869A360008ED2E /* UIViewController+CWPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+CWPopup.m"; sourceTree = "<group>"; };
-		CF52D5F418869AB80008ED2E /* MPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPopupViewController.h; sourceTree = "<group>"; };
-		CF52D5F518869AB80008ED2E /* MPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPopupViewController.m; sourceTree = "<group>"; };
-		CF52D5F618869AB80008ED2E /* MPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPopupViewController.xib; sourceTree = "<group>"; };
+		CF52D5F418869AB80008ED2E /* MSyncAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSyncAccountViewController.h; sourceTree = "<group>"; };
+		CF52D5F518869AB80008ED2E /* MSyncAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSyncAccountViewController.m; sourceTree = "<group>"; };
+		CF52D5F618869AB80008ED2E /* MSyncAccountViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MSyncAccountViewController.xib; sourceTree = "<group>"; };
 		CF52D5F91886A3020008ED2E /* home_diary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_diary.png; sourceTree = "<group>"; };
 		CF52D5FB1886A43F0008ED2E /* btn_account_bind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_account_bind.png; sourceTree = "<group>"; };
 		CF52DA5318ADB7F900192FF7 /* calendar_ daily.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "calendar_ daily.png"; sourceTree = "<group>"; };
@@ -1381,12 +1388,26 @@
 		CF5834AF184C97B600D2C276 /* MFinanceProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFinanceProductsViewController.h; sourceTree = "<group>"; };
 		CF5834B0184C97B600D2C276 /* MFinanceProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFinanceProductsViewController.m; sourceTree = "<group>"; };
 		CF5834B1184C97B600D2C276 /* MFinanceProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFinanceProductsViewController.xib; sourceTree = "<group>"; };
+		CF59FA1B18ED961600E3B2E1 /* DesUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesUtil.h; sourceTree = "<group>"; };
+		CF59FA1C18ED961600E3B2E1 /* DesUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesUtil.m; sourceTree = "<group>"; };
+		CF59FA1E18ED964700E3B2E1 /* ConverUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverUtil.h; sourceTree = "<group>"; };
+		CF59FA1F18ED964700E3B2E1 /* ConverUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverUtil.m; sourceTree = "<group>"; };
+		CF59FA2418EDA74100E3B2E1 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		CF59FA2518EDA74100E3B2E1 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		CF5B35DE18D9612F00AAB862 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
 		CF5B35DF18D9612F00AAB862 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
 		CF5B35E018D9612F00AAB862 /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
 		CF5B35E118D9612F00AAB862 /* NSTimer+Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+Addition.m"; sourceTree = "<group>"; };
 		CF5B35E418D961B800AAB862 /* MHomeViewController+Style.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MHomeViewController+Style.h"; sourceTree = "<group>"; };
 		CF5B35E518D961B800AAB862 /* MHomeViewController+Style.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MHomeViewController+Style.m"; sourceTree = "<group>"; };
+		CF5CC0FB18ED02BE00349DE4 /* NSDate+DateTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DateTools.h"; sourceTree = "<group>"; };
+		CF5CC0FC18ED02BE00349DE4 /* NSDate+DateTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DateTools.m"; sourceTree = "<group>"; };
+		CF5CC0FE18ED0DBB00349DE4 /* UIAlertView+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+Blocks.h"; sourceTree = "<group>"; };
+		CF5CC0FF18ED0DBB00349DE4 /* UIAlertView+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+Blocks.m"; sourceTree = "<group>"; };
+		CF5CC10118ED3C9000349DE4 /* MImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MImageView.h; sourceTree = "<group>"; };
+		CF5CC10218ED3C9000349DE4 /* MImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MImageView.m; sourceTree = "<group>"; };
+		CF5CC10418ED43F100349DE4 /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		CF5CC10518ED43F100349DE4 /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
 		CF60DDA71887974B00F3E3EE /* navigationBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navigationBg@2x.png"; sourceTree = "<group>"; };
 		CF60DDAE1887B79D00F3E3EE /* MTradeDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTradeDetailsViewController.h; sourceTree = "<group>"; };
 		CF60DDAF1887B79D00F3E3EE /* MTradeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTradeDetailsViewController.m; sourceTree = "<group>"; };
@@ -1702,8 +1723,8 @@
 		CFFBC296187E6AA30042E700 /* btn_invest_detail@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_invest_detail@2x.png"; sourceTree = "<group>"; };
 		CFFDE455184ED72100F7C2AE /* home_shopCart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_shopCart.png; sourceTree = "<group>"; };
 		CFFDE456184ED72100F7C2AE /* home_shopCart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_shopCart@2x.png"; sourceTree = "<group>"; };
-		CFFDE459184ED99200F7C2AE /* MColorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MColorView.h; sourceTree = "<group>"; };
-		CFFDE45A184ED99200F7C2AE /* MColorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MColorView.m; sourceTree = "<group>"; };
+		CFFDE459184ED99200F7C2AE /* MColorButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MColorButton.h; sourceTree = "<group>"; };
+		CFFDE45A184ED99200F7C2AE /* MColorButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MColorButton.m; sourceTree = "<group>"; };
 		CFFDE45C184EF20300F7C2AE /* Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		CFFDE45D184EF20300F7C2AE /* Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Common.m; sourceTree = "<group>"; };
 		CFFDE46A184F101100F7C2AE /* MWalletViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MWalletViewController.h; sourceTree = "<group>"; };
@@ -1859,6 +1880,8 @@
 				CF4169E718597A990056A271 /* NSArray+MCategory.m */,
 				CF50EE50187F8BF100E9E8E4 /* NSMutableArray+MCategory.h */,
 				CF50EE51187F8BF100E9E8E4 /* NSMutableArray+MCategory.m */,
+				CF5CC0FE18ED0DBB00349DE4 /* UIAlertView+Blocks.h */,
+				CF5CC0FF18ED0DBB00349DE4 /* UIAlertView+Blocks.m */,
 				CF0A4507184D76740011E930 /* Core */,
 			);
 			path = mcategory;
@@ -2335,8 +2358,8 @@
 				CF6E1F3318B5F65800298ACD /* MRoundView.m */,
 				CF58349C184C888B00D2C276 /* SMPageControl.h */,
 				CF58349D184C888B00D2C276 /* SMPageControl.m */,
-				CFFDE459184ED99200F7C2AE /* MColorView.h */,
-				CFFDE45A184ED99200F7C2AE /* MColorView.m */,
+				CFFDE459184ED99200F7C2AE /* MColorButton.h */,
+				CFFDE45A184ED99200F7C2AE /* MColorButton.m */,
 				CF145873185059D800D01023 /* MLineView.h */,
 				CF145874185059D800D01023 /* MLineView.m */,
 				CF4360051851AEFF00460BDF /* MLineButton.h */,
@@ -2372,6 +2395,8 @@
 				CF7093DD18E1484200BD3A22 /* MGradientView.m */,
 				CF7093DF18E157AF00BD3A22 /* MScrollFullScreen.h */,
 				CF7093E018E157AF00BD3A22 /* MScrollFullScreen.m */,
+				CF5CC10118ED3C9000349DE4 /* MImageView.h */,
+				CF5CC10218ED3C9000349DE4 /* MImageView.m */,
 			);
 			name = customViews;
 			sourceTree = "<group>";
@@ -2539,21 +2564,27 @@
 				CFFDE46A184F101100F7C2AE /* MWalletViewController.h */,
 				CFFDE46B184F101100F7C2AE /* MWalletViewController.m */,
 				CFFDE46C184F101100F7C2AE /* MWalletViewController.xib */,
+				CF52D5F418869AB80008ED2E /* MSyncAccountViewController.h */,
+				CF52D5F518869AB80008ED2E /* MSyncAccountViewController.m */,
+				CF52D5F618869AB80008ED2E /* MSyncAccountViewController.xib */,
 				CF60DDB31887C25800F3E3EE /* MAddAccountViewController.h */,
 				CF60DDB41887C25800F3E3EE /* MAddAccountViewController.m */,
 				CF60DDB51887C25800F3E3EE /* MAddAccountViewController.xib */,
 				CF60DDB81887EE0100F3E3EE /* MRelateAccountViewController.h */,
 				CF60DDB91887EE0100F3E3EE /* MRelateAccountViewController.m */,
 				CF60DDBA1887EE0100F3E3EE /* MRelateAccountViewController.xib */,
-				CF52D5F418869AB80008ED2E /* MPopupViewController.h */,
-				CF52D5F518869AB80008ED2E /* MPopupViewController.m */,
-				CF52D5F618869AB80008ED2E /* MPopupViewController.xib */,
 				CF7AD91B18C0927F00DD8D09 /* MWithdrawViewController.h */,
 				CF7AD91C18C0927F00DD8D09 /* MWithdrawViewController.m */,
 				CF7AD91D18C0927F00DD8D09 /* MWithdrawViewController.xib */,
 				CF17C8FF18E9619F00509A22 /* MAddressListViewController.h */,
 				CF17C90018E9619F00509A22 /* MAddressListViewController.m */,
 				CF17C90118E9619F00509A22 /* MAddressListViewController.xib */,
+				CF59FA1B18ED961600E3B2E1 /* DesUtil.h */,
+				CF59FA1C18ED961600E3B2E1 /* DesUtil.m */,
+				CF59FA1E18ED964700E3B2E1 /* ConverUtil.h */,
+				CF59FA1F18ED964700E3B2E1 /* ConverUtil.m */,
+				CF59FA2418EDA74100E3B2E1 /* Utility.h */,
+				CF59FA2518EDA74100E3B2E1 /* Utility.m */,
 			);
 			name = wallet;
 			sourceTree = "<group>";
@@ -3116,6 +3147,8 @@
 		CF6C3DDF1883915A00E1135C /* TPKeyboardAvoiding */ = {
 			isa = PBXGroup;
 			children = (
+				CF5CC10418ED43F100349DE4 /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				CF5CC10518ED43F100349DE4 /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
 				CF6C3DE01883915A00E1135C /* TPKeyboardAvoidingScrollView.h */,
 				CF6C3DE11883915A00E1135C /* TPKeyboardAvoidingScrollView.m */,
 				CF6C3DE21883915A00E1135C /* TPKeyboardAvoidingTableView.h */,
@@ -3362,6 +3395,8 @@
 		CFF18E8018AB703E001FB2ED /* NSDate+Compare */ = {
 			isa = PBXGroup;
 			children = (
+				CF5CC0FB18ED02BE00349DE4 /* NSDate+DateTools.h */,
+				CF5CC0FC18ED02BE00349DE4 /* NSDate+DateTools.m */,
 				CFF18E8118AB703E001FB2ED /* NSDate+Calendar.h */,
 				CFF18E8218AB703E001FB2ED /* NSDate+Compare.h */,
 				CFF18E8318AB703E001FB2ED /* NSDate+Compare.m */,
@@ -3757,7 +3792,7 @@
 				CF613B0018EA6F9000D09C90 /* logo_qianbb.png in Resources */,
 				CF5816F518D69138007DEA6B /* 7%@2x.png in Resources */,
 				CFA5A4F618CDAB970077AEA9 /* MSeckillViewController.xib in Resources */,
-				CF52D5F818869AB80008ED2E /* MPopupViewController.xib in Resources */,
+				CF52D5F818869AB80008ED2E /* MSyncAccountViewController.xib in Resources */,
 				CF0A4741184DE2200011E930 /* setup_about.png in Resources */,
 				CF60DDB71887C25800F3E3EE /* MAddAccountViewController.xib in Resources */,
 				CFFDE46E184F101100F7C2AE /* MWalletViewController.xib in Resources */,
@@ -3966,7 +4001,7 @@
 				CFDA292618BDD3D1000FE0F7 /* MActivityData.m in Sources */,
 				CF5593F3187ACCEF009CD682 /* MSegmentView.m in Sources */,
 				CF260C9118582AED005954DE /* MAuthCodeAction.m in Sources */,
-				CFFDE45B184ED99200F7C2AE /* MColorView.m in Sources */,
+				CFFDE45B184ED99200F7C2AE /* MColorButton.m in Sources */,
 				CFEF4F8D18E4003700E1DC5F /* MInternetData.m in Sources */,
 				CF8297E5189233C8004353B7 /* UILabel+MCategory.m in Sources */,
 				CF42FEE51855B2BA00C56F81 /* MAccountsData.m in Sources */,
@@ -3982,6 +4017,7 @@
 				CF50EE72187FB63100E9E8E4 /* UIViewController+MBProgressHUD.m in Sources */,
 				CF0A452B184D76740011E930 /* NSMutableArray+BlocksKit.m in Sources */,
 				CF42FEDF18559E7300C56F81 /* MLoginAction.m in Sources */,
+				CF59FA1D18ED961600E3B2E1 /* DesUtil.m in Sources */,
 				CF6E1F2718B5D00A00298ACD /* MYCustomPanel.m in Sources */,
 				CF367B39188FB7EA000F04AE /* MModifyPasswordAction.m in Sources */,
 				CF6487AE1856DCFF008E066E /* MFinanceProductData.m in Sources */,
@@ -3996,6 +4032,7 @@
 				CF5833E4184C63A500D2C276 /* AppDelegate.m in Sources */,
 				CF51169C18B62C6F0011C345 /* MSyncAssetAccountAction.m in Sources */,
 				CF471CF118DC204600D8BF05 /* MBindingAction.m in Sources */,
+				CF5CC0FD18ED02BE00349DE4 /* NSDate+DateTools.m in Sources */,
 				CF58341E184C64E800D2C276 /* MChatViewController.m in Sources */,
 				CF7093E118E157AF00BD3A22 /* MScrollFullScreen.m in Sources */,
 				CF32A0B618D2D152000106F2 /* ShareEngine.m in Sources */,
@@ -4019,7 +4056,7 @@
 				CF0A46F3184DCFB00011E930 /* SDWebImagePrefetcher.m in Sources */,
 				CF6E1F2918B5D00A00298ACD /* MYIntroductionPanel.m in Sources */,
 				CF8A37EA188CC1FD00AB63D8 /* STDbHandle.m in Sources */,
-				CF52D5F718869AB80008ED2E /* MPopupViewController.m in Sources */,
+				CF52D5F718869AB80008ED2E /* MSyncAccountViewController.m in Sources */,
 				CF0A4527184D76740011E930 /* NSArray+BlocksKit.m in Sources */,
 				CFD409B718C45EF10058E33E /* KKGestureLockView.m in Sources */,
 				CF4169E51859778C0056A271 /* NSMutableDictionary+MCategory.m in Sources */,
@@ -4092,6 +4129,7 @@
 				CF095D6718B8805B00993645 /* MFundAction.m in Sources */,
 				CFCEDECF18CD6029001F2CCD /* MBorderView.m in Sources */,
 				CF1CDD3618AF39520079263C /* MSecurityView.m in Sources */,
+				CF59FA2018ED964700E3B2E1 /* ConverUtil.m in Sources */,
 				CF14587A185063F400D01023 /* MWalletCell.m in Sources */,
 				CF4169EB1859BC3F0056A271 /* MQueryInvestAction.m in Sources */,
 				CFF9A39318E50E5300B507A1 /* UIViewController+product.m in Sources */,
@@ -4133,6 +4171,7 @@
 				CF7093DE18E1484200BD3A22 /* MGradientView.m in Sources */,
 				CFF18E9A18AB703F001FB2ED /* NSDate+Compare.m in Sources */,
 				CF0A4714184DD0190011E930 /* ASIAuthenticationDialog.m in Sources */,
+				CF59FA2618EDA74100E3B2E1 /* Utility.m in Sources */,
 				CF0A4734184DD4500011E930 /* MHttpEngine.m in Sources */,
 				CF43601C1851C07000460BDF /* RDVTabBar.m in Sources */,
 				CF1C69D118555EC600921B58 /* MLoginViewController.m in Sources */,
@@ -4161,6 +4200,7 @@
 				CF6C3DE41883915A00E1135C /* TPKeyboardAvoidingScrollView.m in Sources */,
 				CF8D9C9A18C58B12008427B7 /* MWindow.m in Sources */,
 				CF42FF1A1855BE5C00C56F81 /* MAccountInfoViewController.m in Sources */,
+				CF5CC10018ED0DBB00349DE4 /* UIAlertView+Blocks.m in Sources */,
 				CF0A473A184DDEE00011E930 /* MAccountCell.m in Sources */,
 				CF50EE77187FBDF400E9E8E4 /* MTradeRecordViewController.m in Sources */,
 				CF0A44FA184D73330011E930 /* UIImage+MCategory.m in Sources */,
@@ -4204,6 +4244,7 @@
 				CF406E3518C8772F00F1B60F /* MRechargeViewController.m in Sources */,
 				CFDA292318BDCEB2000FE0F7 /* MListActivityAction.m in Sources */,
 				CF0A46BA184D98450011E930 /* UINavigationBar+MCategory.m in Sources */,
+				CF5CC10618ED43F100349DE4 /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				CF406E2E18C850ED00F1B60F /* MBalanceAction.m in Sources */,
 				CF0A452E184D76740011E930 /* NSMutableOrderedSet+BlocksKit.m in Sources */,
 				CF0A46F8184DCFB00011E930 /* UIImageView+WebCache.m in Sources */,
@@ -4220,6 +4261,7 @@
 				CF2A658218E3C85700965707 /* MAnimation.m in Sources */,
 				CFDCCF3C1884D29E0021055C /* MCommentData.m in Sources */,
 				CF0A46ED184DCFB00011E930 /* SDImageCache.m in Sources */,
+				CF5CC10318ED3C9100349DE4 /* MImageView.m in Sources */,
 				CFA5A4F518CDAB970077AEA9 /* MSeckillViewController.m in Sources */,
 				CF6C3E981883F7F800E1135C /* MCommentListAction.m in Sources */,
 				CF52D5F218869A360008ED2E /* UIViewController+CWPopup.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "MRecordCell.h"
 #import "MInvestRecordData.h"
+#import "NSDate+DateTools.h"
 @implementation MRecordCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
@@ -19,23 +20,19 @@
     return self;
 }
 
-- (NSDate *)formatterDateString:(NSString *)dateStr{
-    
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat       = @"yyyyMMddHHmmss";
-    
-    return [formatter dateFromString:dateStr];
-}
+
 
 -(void)setData:(MInvestRecordData *)data{
     _data                    = data;
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
-    NSString *dateStr = [formatter stringFromDate:[self formatterDateString:_data.mtran_time]];
- 
+//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+//    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
+//    NSString *dateStr = [formatter stringFromDate:[self formatterDateString:_data.mtran_time]];
+// 
+    NSDate *tran_date = [MUtility dateFormatter:_data.mtran_time formatter:kDefaultTimeStampFull];
+    NSString *tran_time =  [tran_date formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
     
-    _investDateLabel.text = dateStr;
+    _investDateLabel.text = tran_time;
     
   
     _investMoneyLabel.text = STRING_FORMAT(@"+%@元",_data.mtran_amount);

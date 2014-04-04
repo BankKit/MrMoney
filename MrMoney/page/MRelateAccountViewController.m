@@ -16,6 +16,7 @@
 #import "MAddressListViewController.h"
 #import "UIViewController+style.h"
 #import "UIViewController+MaryPopin.h"
+#import "Utility.h"
 #ifndef TEXTFIELDTAG
 #define TEXTFIELDTAG 2000
 #endif
@@ -57,9 +58,11 @@
         [self.bank_identifie isEqualToString:@"alipay"]  //支付宝
         
         ) {
+        BOOL ret = [self.bank_identifie isEqualToString:@"alipay"];
+        self.titleArray =  @[ret?@"用户名:":@"卡号:",@"查询密码:",@"验证码:"];
         
-        self.titleArray =  @[ [self.bank_identifie isEqualToString:@"alipay"]?@"用户名:":@"卡号:",@"查询密码:",@"验证码:"];
-        self.placeholderArray = @[@"输入银行卡号",@"输入大众版网银查询密码",@"验证码"];
+//            self.placeholderArray = @[@"输入银行卡号",@"输入大众版网银查询密码",@"验证码"];
+        self.placeholderArray = @[ret?@"用户名":@"输入银行卡号",@"输入大众版网银查询密码",@"验证码"];
     }else if([self.bank_identifie isEqualToString:@"bocom"] ||  //交通
              [self.bank_identifie isEqualToString:@"abc"] ||    //农业
              [self.bank_identifie isEqualToString:@"psbc"] ||    //邮政
@@ -233,6 +236,7 @@
     [dict setSafeObject:_authCodeData.maccessId     forKey:@"AccessId"];
     [dict setSafeObject:@"2"                        forKey:@"Channel"];
     [dict setSafeObject:self.cardNo                 forKey:@"AccNum"];
+    NSLog(@"-------------self.cardPassword------------------%@ \n\n",self.cardPassword);
     [dict setSafeObject:self.cardPassword           forKey:@"Password"];
     [dict setSafeObject:self.authCode               forKey:@"VerifCode"];
     [dict setSafeObject:[self.bank_identifie lowercaseString]  forKey:@"BankCode"];
@@ -287,10 +291,18 @@
         [dict setSafeObject:user.mmid forKey:@"mid"];
         [dict setSafeObject:user.msessionId forKey:@"sessionId"];
         [dict setSafeObject:@"" forKey:@"accountAddress"];
-        [dict setSafeObject:[MSMD5(self.cardPassword) uppercaseString]  forKey:@"queryPwd"];
+        
+        NSString *kpwd = STRING_FORMAT(@"%@%@",MSMD5(userMid()),PWD_K2);
+        
+        NSString *password = [Utility encryptStr:self.cardPassword key:kpwd];
+
+        [dict setSafeObject:password  forKey:@"queryPwd"];
+        
+ 
         [dict setSafeObject:@"" forKey:@"nickName"];
         [dict setSafeObject:@"" forKey:@"openAddress"];
         [dict setSafeObject:@"0" forKey:@"loginType"];
+        
     }else{
         [dict setSafeObject:self.bank_identifie forKey:@"bankId"];
         [dict setSafeObject:@"00" forKey:@"accountType"];
@@ -373,7 +385,6 @@
     popin.bankArray = bankArray;
     
     [self.navigationController presentPopinController:popin animated:YES completion:^{
-        
     }];
     
     popin.completionBlock = ^(NSString *addressName){

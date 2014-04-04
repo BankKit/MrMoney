@@ -8,12 +8,15 @@
 
 #import "MHomeViewController.h"
 #import "MCountView.h"
+#import "MInternetData.h"
 @interface MHomeViewController (Style)
 
--(void)setHomeColorView;
+-(void)setHomeColorButtonView;
 
 -(void)touchControlView;
 
 -(void)removeControlView;
+
+-(UIView *)cyleViewWithInternetData:(MInternetData *)internetData;
 
 @end

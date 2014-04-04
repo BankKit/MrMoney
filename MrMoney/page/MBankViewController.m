@@ -91,6 +91,8 @@
     if ((self.pushType != MRechargeType) && (row == 0)) {
        
         cell.detailTextLabel.text = STRING_FORMAT(@"%@%@",[cellDict objectForKey:@"content"], formatValue(_canInvestMoney));
+
+        cell.detailTextLabel.textColor = [UIColor orangeColor];
     }else{
         cell.detailTextLabel.text =[cellDict objectForKey:@"content"];
     }
