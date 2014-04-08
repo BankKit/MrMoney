@@ -56,7 +56,7 @@
 //   NSString *kpwd = STRING_FORMAT(@"%@%@",MSMD5(userMid()),PWD_K2);
 //    
 //    NSString *password = [Utility decryptStr:_account.mqueryPwd key:kpwd];
-    NSString *password  = [Utility TripleDES:@"abcdefg" encryptOrDecrypt:kCCEncrypt];
+//    NSString *password  = [Utility TripleDES:@"abcdefg" encryptOrDecrypt:kCCEncrypt];
 //    NSString *password  =  [Utility encryptStr:@"abcdefg" key:PWD_K2];
 
      NSLog(@"---------- 加密 ------------------%@ \n\n",MSMD5(@"abcdefg"));
@@ -94,6 +94,7 @@
     
     
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(uesrClicked:)];
+    _codeImageView.userInteractionEnabled = YES;
     [_codeImageView addGestureRecognizer:singleTap];
     
     
@@ -105,7 +106,9 @@
 }
 
 -(void)uesrClicked:(id)sender{
-      [getCodeAction requestAction];
+  
+    [getCodeAction requestAction];
+    [self showHUD];
 }
 
 
@@ -115,19 +118,20 @@
 }
 -(void)onResponseAuthCodeSuccess:(MAuthCodeData *)authCode{
     [self hideHUD];
+//    _codeImageView.userInteractionEnabled = NO;
     self.authCodeData = authCode;
-    self.codeImageView.image =  authCode.mimg ? authCode.mimg : [UIImage imageNamed:@"btn_refresh_code"];
+    self.codeImageView.image = authCode.mimg ? authCode.mimg : [UIImage imageNamed:@"btn_refresh_code"];
     
 }
 -(void)onResponseAuthCodeFail{
+
+//    _codeImageView.userInteractionEnabled = YES;
     [self hideHUD];
 }
 
 #pragma mark -------------  关联银行卡 delegate -----------------
 
 -(NSDictionary*)onRequestRelateAccountAction{
-    
-    
     
     MutableOrderedDictionary *dict = [MutableOrderedDictionary dictionaryWithCapacity:11];
     

@@ -536,6 +536,7 @@
 		CF7AD91E18C0927F00DD8D09 /* MWithdrawViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AD91C18C0927F00DD8D09 /* MWithdrawViewController.m */; };
 		CF7AD91F18C0927F00DD8D09 /* MWithdrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF7AD91D18C0927F00DD8D09 /* MWithdrawViewController.xib */; };
 		CF7AD92218C0990E00DD8D09 /* MDrawLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7AD92118C0990E00DD8D09 /* MDrawLineView.m */; };
+		CF7ADF0E18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.m in Sources */ = {isa = PBXBuildFile; fileRef = CF7ADF0D18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.m */; };
 		CF7B388C1889017400B8B4BC /* btn_refresh_code.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7B388B1889017400B8B4BC /* btn_refresh_code.png */; };
 		CF7B3891188904D000B8B4BC /* nav_list_map.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7B388D188904D000B8B4BC /* nav_list_map.png */; };
 		CF7B3892188904D000B8B4BC /* nav_list_map@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF7B388E188904D000B8B4BC /* nav_list_map@2x.png */; };
@@ -1511,6 +1512,8 @@
 		CF7AD91D18C0927F00DD8D09 /* MWithdrawViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MWithdrawViewController.xib; sourceTree = "<group>"; };
 		CF7AD92018C0990E00DD8D09 /* MDrawLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDrawLineView.h; sourceTree = "<group>"; };
 		CF7AD92118C0990E00DD8D09 /* MDrawLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDrawLineView.m; sourceTree = "<group>"; };
+		CF7ADF0C18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIResponder+MotionRecognizers.h"; sourceTree = "<group>"; };
+		CF7ADF0D18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+MotionRecognizers.m"; sourceTree = "<group>"; };
 		CF7B388B1889017400B8B4BC /* btn_refresh_code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_refresh_code.png; sourceTree = "<group>"; };
 		CF7B388D188904D000B8B4BC /* nav_list_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nav_list_map.png; sourceTree = "<group>"; };
 		CF7B388E188904D000B8B4BC /* nav_list_map@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nav_list_map@2x.png"; sourceTree = "<group>"; };
@@ -2894,6 +2897,8 @@
 				CF69805C18960EDF0009CECF /* OrderedDictionary.m */,
 				CF2A658018E3C85700965707 /* MAnimation.h */,
 				CF2A658118E3C85700965707 /* MAnimation.m */,
+				CF7ADF0C18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.h */,
+				CF7ADF0D18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.m */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -4184,6 +4189,7 @@
 				CFFDE46D184F101100F7C2AE /* MWalletViewController.m in Sources */,
 				CF0A46F6184DCFB00011E930 /* UIImage+MultiFormat.m in Sources */,
 				CF911FFB18C9A305003670FE /* MUpdateAction.m in Sources */,
+				CF7ADF0E18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.m in Sources */,
 				CF42FED21855938D00C56F81 /* MDataWorld.m in Sources */,
 				CF0A4534184D76740011E930 /* NSSet+BlocksKit.m in Sources */,
 				CF0A471A184DD0190011E930 /* ASIInputStream.m in Sources */,

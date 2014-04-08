@@ -10,14 +10,7 @@
 
 @implementation MWindow
 
-- (id)initWithFrame:(CGRect)frame
-{
-    self = [super initWithFrame:frame];
-    if (self) {
-        // Initialization code
-    }
-    return self;
-}
+ 
 
 - (void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event
 {
@@ -28,7 +21,7 @@
 	if(event.type == UIEventTypeMotion && event.subtype == UIEventSubtypeMotionShake)
 	{
  
-		[[NSNotificationCenter defaultCenter] postNotificationName:@"shake" object:self];
+		[[NSNotificationCenter defaultCenter] postNotificationName:@"CPDeviceShaken" object:self];
 	}
 }
 

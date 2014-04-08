@@ -24,7 +24,7 @@
     BOOL isFirst;
 }
 
-@property (strong, nonatomic) MWindow *window;
+@property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UIViewController *viewController;
 

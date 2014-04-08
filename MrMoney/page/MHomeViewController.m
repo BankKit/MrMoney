@@ -29,7 +29,7 @@
 #import "UIViewController+MaryPopin.h"
 #import "MSpeedyPayViewController.h"
 #import "MPayViewController.h"
-
+#import "UIResponder+MotionRecognizers.h"
 
 
 @interface MHomeViewController ()<PDTSimpleCalendarViewDelegate,MPayViewControllerDelegate>
@@ -77,6 +77,8 @@
     self.isFlag = NO;
     
     [_countView start];
+    
+    [self addMotionRecognizerWithAction:@selector(motionWasRecognized:)];
    
 }
 -(void)viewDidAppear:(BOOL)animated{
@@ -88,6 +90,8 @@
     [super viewWillDisappear:animated];
  
     [_countView stop];
+    
+    [self removeMotionRecognizer];
 }
 
 -(void)showView{
@@ -246,10 +250,14 @@
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(update:) name:KNOTITICATION_BLANCE object:nil];
     
     [[NSNotificationCenter defaultCenter]  addObserver:self selector:@selector(updateCalendar:) name:@"kcalendar" object:nil];
+ 
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(shakeAnimations) name:@"shake" object:nil];
-    
-    
+}
+
+
+- (void) motionWasRecognized:(NSNotification*)notif {
+    UIButton *btn = (UIButton *)[self.topContentView viewWithTag:1];
+    [self onPromptBuyAction:btn];
 }
 #pragma mark --
 #pragma mark -- queryProductDelegate 
@@ -282,11 +290,7 @@
     [self setCycleScrollView];
     [self.timer pauseTimer];
 }
--(void)shakeAnimations{
- 
-    UIButton *btn = (UIButton *)[self.topContentView viewWithTag:1];
-    [self onPromptBuyAction:btn];
-}
+
  
 -(void)setNewProductNumber{
     NSString *isYes =  [MDataInterface commonParam:@"increase"];

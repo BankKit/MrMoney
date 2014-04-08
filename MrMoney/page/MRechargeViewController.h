@@ -7,12 +7,13 @@
 //
 
 #import "MBaseViewController.h"
-#import "MFieldCell.h"
+
 #import "MSubmitOrderAction.h"
 #import "MPayViewController.h"
 #import "MSendEmailAction.h"
 #import "MRechargeAction.h"
-@interface MRechargeViewController : MBaseViewController<UITextFieldDelegate,MFieldCellDelegate,MPayViewControllerDelegate,UIAlertViewDelegate,MSendEmailActionDelegate,MRechargeActionDelegate>{
+@class  MFieldCell;
+@interface MRechargeViewController : MBaseViewController<UITextFieldDelegate,MPayViewControllerDelegate,UIAlertViewDelegate,MSendEmailActionDelegate,MRechargeActionDelegate>{
     
     MSubmitOrderAction *submitAction;
     MSendEmailAction   *sendEmail;

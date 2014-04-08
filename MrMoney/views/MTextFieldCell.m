@@ -14,11 +14,12 @@
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
 	if(!(self=[super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
     self.backgroundColor = [UIColor clearColor];
-    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     _field = [[MTextField alloc] initWithFrame:CGRectZero];
     
 	_field.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
 	_field.backgroundColor = [UIColor clearColor];
+
     _field.borderStyle = UITextBorderStyleNone;
     _field.frameHeight = 32;
     
@@ -88,11 +89,11 @@
  
 - (void) setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-	_field.textColor = selected ? [UIColor whiteColor] : [UIColor blackColor];
+ 
 }
 - (void) setHighlighted:(BOOL)highlighted animated:(BOOL)animated{
 	[super setHighlighted:highlighted animated:animated];
-	_field.textColor = highlighted ? [UIColor whiteColor] : [UIColor blackColor];
+ 
 }
 
 @end

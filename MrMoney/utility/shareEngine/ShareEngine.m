@@ -13,6 +13,9 @@
 
 static ShareEngine *sharedSingleton_ = nil;
 
+-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+    NSLog(@"------------request-----%@ \n\n",request);
+}
 + (ShareEngine *) sharedInstance
 {
     if (sharedSingleton_ == nil)

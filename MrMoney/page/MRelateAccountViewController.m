@@ -140,6 +140,7 @@
     int row = [indexPath row];
     if (cell == nil) {
         cell = [[MTextFieldCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     
     int count = [self.titleArray count];
