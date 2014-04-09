@@ -12,13 +12,8 @@
 #import "MAccountsData.h"
 #import "MUserData.h"
 #import "UIViewController+MaryPopin.h"
+#import "MDesUtility.h"
 
-#import <CommonCrypto/CommonDigest.h>
-#import <CommonCrypto/CommonCryptor.h>
-#import <Security/Security.h>
-#import "GTMBase64.h"
-#import "DesUtil.h"
-#import "Utility.h"
 
 #define  TEXTFIELDTAG 600
 
@@ -39,7 +34,6 @@
     }
     return self;
 }
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -52,14 +46,12 @@
     self.bank_identifie = [self.account.mbankId lowercaseString];
  
     self.mAid = self.account.maid;
-    
-//   NSString *kpwd = STRING_FORMAT(@"%@%@",MSMD5(userMid()),PWD_K2);
-//    
-//    NSString *password = [Utility decryptStr:_account.mqueryPwd key:kpwd];
-//    NSString *password  = [Utility TripleDES:@"abcdefg" encryptOrDecrypt:kCCEncrypt];
-//    NSString *password  =  [Utility encryptStr:@"abcdefg" key:PWD_K2];
+ 
 
-     NSLog(@"---------- 加密 ------------------%@ \n\n",MSMD5(@"abcdefg"));
+
+   NSString *test = [MDesUtility encrypt:@"123456"];
+    
+     NSLog(@"---------- 加密 ------------------%@ \n\n",test);
  
     _topView.frameY = 40;
     
@@ -118,14 +110,13 @@
 }
 -(void)onResponseAuthCodeSuccess:(MAuthCodeData *)authCode{
     [self hideHUD];
-//    _codeImageView.userInteractionEnabled = NO;
+ 
     self.authCodeData = authCode;
     self.codeImageView.image = authCode.mimg ? authCode.mimg : [UIImage imageNamed:@"btn_refresh_code"];
     
 }
 -(void)onResponseAuthCodeFail{
-
-//    _codeImageView.userInteractionEnabled = YES;
+ 
     [self hideHUD];
 }
 
@@ -141,10 +132,9 @@
     
      
     if (![strOrEmpty(_account.mqueryPwd) isEqualToString:@""]) {
+         
         
-        NSString *kpwd = STRING_FORMAT(@"%@%@",MSMD5(userMid()),PWD_K2);
-        
-        NSString *password = [Utility decryptStr:_account.mqueryPwd key:kpwd];
+        NSString *password = [MDesUtility decrypt:_account.mqueryPwd];
 
         [dict setSafeObject:password   forKey:@"Password"];
     }else{
@@ -199,10 +189,8 @@
         [dict setSafeObject:_account.mqueryPwd        forKey:@"accountPwd"];
        
     }else{
-        NSString *kpwd = STRING_FORMAT(@"%@%@",MSMD5(userMid()),PWD_K2);
-        
-        NSString *password = [Utility encryptStr:[_passwordTf text] key:kpwd];
-        
+    
+        NSString *password = [MDesUtility encrypt:_passwordTf.text];
         [dict setSafeObject:password forKey:@"accountPwd"];
     
     }

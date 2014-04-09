@@ -16,7 +16,7 @@
 #import "MAddressListViewController.h"
 #import "UIViewController+style.h"
 #import "UIViewController+MaryPopin.h"
-#import "Utility.h"
+#import "MDesUtility.h"
 #ifndef TEXTFIELDTAG
 #define TEXTFIELDTAG 2000
 #endif
@@ -292,10 +292,9 @@
         [dict setSafeObject:user.mmid forKey:@"mid"];
         [dict setSafeObject:user.msessionId forKey:@"sessionId"];
         [dict setSafeObject:@"" forKey:@"accountAddress"];
+    
         
-        NSString *kpwd = STRING_FORMAT(@"%@%@",MSMD5(userMid()),PWD_K2);
-        
-        NSString *password = [Utility encryptStr:self.cardPassword key:kpwd];
+        NSString *password = [MDesUtility encrypt:self.cardPassword];
 
         [dict setSafeObject:password  forKey:@"queryPwd"];
         

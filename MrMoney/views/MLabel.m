@@ -66,6 +66,7 @@
 - (void)setFont:(UIFont *)font range:(NSRange)range
 {
     NSMutableAttributedString *attributed = [self attributedString];
+    
     [attributed addAttribute:NSFontAttributeName value:font range:range];
     
     self.attributedText = attributed;

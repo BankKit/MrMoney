@@ -35,6 +35,10 @@
 @property (nonatomic,weak) IBOutlet UILabel *secProdRateLabel;
 @property (nonatomic,weak) IBOutlet UILabel *secValueDateLabel;
 
+@property (nonatomic,weak) IBOutlet UILabel *remainingLabel;
+@property (nonatomic,weak) IBOutlet UIView *remainingView;
+
+
 @property (assign, nonatomic) BOOL isFlag;
 
 -(IBAction)onShareAction:(id)sender;

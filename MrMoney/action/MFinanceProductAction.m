@@ -71,7 +71,7 @@
         MActProductData *act = [[MActProductData alloc] init];
         
         for (NSDictionary *l_dict in actArray) {
- 
+  
             act.mactRmAmount        = m_dictionaryValueToString([l_dict objectForKey:@"actRmAmount"]);
             act.mbankId             = m_dictionaryValueToString([l_dict objectForKey:@"bankId"]);
             act.mbreakEven          = m_dictionaryValueToString([l_dict objectForKey:@"breakEven"]);
@@ -88,6 +88,8 @@
             act.mproductType        = m_dictionaryValueToString([l_dict objectForKey:@"productType"]);
             act.msalesRegion_desc   = m_dictionaryValueToString([l_dict objectForKey:@"salesRegion_desc"]);
             act.mvalueDate          = m_dictionaryValueToString([l_dict objectForKey:@"valueDate"]);
+            
+            act.mstartTime          = m_dictionaryValueToString([l_dict objectForKey:@"startTime"]);
         }
         //             l_array_response = [MMapper mutableArrayOfClass:[MFinanceProductData class]
 //    fromArrayOfDictionary:docsArray];

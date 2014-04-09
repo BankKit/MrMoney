@@ -25,5 +25,6 @@
 @property (nonatomic,copy)NSString * mproductType ;
 @property (nonatomic,copy)NSString * msalesRegion_desc ;
 @property (nonatomic,copy)NSString * mvalueDate ;
+@property (nonatomic,copy)NSString * mstartTime;
 
 @end

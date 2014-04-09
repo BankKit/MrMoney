@@ -13,6 +13,8 @@
                 <outlet property="checkBtn" destination="i9F-Fs-amn" id="fyZ-v3-KRf"/>
                 <outlet property="dayLabel" destination="iua-Mi-Oqc" id="sDU-Mg-jws"/>
                 <outlet property="middleView" destination="Gv6-9e-0QC" id="aKZ-gH-jB9"/>
+                <outlet property="remainingLabel" destination="McF-ZS-AqV" id="yIi-CW-uQ6"/>
+                <outlet property="remainingView" destination="ux4-QU-mBh" id="BcV-6E-Ml7"/>
                 <outlet property="scrollView" destination="VTy-mi-a4F" id="OMS-gq-WyS"/>
                 <outlet property="secBank_logo" destination="TAL-dS-TlJ" id="VFA-fI-Xoo"/>
                 <outlet property="secDRateLabel" destination="n0E-v2-paK" id="lF0-cF-th5"/>
@@ -260,6 +262,27 @@
                                         <action selector="onGrabBuyAction:" destination="-1" eventType="touchUpInside" id="b9M-8a-fSU"/>
                                     </connections>
                                 </button>
+                                <view contentMode="scaleToFill" id="ux4-QU-mBh">
+                                    <rect key="frame" x="2" y="16" width="314" height="92"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="秒杀开始时间：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N4a-Hk-ZD4">
+                                            <rect key="frame" x="18" y="33" width="119" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="McF-ZS-AqV">
+                                            <rect key="frame" x="129" y="33" width="169" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         </view>

@@ -274,6 +274,10 @@
     return 46.;
     
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 15.0f;
+}
 
 - (void)didReceiveMemoryWarning
 {

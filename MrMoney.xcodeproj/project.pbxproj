@@ -460,9 +460,7 @@
 		CF5834A4184C898F00D2C276 /* home_page_orange.png in Resources */ = {isa = PBXBuildFile; fileRef = CF5834A1184C898F00D2C276 /* home_page_orange.png */; };
 		CF5834B2184C97B600D2C276 /* MFinanceProductsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5834B0184C97B600D2C276 /* MFinanceProductsViewController.m */; };
 		CF5834B3184C97B600D2C276 /* MFinanceProductsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF5834B1184C97B600D2C276 /* MFinanceProductsViewController.xib */; };
-		CF59FA1D18ED961600E3B2E1 /* DesUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FA1C18ED961600E3B2E1 /* DesUtil.m */; };
-		CF59FA2018ED964700E3B2E1 /* ConverUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FA1F18ED964700E3B2E1 /* ConverUtil.m */; };
-		CF59FA2618EDA74100E3B2E1 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FA2518EDA74100E3B2E1 /* Utility.m */; };
+		CF59FA1D18ED961600E3B2E1 /* MDesUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CF59FA1C18ED961600E3B2E1 /* MDesUtility.m */; };
 		CF5B35E218D9612F00AAB862 /* CycleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5B35DF18D9612F00AAB862 /* CycleScrollView.m */; };
 		CF5B35E318D9612F00AAB862 /* NSTimer+Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5B35E118D9612F00AAB862 /* NSTimer+Addition.m */; };
 		CF5B35E618D961B800AAB862 /* MHomeViewController+Style.m in Sources */ = {isa = PBXBuildFile; fileRef = CF5B35E518D961B800AAB862 /* MHomeViewController+Style.m */; };
@@ -1389,12 +1387,8 @@
 		CF5834AF184C97B600D2C276 /* MFinanceProductsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFinanceProductsViewController.h; sourceTree = "<group>"; };
 		CF5834B0184C97B600D2C276 /* MFinanceProductsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFinanceProductsViewController.m; sourceTree = "<group>"; };
 		CF5834B1184C97B600D2C276 /* MFinanceProductsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MFinanceProductsViewController.xib; sourceTree = "<group>"; };
-		CF59FA1B18ED961600E3B2E1 /* DesUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DesUtil.h; sourceTree = "<group>"; };
-		CF59FA1C18ED961600E3B2E1 /* DesUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DesUtil.m; sourceTree = "<group>"; };
-		CF59FA1E18ED964700E3B2E1 /* ConverUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConverUtil.h; sourceTree = "<group>"; };
-		CF59FA1F18ED964700E3B2E1 /* ConverUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConverUtil.m; sourceTree = "<group>"; };
-		CF59FA2418EDA74100E3B2E1 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
-		CF59FA2518EDA74100E3B2E1 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		CF59FA1B18ED961600E3B2E1 /* MDesUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDesUtility.h; sourceTree = "<group>"; };
+		CF59FA1C18ED961600E3B2E1 /* MDesUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDesUtility.m; sourceTree = "<group>"; };
 		CF5B35DE18D9612F00AAB862 /* CycleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CycleScrollView.h; sourceTree = "<group>"; };
 		CF5B35DF18D9612F00AAB862 /* CycleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CycleScrollView.m; sourceTree = "<group>"; };
 		CF5B35E018D9612F00AAB862 /* NSTimer+Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+Addition.h"; sourceTree = "<group>"; };
@@ -2582,12 +2576,8 @@
 				CF17C8FF18E9619F00509A22 /* MAddressListViewController.h */,
 				CF17C90018E9619F00509A22 /* MAddressListViewController.m */,
 				CF17C90118E9619F00509A22 /* MAddressListViewController.xib */,
-				CF59FA1B18ED961600E3B2E1 /* DesUtil.h */,
-				CF59FA1C18ED961600E3B2E1 /* DesUtil.m */,
-				CF59FA1E18ED964700E3B2E1 /* ConverUtil.h */,
-				CF59FA1F18ED964700E3B2E1 /* ConverUtil.m */,
-				CF59FA2418EDA74100E3B2E1 /* Utility.h */,
-				CF59FA2518EDA74100E3B2E1 /* Utility.m */,
+				CF59FA1B18ED961600E3B2E1 /* MDesUtility.h */,
+				CF59FA1C18ED961600E3B2E1 /* MDesUtility.m */,
 			);
 			name = wallet;
 			sourceTree = "<group>";
@@ -4022,7 +4012,7 @@
 				CF50EE72187FB63100E9E8E4 /* UIViewController+MBProgressHUD.m in Sources */,
 				CF0A452B184D76740011E930 /* NSMutableArray+BlocksKit.m in Sources */,
 				CF42FEDF18559E7300C56F81 /* MLoginAction.m in Sources */,
-				CF59FA1D18ED961600E3B2E1 /* DesUtil.m in Sources */,
+				CF59FA1D18ED961600E3B2E1 /* MDesUtility.m in Sources */,
 				CF6E1F2718B5D00A00298ACD /* MYCustomPanel.m in Sources */,
 				CF367B39188FB7EA000F04AE /* MModifyPasswordAction.m in Sources */,
 				CF6487AE1856DCFF008E066E /* MFinanceProductData.m in Sources */,
@@ -4134,7 +4124,6 @@
 				CF095D6718B8805B00993645 /* MFundAction.m in Sources */,
 				CFCEDECF18CD6029001F2CCD /* MBorderView.m in Sources */,
 				CF1CDD3618AF39520079263C /* MSecurityView.m in Sources */,
-				CF59FA2018ED964700E3B2E1 /* ConverUtil.m in Sources */,
 				CF14587A185063F400D01023 /* MWalletCell.m in Sources */,
 				CF4169EB1859BC3F0056A271 /* MQueryInvestAction.m in Sources */,
 				CFF9A39318E50E5300B507A1 /* UIViewController+product.m in Sources */,
@@ -4176,7 +4165,6 @@
 				CF7093DE18E1484200BD3A22 /* MGradientView.m in Sources */,
 				CFF18E9A18AB703F001FB2ED /* NSDate+Compare.m in Sources */,
 				CF0A4714184DD0190011E930 /* ASIAuthenticationDialog.m in Sources */,
-				CF59FA2618EDA74100E3B2E1 /* Utility.m in Sources */,
 				CF0A4734184DD4500011E930 /* MHttpEngine.m in Sources */,
 				CF43601C1851C07000460BDF /* RDVTabBar.m in Sources */,
 				CF1C69D118555EC600921B58 /* MLoginViewController.m in Sources */,

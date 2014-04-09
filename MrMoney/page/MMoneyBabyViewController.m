@@ -75,10 +75,7 @@
     if ([money.mfCyclBal intValue] == 1) {
         _cyclBalBtn.hidden = YES;
     }
-//    float currentIncome   = [money.mcurrentIncomeMoney floatValue]/100;
-//    float currentInvest   = [money.mcurrentInvestMoney floatValue]/100;
-//    float blance          = [money.mbalance     floatValue]/100;
-//    float officialBalance = [money.mofficialBalance   floatValue]/100;
+ 
     _total       = [money.mQbbAssets   floatValue]/100;
     _todayIncome = [money.mtodayIncome floatValue]/100;
     

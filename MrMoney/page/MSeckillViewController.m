@@ -15,6 +15,7 @@
 #import "JDFlipClockView.h"
 #import "SGActionView.h"
 #import "ShareEngine.h"
+#import "NSDate+DateTools.h"
 @interface MSeckillViewController ()
 @property (nonatomic) JDFlipClockView *flipView;
 
@@ -55,7 +56,6 @@
     
     self.scrollView.contentSize = CGSizeMake(320, _bottomView.frameHeight + _bottomView.frameY);
  
-      
     
     self.secBank_logo.image = bankLogoImage(self.actData.mbankId);
     self.secProduct_nameLabel.text =STRING_FORMAT(@"%@ %@",bankName(self.actData.mbankId),strOrEmpty(self.actData.mproductName));
@@ -65,10 +65,26 @@
 
     self.secDRateLabel.text =  STRING_FORMAT(@"%.2f%%",[self.actData.mdRate floatValue]/100);
     
-    self.balanceLabel.text = STRING_FORMAT(@"%@元",formatValue([self.actData.mactRmAmount floatValue]/100));
+    self.balanceLabel.text = STRING_FORMAT(@"%@元",formatValue([self.actData.mactRmAmount floatValue]));
     
 
     self.dayLabel.text = STRING_FORMAT(@"（%@天）",strOrEmpty(self.actData.minvestCycle));
+    
+    
+    NSDate  *startTime = [MUtility dateFormatter:self.actData.mstartTime formatter:@"yyyyMMddHHmm"];
+    
+    self.remainingLabel.text =  [startTime formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
+
+    if ([startTime isLessDate:zoneDate([NSDate date])]) {
+        _remainingView.hidden = YES;
+        
+        _submitBtn.hidden = NO;
+
+    }else{
+        _remainingView.hidden = NO;
+        _submitBtn.hidden = YES;
+    }
+//    NSLog(@"------------startTime-------------------%@ \n\n",zoneDate(startTime));
     
     if ([self.actData.mactRmAmount floatValue] <= 0.0) {
         _balanceLabel.hidden = YES;

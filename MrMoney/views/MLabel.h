@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MLabel : UILabel
+
 - (void)setBoldFontToRange:(NSRange)range;
 - (void)setBoldFontToString:(NSString *)string;
 
