@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MHomeViewController">
             <connections>
+                <outlet property="VIPLabel" destination="r6e-hK-taU" id="v6R-d7-RYf"/>
                 <outlet property="activityView" destination="ty4-65-Agb" id="A8Y-ef-D60"/>
                 <outlet property="favoriteView" destination="Mey-LH-rV4" id="Ahf-rY-Fiv"/>
                 <outlet property="financeProductsView" destination="3GP-Qy-u8f" id="TgE-70-tlz"/>
@@ -141,6 +142,15 @@
                                     <rect key="frame" x="68" y="30" width="20" height="20"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </activityIndicatorView>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="r6e-hK-taU">
+                                    <rect key="frame" x="120" y="1" width="23" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" red="0.98823535439999999" green="0.87450987099999999" blue="0.22745099660000001" alpha="1" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                    <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="shadowOffset" width="1" height="-1"/>
+                                </label>
                             </subviews>
                             <color key="backgroundColor" red="0.16470588743686676" green="0.3490196168422699" blue="0.61960786581039429" alpha="1" colorSpace="deviceRGB"/>
                         </view>

@@ -102,9 +102,11 @@
         
         self.titleStatusLabel.text = _investData.mtransTypeDesc;
         
-            self.statusLabel.text =_investData.mBsnsStsDesc;
- 
-
+        if ([_investData.mBsnsStsDesc length] == 0) {
+            self.statusLabel.text = @"充值成功";
+        }else   {
+         self.statusLabel.text =_investData.mBsnsStsDesc;   
+        }
         
 
         if ([_investData.mTrxType intValue]==2) {

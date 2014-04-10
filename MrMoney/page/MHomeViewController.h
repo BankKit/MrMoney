@@ -41,7 +41,7 @@
 @property (nonatomic,weak)   IBOutlet UIView       * internetView;
 @property (nonatomic,weak)   IBOutlet UIImageView  * increaseImageView;
 @property (nonatomic,weak)   IBOutlet UILabel      * increaseLabel;
- 
+@property (nonatomic,weak)   IBOutlet UILabel      * VIPLabel;
 @property (nonatomic,weak)   IBOutlet UILabel      * fundLabel;
 @property (nonatomic,weak)   IBOutlet UILabel      * star_earningsLabel;
 @property (nonatomic,weak)   IBOutlet UILabel      * star_bank_nameLabel;

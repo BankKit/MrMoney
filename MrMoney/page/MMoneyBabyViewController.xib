@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MMoneyBabyViewController">
             <connections>
+                <outlet property="VIPImageView" destination="76k-W2-MgB" id="Eb0-tY-qYS"/>
                 <outlet property="balanceTreasureLabel" destination="pqR-SZ-Xki" id="giy-Tm-ZHR"/>
                 <outlet property="bottomView" destination="9BC-23-K9p" id="4Jm-2l-xNB"/>
                 <outlet property="canDrawMoneyLabel" destination="nUq-0L-csX" id="EYn-aL-ytJ"/>
@@ -72,6 +73,10 @@
                                     <color key="textColor" red="0.94901960780000005" green="0.22352941179999999" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vip.png" id="76k-W2-MgB">
+                                    <rect key="frame" x="173" y="24" width="23" height="13"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </imageView>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
@@ -312,5 +317,6 @@
     <resources>
         <image name="current_ interest.png" width="39" height="40"/>
         <image name="regular_ interest.png" width="39" height="40"/>
+        <image name="vip.png" width="45" height="26"/>
     </resources>
 </document>

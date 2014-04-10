@@ -24,30 +24,32 @@
 
 -(void)setData:(MInvestRecordData *)data{
     _data                    = data;
-    
-//    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    formatter.dateFormat = @"yyyy-MM-dd HH:mm";
-//    NSString *dateStr = [formatter stringFromDate:[self formatterDateString:_data.mtran_time]];
-// 
+ 
     NSDate *tran_date = [MUtility dateFormatter:_data.mtran_time formatter:kDefaultTimeStampFull];
     NSString *tran_time =  [tran_date formattedDateWithFormat:@"yyyy-MM-dd HH:mm"];
     
     _investDateLabel.text = tran_time;
     
   
-    _investMoneyLabel.text = STRING_FORMAT(@"+%@元",_data.mtran_amount);
-    if ([_data.mTrxType intValue] == 2) {
-        _investMoneyLabel.textColor = [UIColor orangeColor];
-    }else if([_data.mTrxType intValue] == 5){
-        
-        _investMoneyLabel.textColor = [UIColor blackColor];
-        _investMoneyLabel.text = STRING_FORMAT(@"%@元",_data.mtran_amount);
-
-    }
- 
+    _investMoneyLabel.text = STRING_FORMAT(@"%@元",formatValue([_data.mtran_amount floatValue]));
+    
+//    if ([_data.mTrxType intValue] == 2) {
+//        _investMoneyLabel.textColor = [UIColor orangeColor];
+//    }else if([_data.mTrxType intValue] == 5){
+//        
+//        _investMoneyLabel.textColor = [UIColor orangeColor];
+//        _investMoneyLabel.text = STRING_FORMAT(@"%@元",   formatValue([_data.mtran_amount floatValue]));
+//
+//    }
+// 
     _investStatusLabel.text = _data.mtransTypeDesc;
     
-    _investNumberLabel.text = _data.mBsnsStsDesc;
+    if ([_data.mBsnsStsDesc length] == 0) {
+            _investNumberLabel.text = @"充值成功";
+    }else{
+        _investNumberLabel.text = _data.mBsnsStsDesc;
+    }
+
   
     
 }

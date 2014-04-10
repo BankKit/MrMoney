@@ -84,6 +84,7 @@
 
         money.mQbbPrincipal     = m_dictionaryValueToString([l_dict_response objectForKey:@"QbbPrincipal"]);
           money.mpresentMoney          = m_dictionaryValueToString([l_dict_response objectForKey:@"presentMoney"]);
+        money.mcustLevel = m_dictionaryValueToString([l_dict_response objectForKey:@"custLevel"]);
  
         if ([(UIViewController*)m_delegate  respondsToSelector:@selector(onResponseQueryInvestSuccess:)]) {
                 [m_delegate onResponseQueryInvestSuccess:money];

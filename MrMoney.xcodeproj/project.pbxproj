@@ -131,6 +131,7 @@
 		CF113C4E187BCCEE0060CC1B /* MPurchaseViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF113C4C187BCCEE0060CC1B /* MPurchaseViewController.xib */; };
 		CF113C54187BE5F60060CC1B /* MProductBriefCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF113C53187BE5F60060CC1B /* MProductBriefCell.m */; };
 		CF113C56187BE6080060CC1B /* MProductBriefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF113C55187BE6080060CC1B /* MProductBriefCell.xib */; };
+		CF12F99418F5525E004CB89E /* vip.png in Resources */ = {isa = PBXBuildFile; fileRef = CF12F99318F5525E004CB89E /* vip.png */; };
 		CF13A1F8184EC56E00B908EE /* MGo2PageUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CF13A1F7184EC56E00B908EE /* MGo2PageUtility.m */; };
 		CF145849185016B800D01023 /* default_figure.png in Resources */ = {isa = PBXBuildFile; fileRef = CF145848185016B800D01023 /* default_figure.png */; };
 		CF14585418501A7200D01023 /* btn_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CF14584A18501A7200D01023 /* btn_icon.png */; };
@@ -924,6 +925,7 @@
 		CF113C52187BE5F60060CC1B /* MProductBriefCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MProductBriefCell.h; sourceTree = "<group>"; };
 		CF113C53187BE5F60060CC1B /* MProductBriefCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MProductBriefCell.m; sourceTree = "<group>"; };
 		CF113C55187BE6080060CC1B /* MProductBriefCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MProductBriefCell.xib; sourceTree = "<group>"; };
+		CF12F99318F5525E004CB89E /* vip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vip.png; sourceTree = "<group>"; };
 		CF13A1F6184EC56E00B908EE /* MGo2PageUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGo2PageUtility.h; sourceTree = "<group>"; };
 		CF13A1F7184EC56E00B908EE /* MGo2PageUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MGo2PageUtility.m; sourceTree = "<group>"; };
 		CF145848185016B800D01023 /* default_figure.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default_figure.png; sourceTree = "<group>"; };
@@ -3203,6 +3205,7 @@
 		CF8A380B188D2DBD00AB63D8 /* imageView */ = {
 			isa = PBXGroup;
 			children = (
+				CF12F99318F5525E004CB89E /* vip.png */,
 				CFEF4F9218E423A500E1DC5F /* sec_shareBtn.png */,
 				CFAC724118E01E6500FF7774 /* logoViewBg.png */,
 				CFAC724218E01E6500FF7774 /* logoViewBg@2x.png */,
@@ -3558,6 +3561,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF1C6A2D18556F6400921B58 /* btn_check_deep.png in Resources */,
+				CF12F99418F5525E004CB89E /* vip.png in Resources */,
 				CF08307818CDE394007D86D1 /* welcome@2x.png in Resources */,
 				CF6CE44B18E9904000835401 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				CF58348F184C76CE00D2C276 /* bg_nav.png in Resources */,

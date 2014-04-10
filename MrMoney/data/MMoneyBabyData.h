@@ -30,6 +30,7 @@
 @property (nonatomic,copy)NSString *  mjiashiReturnRate;
 @property (nonatomic,copy)NSString *  mQbbAssets;
 @property (nonatomic,copy)NSString *  mQbbPrincipal;
+@property (nonatomic,copy)NSString *  mcustLevel;
 
 
 @property (nonatomic,strong)NSArray * mstartArray;

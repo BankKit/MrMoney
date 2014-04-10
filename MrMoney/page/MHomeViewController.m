@@ -471,7 +471,10 @@
     _todayIncome       = [money.mtodayIncome floatValue]/100;
     
     _total   = presentMoney + qbbAssets;
-     
+    
+//    @property (nonatomic,weak)   IBOutlet UILabel      * star_bank_nameLabel;
+    _VIPLabel.text = strOrEmpty(self.moneyData.mcustLevel);
+    
     
     [self setBalanceLabelValue];
     

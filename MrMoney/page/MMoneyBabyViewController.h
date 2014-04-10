@@ -41,7 +41,7 @@
 @property (weak, nonatomic) IBOutlet UIView           * middleView;
 @property (weak, nonatomic) IBOutlet UIScrollView     * scrollView;
 @property (nonatomic,weak) IBOutlet UIView *toolBarView;
-
+@property (weak, nonatomic) IBOutlet UIImageView *VIPImageView;
 
 
 - (IBAction)onWithdrawAction:(id)sender;

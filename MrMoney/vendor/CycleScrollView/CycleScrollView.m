@@ -84,6 +84,7 @@
         self.scrollView.showsHorizontalScrollIndicator = NO;
         
         self.scrollView.delegate = self;
+        
         //        self.scrollView.contentOffset = CGPointMake(CGRectGetWidth(self.scrollView.frame), 0);
         self.scrollView.pagingEnabled = YES;
         [self addSubview:self.scrollView];

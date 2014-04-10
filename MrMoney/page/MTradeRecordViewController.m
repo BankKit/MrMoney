@@ -80,18 +80,20 @@
 {
     static NSString *CellIdentifier = @"MTradeRecodsCell";
 
-    MTradeRecodsCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    MTradeRecodsCell *cell = (MTradeRecodsCell * )[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
  
         cell = [MTradeRecodsCell loadFromNIB];
    
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
-         
-
-    }
+        
+    } 
     
-    cell.data = [self.dataArray safeObjectAtIndex:indexPath.row];
+    MTradeData *data = [self.dataArray safeObjectAtIndex:indexPath.row];
+    
+    cell.data = data;
+ 
     
     return cell;
 }

@@ -39,29 +39,42 @@
     
     
     _investDateLabel.text = tran_time;
+    
+    NSLog(@"-------------_data.mCrDr ------------------%@ \n\n",_data.mCrDr );
+    
+    NSString  *amount = _data.mtran_amount;
+    
+    if ([amount containsString:@"-"]) {
+        amount =  STRING_FORMAT(@"%@元",formatValue([_data.mtran_amount floatValue]));
+    }
  
-    if ([_data.mtran_amount containsString:@"-"]) {
-
-        _investMoneyLabel.text = STRING_FORMAT(@"%@元",formatValue([_data.mtran_amount floatValue]));
-
-        _investMoneyLabel.textColor = [UIColor colorWithRed:0.25 green:0.61 blue:0.18 alpha:1.00];
-
-    }else if ([_data.mCrDr intValue] == 1) {
-     
-        _investMoneyLabel.text = STRING_FORMAT(@"-%@元",        formatValue([_data.mtran_amount floatValue]));
+     if ([_data.mCrDr intValue] == 1) {
+         
+       _investMoneyLabel.text = STRING_FORMAT(@"-%@元",formatValue([amount floatValue]));
         
         _investMoneyLabel.textColor = [UIColor colorWithRed:0.25 green:0.61 blue:0.18 alpha:1.00];
-    }else{
+    }else if([_data.mCrDr intValue] == 2){
 
-        _investMoneyLabel.text = STRING_FORMAT(@"+%@元",        formatValue([_data.mtran_amount floatValue]));
-    }
-  
-    _investBalanceLabel.text = _data.mtransTypeDesc;
+        _investMoneyLabel.text = STRING_FORMAT(@"+%@元",formatValue([amount floatValue]));
  
-    if ([_data.mtrans_status intValue] == 0) {
-        _investDescLabel.text = @"交易成功";
-    }
+        _investMoneyLabel.textColor = [UIColor orangeColor];
+ 
 
+
+    }
+    
+//    else
+//        if ([_data.mtran_amount containsString:@"-"]) {
+//        
+//        _investMoneyLabel.text = STRING_FORMAT(@"%@元",formatValue([_data.mtran_amount floatValue]));
+//        
+ //
+//    }
+  
+
+    _investBalanceLabel.text = _data.mtransTypeDesc;
+    
+    _investDescLabel.text = _data.mtran_memo;
  
     
 }

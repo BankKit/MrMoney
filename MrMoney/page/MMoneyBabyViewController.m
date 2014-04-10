@@ -75,6 +75,12 @@
     if ([money.mfCyclBal intValue] == 1) {
         _cyclBalBtn.hidden = YES;
     }
+    
+    if ([money.mcustLevel length] > 0) {
+        _VIPImageView.hidden = NO;
+    }else{
+        _VIPImageView.hidden = YES;
+    }
  
     _total       = [money.mQbbAssets   floatValue]/100;
     _todayIncome = [money.mtodayIncome floatValue]/100;
