@@ -340,6 +340,13 @@
 		CF48F31F18B75C11006FF5C4 /* btn_tade_orange0.png in Resources */ = {isa = PBXBuildFile; fileRef = CF48F31B18B75C11006FF5C4 /* btn_tade_orange0.png */; };
 		CF48F32018B75C11006FF5C4 /* btn_tade_orange0@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CF48F31C18B75C11006FF5C4 /* btn_tade_orange0@2x.png */; };
 		CF4A6D7B18D6C09C00BF63F5 /* logo_yellow.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4A6D7A18D6C09C00BF63F5 /* logo_yellow.png */; };
+		CF4AA96118F65EED005D616F /* bg_lock_guide.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF4AA95F18F65EED005D616F /* bg_lock_guide.jpg */; };
+		CF4AA96218F65EED005D616F /* bg_lock_guide@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF4AA96018F65EED005D616F /* bg_lock_guide@2x.jpg */; };
+		CF4AA96418F6658B005D616F /* logo_pingan.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4AA96318F6658B005D616F /* logo_pingan.png */; };
+		CF4AA96818F67AE5005D616F /* MPublishCommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4AA96618F67AE5005D616F /* MPublishCommentViewController.m */; };
+		CF4AA96918F67AE5005D616F /* MPublishCommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CF4AA96718F67AE5005D616F /* MPublishCommentViewController.xib */; };
+		CF4AA96C18F67D63005D616F /* MPublishCommentAction.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4AA96B18F67D63005D616F /* MPublishCommentAction.m */; };
+		CF4AA97918F695A3005D616F /* MIdentifierValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = CF4AA97818F695A3005D616F /* MIdentifierValidator.m */; };
 		CF4ABDB3188FCFC1003CC717 /* night_share_platform_email.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4ABDAF188FCFC1003CC717 /* night_share_platform_email.png */; };
 		CF4ABDB4188FCFC1003CC717 /* night_share_platform_imessage.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4ABDB0188FCFC1003CC717 /* night_share_platform_imessage.png */; };
 		CF4ABDB5188FCFC1003CC717 /* night_share_platform_sina.png in Resources */ = {isa = PBXBuildFile; fileRef = CF4ABDB1188FCFC1003CC717 /* night_share_platform_sina.png */; };
@@ -629,7 +636,6 @@
 		CFCEDEEE18CD9D17001F2CCD /* sec_checkSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFCEDEEC18CD9D17001F2CCD /* sec_checkSelected.png */; };
 		CFCEDEF118CDA009001F2CCD /* sec_topBg.png in Resources */ = {isa = PBXBuildFile; fileRef = CFCEDEEF18CDA009001F2CCD /* sec_topBg.png */; };
 		CFCEDEF218CDA009001F2CCD /* sec_topBg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFCEDEF018CDA009001F2CCD /* sec_topBg@2x.png */; };
-		CFD409B218C45EF10058E33E /* gesture_background.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD409AB18C45EF10058E33E /* gesture_background.png */; };
 		CFD409B318C45EF10058E33E /* gesture_node_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD409AC18C45EF10058E33E /* gesture_node_normal.png */; };
 		CFD409B418C45EF10058E33E /* gesture_node_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD409AD18C45EF10058E33E /* gesture_node_normal@2x.png */; };
 		CFD409B518C45EF10058E33E /* gesture_node_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = CFD409AE18C45EF10058E33E /* gesture_node_selected.png */; };
@@ -1221,6 +1227,16 @@
 		CF48F31B18B75C11006FF5C4 /* btn_tade_orange0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_tade_orange0.png; sourceTree = "<group>"; };
 		CF48F31C18B75C11006FF5C4 /* btn_tade_orange0@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_tade_orange0@2x.png"; sourceTree = "<group>"; };
 		CF4A6D7A18D6C09C00BF63F5 /* logo_yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_yellow.png; sourceTree = "<group>"; };
+		CF4AA95F18F65EED005D616F /* bg_lock_guide.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg_lock_guide.jpg; sourceTree = "<group>"; };
+		CF4AA96018F65EED005D616F /* bg_lock_guide@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg_lock_guide@2x.jpg"; sourceTree = "<group>"; };
+		CF4AA96318F6658B005D616F /* logo_pingan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = logo_pingan.png; path = MrMoney/resource/banklogo/logo_pingan.png; sourceTree = SOURCE_ROOT; };
+		CF4AA96518F67AE5005D616F /* MPublishCommentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPublishCommentViewController.h; sourceTree = "<group>"; };
+		CF4AA96618F67AE5005D616F /* MPublishCommentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPublishCommentViewController.m; sourceTree = "<group>"; };
+		CF4AA96718F67AE5005D616F /* MPublishCommentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MPublishCommentViewController.xib; sourceTree = "<group>"; };
+		CF4AA96A18F67D63005D616F /* MPublishCommentAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPublishCommentAction.h; sourceTree = "<group>"; };
+		CF4AA96B18F67D63005D616F /* MPublishCommentAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPublishCommentAction.m; sourceTree = "<group>"; };
+		CF4AA97718F695A3005D616F /* MIdentifierValidator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdentifierValidator.h; sourceTree = "<group>"; };
+		CF4AA97818F695A3005D616F /* MIdentifierValidator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdentifierValidator.m; sourceTree = "<group>"; };
 		CF4ABDAF188FCFC1003CC717 /* night_share_platform_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night_share_platform_email.png; sourceTree = "<group>"; };
 		CF4ABDB0188FCFC1003CC717 /* night_share_platform_imessage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night_share_platform_imessage.png; sourceTree = "<group>"; };
 		CF4ABDB1188FCFC1003CC717 /* night_share_platform_sina.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = night_share_platform_sina.png; sourceTree = "<group>"; };
@@ -1640,7 +1656,6 @@
 		CFCEDEEC18CD9D17001F2CCD /* sec_checkSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sec_checkSelected.png; sourceTree = "<group>"; };
 		CFCEDEEF18CDA009001F2CCD /* sec_topBg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sec_topBg.png; sourceTree = "<group>"; };
 		CFCEDEF018CDA009001F2CCD /* sec_topBg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sec_topBg@2x.png"; sourceTree = "<group>"; };
-		CFD409AB18C45EF10058E33E /* gesture_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_background.png; sourceTree = "<group>"; };
 		CFD409AC18C45EF10058E33E /* gesture_node_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_normal.png; sourceTree = "<group>"; };
 		CFD409AD18C45EF10058E33E /* gesture_node_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gesture_node_normal@2x.png"; sourceTree = "<group>"; };
 		CFD409AE18C45EF10058E33E /* gesture_node_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gesture_node_selected.png; sourceTree = "<group>"; };
@@ -2221,6 +2236,9 @@
 				CFA5A4F218CDAB970077AEA9 /* MSeckillViewController.h */,
 				CFA5A4F318CDAB970077AEA9 /* MSeckillViewController.m */,
 				CFA5A4F418CDAB970077AEA9 /* MSeckillViewController.xib */,
+				CF4AA96518F67AE5005D616F /* MPublishCommentViewController.h */,
+				CF4AA96618F67AE5005D616F /* MPublishCommentViewController.m */,
+				CF4AA96718F67AE5005D616F /* MPublishCommentViewController.xib */,
 			);
 			name = financeProducts;
 			sourceTree = "<group>";
@@ -2800,6 +2818,8 @@
 				CF17C8FA18E953D100509A22 /* MFuzzyQueryAction.m */,
 				CF613B0118EA93C600D09C90 /* MObtainFeeAction.h */,
 				CF613B0218EA93C600D09C90 /* MObtainFeeAction.m */,
+				CF4AA96A18F67D63005D616F /* MPublishCommentAction.h */,
+				CF4AA96B18F67D63005D616F /* MPublishCommentAction.m */,
 			);
 			path = action;
 			sourceTree = "<group>";
@@ -2891,6 +2911,8 @@
 				CF2A658118E3C85700965707 /* MAnimation.m */,
 				CF7ADF0C18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.h */,
 				CF7ADF0D18F3A39B0041CFE6 /* UIResponder+MotionRecognizers.m */,
+				CF4AA97718F695A3005D616F /* MIdentifierValidator.h */,
+				CF4AA97818F695A3005D616F /* MIdentifierValidator.m */,
 			);
 			path = utility;
 			sourceTree = "<group>";
@@ -3205,6 +3227,7 @@
 		CF8A380B188D2DBD00AB63D8 /* imageView */ = {
 			isa = PBXGroup;
 			children = (
+				CF4AA96318F6658B005D616F /* logo_pingan.png */,
 				CF12F99318F5525E004CB89E /* vip.png */,
 				CFEF4F9218E423A500E1DC5F /* sec_shareBtn.png */,
 				CFAC724118E01E6500FF7774 /* logoViewBg.png */,
@@ -3339,7 +3362,8 @@
 		CFD409AA18C45EF10058E33E /* KKGestureLockView */ = {
 			isa = PBXGroup;
 			children = (
-				CFD409AB18C45EF10058E33E /* gesture_background.png */,
+				CF4AA95F18F65EED005D616F /* bg_lock_guide.jpg */,
+				CF4AA96018F65EED005D616F /* bg_lock_guide@2x.jpg */,
 				CFD409AC18C45EF10058E33E /* gesture_node_normal.png */,
 				CFD409AD18C45EF10058E33E /* gesture_node_normal@2x.png */,
 				CFD409AE18C45EF10058E33E /* gesture_node_selected.png */,
@@ -3571,6 +3595,7 @@
 				CF2A080218DEFEB40021172F /* nav_redBg.png in Resources */,
 				CF1458901850756200D01023 /* nav_more@2x.png in Resources */,
 				CF260C8B18581514005954DE /* home_buy_bg.png in Resources */,
+				CF4AA96418F6658B005D616F /* logo_pingan.png in Resources */,
 				CFF18E6518AB69A3001FB2ED /* MCenterCalendarViewController.xib in Resources */,
 				CF1C6A2F18556F6400921B58 /* btn_uncheck.png in Resources */,
 				CFFDE47D184F210000F7C2AE /* MFinanceProductsCell.xib in Resources */,
@@ -3600,6 +3625,7 @@
 				CF9B38CB18DA85780009FE4D /* logo_unionpay.png in Resources */,
 				CF0A46B7184D89CC0011E930 /* tabbar_selected_background.png in Resources */,
 				CF955898187EC3DF00DD9854 /* btn_segment_normal3@2x.png in Resources */,
+				CF4AA96118F65EED005D616F /* bg_lock_guide.jpg in Resources */,
 				CF095D8C18B891E600993645 /* fund_selected_4.png in Resources */,
 				CFFDE4AA184F2EBD00F7C2AE /* logo_ccb.png in Resources */,
 				CFFBC291187E3CB40042E700 /* MPayViewController.xib in Resources */,
@@ -3794,6 +3820,7 @@
 				CF52D5F818869AB80008ED2E /* MSyncAccountViewController.xib in Resources */,
 				CF0A4741184DE2200011E930 /* setup_about.png in Resources */,
 				CF60DDB71887C25800F3E3EE /* MAddAccountViewController.xib in Resources */,
+				CF4AA96918F67AE5005D616F /* MPublishCommentViewController.xib in Resources */,
 				CFFDE46E184F101100F7C2AE /* MWalletViewController.xib in Resources */,
 				CFFDE4AC184F2EBD00F7C2AE /* logo_cgb.png in Resources */,
 				CF4CDB9318B4BCBE00034DF2 /* MHelpCell.xib in Resources */,
@@ -3884,7 +3911,6 @@
 				CF399BD8185AE963008EA576 /* logo_xib.png in Resources */,
 				CFFBC298187E6AA30042E700 /* btn_invest_detail@2x.png in Resources */,
 				CF0A46C8184DC5460011E930 /* nav_addBtn@2x.png in Resources */,
-				CFD409B218C45EF10058E33E /* gesture_background.png in Resources */,
 				CF6C3DD718837D2D00E1135C /* WeiboSDK.bundle in Resources */,
 				CF583488184C738100D2C276 /* icon_home_normal@2x.png in Resources */,
 				CF7AD8F818C0634700DD8D09 /* wallet_checked.png in Resources */,
@@ -3892,6 +3918,7 @@
 				CFFDE4A5184F2EBD00F7C2AE /* logo_boc.png in Resources */,
 				CF22192F187D36F4000AA9C7 /* MBankCell.xib in Resources */,
 				CF1CDD4018AF5F5F0079263C /* MForgetPasswordViewController.xib in Resources */,
+				CF4AA96218F65EED005D616F /* bg_lock_guide@2x.jpg in Resources */,
 				CFCEDEEE18CD9D17001F2CCD /* sec_checkSelected.png in Resources */,
 				CF32798618C7290900CE9F90 /* home_pay_normal.png in Resources */,
 				CF324A8218D7096B00539E51 /* viewBack@2x.png in Resources */,
@@ -3998,6 +4025,7 @@
 				CF0A4535184D76740011E930 /* NSTimer+BlocksKit.m in Sources */,
 				CFF9A39B18E54C8F00B507A1 /* MRechargeView.m in Sources */,
 				CFDA292618BDD3D1000FE0F7 /* MActivityData.m in Sources */,
+				CF4AA96818F67AE5005D616F /* MPublishCommentViewController.m in Sources */,
 				CF5593F3187ACCEF009CD682 /* MSegmentView.m in Sources */,
 				CF260C9118582AED005954DE /* MAuthCodeAction.m in Sources */,
 				CFFDE45B184ED99200F7C2AE /* MColorButton.m in Sources */,
@@ -4024,6 +4052,7 @@
 				CF747A381894C4110075BB7D /* MSubFinanceData.m in Sources */,
 				CFFDE472184F114800F7C2AE /* MInvestRecordViewController.m in Sources */,
 				CFFDE477184F116000F7C2AE /* MMoneyBabyViewController.m in Sources */,
+				CF4AA97918F695A3005D616F /* MIdentifierValidator.m in Sources */,
 				CF34620418911E24005DA49D /* MInvestRecordData.m in Sources */,
 				CF0A471D184DD0190011E930 /* Reachability.m in Sources */,
 				CFF5E87D18ACCDFE0088EB4E /* MCalendarCell.m in Sources */,
@@ -4100,6 +4129,7 @@
 				CF399BC6185AC757008EA576 /* MQueryAccountAction.m in Sources */,
 				CF260C9F18587B18005954DE /* MRelateAccountAction.m in Sources */,
 				CF1C6A3B1855858900921B58 /* GTMBase64.m in Sources */,
+				CF4AA96C18F67D63005D616F /* MPublishCommentAction.m in Sources */,
 				CFF18E6918AB69C5001FB2ED /* MEvaluateViewController.m in Sources */,
 				CF6487AB1856D815008E066E /* MFinanceProductAction.m in Sources */,
 				CFF7C1BA18CECE5000EF5181 /* MBankViewController.m in Sources */,

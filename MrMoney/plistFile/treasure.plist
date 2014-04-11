@@ -20,5 +20,7 @@
 	<string>易方达</string>
 	<key>dbfund</key>
 	<string>德邦基金</string>
+	<key>pingan</key>
+	<string>平安盈</string>
 </dict>
 </plist>

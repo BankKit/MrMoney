@@ -114,7 +114,8 @@ typedef enum {
  *  @param type     跳转--->子控制器
  */
 + (void)go2MProductDetailViewController:(MBaseViewController *)viewCtrl
-                                   data:(MFinanceProductData *)data;
+                                   data:(MFinanceProductData *)data
+        pushType:(MHomeViewControllerPushType )ptype;
     
 /**
  *  压栈到安全保证

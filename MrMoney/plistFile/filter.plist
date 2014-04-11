@@ -100,7 +100,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>%2以上</string>
+			<string>2%以上</string>
 			<key>content</key>
 			<string>200-*</string>
 			<key>selected</key>
@@ -108,7 +108,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>%5以上</string>
+			<string>5%以上</string>
 			<key>content</key>
 			<string>500-*</string>
 			<key>selected</key>
@@ -116,7 +116,7 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>%8以上</string>
+			<string>8%以上</string>
 			<key>content</key>
 			<string>800-*</string>
 			<key>selected</key>

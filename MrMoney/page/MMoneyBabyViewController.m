@@ -43,6 +43,7 @@
     
     _middleView.backgroundColor = [UIColor fromHexString:@"#e6e6e6"];
     
+    [self.scrollView setContentOffset:CGPointMake(0.0f, 0.0f) animated:YES];
     self.scrollView.contentSize = CGSizeMake(320, _bottomView.frameHeight + _bottomView.frameY);
     
     __weak MMoneyBabyViewController *wself = self;

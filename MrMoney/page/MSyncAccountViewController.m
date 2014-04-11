@@ -22,6 +22,8 @@
 @property(nonatomic,strong)NSArray *placeholderArray;
 @property(nonatomic,strong)NSString *mAid;
 @property(nonatomic,copy)NSString *balance;
+
+@property(nonatomic,assign) BOOL ret;
 @end
 
 @implementation MSyncAccountViewController
@@ -48,13 +50,7 @@
     self.mAid = self.account.maid;
  
 
-
-   NSString *test = [MDesUtility encrypt:@"123456"];
-    
-     NSLog(@"---------- 加密 ------------------%@ \n\n",test);
- 
     _topView.frameY = 40;
-    
     
     if ([strOrEmpty(_account.mname) isEqualToString:@""]) {
            self.view.frameHeight = 250;
@@ -64,15 +60,13 @@
         _topView.hidden = YES;
         _middleView.frameHeight = 0.;
         _middleView.hidden = YES;
-        
         self.view.frameHeight = 175;
         
     }else{
+        
         _topView.frameHeight = 0.;
         _topView.hidden = YES;
-        
         self.view.frameHeight = 215;
-        
     }
     
     
@@ -116,7 +110,7 @@
     
 }
 -(void)onResponseAuthCodeFail{
- 
+    [MActionUtility showAlert:@"网络异常"];
     [self hideHUD];
 }
 
@@ -130,26 +124,42 @@
     [dict setSafeObject:@"2"                        forKey:@"Channel"];
     [dict setSafeObject:[MStringUtility stripWhiteSpace:(self.account.mbankCardNo)]  forKey:@"AccNum"];
     
-     
-    if (![strOrEmpty(_account.mqueryPwd) isEqualToString:@""]) {
-         
-        
-        NSString *password = [MDesUtility decrypt:_account.mqueryPwd];
-
-        [dict setSafeObject:password   forKey:@"Password"];
-    }else{
+    
+    if (_ret) {
         [dict setSafeObject:[_passwordTf text]      forKey:@"Password"];
+    }else {
+        if (![strOrEmpty(_account.mqueryPwd) isEqualToString:@""]) {
+            
+            NSString *password = [MDesUtility decrypt:_account.mqueryPwd];
+            
+            [dict setSafeObject:password   forKey:@"Password"];
+        }else{
+            [dict setSafeObject:[_passwordTf text]      forKey:@"Password"];
+        }
+    }
+
+    [dict setSafeObject:_codeTf.text             forKey:@"VerifCode"];
+    [dict setSafeObject:self.bank_identifie      forKey:@"BankCode"];
+    [dict setSafeObject:@"none"                  forKey:@"ADD"];
+    [dict setSafeObject:_authCodeData.mviewId    forKey:@"ViewID"];
+    
+    
+    if (_ret) {
+         [dict setSafeObject:_nameTf.text         forKey:@"NickName"];
+    }else {
+        if ([strOrEmpty(_account.mname) length] == 0) {
+            
+            [dict setSafeObject:_nameTf.text         forKey:@"NickName"];
+            
+        }else{
+           [dict setSafeObject:_account.mnickName         forKey:@"NickName"];
+        }
     }
     
-    [dict setSafeObject:_codeTf.text               forKey:@"VerifCode"];
+ 
     
-    [dict setSafeObject:self.bank_identifie        forKey:@"BankCode"];
-    [dict setSafeObject:@"none"                        forKey:@"ADD"];
-    [dict setSafeObject:_authCodeData.mviewId       forKey:@"ViewID"];
-    
-    [dict setSafeObject:@""         forKey:@"NickName"];
-    [dict setSafeObject:@"1"                        forKey:@"LoginType"];
-    [dict setSafeObject:@"1"                        forKey:@"verifyType"];
+    [dict setSafeObject:@"1"                     forKey:@"LoginType"];
+    [dict setSafeObject:@"1"                     forKey:@"verifyType"];
     
     return dict;
 }
@@ -163,14 +173,71 @@
     [syncAccountAction requestAction];
     
 }
+- (BOOL) isUserName{
+    if([self.bank_identifie isEqualToString:@"bocom"] ||  //交通
+       [self.bank_identifie isEqualToString:@"abc"] ||    //农业
+       [self.bank_identifie isEqualToString:@"psbc"] ||    //邮政
+       [self.bank_identifie isEqualToString:@"hxb"] ||    //华夏
+       [self.bank_identifie isEqualToString:@"boc"] ||    //中国银行
+       [self.bank_identifie isEqualToString:@"pab"] ||    //平安
+       [self.bank_identifie isEqualToString:@"ccb"]      //建设
+       )
+    {
+        return YES;
+    }
+    return NO;
+}
 -(void)onResponseRelateAccountFail{
     [self hideHUD];
+    //重新更新UI界面
     
-     self.codeImageView.image = [UIImage imageNamed:@"btn_refresh_code"];
+    _ret = YES;
+    _codeTf.text = @"";
+    [getCodeAction requestAction];
+    
+    if([self isUserName]){
+        _topView.frameY = 40;
+        
+        _topView.frameHeight = 40.;
+        _topView.hidden = NO;
+        
+        _middleView.frameHeight = 40.;
+        _middleView.hidden = NO;
+        
+        _bottomView.frameHeight = 40.;
+        _bottomView.hidden = NO;
+        
+        self.view.frameHeight = 250;
+    }else {
+       
+        
+        _topView.frameY = 40;
+        
+        _topView.frameHeight = 0.;
+        _topView.hidden = YES;
+        
+        _middleView.frameHeight = 40.;
+        _middleView.hidden = NO;
+        
+        _bottomView.frameHeight = 40.;
+        _bottomView.hidden = NO;
+        
+        self.view.frameHeight = 215;
+    }
+    
+    
+    _middleView.frameY = _topView.frameBottom + 10;
+    
+    _bottomView.frameY = _middleView.frameBottom + 10;
+    
+    _submitBtn.frameY = _bottomView.frameBottom + 20;
+    
+    
+//    self.codeImageView.image = [UIImage imageNamed:@"btn_refresh_code"];
     
 }
 
-#pragma mark ------------- 同步银行卡号到本地 delegate  -----------------
+#pragma mark ------------- 保存信息到本地 delegate  -----------------
 
 -(NSDictionary*)onRequestSyncAssetAccountAction{
     MUserData *user = [[MUserData allDbObjects] objectAtIndex:0];
@@ -182,18 +249,40 @@
     [dict setSafeObject:@"" forKey:@"products"];
     [dict setSafeObject:user.mmid forKey:@"mid"];
     [dict setSafeObject:user.msessionId forKey:@"sessionId"];
-    [dict setSafeObject:@"none"          forKey:@"nickName"];
+    
+    if ([self isUserName]) {
+        if (_ret) {
+             [dict setSafeObject:_nameTf.text          forKey:@"nickName"];
+        }else{
+            if ([_account.mnickName length] == 0) {
+                [dict setSafeObject:_nameTf.text          forKey:@"nickName"];
+            }else {
+                [dict setSafeObject:_account.mnickName          forKey:@"nickName"];
+            }
+        }
+        
+    }else{
+          [dict setSafeObject:@"none"          forKey:@"nickName"];
+    }
+    
+
     [dict setSafeObject:@"" forKey:@"accountAddress"];
  
-    if (![strOrEmpty(_account.mqueryPwd)  isEqualToString:@""]) {
-        [dict setSafeObject:_account.mqueryPwd        forKey:@"accountPwd"];
-       
-    }else{
-    
+    if (_ret) {
         NSString *password = [MDesUtility encrypt:_passwordTf.text];
         [dict setSafeObject:password forKey:@"accountPwd"];
-    
+    }else{
+        if (![strOrEmpty(_account.mqueryPwd)  isEqualToString:@""]) {
+            [dict setSafeObject:_account.mqueryPwd        forKey:@"accountPwd"];
+            
+        }else{
+            
+            NSString *password = [MDesUtility encrypt:_passwordTf.text];
+            [dict setSafeObject:password forKey:@"accountPwd"];
+            
+        }
     }
+
     
     return dict;
     
@@ -201,6 +290,10 @@
 -(void)onResponseSyncAssetAccountSuccess{
      [MActionUtility showAlert:KEMPTY_STR message:@"同步成功" delegate:self cancelButtonTitle:KCONFIRM_STR otherButtonTitles:nil];
      
+}
+-(void)onResponseSyncAssetAccountFail{
+ 
+//     [MActionUtility showAlert:@"同步失败"];
 }
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
@@ -217,12 +310,6 @@
       
     }
 }
-
--(void)onResponseSyncAssetAccountFail{
-//    [MActionUtility showAlert:@"同步失败"];
-}
-
-
 
 
 - (void)didReceiveMemoryWarning
@@ -260,8 +347,5 @@
         return ;
     }
 }
-
-
-
 
 @end

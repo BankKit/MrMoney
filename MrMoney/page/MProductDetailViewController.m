@@ -17,7 +17,9 @@
 #import "NSDate+Calendar.h"
 #import "MMapViewController.h"
 #import "UIViewController+product.h"
-
+#import "SGActionView.h"
+#import "ShareEngine.h"
+#import "MPublishCommentViewController.h"
 @interface MProductDetailViewController ()
 @property(nonatomic,assign)BOOL isSoldout;//下架
 @end
@@ -50,11 +52,24 @@
 -(void)onResponseProductDetailFail{
     [self hideHUD];
 }
+-(IBAction)onInstructionAction:(id)sender{
+    NSString *url = STRING_FORMAT(@"http://www.qianxs.com/manuals/bank/%@_%@.html",self.data.mbank_id,self.data.mproduct_code);
+    [MGo2PageUtility go2MWebBrowser:self title:@"产品说明书" webUrl:url];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    
     [self createNavBarTitle:@"产品详情"];
 
+    [self  initRightButtonItem:@"nav_more" title:@"更多选项" completionHandler:^{
+        CGPoint point =   CGPointMake(300, 0);
+        [PopoverView showPopoverAtPoint:point
+                                 inView:self.view
+                        withStringArray:[NSArray arrayWithObjects:@" 分  享  ",@" 评  论  ",@" 复  制  ", nil]
+                               delegate:self];
+    }];
  
     
     if (self.data.mStar) {
@@ -132,6 +147,11 @@
     [self.scrollView addSubview:_commentContainer];
     
     
+    if (self.ptype == MGrabBuyType) {
+        self.bottomBtnView.hidden = YES;
+        self.scrollView.frameHeight = self.scrollView.frameHeight + _bottomBtnView.frameHeight;
+    }
+    
     [self.scrollView setContentSize:CGSizeMake(320,  _commentContainer.frameY + _commentContainer.frameHeight + 10.)];
     
     
@@ -176,42 +196,15 @@
     
 }
 -(void)setViewData:(MFinanceProductData *)data{
-    
  
-//    
-//    
-//    self.product_nameLabel.text        = strOrEmpty(data.mproduct_name);
-//    
-//    CGFloat height = [MStringUtility getStringHight:data.mproduct_name font:SYSTEMFONT(16) width:260.];
-//    
-//    self.product_nameLabel.frameHeight = height + 5.;
-//    
-//    UIView *contentView                = [_topContainer viewWithTag:1];
-//    
-//    contentView.frameY                 = self.product_nameLabel.frameY + self.product_nameLabel.frameHeight - 5.;
-//    
-//    _topContainer.frameHeight          = contentView.frameY + contentView.frameHeight ;
-//    
-//    
-//    self.bank_logo_iv.image            = bankLogoImage(data.mbank_id);
-//    
-//    self.bank_logo_iv.frameWidth       = [bankLogoImage(_data.mbank_id) size].width/2;
-//    
-//    self.bankNameLabel.frameX          = self.bank_logo_iv.frameX +  self.bank_logo_iv.frameWidth  + 5;
-//    
-//    self.bankNameLabel.text            = bankName(_data.mbank_id);
-//    
     self.befromLabel.text             = STRING_FORMAT(@"来自于【%@网上银行】",bankName(_data.mbank_id));
-//
-//    self.expect_earningsLabel.text     =STRING_FORMAT(@"%.1f%%",[data.mreturn_rate floatValue]/100);
-    
+
     if ([_data.minvest_cycle intValue] == -1) {
         self.invest_cycleLabel.text             = @"灵活周期";
     }else{
         self.invest_cycleLabel.text        = STRING_FORMAT(@"%@天",strOrEmpty(data.minvest_cycle));
     }
-
-     
+ 
     self.has_guaranteeLabel.text       = [strOrEmpty(data.mbreak_even) intValue] == 0 ?@"不保本" :@"保本";
     self.sales_regionLabel.text        = strOrEmpty(data.msales_region);
     
@@ -252,19 +245,49 @@
     return  [date dateByAddingTimeInterval:interval];
 }
 
--(void)prformButtonClick:(id)sender{
-    CGPoint point =   CGPointMake(300, 0);
-    [PopoverView showPopoverAtPoint:point
-                             inView:self.view
-                    withStringArray:[NSArray arrayWithObjects:@" 收  藏    ",@" 分  享  ",@" 评  论  ",@" 复  制  ", nil]
-                           delegate:self];
-}
+
 #pragma mark - PopoverViewDelegate Methods
 
-- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index
-{
-    
+- (void)popoverView:(PopoverView *)popoverView didSelectItemAtIndex:(NSInteger)index{
     [popoverView dismiss];
+    if (index == 1) {
+        MPublishCommentViewController *publish = [[MPublishCommentViewController alloc] initWithNibName:@"MPublishCommentViewController" bundle:nil];
+        publish.pId = self.data.mpid;
+        [self.navigationController pushViewController:publish animated:YES];
+    }
+    if (index == 2) {
+        UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
+
+        pasteboard.string =STRING_FORMAT(@"http://www.qianxs.com/mrMoney/portal/Product/prodDetailPage?pid=%@",self.data.mpid);
+        
+        [MActionUtility showAlert:@"已经复制到粘贴板"];
+
+        
+    }
+    if (index == 0) {
+        NSString *sms =STRING_FORMAT(@"我刚在全新的钱先生理财平台上获得了100块理财本金,也推荐你赶快下载钱先生安卓app,注册即可开始精彩的理财之旅。http://m.qianxs.com/?rMid=%@",userMid());
+        
+        [SGActionView showGridMenuWithTitle:@"分享" itemTitles:@[@"邮件", @"短信",@"新浪",@"微信"] images:@[ [UIImage imageNamed:@"night_share_platform_email"],[UIImage imageNamed:@"night_share_platform_imessage"],
+                                                                                                   [UIImage imageNamed:@"night_share_platform_sina"],
+                                                                                                   [UIImage imageNamed:@"night_share_platform_wechattimeline"]
+                                                                                                   ]
+                             selectedHandle:^(NSInteger index) {
+                                 
+                                 if (index == 1) {
+                                     [[ShareEngine sharedInstance] sendEmailViewCtrl:self content:nil WithType:emailType];
+                                 }else if (index == 2){
+                                     [[ShareEngine sharedInstance] sendEmailViewCtrl:self content:sms   WithType:smsType];
+                                 }else if (index == 3){
+                                     [[ShareEngine sharedInstance] sendShareMessage:@"123" WithType:sinaWeibo];
+                                 }else if (index == 4){
+                                     [[ShareEngine sharedInstance] sendWeChatMessage:nil WithUrl:nil WithType:weChatFriend];
+                                 }
+                                 
+                             }];
+
+    }
+    
+     NSLog(@"-------------popoverView ------------------%d \n\n",index);
 }
 
 

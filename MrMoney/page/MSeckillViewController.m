@@ -39,11 +39,19 @@
     UIView* titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, KHEIGHT_NAVGATIONBAR)];
     titleView.backgroundColor = [UIColor clearColor];
 
-    UIImageView *imageView =  [[UIImageView alloc] initWithFrame:Rect(50,10, 96, 22)];
+    UIImageView *imageView =  [[UIImageView alloc] initWithFrame:Rect(-20,10, 96, 22)];
     imageView.image = [UIImage imageNamed:@"sec_topBg"];
     [titleView addSubview:imageView];
+    
+    
+    UIButton *shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    shareBtn.frame = CGRectMake(170, 16, 70, 15);
+    [shareBtn setBackgroundImage:[UIImage imageNamed:@"sec_shareBtn.png"] forState:UIControlStateNormal];
+    [shareBtn addTarget:self action:@selector(onShareAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [titleView addSubview:shareBtn];
+
     self.navigationItem.titleView = titleView;
- 
     
     _topView.frameY = 0.;
     _topView.frameHeight = 100.;
@@ -65,11 +73,17 @@
 
     self.secDRateLabel.text =  STRING_FORMAT(@"%.2f%%",[self.actData.mdRate floatValue]/100);
     
-    self.balanceLabel.text = STRING_FORMAT(@"%@元",formatValue([self.actData.mactRmAmount floatValue]));
+    NSString *actAmount = formatValue([self.actData.mactRmAmount floatValue]);
+    NSLog(@"-------------------------------%@ \n\n",actAmount);
+    if ([actAmount containsString:@"."]) {
+        NSRange range = [actAmount rangeOfString:@"."];
+        actAmount =  [actAmount substringToIndex:range.location];
+        self.balanceLabel.text = STRING_FORMAT(@"%@元",actAmount);
+        [self.balanceLabel setFontColor:[UIColor blackColor] string:@"元"];
+    }
+   
     
-
     self.dayLabel.text = STRING_FORMAT(@"（%@天）",strOrEmpty(self.actData.minvestCycle));
-    
     
     NSDate  *startTime = [MUtility dateFormatter:self.actData.mstartTime formatter:@"yyyyMMddHHmm"];
     
@@ -93,13 +107,7 @@
     
     _checkBtn.selected = YES;
     
- 
-    JDFlipClockView *flipView  = [[JDFlipClockView alloc] initWithImageBundleName:@"JDFlipNumberViewIOS6"];
-    flipView.showsSeconds = YES;
-    flipView.frame = Rect(0, 22, 200, 36);
-    [self.middleView addSubview:flipView];
-    self.flipView = flipView;
- 
+  
 }
 -(void)createBackNavBar{
     
@@ -213,13 +221,27 @@
     data.mvalue_date = self.actData.mvalueDate;
     data.msales_region = self.actData.msalesRegion_desc;
     
-    [MGo2PageUtility go2MProductDetailViewController:self data:data];
+    [MGo2PageUtility go2MProductDetailViewController:self data:data pushType:MGrabBuyType];
 }
+
+- (void)showTime;
+{
+    JDFlipClockView *flipView  = [[JDFlipClockView alloc] initWithImageBundleName:@"JDFlipNumberViewIOS6"];
+    flipView.showsSeconds = YES;
+    flipView.frame = Rect(0, 22, 200, 36);
+    [self.middleView addSubview:flipView];
+    self.flipView = flipView;
+
+    
+}
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
 
-        UIImage *navImage = [[UIImage imageNamed:@"nav_redBg"] stretchableImageWithLeftCapWidth:5 topCapHeight:10];
+    [self showTime];
+    
+    UIImage *navImage = [[UIImage imageNamed:@"nav_redBg"] stretchableImageWithLeftCapWidth:5 topCapHeight:10];
     
     self.view.backgroundColor = [UIColor colorWithPatternImage:navImage];
  
@@ -229,7 +251,7 @@
 }
 -(void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
+     [self.flipView removeFromSuperview];
     UIImage *navImage = nil;
     if (IsIOS7) {
         navImage = [UIImage imageNamed:@"navigationBg"];

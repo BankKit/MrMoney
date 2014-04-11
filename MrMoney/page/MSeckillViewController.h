@@ -7,6 +7,7 @@
 //
 
 #import "MBaseViewController.h"
+#import "MLabel.h"
 @class MActProductData;
 
 @interface MSeckillViewController : MBaseViewController
@@ -18,7 +19,7 @@
 
 @property (nonatomic,strong) MActProductData *actData;
 
-@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
+@property (weak, nonatomic) IBOutlet MLabel *balanceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *balanceTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;

@@ -27,11 +27,12 @@
     
 }
 + (void)go2MProductDetailViewController:(MBaseViewController *)viewCtrl
-                                   data:(MFinanceProductData *)data{
+                                   data:(MFinanceProductData *)data
+                               pushType:(MHomeViewControllerPushType )ptype{
     
     MProductDetailViewController *controller = [[MProductDetailViewController alloc] initWithNibName:@"MProductDetailViewController" bundle:nil];
     controller.data = data;
-    
+    controller.ptype = ptype;
     [viewCtrl.navigationController pushViewController:controller animated:YES];
     
 }

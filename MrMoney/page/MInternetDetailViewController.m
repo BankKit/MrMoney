@@ -33,7 +33,7 @@
 
     contentView.frameY                 = self.product_nameLabel.frameY + self.product_nameLabel.frameHeight - 5.;
 
-    _topView.frameHeight               = contentView.frameY + contentView.frameHeight ;
+    _topView.frameHeight               = contentView.frameY + contentView.frameHeight - 10;
 
     self.bank_logo_iv.image            = bankLogoImage(_data.msite_id);
 
@@ -99,7 +99,7 @@
 -(NSString *)formatValue:(NSString *)value{
 
     if ([value integerValue] == -1) {
-        return @"---";
+        return @"--";
     }else{
         return m_dictionaryValueToString(value);
     }

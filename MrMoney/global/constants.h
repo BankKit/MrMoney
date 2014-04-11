@@ -93,9 +93,11 @@
 
 #define KGeneratingEnvironmentURL    @"https://www.qianxs.com"
 #define KDebuggingEnvironmentURL     @"https://www.qianxs.com"
-
-//@"http://www.huchao.org:8088"
 //@"http://192.168.1.88:8080"
+//@"http://www.huchao.org:8088"
+
+
+
 
 
 

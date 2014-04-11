@@ -132,10 +132,9 @@
     
     //万分收益率
     
-    
     if ([self.sortType isEqualToString:@"week_return_rate"]) {
         
-        _dayLabel.text             = STRING_FORMAT(@"%@",internet.mincome_10th);
+        _dayLabel.text             = STRING_FORMAT(@"%@",[self formatValue:internet.mincome_10th]);
  
         _dateLabel.text            = @"万份收益";
  
@@ -147,6 +146,15 @@
         _dateLabel.text            = @"投资起售金额";
  
         
+    }
+    
+}
+-(NSString *)formatValue:(NSString *)value{
+    
+    if ([value integerValue] == -1) {
+        return @"--";
+    }else{
+        return m_dictionaryValueToString(value);
     }
     
 }

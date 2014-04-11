@@ -304,7 +304,7 @@
         
         isFirst = YES;
         
-    }else if((currentSecond-lastSecond)> 600){
+    }else if((currentSecond-lastSecond)> 180){
         
         NSString * pattern = user_defaults_get_string(kCurrentPattern);
         

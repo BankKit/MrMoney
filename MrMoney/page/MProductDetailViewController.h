@@ -27,10 +27,7 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-//@property (weak, nonatomic) IBOutlet UIImageView *bank_logo_iv;
-//@property (weak, nonatomic) IBOutlet UILabel *bankNameLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *product_nameLabel;
-//@property (weak, nonatomic) IBOutlet UILabel *expect_earningsLabel;
+@property(nonatomic,assign)MHomeViewControllerPushType ptype;
 @property (weak, nonatomic) IBOutlet UILabel *currency_typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *product_typeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *invest_cycleLabel;
@@ -41,7 +38,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *sales_regionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *befromLabel;
  
+ 
 @property (weak, nonatomic) IBOutlet UIButton *bottomBtn;
+@property (weak, nonatomic) IBOutlet UIView *bottomBtnView;
 
 
 @property (strong, nonatomic) MFinanceProductData *data;
@@ -52,6 +51,8 @@
 
 -(IBAction)onBuyAction:(id)sender;
 
+
+-(IBAction)onInstructionAction:(id)sender;
 
 
 @end

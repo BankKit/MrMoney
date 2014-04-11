@@ -33,15 +33,6 @@
   
     _investMoneyLabel.text = STRING_FORMAT(@"%@元",formatValue([_data.mtran_amount floatValue]));
     
-//    if ([_data.mTrxType intValue] == 2) {
-//        _investMoneyLabel.textColor = [UIColor orangeColor];
-//    }else if([_data.mTrxType intValue] == 5){
-//        
-//        _investMoneyLabel.textColor = [UIColor orangeColor];
-//        _investMoneyLabel.text = STRING_FORMAT(@"%@元",   formatValue([_data.mtran_amount floatValue]));
-//
-//    }
-// 
     _investStatusLabel.text = _data.mtransTypeDesc;
     
     if ([_data.mBsnsStsDesc length] == 0) {
@@ -49,9 +40,7 @@
     }else{
         _investNumberLabel.text = _data.mBsnsStsDesc;
     }
-
-  
-    
+ 
 }
 -(void)layoutSubviews{
     [super layoutSubviews];

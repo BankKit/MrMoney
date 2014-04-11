@@ -79,8 +79,10 @@
     
     MColorButton *color_fundView = [[MColorButton alloc] initWithFrame:colorRect buttonTag:2];
     color_fundView.delegate = self;
-    color_fundView.startColor  = [UIColor colorWithRed:0.43 green:0.65 blue:0.15 alpha:1.00];
-    color_fundView.endColor    = [UIColor colorWithRed:0.45 green:0.71 blue:0.18 alpha:1.00];
+    color_fundView.startColor  = [UIColor colorWithRed:0.73 green:0.73 blue:0.18 alpha:1.00];
+
+    color_fundView.endColor    =  [UIColor colorWithRed:0.78 green:0.79 blue:0.20 alpha:1.00];
+
     
     [self.fundView insertSubview:color_fundView atIndex:0];
    
@@ -95,8 +97,9 @@
     
     MColorButton *color_moneyBabyView = [[MColorButton alloc] initWithFrame:colorRect buttonTag:3 ];
     color_moneyBabyView.delegate = self;
-    color_moneyBabyView.startColor  = [UIColor colorWithRed:0.73 green:0.73 blue:0.18 alpha:1.00];
-    color_moneyBabyView.endColor    = [UIColor colorWithRed:0.78 green:0.79 blue:0.20 alpha:1.00];
+    color_moneyBabyView.startColor  = [UIColor colorWithRed:0.43 green:0.65 blue:0.15 alpha:1.00];
+//    [UIColor colorWithRed:0.73 green:0.73 blue:0.18 alpha:1.00];
+    color_moneyBabyView.endColor    =   [UIColor colorWithRed:0.45 green:0.71 blue:0.18 alpha:1.00];
     [self.moneyBabyView insertSubview:color_moneyBabyView atIndex:0];
     
     MColorButton *color_walletView = [[MColorButton alloc] initWithFrame:colorRect buttonTag:4];

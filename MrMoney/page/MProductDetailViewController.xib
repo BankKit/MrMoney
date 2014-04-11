@@ -7,7 +7,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MProductDetailViewController">
             <connections>
+                <outlet property="befromLabel" destination="9ac-as-YuV" id="KC8-64-OAJ"/>
                 <outlet property="bottomBtn" destination="EXx-Sh-wev" id="iqt-BU-gOP"/>
+                <outlet property="bottomBtnView" destination="OoO-RK-cdo" id="dzi-fw-aAs"/>
                 <outlet property="commentContainer" destination="zyc-lE-Qv7" id="C3t-9G-B7P"/>
                 <outlet property="currency_typeLabel" destination="VG5-HL-Wu1" id="BuT-uB-tLN"/>
                 <outlet property="has_guaranteeLabel" destination="j2Q-j0-0mX" id="Ufu-fN-jEA"/>
@@ -55,7 +57,7 @@
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
         <view contentMode="scaleToFill" id="7aP-Bb-wLY" customClass="MBorderView">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="188"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="人民币" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="VG5-HL-Wu1">
@@ -128,6 +130,30 @@
                     <rect key="frame" x="12" y="11" width="102" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" id="mZu-AN-h59" customClass="MLineView">
+                    <rect key="frame" x="10" y="151" width="280" height="1"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ike-3Q-xgX" customClass="MLineButton">
+                    <rect key="frame" x="12" y="151" width="139" height="34"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="产品说明书">
+                        <color key="titleColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="onInstructionAction:" destination="-1" eventType="touchUpInside" id="637-dE-4ry"/>
+                    </connections>
+                </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="9ac-as-YuV">
+                    <rect key="frame" x="109" y="158" width="177" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

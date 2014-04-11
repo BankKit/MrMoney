@@ -431,7 +431,7 @@
 
     MStarData *star            = [self.starArray safeObjectAtIndex:_currentNum];
     self.starData = star;
-    self.star_bank_nameLabel.text = STRING_FORMAT(@"%@ %@", bankName(star.mstar_bankId),star.mstar_productName);
+    self.star_bank_nameLabel.text = bankName(star.mstar_bankId);
     self.star_bank_logo.image     = bankLogoImage(star.mstar_bankId);
     if (!IsIOS7) {
         self.star_earningsLabel.font =  FONT(kHelveticaLight, 40);

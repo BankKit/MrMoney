@@ -415,7 +415,7 @@
         
         MFinanceProductData *data = [self.dataArray safeObjectAtIndex:indexPath.row];
         if (data) {
-            [MGo2PageUtility go2MProductDetailViewController:self data:data];
+            [MGo2PageUtility go2MProductDetailViewController:self data:data pushType:MFinanceProductsType];
         }
         
     }
